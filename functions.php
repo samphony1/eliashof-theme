@@ -34,6 +34,13 @@ function eliashof_scripts() {
 		wp_get_theme()->get( 'Version' ),
 		true
 	);
+	wp_enqueue_script(
+		'eliashof-navigation',
+		get_template_directory_uri() . '/assets/js/navigation.js',
+		[],
+		wp_get_theme()->get( 'Version' ),
+		true
+	);
 }
 add_action( 'wp_enqueue_scripts', 'eliashof_scripts' );
 

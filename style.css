@@ -3,7 +3,7 @@ Theme Name: Eliashof Theme
 Theme URI: https://samirelborno.com
 Author: Antigravity / Fox & Magpie
 Description: Custom Block Theme for Grundschule Eliashof based on Figma Design
-Version: 1.0.0
+Version: 1.0.2
 Requires at least: 6.4
 Requires PHP: 7.4
 Text Domain: eliashof
@@ -325,17 +325,25 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 	box-sizing: border-box;
 }
 
+.eliashof-header-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+}
+
 .eliashof-header {
-	padding: 24px clamp(24px, 6vw, 100px);
+	padding: 0 clamp(24px, 6vw, 138px);
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
 	flex-shrink: 0;
 	position: absolute;
-	top: 0;
+	top: 77px;
 	left: 0;
-	z-index: 100;
+	z-index: 101; /* Above the overlay */
 	width: 100%;
 }
 
@@ -370,13 +378,117 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 	overflow: visible;
 }
 
-.burger {
-	flex-shrink: 0;
-	width: 62px;
-	height: 40px;
-	position: relative;
-	overflow: visible;
+.burger-toggle {
+	background: none;
+	border: none;
+	padding: 10px;
 	cursor: pointer;
+	position: relative;
+	z-index: 102; /* Topmost element to always be clickable */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.burger-morph {
+	position: relative;
+	width: 62px;
+	height: 48px; /* Slightly taller container to fit the X rotation cleanly */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.burger-bar {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 8px;
+	border-radius: 4px;
+	transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.burger-top {
+	top: 0;
+	background: #6CADDF;
+}
+
+.burger-middle {
+	top: 50%;
+	margin-top: -4px;
+	background: #F8AC41;
+}
+
+.burger-bottom {
+	bottom: 0;
+	background: #A6C954;
+}
+
+/* Active State (X Close Icon) */
+.burger-toggle.is-active .burger-top {
+	opacity: 0;
+	transform: translateY(20px) scaleX(0);
+}
+
+.burger-toggle.is-active .burger-middle {
+	transform: rotate(45deg);
+	background: #f39801; /* Morph to the exact orange from the close SVG */
+	width: 56px; /* Slightly narrower to match 44x44 diagonal */
+	left: 3px;
+}
+
+.burger-toggle.is-active .burger-bottom {
+	transform: translateY(-20px) rotate(-45deg);
+	background: #8cbb13; /* Morph to the exact green from the close SVG */
+	width: 56px;
+	left: 3px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   BURGER MENU OVERLAY
+   ═══════════════════════════════════════════════════════════════════ */
+
+.burger-menu-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background: #eec68e;
+	z-index: 100; /* Just below the header elements */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.burger-menu-overlay.is-active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.burger-menu-nav {
+	display: flex;
+	flex-direction: column;
+	gap: 38px;
+	align-items: center;
+}
+
+.burger-menu-nav .navlink {
+	color: #000000;
+	text-decoration: none;
+	font-family: 'Neucha', cursive;
+	font-size: 50px;
+	line-height: 53px;
+	letter-spacing: 0.05em;
+	transition: opacity 0.2s ease;
+}
+
+.burger-menu-nav .navlink:hover {
+	opacity: 0.7;
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -384,13 +496,27 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
    ═══════════════════════════════════════════════════════════════════ */
 
 body {
-	background-image: url('assets/eliashof-background.png');
+	background-image: linear-gradient(to left, rgba(255, 255, 255, 0.70), rgba(255, 255, 255, 0.70)), url('assets/images/paperbg.jpg');
 	background-repeat: repeat;
 	background-attachment: scroll;
 }
 
 .bg-graph-yellow {
-	background-color: rgba(238, 197, 141, 0.4) !important; /* Semi-transparent orange/yellow for Hero */
+	background-color: transparent !important;
+	position: relative;
+}
+
+.bg-graph-yellow::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #eec68e;
+	mix-blend-mode: multiply;
+	z-index: 0;
+	pointer-events: none;
 }
 
 .bg-graph-white {
@@ -403,13 +529,23 @@ body {
 
 .eliashof-hero-wrap {
 	position: relative;
+	min-height: clamp(900px, 90vh, 1310px);
+	display: flex;
+	flex-direction: column;
+	margin-top: 0 !important;
+}
+
+main.wp-block-group {
+	margin-top: 0 !important;
 }
 
 .eliashof-hero-drawing {
 	position: absolute;
 	bottom: 0;
-	left: -5%; /* Pull slightly left to match Figma overflowing look */
-	width: 55%; /* Make it massive like in Figma */
+	left: 0;
+	width: 48.75%;
+	max-width: 936px;
+	min-width: 400px; /* Ensures it doesn't get ridiculously small before mobile breakpoint */
 	height: auto;
 	margin: 0 !important;
 	z-index: 1;
@@ -419,9 +555,36 @@ body {
 .eliashof-hero-wrap .relative-content {
 	position: relative;
 	z-index: 2;
+	max-width: 1648px !important;
+	width: 100%;
+	margin: 0 auto;
+	flex-grow: 1; /* Take up remaining vertical space */
+}
+
+.eliashof-hero-left-col,
+.eliashof-hero-wrap .wp-block-columns .wp-block-column:first-child {
+	padding-top: clamp(40px, 6vw, 92px) !important;
+}
+
+.eliashof-hero-right-col,
+.eliashof-hero-wrap .wp-block-columns .wp-block-column:last-child {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.eliashof-hero-right-bottom .wp-block-buttons {
+	justify-content: center !important;
+}
+
+.eliashof-hero-right-bottom {
+	margin-top: auto;
 }
 
 @media (max-width: 781px) {
+	.eliashof-hero-wrap {
+		min-height: auto;
+	}
 	.eliashof-hero-drawing {
 		width: 100%;
 		left: 0;
