@@ -1,0 +1,43 @@
+<?php
+/**
+ * Title: Nav Circles
+ * Slug: eliashof/nav-circles
+ * Categories: eliashof-sections
+ * Description: Three navigation circle SVGs on a graph-paper background. Drop in SVG images from the media library and set link URLs. Layout locked.
+ */
+?>
+<!-- wp:group {"align":"full","className":"eliashof-section eliashof-nav-circles bg-graph-white","style":{"color":{"background":"#ffffff"},"spacing":{"padding":{"top":"clamp(60px,8vw,100px)","bottom":"clamp(60px,8vw,100px)","left":"clamp(24px,6vw,100px)","right":"clamp(24px,6vw,100px)"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull eliashof-section eliashof-nav-circles bg-graph-white has-background" style="background-color:#ffffff;padding-top:clamp(60px,8vw,100px);padding-bottom:clamp(60px,8vw,100px);padding-left:clamp(24px,6vw,100px);padding-right:clamp(24px,6vw,100px)">
+
+	<!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":"40px"}}} -->
+	<div class="wp-block-columns are-vertically-aligned-center">
+
+		<!-- wp:column {"verticalAlignment":"center"} -->
+		<div class="wp-block-column is-vertically-aligned-center">
+			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"custom"} -->
+			<figure class="wp-block-image aligncenter size-full"><a href="#"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/link-element-se-schule.svg" alt="Unsere Schule"/></a></figure>
+			<!-- /wp:image -->
+		</div>
+		<!-- /wp:column -->
+
+		<!-- wp:column {"verticalAlignment":"center"} -->
+		<div class="wp-block-column is-vertically-aligned-center">
+			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"custom"} -->
+			<figure class="wp-block-image aligncenter size-full"><a href="#"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/link-element-se-hort.svg" alt="Unser Hort"/></a></figure>
+			<!-- /wp:image -->
+		</div>
+		<!-- /wp:column -->
+
+		<!-- wp:column {"verticalAlignment":"center"} -->
+		<div class="wp-block-column is-vertically-aligned-center">
+			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"custom"} -->
+			<figure class="wp-block-image aligncenter size-full"><a href="#"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/link-element-se-eltern.svg" alt="Unsere Eltern"/></a></figure>
+			<!-- /wp:image -->
+		</div>
+		<!-- /wp:column -->
+
+	</div>
+	<!-- /wp:columns -->
+
+</div>
+<!-- /wp:group -->

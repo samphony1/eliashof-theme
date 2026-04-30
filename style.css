@@ -1,0 +1,432 @@
+/*
+Theme Name: Eliashof Theme
+Theme URI: https://samirelborno.com
+Author: Antigravity / Fox & Magpie
+Description: Custom Block Theme for Grundschule Eliashof based on Figma Design
+Version: 1.0.0
+Requires at least: 6.4
+Requires PHP: 7.4
+Text Domain: eliashof
+Tags: custom-colors, custom-typography, full-site-editing, block-theme
+*/
+
+/* ── Section spacing ───────────────────────────────────────────────── */
+.eliashof-section {
+	padding-top: clamp(60px, 8vw, 100px);
+	padding-bottom: clamp(60px, 8vw, 100px);
+}
+
+/* ── Circular portrait images (Ansprechpartner) ────────────────────── */
+.eliashof-portrait img {
+	border-radius: 9999px !important;
+	object-fit: cover;
+	aspect-ratio: 1 / 1;
+	width: 180px !important;
+	height: 180px !important;
+	display: block;
+	margin: 0 auto;
+}
+
+/* ── News card equal-height flex layout (static pattern, kept for compat) */
+.eliashof-news-cards .wp-block-columns {
+	align-items: stretch;
+}
+.eliashof-news-cards .wp-block-column > .wp-block-group {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.eliashof-news-cards .wp-block-column > .wp-block-group .wp-block-buttons {
+	margin-top: auto;
+}
+
+/* ── Logo / partner rows ───────────────────────────────────────────── */
+.eliashof-logo-row .wp-block-image img {
+	max-height: 80px;
+	width: auto;
+	object-fit: contain;
+}
+
+/* ── Pill button cursor ────────────────────────────────────────────── */
+.wp-element-button,
+.wp-block-button__link {
+	cursor: pointer;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   AKTUELLES CAROUSEL
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Remove constrained max-width so cards span edge-to-edge within the section */
+.eliashof-aktuelles-carousel {
+	max-width: none !important;
+	width: 100%;
+	overflow: hidden; /* clip scroll track without clipping the section */
+}
+
+/* The post-template <ul> becomes the horizontal scroll track */
+.eliashof-aktuelles-carousel .wp-block-post-template {
+	display: flex !important;
+	flex-direction: row !important;
+	flex-wrap: nowrap !important;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	-webkit-overflow-scrolling: touch;
+	gap: 24px;
+	padding-left: clamp(24px, 6vw, 100px);
+	padding-right: clamp(24px, 6vw, 100px);
+	padding-bottom: 8px; /* breathing room above dots */
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+.eliashof-aktuelles-carousel .wp-block-post-template::-webkit-scrollbar {
+	display: none;
+}
+
+/* Individual card <li> elements */
+.eliashof-aktuelles-carousel .wp-block-post-template > li {
+	list-style: none;
+	scroll-snap-align: start;
+	flex-shrink: 0;
+	flex-basis: calc(25% - 18px); /* 4 cards on desktop */
+}
+
+/* Card group fills li height so buttons align at bottom */
+.eliashof-aktuelles-carousel .wp-block-post-template > li > .wp-block-group {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Post excerpt grows to push read-more button to bottom */
+.eliashof-aktuelles-carousel .wp-block-post-excerpt {
+	flex-grow: 1;
+}
+
+/* Featured image — fixed height, cover crop */
+.eliashof-aktuelles-carousel .wp-block-post-featured-image img,
+.eliashof-aktuelles-carousel .wp-block-post-featured-image a img {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+	border-radius: 16px;
+	display: block;
+}
+
+/* wp:read-more styled as Eliashof pill button */
+.eliashof-aktuelles-carousel .wp-block-read-more {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #f8ac41;
+	color: #000000 !important;
+	border-radius: 40px;
+	border: 0.7px solid #000;
+	font-family: 'Neucha', cursive;
+	font-size: 25px;
+	padding: 8px 55px;
+	text-decoration: none;
+	margin-top: auto;
+	align-self: center;
+	line-height: 27px;
+	letter-spacing: 0.05em;
+}
+.eliashof-aktuelles-carousel .wp-block-read-more:hover {
+	background-color: #f0a030;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   CAROUSEL DOTS
+   ═══════════════════════════════════════════════════════════════════ */
+
+.eliashof-carousel-dots {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	margin-top: 28px;
+	padding: 0 clamp(24px, 6vw, 100px);
+}
+
+.eliashof-carousel-dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.5);
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	transition: background 0.2s ease;
+	flex-shrink: 0;
+}
+.eliashof-carousel-dot.is-active {
+	background: #f8ac41;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   NAV CIRCLES — graph-paper background
+   ═══════════════════════════════════════════════════════════════════ */
+
+.eliashof-nav-circles {
+	background-image:
+		linear-gradient(to right, #e0ddd5 1px, transparent 1px),
+		linear-gradient(to bottom, #e0ddd5 1px, transparent 1px) !important;
+	background-size: 40px 40px !important;
+}
+
+.eliashof-nav-circles .wp-block-image img {
+	max-width: 320px;
+	width: 100%;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE — GLOBAL TYPOGRAPHY
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1279px) {
+	.eliashof-section h1.wp-block-heading { font-size: 38px !important; }
+	.eliashof-section h2.wp-block-heading { font-size: 38px !important; }
+	.eliashof-section p                   { font-size: 20px !important; }
+}
+
+@media (max-width: 767px) {
+	.eliashof-section h1.wp-block-heading { font-size: 30px !important; }
+	.eliashof-section h2.wp-block-heading { font-size: 30px !important; }
+	.eliashof-section h3.wp-block-heading { font-size: 22px !important; }
+	.eliashof-section p                   { font-size: 18px !important; }
+
+	.wp-element-button,
+	.wp-block-button__link,
+	.eliashof-aktuelles-carousel .wp-block-read-more {
+		font-size: 20px !important;
+		padding: 12px 32px !important;
+	}
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE — HERO (columns stack on mobile)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* WP core stacks wp:columns below 600px automatically.
+   We extend that to 767px for better tablet readability on hero. */
+@media (max-width: 767px) {
+	/* Hero and SPB/Hort two-column sections */
+	.eliashof-section > .wp-block-constrained > .wp-block-columns,
+	.eliashof-section > .wp-block-columns {
+		flex-direction: column;
+	}
+	.eliashof-section > .wp-block-constrained > .wp-block-columns .wp-block-column,
+	.eliashof-section > .wp-block-columns .wp-block-column {
+		width: 100% !important;
+		flex-basis: 100% !important;
+	}
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE — AKTUELLES CAROUSEL card counts
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Tablet: 2 cards visible */
+@media (max-width: 1023px) {
+	.eliashof-aktuelles-carousel .wp-block-post-template > li {
+		flex-basis: calc(50% - 12px);
+	}
+}
+
+/* Mobile: 1 card + peek of next */
+@media (max-width: 599px) {
+	.eliashof-aktuelles-carousel .wp-block-post-template > li {
+		flex-basis: 85%;
+	}
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE — NAV CIRCLES (stack on mobile)
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 767px) {
+	.eliashof-nav-circles .wp-block-columns {
+		flex-direction: column !important;
+		align-items: center;
+	}
+	.eliashof-nav-circles .wp-block-column {
+		width: 100% !important;
+		flex-basis: 100% !important;
+		max-width: 320px;
+		margin: 0 auto;
+	}
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE — LOGO ROWS (links + partner — wrap to 3 then 2 cols)
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1279px) {
+	.eliashof-logo-row .wp-block-columns {
+		flex-wrap: wrap !important;
+		justify-content: center;
+	}
+	.eliashof-logo-row .wp-block-columns .wp-block-column {
+		flex-basis: calc(33.333% - 28px) !important;
+		min-width: 160px;
+	}
+}
+
+@media (max-width: 479px) {
+	.eliashof-logo-row .wp-block-columns .wp-block-column {
+		flex-basis: calc(50% - 20px) !important;
+		min-width: 120px;
+	}
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE — ANSPRECHPARTNER (4 cols → 2×2 on mobile)
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 767px) {
+	.eliashof-section .wp-block-columns:has(.eliashof-portrait) {
+		flex-wrap: wrap !important;
+	}
+	.eliashof-section .wp-block-columns:has(.eliashof-portrait) .wp-block-column {
+		flex-basis: calc(50% - 20px) !important;
+	}
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE — SPB/HORT (45/55 → 50/50 on tablet)
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1279px) and (min-width: 768px) {
+	.eliashof-section .wp-block-column[style*="flex-basis:45%"],
+	.eliashof-section .wp-block-column[style*="flex-basis:55%"] {
+		flex-basis: 50% !important;
+	}
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   HEADER (Custom HTML)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.eliashof-header,
+.eliashof-header * {
+	box-sizing: border-box;
+}
+
+.eliashof-header {
+	padding: 24px clamp(24px, 6vw, 100px);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	flex-shrink: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	width: 100%;
+}
+
+.logo-eliashof {
+	flex-shrink: 0;
+	width: 117.57px;
+	height: 104.03px;
+	position: relative;
+}
+
+.logo-eliashof .vector {
+	width: 78.05%;
+	height: 100%;
+	position: absolute;
+	right: 1.03%;
+	left: 20.92%;
+	bottom: -100.33%;
+	top: 100.33%;
+	transform: translate(0px, -104.02px);
+	overflow: visible;
+}
+
+.logo-eliashof .group {
+	width: 61.8%;
+	height: 99.98%;
+	position: absolute;
+	right: 39.23%;
+	left: -1.03%;
+	bottom: -100.31%;
+	top: 100.33%;
+	transform: translate(0px, -104.01px);
+	overflow: visible;
+}
+
+.burger {
+	flex-shrink: 0;
+	width: 62px;
+	height: 40px;
+	position: relative;
+	overflow: visible;
+	cursor: pointer;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   GLOBAL BACKGROUNDS (Tiling Pattern)
+   ═══════════════════════════════════════════════════════════════════ */
+
+body {
+	background-image: url('assets/eliashof-background.png');
+	background-repeat: repeat;
+	background-attachment: scroll;
+}
+
+.bg-graph-yellow {
+	background-color: rgba(238, 197, 141, 0.4) !important; /* Semi-transparent orange/yellow for Hero */
+}
+
+.bg-graph-white {
+	background-color: #ffffff !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   HERO OVERRIDES
+   ═══════════════════════════════════════════════════════════════════ */
+
+.eliashof-hero-wrap {
+	position: relative;
+}
+
+.eliashof-hero-drawing {
+	position: absolute;
+	bottom: 0;
+	left: -5%; /* Pull slightly left to match Figma overflowing look */
+	width: 55%; /* Make it massive like in Figma */
+	height: auto;
+	margin: 0 !important;
+	z-index: 1;
+	pointer-events: none;
+}
+
+.eliashof-hero-wrap .relative-content {
+	position: relative;
+	z-index: 2;
+}
+
+@media (max-width: 781px) {
+	.eliashof-hero-drawing {
+		width: 100%;
+		left: 0;
+		position: relative; /* On mobile it flows normally */
+		margin-top: -40px !important;
+		margin-bottom: -80px !important;
+	}
+}
