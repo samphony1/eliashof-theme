@@ -51,10 +51,10 @@
 					dot.addEventListener('click', function () {
 						const target = items[index * getVisibleCount()];
 						if (target) {
-							target.scrollIntoView({
-								behavior: 'smooth',
-								block: 'nearest',
-								inline: 'start'
+							const targetLeft = target.offsetLeft - track.offsetLeft;
+							track.scrollTo({
+								left: targetLeft,
+								behavior: 'smooth'
 							});
 						}
 					});

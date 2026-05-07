@@ -31,12 +31,30 @@
 				{
 					"fontFamily": "'Neucha', cursive",
 					"name": "Neucha",
-					"slug": "neucha"
+					"slug": "neucha",
+					"fontFace": [
+						{
+							"fontFamily": "Neucha",
+							"fontWeight": "400",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [ "file:./assets/fonts/neucha-regular.woff2" ]
+						}
+					]
 				},
 				{
 					"fontFamily": "'Montserrat', sans-serif",
 					"name": "Montserrat",
-					"slug": "montserrat"
+					"slug": "montserrat",
+					"fontFace": [
+						{
+							"fontFamily": "Montserrat",
+							"fontWeight": "100 900",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [ "file:./assets/fonts/montserrat-variable.woff2" ]
+						}
+					]
 				}
 			],
 			"fontSizes": [

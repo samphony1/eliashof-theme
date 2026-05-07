@@ -1,9 +1,10 @@
 /*
 Theme Name: Eliashof Theme
 Theme URI: https://samirelborno.com
-Author: Antigravity / Fox & Magpie
+Author: Antigravity / Fox & Magpie Design Studio
 Description: Custom Block Theme for Grundschule Eliashof based on Figma Design
-Version: 1.0.2
+Version: 1.1.5
+License: Proprietary - Fox & Magpie Design Studio
 Requires at least: 6.4
 Requires PHP: 7.4
 Text Domain: eliashof
@@ -31,12 +32,14 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 .eliashof-news-cards .wp-block-columns {
 	align-items: stretch;
 }
-.eliashof-news-cards .wp-block-column > .wp-block-group {
+
+.eliashof-news-cards .wp-block-column>.wp-block-group {
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 }
-.eliashof-news-cards .wp-block-column > .wp-block-group .wp-block-buttons {
+
+.eliashof-news-cards .wp-block-column>.wp-block-group .wp-block-buttons {
 	margin-top: auto;
 }
 
@@ -55,14 +58,30 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 
 
 /* ═══════════════════════════════════════════════════════════════════
+   GLOBAL STYLES
+   ═══════════════════════════════════════════════════════════════════ */
+body {
+	overflow-x: hidden;
+	/* Prevent horizontal scrolling of the whole viewport */
+}
+
+/* ═══════════════════════════════════════════════════════════════════
    AKTUELLES CAROUSEL
    ═══════════════════════════════════════════════════════════════════ */
+
+.eliashof-aktuelles h2 {
+	text-transform: uppercase !important;
+}
 
 /* Remove constrained max-width so cards span edge-to-edge within the section */
 .eliashof-aktuelles-carousel {
 	max-width: none !important;
 	width: 100%;
-	overflow: hidden; /* clip scroll track without clipping the section */
+	overflow: hidden;
+	/* clip scroll track without clipping the section */
+	padding-left: clamp(24px, 6vw, 100px);
+	padding-right: clamp(24px, 6vw, 100px);
+	box-sizing: border-box;
 }
 
 /* The post-template <ul> becomes the horizontal scroll track */
@@ -70,38 +89,75 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 	display: flex !important;
 	flex-direction: row !important;
 	flex-wrap: nowrap !important;
+	align-items: stretch !important;
+	/* Force all cards to be the exact same height */
 	overflow-x: auto;
 	scroll-snap-type: x mandatory;
 	-webkit-overflow-scrolling: touch;
 	gap: 24px;
-	padding-left: clamp(24px, 6vw, 100px);
-	padding-right: clamp(24px, 6vw, 100px);
-	padding-bottom: 8px; /* breathing room above dots */
+	padding-left: 0;
+	padding-right: 0;
+	padding-bottom: 8px;
+	/* breathing room above dots */
 	scrollbar-width: none;
 	-ms-overflow-style: none;
+	box-sizing: border-box;
 }
+
 .eliashof-aktuelles-carousel .wp-block-post-template::-webkit-scrollbar {
 	display: none;
 }
 
 /* Individual card <li> elements */
-.eliashof-aktuelles-carousel .wp-block-post-template > li {
+.eliashof-aktuelles-carousel .wp-block-post-template>li,
+.eliashof-aktuelles-carousel .wp-block-post-template>li.wp-block-post {
 	list-style: none;
 	scroll-snap-align: start;
 	flex-shrink: 0;
-	flex-basis: calc(25% - 18px); /* 4 cards on desktop */
+	flex-basis: calc(25% - 18px);
+	/* 4 cards on desktop */
+	display: flex !important;
+	flex-direction: column !important;
+	height: auto !important;
+	margin: 0 !important;
 }
 
 /* Card group fills li height so buttons align at bottom */
-.eliashof-aktuelles-carousel .wp-block-post-template > li > .wp-block-group {
-	height: 100%;
-	display: flex;
-	flex-direction: column;
+.eliashof-aktuelles-carousel .wp-block-post-template>li>.wp-block-group,
+.eliashof-aktuelles-carousel .wp-block-post-template>li.wp-block-post>.wp-block-group {
+	height: 100% !important;
+	display: flex !important;
+	flex-direction: column !important;
+	flex-grow: 1 !important;
 }
 
 /* Post excerpt grows to push read-more button to bottom */
 .eliashof-aktuelles-carousel .wp-block-post-excerpt {
-	flex-grow: 1;
+	flex-grow: 1 !important;
+	display: flex !important;
+	flex-direction: column !important;
+}
+
+/* Ensure paragraph truncates identically to Figma preview (exactly 3 lines) */
+.eliashof-aktuelles-carousel .wp-block-post-excerpt__excerpt {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Post title: Natural height, centered text */
+.eliashof-aktuelles-carousel .eliashof-card-title,
+.eliashof-aktuelles-carousel h3.wp-block-post-title,
+.eliashof-aktuelles-carousel .wp-block-post-title {
+	text-align: center !important;
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+	font-size: 35px !important;
+	line-height: 1.1 !important;
+	width: 100% !important;
+	align-self: stretch !important;
 }
 
 /* Featured image — fixed height, cover crop */
@@ -127,11 +183,12 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 	font-size: 25px;
 	padding: 8px 55px;
 	text-decoration: none;
-	margin-top: auto;
-	align-self: center;
+	margin-top: auto !important;
+	align-self: center !important;
 	line-height: 27px;
 	letter-spacing: 0.05em;
 }
+
 .eliashof-aktuelles-carousel .wp-block-read-more:hover {
 	background-color: #f0a030;
 }
@@ -145,24 +202,25 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 8px;
-	margin-top: 28px;
+	gap: 16px;
+	margin-top: 40px;
 	padding: 0 clamp(24px, 6vw, 100px);
 }
 
 .eliashof-carousel-dot {
-	width: 10px;
-	height: 10px;
+	width: 14px;
+	height: 14px;
 	border-radius: 50%;
-	background: rgba(255, 255, 255, 0.5);
-	border: none;
+	background: #ffffff;
+	border: 1px solid #241f21;
 	padding: 0;
 	cursor: pointer;
 	transition: background 0.2s ease;
 	flex-shrink: 0;
 }
+
 .eliashof-carousel-dot.is-active {
-	background: #f8ac41;
+	background: #4db8cc;
 }
 
 
@@ -191,16 +249,35 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
    ═══════════════════════════════════════════════════════════════════ */
 
 @media (max-width: 1279px) {
-	.eliashof-section h1.wp-block-heading { font-size: 38px !important; }
-	.eliashof-section h2.wp-block-heading { font-size: 38px !important; }
-	.eliashof-section p                   { font-size: 20px !important; }
+	.eliashof-section h1.wp-block-heading {
+		font-size: 38px !important;
+	}
+
+	.eliashof-section h2.wp-block-heading {
+		font-size: 38px !important;
+	}
+
+	.eliashof-section p {
+		font-size: 20px !important;
+	}
 }
 
 @media (max-width: 767px) {
-	.eliashof-section h1.wp-block-heading { font-size: 30px !important; }
-	.eliashof-section h2.wp-block-heading { font-size: 30px !important; }
-	.eliashof-section h3.wp-block-heading { font-size: 22px !important; }
-	.eliashof-section p                   { font-size: 18px !important; }
+	.eliashof-section h1.wp-block-heading {
+		font-size: 30px !important;
+	}
+
+	.eliashof-section h2.wp-block-heading {
+		font-size: 30px !important;
+	}
+
+	.eliashof-section h3.wp-block-heading {
+		font-size: 22px !important;
+	}
+
+	.eliashof-section p {
+		font-size: 18px !important;
+	}
 
 	.wp-element-button,
 	.wp-block-button__link,
@@ -218,13 +295,15 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 /* WP core stacks wp:columns below 600px automatically.
    We extend that to 767px for better tablet readability on hero. */
 @media (max-width: 767px) {
+
 	/* Hero and SPB/Hort two-column sections */
-	.eliashof-section > .wp-block-constrained > .wp-block-columns,
-	.eliashof-section > .wp-block-columns {
+	.eliashof-section>.wp-block-constrained>.wp-block-columns,
+	.eliashof-section>.wp-block-columns {
 		flex-direction: column;
 	}
-	.eliashof-section > .wp-block-constrained > .wp-block-columns .wp-block-column,
-	.eliashof-section > .wp-block-columns .wp-block-column {
+
+	.eliashof-section>.wp-block-constrained>.wp-block-columns .wp-block-column,
+	.eliashof-section>.wp-block-columns .wp-block-column {
 		width: 100% !important;
 		flex-basis: 100% !important;
 	}
@@ -237,14 +316,14 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 
 /* Tablet: 2 cards visible */
 @media (max-width: 1023px) {
-	.eliashof-aktuelles-carousel .wp-block-post-template > li {
+	.eliashof-aktuelles-carousel .wp-block-post-template>li {
 		flex-basis: calc(50% - 12px);
 	}
 }
 
 /* Mobile: 1 card + peek of next */
 @media (max-width: 599px) {
-	.eliashof-aktuelles-carousel .wp-block-post-template > li {
+	.eliashof-aktuelles-carousel .wp-block-post-template>li {
 		flex-basis: 85%;
 	}
 }
@@ -259,6 +338,7 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 		flex-direction: column !important;
 		align-items: center;
 	}
+
 	.eliashof-nav-circles .wp-block-column {
 		width: 100% !important;
 		flex-basis: 100% !important;
@@ -277,6 +357,7 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 		flex-wrap: wrap !important;
 		justify-content: center;
 	}
+
 	.eliashof-logo-row .wp-block-columns .wp-block-column {
 		flex-basis: calc(33.333% - 28px) !important;
 		min-width: 160px;
@@ -299,6 +380,7 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 	.eliashof-section .wp-block-columns:has(.eliashof-portrait) {
 		flex-wrap: wrap !important;
 	}
+
 	.eliashof-section .wp-block-columns:has(.eliashof-portrait) .wp-block-column {
 		flex-basis: calc(50% - 20px) !important;
 	}
@@ -310,6 +392,7 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
    ═══════════════════════════════════════════════════════════════════ */
 
 @media (max-width: 1279px) and (min-width: 768px) {
+
 	.eliashof-section .wp-block-column[style*="flex-basis:45%"],
 	.eliashof-section .wp-block-column[style*="flex-basis:55%"] {
 		flex-basis: 50% !important;
@@ -343,7 +426,8 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 	position: absolute;
 	top: 77px;
 	left: 0;
-	z-index: 101; /* Above the overlay */
+	z-index: 101;
+	/* Above the overlay */
 	width: 100%;
 }
 
@@ -384,7 +468,8 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 	padding: 10px;
 	cursor: pointer;
 	position: relative;
-	z-index: 102; /* Topmost element to always be clickable */
+	z-index: 102;
+	/* Topmost element to always be clickable */
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -393,7 +478,8 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 .burger-morph {
 	position: relative;
 	width: 62px;
-	height: 48px; /* Slightly taller container to fit the X rotation cleanly */
+	height: 48px;
+	/* Slightly taller container to fit the X rotation cleanly */
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -432,14 +518,17 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 
 .burger-toggle.is-active .burger-middle {
 	transform: rotate(45deg);
-	background: #f39801; /* Morph to the exact orange from the close SVG */
-	width: 56px; /* Slightly narrower to match 44x44 diagonal */
+	background: #f39801;
+	/* Morph to the exact orange from the close SVG */
+	width: 56px;
+	/* Slightly narrower to match 44x44 diagonal */
 	left: 3px;
 }
 
 .burger-toggle.is-active .burger-bottom {
 	transform: translateY(-20px) rotate(-45deg);
-	background: #8cbb13; /* Morph to the exact green from the close SVG */
+	background: #8cbb13;
+	/* Morph to the exact green from the close SVG */
 	width: 56px;
 	left: 3px;
 }
@@ -455,7 +544,8 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 	width: 100%;
 	height: 100vh;
 	background: #eec68e;
-	z-index: 100; /* Just below the header elements */
+	z-index: 100;
+	/* Just below the header elements */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -545,7 +635,8 @@ main.wp-block-group {
 	left: 0;
 	width: 48.75%;
 	max-width: 936px;
-	min-width: 400px; /* Ensures it doesn't get ridiculously small before mobile breakpoint */
+	min-width: 400px;
+	/* Ensures it doesn't get ridiculously small before mobile breakpoint */
 	height: auto;
 	margin: 0 !important;
 	z-index: 1;
@@ -558,7 +649,8 @@ main.wp-block-group {
 	max-width: 1648px !important;
 	width: 100%;
 	margin: 0 auto;
-	flex-grow: 1; /* Take up remaining vertical space */
+	flex-grow: 1;
+	/* Take up remaining vertical space */
 }
 
 .eliashof-hero-left-col,
@@ -585,10 +677,12 @@ main.wp-block-group {
 	.eliashof-hero-wrap {
 		min-height: auto;
 	}
+
 	.eliashof-hero-drawing {
 		width: 100%;
 		left: 0;
-		position: relative; /* On mobile it flows normally */
+		position: relative;
+		/* On mobile it flows normally */
 		margin-top: -40px !important;
 		margin-bottom: -80px !important;
 	}
