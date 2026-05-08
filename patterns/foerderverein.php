@@ -6,7 +6,7 @@
  * Description: Two column layout for Förderverein with image and text.
  */
 ?>
-<!-- wp:group {"align":"full","className":"eliashof-section","style":{"color":{"background":"#8cc8d1"},"spacing":{"padding":{"top":"clamp(60px,8vw,100px)","bottom":"clamp(60px,8vw,100px)","left":"clamp(24px,6vw,100px)","right":"clamp(24px,6vw,100px)"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"align":"full","templateLock":"contentOnly","className":"eliashof-section","style":{"color":{"background":"#8cc8d1"},"spacing":{"padding":{"top":"clamp(60px,8vw,100px)","bottom":"clamp(60px,8vw,100px)","left":"clamp(24px,6vw,100px)","right":"clamp(24px,6vw,100px)"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull eliashof-section has-background" style="background-color:#8cc8d1;padding-top:clamp(60px,8vw,100px);padding-bottom:clamp(60px,8vw,100px);padding-left:clamp(24px,6vw,100px);padding-right:clamp(24px,6vw,100px)">
 
 	<!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":"60px"}}} -->

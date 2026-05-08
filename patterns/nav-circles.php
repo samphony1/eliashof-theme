@@ -6,7 +6,7 @@
  * Description: Three navigation circle SVGs on a graph-paper background. Drop in SVG images from the media library and set link URLs. Layout locked.
  */
 ?>
-<!-- wp:group {"align":"full","className":"eliashof-section eliashof-nav-circles","style":{"spacing":{"padding":{"top":"clamp(60px,8vw,100px)","bottom":"clamp(60px,8vw,100px)","left":"clamp(24px,6vw,100px)","right":"clamp(24px,6vw,100px)"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"align":"full","templateLock":"contentOnly","className":"eliashof-section eliashof-nav-circles","style":{"spacing":{"padding":{"top":"clamp(60px,8vw,100px)","bottom":"clamp(60px,8vw,100px)","left":"clamp(24px,6vw,100px)","right":"clamp(24px,6vw,100px)"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull eliashof-section eliashof-nav-circles" style="padding-top:clamp(60px,8vw,100px);padding-bottom:clamp(60px,8vw,100px);padding-left:clamp(24px,6vw,100px);padding-right:clamp(24px,6vw,100px)">
 
 	<!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":"40px"}}} -->

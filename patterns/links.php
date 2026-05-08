@@ -6,7 +6,7 @@
  * Description: A row of partner/external logos that link to external sites. Cream background. Layout locked — editors can replace logos and update link URLs.
  */
 ?>
-<!-- wp:group {"align":"full","className":"eliashof-section eliashof-logo-row bg-graph-white","style":{"spacing":{"padding":{"top":"70px","bottom":"70px","left":"clamp(24px,6vw,100px)","right":"clamp(24px,6vw,100px)"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"align":"full","templateLock":"contentOnly","className":"eliashof-section eliashof-logo-row bg-graph-white","style":{"spacing":{"padding":{"top":"70px","bottom":"70px","left":"clamp(24px,6vw,100px)","right":"clamp(24px,6vw,100px)"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull eliashof-section eliashof-logo-row bg-graph-white" style="padding-top:70px;padding-bottom:70px;padding-left:clamp(24px,6vw,100px);padding-right:clamp(24px,6vw,100px)">
 
 	<!-- wp:heading {"level":2,"textAlign":"center","style":{"typography":{"fontFamily":"'Neucha', cursive","fontSize":"50px","letterSpacing":"2.5px","lineHeight":"1.2"},"color":{"text":"#241f21"},"spacing":{"margin":{"bottom":"52px"}}}} -->

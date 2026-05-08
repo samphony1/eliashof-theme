@@ -6,7 +6,7 @@
  * Description: Full-width hero with heading, body text, image, and CTA button. Layout is locked — only text, image, and button label/link are editable.
  */
 ?>
-<!-- wp:group {"align":"full","className":"eliashof-section bg-graph-yellow eliashof-hero-wrap","style":{"spacing":{"padding":{"top":"210px","bottom":"80px","left":"clamp(24px,6vw,100px)","right":"clamp(24px,6vw,100px)"}}},"layout":{"type":"constrained","wideSize":"1400px","contentSize":"1200px"}} -->
+<!-- wp:group {"align":"full","templateLock":"contentOnly","className":"eliashof-section bg-graph-yellow eliashof-hero-wrap","style":{"spacing":{"padding":{"top":"210px","bottom":"80px","left":"clamp(24px,6vw,100px)","right":"clamp(24px,6vw,100px)"}}},"layout":{"type":"constrained","wideSize":"1400px","contentSize":"1200px"}} -->
 <div class="wp-block-group alignfull eliashof-section bg-graph-yellow eliashof-hero-wrap" style="padding-top:210px;padding-bottom:80px;padding-left:clamp(24px,6vw,100px);padding-right:clamp(24px,6vw,100px)">
 
 	<!-- wp:image {"className":"eliashof-hero-drawing","sizeSlug":"full","linkDestination":"none"} -->

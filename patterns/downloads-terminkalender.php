@@ -6,7 +6,7 @@
  * Description: Two-column section on an orange background — Downloads left, Terminkalender right. Layout locked — editors can edit list items only.
  */
 ?>
-<!-- wp:group {"align":"full","className":"eliashof-section","style":{"color":{"background":"#eec58d"},"spacing":{"padding":{"top":"80px","bottom":"80px","left":"clamp(24px,6vw,100px)","right":"clamp(24px,6vw,100px)"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"align":"full","templateLock":"contentOnly","className":"eliashof-section","style":{"color":{"background":"#eec58d"},"spacing":{"padding":{"top":"80px","bottom":"80px","left":"clamp(24px,6vw,100px)","right":"clamp(24px,6vw,100px)"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull eliashof-section has-background" style="background-color:#eec58d;padding-top:80px;padding-bottom:80px;padding-left:clamp(24px,6vw,100px);padding-right:clamp(24px,6vw,100px)">
 
 	<!-- wp:columns {"style":{"spacing":{"blockGap":"60px"}}} -->

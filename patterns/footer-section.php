@@ -6,7 +6,7 @@
  * Description: Footer with three-column contact info and a dark copyright bar below. Layout locked — editors can update address, phone, email, and copyright text.
  */
 ?>
-<!-- wp:group {"align":"full","style":{"color":{"background":"#241f21"},"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"align":"full","templateLock":"contentOnly","style":{"color":{"background":"#241f21"},"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull has-background" style="background-color:#241f21;padding:0">
 
 	<!-- ── Three-column info strip ── -->
