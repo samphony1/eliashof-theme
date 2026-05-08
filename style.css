@@ -3,7 +3,7 @@ Theme Name: Eliashof Theme
 Theme URI: https://foxmagpie.com
 Author: Fox & Magpie Design Studio
 Description: Custom Block Theme for Grundschule Eliashof based on Figma Design
-Version: 1.1.5
+Version: 1.1.6
 License: Proprietary - Fox & Magpie Design Studio
 Requires at least: 6.4
 Requires PHP: 7.4
@@ -15,6 +15,8 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 .eliashof-section {
 	padding-top: clamp(60px, 8vw, 100px);
 	padding-bottom: clamp(60px, 8vw, 100px);
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
 }
 
 /* ── Circular portrait images (Ansprechpartner) ────────────────────── */
@@ -45,9 +47,10 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 
 /* ── Logo / partner rows ───────────────────────────────────────────── */
 .eliashof-logo-row .wp-block-image img {
-	max-height: 80px;
+	max-height: 120px;
 	width: auto;
 	object-fit: contain;
+	mix-blend-mode: multiply;
 }
 
 /* ── Pill button cursor ────────────────────────────────────────────── */
@@ -229,18 +232,27 @@ body {
    ═══════════════════════════════════════════════════════════════════ */
 
 .eliashof-nav-circles {
-	background-image:
-		linear-gradient(to right, #e0ddd5 1px, transparent 1px),
-		linear-gradient(to bottom, #e0ddd5 1px, transparent 1px) !important;
-	background-size: 40px 40px !important;
+	background-color: transparent;
+}
+
+.eliashof-nav-circles > .wp-block-columns {
+	max-width: 1300px !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
 }
 
 .eliashof-nav-circles .wp-block-image img {
-	max-width: 320px;
+	max-width: 420px;
 	width: 100%;
 	height: auto;
 	display: block;
 	margin: 0 auto;
+	mix-blend-mode: multiply;
+	transition: transform 0.3s ease;
+}
+
+.eliashof-nav-circles .wp-block-image a:hover img {
+	transform: scale(1.05);
 }
 
 
@@ -342,7 +354,7 @@ body {
 	.eliashof-nav-circles .wp-block-column {
 		width: 100% !important;
 		flex-basis: 100% !important;
-		max-width: 320px;
+		max-width: 420px;
 		margin: 0 auto;
 	}
 }
@@ -610,7 +622,7 @@ body {
 }
 
 .bg-graph-white {
-	background-color: #ffffff !important;
+	background-color: transparent !important;
 }
 
 /* ═══════════════════════════════════════════════════════════════════

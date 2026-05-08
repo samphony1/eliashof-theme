@@ -16,7 +16,7 @@
 	<!-- wp:query {"queryId":1,"query":{"perPage":8,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"className":"eliashof-aktuelles-carousel","layout":{"type":"default"}} -->
 	<div class="wp-block-query eliashof-aktuelles-carousel">
 
-		<!-- wp:post-template {"templateLock":"all","layout":{"type":"default"}} -->
+		<!-- wp:post-template {"layout":{"type":"default"}} -->
 
 			<!-- wp:group {"style":{"spacing":{"blockGap":"33px"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"left","alignItems":"center"}} -->
 			<div class="wp-block-group is-layout-flex is-vertical is-content-justification-left is-align-items-center wp-block-group-is-layout-flex" style="--wp--style--block-gap:33px;max-width:100%">
