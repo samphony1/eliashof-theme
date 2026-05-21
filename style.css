@@ -3,7 +3,7 @@ Theme Name: Eliashof Theme
 Theme URI: https://foxmagpie.com
 Author: Fox & Magpie Design Studio
 Description: Custom Block Theme for Grundschule Eliashof based on Figma Design
-Version: 1.1.6
+Version: 1.1.8
 License: Proprietary - Fox & Magpie Design Studio
 Requires at least: 6.4
 Requires PHP: 7.4
@@ -97,7 +97,7 @@ body {
 	overflow-x: auto;
 	scroll-snap-type: x mandatory;
 	-webkit-overflow-scrolling: touch;
-	gap: 24px;
+	gap: 40px;
 	padding-left: 0;
 	padding-right: 0;
 	padding-bottom: 8px;
@@ -117,8 +117,8 @@ body {
 	list-style: none;
 	scroll-snap-align: start;
 	flex-shrink: 0;
-	flex-basis: calc(25% - 18px);
-	/* 4 cards on desktop */
+	flex-basis: calc(33.333% - 26.667px);
+	/* 3 cards on desktop */
 	display: flex !important;
 	flex-direction: column !important;
 	height: auto !important;
@@ -329,7 +329,7 @@ body {
 /* Tablet: 2 cards visible */
 @media (max-width: 1023px) {
 	.eliashof-aktuelles-carousel .wp-block-post-template>li {
-		flex-basis: calc(50% - 12px);
+		flex-basis: calc(50% - 20px);
 	}
 }
 
