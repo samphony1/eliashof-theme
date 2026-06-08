@@ -3,7 +3,7 @@ Theme Name: Eliashof Theme
 Theme URI: https://foxmagpie.com
 Author: Fox & Magpie Design Studio
 Description: Custom Block Theme for Grundschule Eliashof based on Figma Design
-Version: 1.1.8
+Version: 1.2.0
 License: Proprietary - Fox & Magpie Design Studio
 Requires at least: 6.4
 Requires PHP: 7.4
@@ -697,5 +697,132 @@ main.wp-block-group {
 		/* On mobile it flows normally */
 		margin-top: -40px !important;
 		margin-bottom: -80px !important;
+	}
+}
+
+/* ── Section Downloads & Terminkalender ────────────────────────────── */
+.section-downloads {
+	background: #eec58d !important;
+	padding: clamp(60px, 6vw, 79px) clamp(24px, 10vw, 271px) !important;
+	display: flex !important;
+	flex-direction: row !important;
+	align-items: center !important;
+	justify-content: space-between !important;
+	min-height: 440px !important;
+	width: 100% !important;
+	box-sizing: border-box !important;
+}
+
+.section-downloads .post-container,
+.section-downloads .post-container2 {
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: center !important;
+	justify-content: center !important;
+	flex-shrink: 0 !important;
+	width: 100% !important;
+	box-sizing: border-box !important;
+}
+
+.section-downloads .post-container {
+	max-width: 618px !important;
+}
+
+.section-downloads .post-container2 {
+	max-width: 537px !important;
+}
+
+.section-downloads .h-2,
+.section-downloads .h-22 {
+	margin-bottom: 24px !important;
+	text-align: center !important;
+	width: 100% !important;
+}
+
+.section-downloads .downloads,
+.section-downloads .terminkalender {
+	color: #000000 !important;
+	font-family: 'Neucha', cursive !important;
+	font-size: clamp(34px, 4.5vw, 50px) !important;
+	line-height: 1.1 !important;
+	letter-spacing: 0.05em !important;
+	font-weight: 400 !important;
+	text-transform: uppercase !important;
+	margin: 0 !important;
+}
+
+.section-downloads .text-button,
+.section-downloads .text-button2 {
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: center !important;
+	width: 100% !important;
+}
+
+.section-downloads .hier-finden-sie-eine-sammlung-aller-downloads-von,
+.section-downloads .alle-termine-des-laufenden-schuljahres {
+	color: #000000 !important;
+	text-align: center !important;
+	font-family: 'Montserrat', sans-serif !important;
+	font-size: clamp(18px, 2.2vw, 24px) !important;
+	line-height: 1.5 !important;
+	font-weight: 300 !important;
+	margin: 0 0 28px 0 !important;
+}
+
+.section-downloads .wp-block-buttons {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.section-downloads .button,
+.section-downloads .button2 {
+	margin: 0 !important;
+}
+
+.section-downloads .button .wp-block-button__link,
+.section-downloads .button2 .wp-block-button__link {
+	background: #f8ac41 !important;
+	border-radius: 40px !important;
+	border: 0.7px solid #000000 !important;
+	padding: 8px clamp(30px, 4vw, 55px) !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	height: 56px !important;
+	text-decoration: none !important;
+	box-sizing: border-box !important;
+	cursor: pointer !important;
+	transition: background-color 0.2s ease, transform 0.2s ease !important;
+}
+
+.section-downloads .button .wp-block-button__link:hover,
+.section-downloads .button2 .wp-block-button__link:hover {
+	background-color: #f0a030 !important;
+	transform: translateY(-2px) !important;
+}
+
+.section-downloads .mehr-erfahren {
+	color: #000000 !important;
+	font-family: 'Neucha', cursive !important;
+	font-size: clamp(20px, 2.2vw, 25px) !important;
+	line-height: 27px !important;
+	letter-spacing: 0.05em !important;
+	font-weight: 400;
+}
+
+@media (max-width: 1023px) {
+	.section-downloads {
+		flex-direction: column !important;
+		align-items: center !important;
+		padding: 60px 24px !important;
+		height: auto !important;
+		min-height: auto !important;
+		gap: 64px !important;
+	}
+	
+	.section-downloads .post-container,
+	.section-downloads .post-container2 {
+		max-width: 100% !important;
 	}
 }
