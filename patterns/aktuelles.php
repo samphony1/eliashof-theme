@@ -9,8 +9,8 @@
 <!-- wp:group {"align":"full","templateLock":"contentOnly","className":"eliashof-section eliashof-aktuelles","style":{"color":{"background":"#8cc8d1"},"spacing":{"padding":{"top":"clamp(60px,8vw,100px)","bottom":"clamp(60px,8vw,100px)"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull eliashof-section eliashof-aktuelles has-background" style="background-color:#8cc8d1;padding-top:clamp(60px,8vw,100px);padding-bottom:clamp(60px,8vw,100px)">
 
-	<!-- wp:heading {"level":2,"textAlign":"center","style":{"typography":{"fontFamily":"'Neucha', cursive","fontSize":"50px","letterSpacing":"2.5px","lineHeight":"1.2","textTransform":"uppercase"},"color":{"text":"#241f21"},"spacing":{"margin":{"top":"0","bottom":"52px"}}}} -->
-	<h2 class="wp-block-heading has-text-align-center" style="color:#241f21;font-family:'Neucha',cursive;font-size:50px;letter-spacing:2.5px;line-height:1.2;text-transform:uppercase;margin-top:0;margin-bottom:52px">AKTUELLES</h2>
+	<!-- wp:heading {"level":2,"textAlign":"center","style":{"spacing":{"margin":{"top":"0","bottom":"52px"}}}} -->
+	<h2 class="wp-block-heading has-text-align-center" style="margin-top:0;margin-bottom:52px">AKTUELLES</h2>
 	<!-- /wp:heading -->
 
 	<!-- wp:query {"queryId":1,"query":{"perPage":8,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"className":"eliashof-aktuelles-carousel","layout":{"type":"default"}} -->

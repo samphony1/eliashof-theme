@@ -18,8 +18,8 @@
 
 		<!-- wp:column {"verticalAlignment":"top","width":"50%","className":"eliashof-hero-left-col"} -->
 		<div class="wp-block-column is-vertically-aligned-top eliashof-hero-left-col" style="flex-basis:50%">
-			<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"'Neucha', cursive","fontSize":"clamp(40px, 5.5vw, 86px)","lineHeight":"1.1","letterSpacing":"0.05em"},"color":{"text":"#000000"},"spacing":{"margin":{"bottom":"40px"}}}} -->
-			<h1 class="wp-block-heading" style="color:#000000;font-family:'Neucha',cursive;font-size:clamp(40px, 5.5vw, 86px);line-height:1.1;letter-spacing:0.05em;margin-bottom:40px;word-break:keep-all;">WILLKOMMEN IN<br>DER GRUNDSCHULE<br>IM ELIASHOF!</h1>
+			<!-- wp:heading {"level":1} -->
+			<h1 class="wp-block-heading">WILLKOMMEN IN<br>DER GRUNDSCHULE<br>IM ELIASHOF!</h1>
 			<!-- /wp:heading -->
 		</div>
 		<!-- /wp:column -->
@@ -33,8 +33,8 @@
 
 			<!-- wp:group {"className":"eliashof-hero-right-bottom","layout":{"type":"constrained"}} -->
 			<div class="wp-block-group eliashof-hero-right-bottom">
-				<!-- wp:paragraph {"style":{"typography":{"fontFamily":"'Montserrat', sans-serif","fontWeight":"300","fontSize":"24px","lineHeight":"1.7"},"color":{"text":"#000000"}}} -->
-				<p style="color:#000000;font-family:'Montserrat',sans-serif;font-size:24px;font-weight:300;line-height:1.7">Hallo, wir sind eine Kiezschule im Herzen vom Prenzlauer Berg, in der schon manche Eltern der heutigen Schulkinder früher gelernt haben und die heute gemeinsam von Schulleitung, Lehrer*innen, Erzieher*innen, Eltern und Schüler*innen gestaltet wird. Bei uns lernen etwa 350 Schülerinnen und Schüler in den Klassen 1 bis 6.<br>Unser 40-köpfiges Team arbeitet professionell und Hand in Hand: Wir schätzen flache Hierarchien, direkte Kommunikation und umfangreiche Möglichkeiten der Partizipation.</p>
+				<!-- wp:paragraph -->
+				<p>Hallo, wir sind eine Kiezschule im Herzen vom Prenzlauer Berg, in der schon manche Eltern der heutigen Schulkinder früher gelernt haben und die heute gemeinsam von Schulleitung, Lehrer*innen, Erzieher*innen, Eltern und Schüler*innen gestaltet wird. Bei uns lernen etwa 350 Schülerinnen und Schüler in den Klassen 1 bis 6.<br>Unser 40-köpfiges Team arbeitet professionell und Hand in Hand: Wir schätzen flache Hierarchien, direkte Kommunikation und umfangreiche Möglichkeiten der Partizipation.</p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:spacer {"height":"36px"} -->
@@ -43,8 +43,8 @@
 
 				<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 				<div class="wp-block-buttons is-content-justification-center">
-					<!-- wp:button {"style":{"color":{"background":"#f8ac41","text":"#000000"},"border":{"radius":"40px","color":"#000000","width":"0.7px"},"typography":{"fontFamily":"'Neucha', cursive","fontSize":"25px","letterSpacing":"0.05em"},"spacing":{"padding":{"top":"8px","bottom":"8px","left":"55px","right":"55px"}}}} -->
-					<div class="wp-block-button"><a class="wp-block-button__link has-background wp-element-button" href="#" style="background-color:#f8ac41;color:#000000;border-color:#000000;border-width:0.7px;border-radius:40px;font-family:'Neucha',cursive;font-size:25px;letter-spacing:0.05em;padding-top:8px;padding-right:55px;padding-bottom:8px;padding-left:55px">MEHR ERFAHREN</a></div>
+					<!-- wp:button -->
+					<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#">MEHR ERFAHREN</a></div>
 					<!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
