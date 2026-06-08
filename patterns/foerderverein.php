@@ -3,28 +3,28 @@
  * Title: Förderverein
  * Slug: eliashof/foerderverein
  * Categories: eliashof-sections
- * Description: Two column layout for Förderverein with image and text.
+ * Description: Image left, heading and text right on a blue background. Layout locked.
  */
 ?>
-<!-- wp:group {"align":"full","templateLock":"contentOnly","className":"eliashof-section","style":{"color":{"background":"#8cc8d1"},"spacing":{"padding":{"top":"clamp(60px,8vw,100px)","bottom":"clamp(60px,8vw,100px)","left":"clamp(24px,6vw,100px)","right":"clamp(24px,6vw,100px)"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull eliashof-section has-background" style="background-color:#8cc8d1;padding-top:clamp(60px,8vw,100px);padding-bottom:clamp(60px,8vw,100px);padding-left:clamp(24px,6vw,100px);padding-right:clamp(24px,6vw,100px)">
+<!-- wp:group {"align":"full","templateLock":"contentOnly","className":"eliashof-section section-highlight","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull eliashof-section section-highlight">
 
-	<!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":"60px"}}} -->
+	<!-- wp:columns {"verticalAlignment":"center"} -->
 	<div class="wp-block-columns are-vertically-aligned-center">
 
-		<!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
-		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">
-			<!-- wp:image {"sizeSlug":"large","linkDestination":"none","style":{"border":{"radius":"40px"}}} -->
-			<figure class="wp-block-image size-large has-custom-border" style="border-radius:40px"><img src="" alt="Förderverein" /></figure>
+		<!-- wp:column {"verticalAlignment":"center"} -->
+		<div class="wp-block-column is-vertically-aligned-center">
+			<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
+			<figure class="wp-block-image size-full"><img src="" alt="Förderverein"/></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->
 
-		<!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
-		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">
+		<!-- wp:column {"verticalAlignment":"center"} -->
+		<div class="wp-block-column is-vertically-aligned-center">
 
-			<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"bottom":"24px"}}}} -->
-			<h2 class="wp-block-heading" style="margin-bottom:24px">UNSER FÖRDERVEREIN</h2>
+			<!-- wp:heading {"level":2} -->
+			<h2 class="wp-block-heading">UNSER FÖRDERVEREIN</h2>
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph -->

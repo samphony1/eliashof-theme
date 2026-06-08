@@ -3,7 +3,7 @@ Theme Name: Eliashof Theme
 Theme URI: https://foxmagpie.com
 Author: Fox & Magpie Design Studio
 Description: Custom Block Theme for Grundschule Eliashof based on Figma Design
-Version: 1.3.2
+Version: 1.3.3
 License: Proprietary - Fox & Magpie Design Studio
 Requires at least: 6.4
 Requires PHP: 7.4
@@ -1136,5 +1136,104 @@ main.wp-block-group {
 		font-size: 18px !important;
 		line-height: 1.6 !important;
 		margin-bottom: 24px !important;
+	}
+}
+
+/* ── Section Highlight (Förderverein) ────────────────────────────── */
+.section-highlight {
+	background: #8cc8d1 !important;
+	padding: 78px clamp(24px, 10.8vw, 208px) 78px clamp(24px, 10.8vw, 208px) !important;
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: center !important;
+	justify-content: center !important;
+	min-height: 627px !important;
+	width: 100% !important;
+	box-sizing: border-box !important;
+}
+
+.section-highlight .wp-block-columns {
+	display: flex !important;
+	flex-direction: row !important;
+	align-items: center !important;
+	justify-content: center !important;
+	gap: clamp(40px, 8vw, 136px) !important;
+	margin: 0 auto !important;
+	width: 100% !important;
+	max-width: 1497px !important;
+}
+
+.section-highlight .wp-block-column:first-child {
+	flex: 0 1 684px !important;
+	max-width: 684px !important;
+	width: 100% !important;
+}
+
+.section-highlight .wp-block-column:last-child {
+	flex: 0 1 677px !important;
+	max-width: 677px !important;
+	width: 100% !important;
+}
+
+.section-highlight .wp-block-image img {
+	width: 100% !important;
+	height: auto !important;
+	aspect-ratio: 684 / 471.6 !important;
+	object-fit: cover !important;
+	border-radius: 49.3px !important;
+}
+
+.section-highlight h2 {
+	color: #000000 !important;
+	font-family: 'Neucha', cursive !important;
+	font-size: clamp(28px, 3.1vw, 50px) !important;
+	line-height: 1.1 !important;
+	letter-spacing: 0.05em !important;
+	font-weight: 400 !important;
+	text-transform: uppercase !important;
+	margin: 0 0 24px 0 !important;
+	text-align: left !important;
+}
+
+.section-highlight p {
+	color: #000000 !important;
+	font-family: 'Montserrat', sans-serif !important;
+	font-size: clamp(18px, 1.5vw, 24px) !important;
+	font-weight: 300 !important;
+	line-height: 40px !important;
+	margin: 0 !important;
+}
+
+@media (max-width: 1279px) {
+	.section-highlight {
+		padding: 60px 24px !important;
+		min-height: auto !important;
+	}
+
+	.section-highlight .wp-block-columns {
+		flex-direction: column !important;
+		gap: 48px !important;
+	}
+
+	.section-highlight .wp-block-column:first-child,
+	.section-highlight .wp-block-column:last-child {
+		flex: 1 1 100% !important;
+		max-width: 100% !important;
+		width: 100% !important;
+	}
+
+	.section-highlight .wp-block-image img {
+		height: auto !important;
+		aspect-ratio: 684 / 471.6 !important;
+	}
+
+	.section-highlight h2 {
+		text-align: center !important;
+		margin-bottom: 16px !important;
+	}
+
+	.section-highlight p {
+		font-size: 18px !important;
+		line-height: 1.6 !important;
 	}
 }
