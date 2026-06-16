@@ -3,7 +3,7 @@ Theme Name: Eliashof Theme
 Theme URI: https://foxmagpie.com
 Author: Fox & Magpie Design Studio
 Description: Custom Block Theme for Grundschule Eliashof based on Figma Design
-Version: 1.3.3
+Version: 1.3.5
 License: Proprietary - Fox & Magpie Design Studio
 Requires at least: 6.4
 Requires PHP: 7.4
@@ -1235,5 +1235,176 @@ main.wp-block-group {
 	.section-highlight p {
 		font-size: 18px !important;
 		line-height: 1.6 !important;
+	}
+}
+
+/* ── Section Ansprechpartner ───────────────────────────────────────── */
+.section-ansprechpartner {
+	padding: 89px clamp(24px, 10.3vw, 197px) 89px clamp(24px, 10.3vw, 197px) !important;
+	display: flex !important;
+	flex-direction: column !important;
+	gap: 77px !important;
+	align-items: center !important;
+	justify-content: center !important;
+	width: 100% !important;
+	box-sizing: border-box !important;
+	mix-blend-mode: multiply !important;
+	background: transparent !important;
+}
+
+.section-ansprechpartner h2 {
+	color: #000000 !important;
+	font-family: 'Neucha', cursive !important;
+	font-size: 50px !important;
+	line-height: 53px !important;
+	letter-spacing: 0.05em !important;
+	font-weight: 400 !important;
+	text-transform: uppercase !important;
+	margin: 0 !important;
+	text-align: center !important;
+}
+
+.section-ansprechpartner .wp-block-columns {
+	display: flex !important;
+	flex-direction: row !important;
+	align-items: flex-start !important;
+	justify-content: space-between !important;
+	gap: clamp(24px, 3.5vw, 55px) !important;
+	margin: 0 auto !important;
+	width: 100% !important;
+	max-width: 1516px !important;
+}
+
+.section-ansprechpartner .wp-block-column {
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	width: 100% !important;
+	box-sizing: border-box !important;
+}
+
+/* Individual Column width caps matching Figma */
+.section-ansprechpartner .wp-block-columns > .wp-block-column:nth-child(1) {
+	max-width: 348px !important;
+}
+
+.section-ansprechpartner .wp-block-columns > .wp-block-column:nth-child(2) {
+	max-width: 327px !important;
+}
+
+.section-ansprechpartner .wp-block-columns > .wp-block-column:nth-child(3) {
+	max-width: 328px !important;
+}
+
+.section-ansprechpartner .wp-block-columns > .wp-block-column:nth-child(4) {
+	max-width: 348px !important;
+}
+
+/* Contact Cards wrapper */
+.eliashof-contact-card {
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: center !important;
+	text-align: center !important;
+	width: 100% !important;
+}
+
+/* Typography styles for Name and Role */
+.eliashof-contact-card h4 {
+	font-family: 'Neucha', cursive !important;
+	font-size: 35px !important;
+	line-height: 37px !important;
+	font-weight: 400 !important;
+	color: #000000 !important;
+	letter-spacing: 0.05em !important;
+	text-transform: uppercase !important;
+	margin: 24px 0 6px 0 !important;
+}
+
+.eliashof-contact-card .contact-role {
+	font-family: 'Neucha', cursive !important;
+	font-size: 35px !important;
+	line-height: 37px !important;
+	font-weight: 400 !important;
+	letter-spacing: 0.05em !important;
+	text-transform: uppercase !important;
+	margin: 0 !important;
+}
+
+/* Role Colors */
+.card-sekretariat .contact-role {
+	color: #f49600 !important;
+}
+.card-schulleitung .contact-role {
+	color: #0bbbef !important;
+}
+.card-hortleitung .contact-role {
+	color: #89bd24 !important;
+}
+.card-schulhund .contact-role {
+	color: #f49600 !important;
+}
+
+/* Image Wrappers and Styling */
+.contact-image {
+	width: 100% !important;
+	height: auto !important;
+	margin: 0 auto !important;
+	display: block !important;
+}
+
+.contact-image img {
+	width: 100% !important;
+	height: auto !important;
+	display: block !important;
+	object-fit: contain !important;
+}
+
+/* Individual Aspect Ratios matching Figma dimensions */
+.card-sekretariat .contact-image {
+	aspect-ratio: 348 / 331 !important;
+}
+.card-schulleitung .contact-image {
+	aspect-ratio: 327 / 313 !important;
+}
+.card-hortleitung .contact-image {
+	aspect-ratio: 328 / 327 !important;
+}
+.card-schulhund .contact-image {
+	aspect-ratio: 348 / 331 !important;
+}
+
+/* Responsive adjustments for Ansprechpartner */
+@media (max-width: 1199px) {
+	.section-ansprechpartner {
+		padding: 60px 24px !important;
+	}
+
+	.section-ansprechpartner .wp-block-columns {
+		flex-wrap: wrap !important;
+		gap: 48px 24px !important;
+		justify-content: center !important;
+	}
+
+	.section-ansprechpartner .wp-block-columns > .wp-block-column {
+		flex: 1 1 calc(50% - 20px) !important;
+		max-width: 328px !important;
+	}
+}
+
+@media (max-width: 767px) {
+	.section-ansprechpartner {
+		gap: 48px !important;
+	}
+
+	.section-ansprechpartner .wp-block-columns {
+		flex-direction: column !important;
+		align-items: center !important;
+		gap: 48px !important;
+	}
+
+	.section-ansprechpartner .wp-block-columns > .wp-block-column {
+		flex: 1 1 100% !important;
+		max-width: 328px !important;
 	}
 }
