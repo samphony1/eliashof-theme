@@ -21,7 +21,9 @@
 		<div class="wp-block-column">
 			<!-- wp:group {"templateLock":"contentOnly","className":"eliashof-contact-card card-sekretariat","layout":{"type":"constrained"}} -->
 			<div class="wp-block-group eliashof-contact-card card-sekretariat">
-				<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} /-->
+				<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
+				<figure class="wp-block-image size-full"><img alt=""/></figure>
+				<!-- /wp:image -->
 				<!-- wp:heading {"level":4,"textAlign":"center"} -->
 				<h4 class="wp-block-heading has-text-align-center">FRAU NEUMANN</h4>
 				<!-- /wp:heading -->
@@ -38,7 +40,9 @@
 		<div class="wp-block-column">
 			<!-- wp:group {"templateLock":"contentOnly","className":"eliashof-contact-card card-schulleitung","layout":{"type":"constrained"}} -->
 			<div class="wp-block-group eliashof-contact-card card-schulleitung">
-				<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} /-->
+				<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
+				<figure class="wp-block-image size-full"><img alt=""/></figure>
+				<!-- /wp:image -->
 				<!-- wp:heading {"level":4,"textAlign":"center"} -->
 				<h4 class="wp-block-heading has-text-align-center">ARMIN GEISSLER</h4>
 				<!-- /wp:heading -->
@@ -55,7 +59,9 @@
 		<div class="wp-block-column">
 			<!-- wp:group {"templateLock":"contentOnly","className":"eliashof-contact-card card-hortleitung","layout":{"type":"constrained"}} -->
 			<div class="wp-block-group eliashof-contact-card card-hortleitung">
-				<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} /-->
+				<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
+				<figure class="wp-block-image size-full"><img alt=""/></figure>
+				<!-- /wp:image -->
 				<!-- wp:heading {"level":4,"textAlign":"center"} -->
 				<h4 class="wp-block-heading has-text-align-center">HERR SEGETH</h4>
 				<!-- /wp:heading -->
@@ -72,7 +78,9 @@
 		<div class="wp-block-column">
 			<!-- wp:group {"templateLock":"contentOnly","className":"eliashof-contact-card card-schulhund","layout":{"type":"constrained"}} -->
 			<div class="wp-block-group eliashof-contact-card card-schulhund">
-				<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} /-->
+				<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
+				<figure class="wp-block-image size-full"><img alt=""/></figure>
+				<!-- /wp:image -->
 				<!-- wp:heading {"level":4,"textAlign":"center"} -->
 				<h4 class="wp-block-heading has-text-align-center">MAJA</h4>
 				<!-- /wp:heading -->

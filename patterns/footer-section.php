@@ -6,8 +6,8 @@
  * Description: Footer with three-column contact info and a dark copyright bar below. Layout locked — editors can update address, phone, email, and copyright text.
  */
 ?>
-<!-- wp:group {"align":"full","templateLock":"contentOnly","style":{"color":{"background":"#241f21"},"spacing":{"padding":{"top":"0px","bottom":"0px","left":"0px","right":"0px"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-background" style="background-color:#241f21;padding-top:0px;padding-bottom:0px;padding-left:0px;padding-right:0px">
+<!-- wp:group {"align":"full","templateLock":"contentOnly","style":{"color":{"background":"#241f21"},"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull has-background" style="background-color:#241f21;padding:0">
 
 	<!-- ── Three-column info strip ── -->
 	<!-- wp:group {"style":{"spacing":{"padding":{"top":"60px","bottom":"60px","left":"clamp(24px,6vw,100px)","right":"clamp(24px,6vw,100px)"}}},"layout":{"type":"constrained"}} -->
@@ -85,7 +85,7 @@
 
 	<!-- ── Copyright bar ── -->
 	<!-- wp:group {"style":{"color":{"background":"#57463a"},"spacing":{"padding":{"top":"18px","bottom":"18px","left":"clamp(24px,6vw,100px)","right":"clamp(24px,6vw,100px)"}}},"layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
-	<div class="wp-block-group has-background" style="background-color:#57463a;padding-top:18px;padding-bottom:18px;padding-left:clamp(24px,6vw,100px);padding-right:clamp(24px,6vw,100px)">
+	<div class="wp-block-group has-background" style="background-color:#57463a;padding-top:18px;padding-bottom:18px;padding-left:clamp(24px,6vw,100px);padding-right:clamp(24px,6vw,100px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
 
 		<!-- wp:paragraph {"fontFamily":"montserrat","style":{"typography":{"fontWeight":"300","fontSize":"14px"},"color":{"text":"#eae7dd"}}} -->
 		<p class="has-montserrat-font-family" style="color:#eae7dd;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:300;margin:0">© 2025 Grundschule im Eliashof, Stuttgart</p>

@@ -112,33 +112,212 @@ add_action( 'init', function() {
 			$new_drawing_comment = '<!-- wp:image {"className":"eliashof-hero-drawing","sizeSlug":"full","linkDestination":"none","url":"' . esc_url( get_template_directory_uri() ) . '/assets/images/illustration01.svg"} -->';
 			$content = str_replace( $old_drawing_comment, $new_drawing_comment, $content );
 
-			// C. Fix Aktuelles (Query loop / post template structure)
+			// C. Fix Aktuelles (Query loop / post template structure - remove li wrappers)
 			$pattern_post_template = '/<!-- wp:post-template {"layout":{"type":"default"}} -->\s*<!-- wp:group {"style":{"spacing":{"blockGap":"33px"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"left","alignItems":"center"}} -->\s*<div class="wp-block-group is-layout-flex is-vertical is-content-justification-left is-align-items-center wp-block-group-is-layout-flex" style="--wp--style--block-gap:33px;max-width:100%">/s';
 			$replacement_post_template = '<!-- wp:post-template -->
-		<li class="wp-block-post">
 			<!-- wp:group {"style":{"spacing":{"blockGap":"33px"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"left","alignItems":"center"}} -->
 			<div class="wp-block-group">';
 			$content = preg_replace( $pattern_post_template, $replacement_post_template, $content );
 
 			$pattern_post_template_close = '/<\/div>\s*<!-- \/wp:group -->\s*<!-- \/wp:post-template -->/s';
-			$replacement_post_template_close = '</div><!-- /wp:group --></li><!-- /wp:post-template -->';
+			$replacement_post_template_close = '</div><!-- /wp:group --><!-- /wp:post-template -->';
 			$content = preg_replace( $pattern_post_template_close, $replacement_post_template_close, $content );
 
-			// D. Fix Ansprechpartner empty image containers in database
-			$content = preg_replace( '/<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"contact-image"} -->\s*<figure class="wp-block-image size-full contact-image"><\/figure>\s*<!-- \/wp:image -->/s', '<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} /-->', $content );
-			$content = preg_replace( '/<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"contact-image"} -->\s*<figure class="wp-block-image size-full contact-image"><img src="" alt="[^"]*"\/>\s*<\/figure>\s*<!-- \/wp:image -->/s', '<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} /-->', $content );
+			// Also clean up any hardcoded <li> wrappers inside wp:post-template blocks if they were already written
+			$content = preg_replace(
+				'/<!-- wp:post-template -->\s*<li[^>]*>\s*(<!-- wp:group)/s',
+				'<!-- wp:post-template -->$1',
+				$content
+			);
+			$content = preg_replace(
+				'/(<\/div>\s*<!-- \/wp:group -->)\s*<\/li>\s*<!-- \/wp:post-template -->/s',
+				'$1<!-- /wp:post-template -->',
+				$content
+			);
 
-			// E. Fix Links empty image containers in database
-			$content = preg_replace( '/<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"custom"} -->\s*<figure class="wp-block-image aligncenter size-full"><a href="#"><img src="" alt="[^"]*"\/>\s*<\/a><\/figure>\s*<!-- \/wp:image -->/s', '<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"custom"} /-->', $content );
-			$content = preg_replace( '/<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"custom"} -->\s*<figure class="wp-block-image aligncenter size-full"><\/figure>\s*<!-- \/wp:image -->/s', '<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"custom"} /-->', $content );
+			// D. Expand empty or invalid image blocks to valid Gutenberg markup
+			$content = preg_replace_callback(
+				'/<!-- wp:image (\{[^\}]+\}) -->(\s*<figure[^>]*>(?:(?!<img).)*?<\/figure>)\s*<!-- \/wp:image -->/s',
+				function( $matches ) {
+					$attrs = json_decode( $matches[1], true );
+					if ( is_array( $attrs ) ) {
+						$align = isset( $attrs['align'] ) ? $attrs['align'] : '';
+						$size = isset( $attrs['sizeSlug'] ) ? $attrs['sizeSlug'] : 'full';
+						$dest = isset( $attrs['linkDestination'] ) ? $attrs['linkDestination'] : 'none';
+						$classes = 'wp-block-image';
+						if ( $align ) {
+							$classes .= ' align' . $align;
+						}
+						if ( $size ) {
+							$classes .= ' size-' . $size;
+						}
+						$style_attr = '';
+						$img_style_attr = '';
+						if ( isset( $attrs['style'] ) ) {
+							$styles = $attrs['style'];
+							$style_parts = [];
+							if ( isset( $styles['spacing']['margin']['bottom'] ) ) {
+								$style_parts[] = 'margin-bottom:' . $styles['spacing']['margin']['bottom'];
+							}
+							if ( $style_parts ) {
+								$style_attr = ' style="' . esc_attr( implode( ';', $style_parts ) ) . '"';
+							}
+							$img_style_parts = [];
+							if ( isset( $styles['border']['radius'] ) ) {
+								$img_style_parts[] = 'border-radius:' . $styles['border']['radius'];
+								$classes .= ' has-custom-border';
+							}
+							if ( $img_style_parts ) {
+								$img_style_attr = ' style="' . esc_attr( implode( ';', $img_style_parts ) ) . '"';
+							}
+						}
+						$html = '<figure class="' . esc_attr( $classes ) . '"' . $style_attr . '>';
+						if ( $dest === 'custom' ) {
+							$html .= '<a href="#"><img' . $img_style_attr . ' alt=""/></a>';
+						} else {
+							$html .= '<img' . $img_style_attr . ' alt=""/>';
+						}
+						$html .= '</figure>';
+						return '<!-- wp:image ' . $matches[1] . ' -->' . "\n" . $html . "\n" . '<!-- /wp:image -->';
+					}
+					return $matches[0];
+				},
+				$content
+			);
 
-			// F. Fix Partner empty image containers in database
-			$content = preg_replace( '/<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"none"} -->\s*<figure class="wp-block-image aligncenter size-full"><img src="" alt="[^"]*"\/>\s*<\/figure>\s*<!-- \/wp:image -->/s', '<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"none"} /-->', $content );
-			$content = preg_replace( '/<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"none"} -->\s*<figure class="wp-block-image aligncenter size-full"><\/figure>\s*<!-- \/wp:image -->/s', '<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"none"} /-->', $content );
+			$content = preg_replace_callback(
+				'/<!-- wp:image (\{[^\}]+\}) (?:\/-->|-->\s*<!-- \/wp:image -->)/s',
+				function( $matches ) {
+					$attrs = json_decode( $matches[1], true );
+					if ( is_array( $attrs ) ) {
+						$align = isset( $attrs['align'] ) ? $attrs['align'] : '';
+						$size = isset( $attrs['sizeSlug'] ) ? $attrs['sizeSlug'] : 'full';
+						$dest = isset( $attrs['linkDestination'] ) ? $attrs['linkDestination'] : 'none';
+						$classes = 'wp-block-image';
+						if ( $align ) {
+							$classes .= ' align' . $align;
+						}
+						if ( $size ) {
+							$classes .= ' size-' . $size;
+						}
+						$style_attr = '';
+						$img_style_attr = '';
+						if ( isset( $attrs['style'] ) ) {
+							$styles = $attrs['style'];
+							$style_parts = [];
+							if ( isset( $styles['spacing']['margin']['bottom'] ) ) {
+								$style_parts[] = 'margin-bottom:' . $styles['spacing']['margin']['bottom'];
+							}
+							if ( $style_parts ) {
+								$style_attr = ' style="' . esc_attr( implode( ';', $style_parts ) ) . '"';
+							}
+							$img_style_parts = [];
+							if ( isset( $styles['border']['radius'] ) ) {
+								$img_style_parts[] = 'border-radius:' . $styles['border']['radius'];
+								$classes .= ' has-custom-border';
+							}
+							if ( $img_style_parts ) {
+								$img_style_attr = ' style="' . esc_attr( implode( ';', $img_style_parts ) ) . '"';
+							}
+						}
+						$html = '<figure class="' . esc_attr( $classes ) . '"' . $style_attr . '>';
+						if ( $dest === 'custom' ) {
+							$html .= '<a href="#"><img' . $img_style_attr . ' alt=""/></a>';
+						} else {
+							$html .= '<img' . $img_style_attr . ' alt=""/>';
+						}
+						$html .= '</figure>';
+						return '<!-- wp:image ' . $matches[1] . ' -->' . "\n" . $html . "\n" . '<!-- /wp:image -->';
+					}
+					return $matches[0];
+				},
+				$content
+			);
 
-			// G. Fix Förderverein empty image containers in database
-			$content = preg_replace( '/<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->\s*<figure class="wp-block-image size-full"><img src="" alt="[^"]*"\/>\s*<\/figure>\s*<!-- \/wp:image -->/s', '<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} /-->', $content );
-			$content = preg_replace( '/<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->\s*<figure class="wp-block-image size-full"><\/figure>\s*<!-- \/wp:image -->/s', '<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} /-->', $content );
+			// Standardise empty image blocks that lack leading/trailing newlines
+			$content = preg_replace_callback(
+				'/<!-- wp:image (\{[^\}]+\}) -->(\s*<figure[^>]*>(?:<a href="#"><img[^>]*\/><\/a>|<img[^>]*\/>)<\/figure>\s*)<!-- \/wp:image -->/s',
+				function( $matches ) {
+					// Check if it is empty (no src tag)
+					if ( strpos( $matches[2], 'src="' ) === false ) {
+						// Check if it's already properly formatted with newlines on both sides
+						if ( substr( $matches[2], 0, 1 ) === "\n" && substr( $matches[2], -1 ) === "\n" ) {
+							return $matches[0];
+						}
+						$attrs = json_decode( $matches[1], true );
+						if ( is_array( $attrs ) ) {
+							$align = isset( $attrs['align'] ) ? $attrs['align'] : '';
+							$size = isset( $attrs['sizeSlug'] ) ? $attrs['sizeSlug'] : 'full';
+							$dest = isset( $attrs['linkDestination'] ) ? $attrs['linkDestination'] : 'none';
+							$classes = 'wp-block-image';
+							if ( $align ) {
+								$classes .= ' align' . $align;
+							}
+							if ( $size ) {
+								$classes .= ' size-' . $size;
+							}
+							$style_attr = '';
+							$img_style_attr = '';
+							if ( isset( $attrs['style'] ) ) {
+								$styles = $attrs['style'];
+								$style_parts = [];
+								if ( isset( $styles['spacing']['margin']['bottom'] ) ) {
+									$style_parts[] = 'margin-bottom:' . $styles['spacing']['margin']['bottom'];
+								}
+								if ( $style_parts ) {
+									$style_attr = ' style="' . esc_attr( implode( ';', $style_parts ) ) . '"';
+								}
+								$img_style_parts = [];
+								if ( isset( $styles['border']['radius'] ) ) {
+									$img_style_parts[] = 'border-radius:' . $styles['border']['radius'];
+									$classes .= ' has-custom-border';
+								}
+								if ( $img_style_parts ) {
+									$img_style_attr = ' style="' . esc_attr( implode( ';', $img_style_parts ) ) . '"';
+								}
+							}
+							$html = '<figure class="' . esc_attr( $classes ) . '"' . $style_attr . '>';
+							if ( $dest === 'custom' ) {
+								$html .= '<a href="#"><img' . $img_style_attr . ' alt=""/></a>';
+							} else {
+								$html .= '<img' . $img_style_attr . ' alt=""/>';
+							}
+							$html .= '</figure>';
+							return '<!-- wp:image ' . $matches[1] . ' -->' . "\n" . $html . "\n" . '<!-- /wp:image -->';
+						}
+					}
+					return $matches[0];
+				},
+				$content
+			);
+
+			// E. Fix nested paragraph tags
+			$content = preg_replace_callback(
+				'/<p([^>]*)>\s*<p[^>]*>(.*?)<\/p>\s*<\/p>/s',
+				function( $matches ) {
+					return '<p' . $matches[1] . '>' . $matches[2] . '</p>';
+				},
+				$content
+			);
+
+			// F. Fix Hero and Links heading / button validation errors in the database
+			$content = str_replace(
+				'<h1 class="wp-block-heading" style="color:#000000;font-family:\'Neucha\',cursive;font-size:clamp(40px, 5.5vw, 86px);line-height:1.1;letter-spacing:0.05em;margin-bottom:40px;word-break:keep-all;">WILLKOMMEN IN<br>DER GRUNDSCHULE<br>IM ELIASHOF!</h1>',
+				'<h1 class="wp-block-heading has-text-color" style="color:#000000;margin-bottom:40px;font-family:\'Neucha\', cursive;font-size:clamp(40px, 5.5vw, 86px);letter-spacing:0.05em;line-height:1.1">WILLKOMMEN IN<br>DER GRUNDSCHULE<br>IM ELIASHOF!</h1>',
+				$content
+			);
+
+			$content = str_replace(
+				'<div class="wp-block-button"><a class="wp-block-button__link has-background wp-element-button" href="#" style="background-color:#f8ac41;color:#000000;border-color:#000000;border-width:0.7px;border-radius:40px;font-family:\'Neucha\',cursive;font-size:25px;letter-spacing:0.05em;padding-top:8px;padding-right:55px;padding-bottom:8px;padding-left:55px">MEHR ERFAHREN</a></div>',
+				'<div class="wp-block-button"><a class="wp-block-button__link has-text-color has-background has-border-color has-custom-font-size wp-element-button" href="#" style="border-color:#000000;border-width:0.7px;border-radius:40px;color:#000000;background-color:#f8ac41;padding-top:8px;padding-right:55px;padding-bottom:8px;padding-left:55px;font-family:\'Neucha\', cursive;font-size:25px;letter-spacing:0.05em">MEHR ERFAHREN</a></div>',
+				$content
+			);
+
+			$content = str_replace(
+				'<h2 class="wp-block-heading has-text-align-center" style="color:#241f21;font-family:\'Neucha\',cursive;font-size:50px;letter-spacing:2.5px;line-height:1.2;margin-bottom:34px">LINKS</h2>',
+				'<h2 class="wp-block-heading has-text-align-center has-text-color" style="color:#241f21;margin-bottom:34px;font-family:\'Neucha\', cursive;font-size:50px;letter-spacing:2.5px;line-height:1.2">LINKS</h2>',
+				$content
+			);
 
 			if ( $content !== $original_content ) {
 				wp_update_post( [

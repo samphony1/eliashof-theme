@@ -17,8 +17,6 @@
 	<div class="wp-block-query eliashof-aktuelles-carousel">
 
 		<!-- wp:post-template -->
-		<li class="wp-block-post">
-
 			<!-- wp:group {"style":{"spacing":{"blockGap":"33px"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"left","alignItems":"center"}} -->
 			<div class="wp-block-group">
 
@@ -30,8 +28,6 @@
 
 			</div>
 			<!-- /wp:group -->
-
-		</li>
 		<!-- /wp:post-template -->
 
 		<!-- wp:query-no-results -->

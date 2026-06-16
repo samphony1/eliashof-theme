@@ -18,19 +18,25 @@
 
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
-			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"custom"} /-->
+			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"custom"} -->
+			<figure class="wp-block-image aligncenter size-full"><a href="#"><img alt=""/></a></figure>
+			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->
 
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
-			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"custom"} /-->
+			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"custom"} -->
+			<figure class="wp-block-image aligncenter size-full"><a href="#"><img alt=""/></a></figure>
+			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->
 
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
-			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"custom"} /-->
+			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"custom"} -->
+			<figure class="wp-block-image aligncenter size-full"><a href="#"><img alt=""/></a></figure>
+			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->
 

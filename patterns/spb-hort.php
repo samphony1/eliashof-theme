@@ -18,7 +18,9 @@
 
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
-			<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} /-->
+			<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
+			<figure class="wp-block-image size-full"><img alt=""/></figure>
+			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->
 
