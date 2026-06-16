@@ -8,9 +8,15 @@ if ( ! function_exists( 'eliashof_support' ) ) :
 		add_theme_support( 'wp-block-styles' );
 		add_editor_style( 'style.css' );
 		add_post_type_support( 'post', 'page-attributes' );
+
+		// Disable core block patterns
+		remove_theme_support( 'core-block-patterns' );
 	}
 endif;
 add_action( 'after_setup_theme', 'eliashof_support' );
+
+// Disable remote block patterns from wordpress.org directory
+add_filter( 'should_load_remote_block_patterns', '__return_false' );
 
 /**
  * Enqueue Google Fonts (Neucha + Montserrat) and theme stylesheet.
@@ -51,5 +57,23 @@ function eliashof_register_pattern_categories() {
 		'eliashof-sections',
 		[ 'label' => __( 'Eliashof Sections', 'eliashof' ) ]
 	);
+
+	// Unregister default core pattern categories to prevent editor confusion
+	if ( function_exists( 'unregister_block_pattern_category' ) ) {
+		$default_categories = [
+			'buttons',
+			'columns',
+			'gallery',
+			'header',
+			'text',
+			'uncategorized',
+			'posts',
+			'footer',
+			'query'
+		];
+		foreach ( $default_categories as $category ) {
+			unregister_block_pattern_category( $category );
+		}
+	}
 }
-add_action( 'init', 'eliashof_register_pattern_categories' );
+add_action( 'init', 'eliashof_register_pattern_categories', 11 );
