@@ -80,8 +80,8 @@ add_action( 'init', 'eliashof_register_pattern_categories', 11 );
 
 add_action( 'init', function() {
 	// 1. Delete pattern cache to force WordPress to load the latest templates
-	if ( class_exists( 'WP_Theme' ) ) {
-		WP_Theme::delete_pattern_cache();
+	if ( function_exists( 'wp_get_theme' ) ) {
+		wp_get_theme()->delete_pattern_cache();
 	}
 
 	// 2. Automatically clean up homepage database content in-place
