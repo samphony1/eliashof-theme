@@ -19,7 +19,7 @@
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
 			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"none"} -->
-			<figure class="wp-block-image aligncenter size-full"><img src="" alt="Partner Logo 1"/></figure>
+			<figure class="wp-block-image aligncenter size-full"></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->
@@ -27,7 +27,7 @@
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
 			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"none"} -->
-			<figure class="wp-block-image aligncenter size-full"><img src="" alt="Partner Logo 2"/></figure>
+			<figure class="wp-block-image aligncenter size-full"></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->
@@ -35,7 +35,7 @@
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
 			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"none"} -->
-			<figure class="wp-block-image aligncenter size-full"><img src="" alt="Partner Logo 3"/></figure>
+			<figure class="wp-block-image aligncenter size-full"></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->

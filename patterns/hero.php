@@ -9,7 +9,7 @@
 <!-- wp:group {"align":"full","templateLock":"contentOnly","className":"eliashof-section bg-graph-yellow eliashof-hero-wrap","style":{"spacing":{"padding":{"top":"210px","bottom":"80px","left":"clamp(24px,6vw,100px)","right":"clamp(24px,6vw,100px)"}}},"layout":{"type":"constrained","wideSize":"1400px","contentSize":"1200px"}} -->
 <div class="wp-block-group alignfull eliashof-section bg-graph-yellow eliashof-hero-wrap" style="padding-top:210px;padding-bottom:80px;padding-left:clamp(24px,6vw,100px);padding-right:clamp(24px,6vw,100px)">
 
-	<!-- wp:image {"className":"eliashof-hero-drawing","sizeSlug":"full","linkDestination":"none"} -->
+	<!-- wp:image {"className":"eliashof-hero-drawing","sizeSlug":"full","linkDestination":"none","url":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration01.svg"} -->
 	<figure class="wp-block-image size-full eliashof-hero-drawing"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration01.svg" alt="Illustration von Schulkindern und Lehrern"/></figure>
 	<!-- /wp:image -->
 
@@ -28,7 +28,7 @@
 		<div class="wp-block-column is-vertically-aligned-top eliashof-hero-right-col" style="flex-basis:50%">
 
 			<!-- wp:image {"sizeSlug":"large","linkDestination":"none","style":{"border":{"radius":"40px"},"spacing":{"margin":{"bottom":"40px"}}}} -->
-			<figure class="wp-block-image size-large has-custom-border" style="border-radius:40px;margin-bottom:40px"><img src="" alt="Schulhof mit Kindern"/></figure>
+			<figure class="wp-block-image size-large has-custom-border" style="border-radius:40px;margin-bottom:40px"></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:group {"className":"eliashof-hero-right-bottom","layout":{"type":"constrained"}} -->

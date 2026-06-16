@@ -14,7 +14,7 @@
 
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
-			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"custom"} -->
+			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"custom","url":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/link-element-se-schule.svg","href":"#"} -->
 			<figure class="wp-block-image aligncenter size-full"><a href="#"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/link-element-se-schule.svg" alt="Unsere Schule"/></a></figure>
 			<!-- /wp:image -->
 		</div>
@@ -22,7 +22,7 @@
 
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
-			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"custom"} -->
+			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"custom","url":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/link-element-se-hort.svg","href":"#"} -->
 			<figure class="wp-block-image aligncenter size-full"><a href="#"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/link-element-se-hort.svg" alt="Unser Hort"/></a></figure>
 			<!-- /wp:image -->
 		</div>
@@ -30,7 +30,7 @@
 
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
-			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"custom"} -->
+			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"custom","url":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/link-element-se-eltern.svg","href":"#"} -->
 			<figure class="wp-block-image aligncenter size-full"><a href="#"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/link-element-se-eltern.svg" alt="Unsere Eltern"/></a></figure>
 			<!-- /wp:image -->
 		</div>

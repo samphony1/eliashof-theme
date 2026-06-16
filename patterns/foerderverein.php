@@ -15,7 +15,7 @@
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
 			<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
-			<figure class="wp-block-image size-full"><img src="" alt="Förderverein"/></figure>
+			<figure class="wp-block-image size-full"></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->

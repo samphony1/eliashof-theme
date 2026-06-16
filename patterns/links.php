@@ -19,7 +19,7 @@
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
 			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"custom"} -->
-			<figure class="wp-block-image aligncenter size-full"><a href="#"><img src="" alt="IServ"/></a></figure>
+			<figure class="wp-block-image aligncenter size-full"></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->
@@ -27,7 +27,7 @@
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
 			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"custom"} -->
-			<figure class="wp-block-image aligncenter size-full"><a href="#"><img src="" alt="Hort Pro"/></a></figure>
+			<figure class="wp-block-image aligncenter size-full"></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->
@@ -35,7 +35,7 @@
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
 			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"custom"} -->
-			<figure class="wp-block-image aligncenter size-full"><a href="#"><img src="" alt="Sunshine Catering"/></a></figure>
+			<figure class="wp-block-image aligncenter size-full"></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->

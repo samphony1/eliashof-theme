@@ -6,7 +6,7 @@
  * Description: Four organic portrait cards with name and role. White background. Layout locked.
  */
 ?>
-<!-- wp:group {"align":"full","templateLock":"contentOnly","className":"eliashof-section section-ansprechpartner bg-graph-white","layout":{"type":"constrained"}} -->
+<!-- wp:group {"align":"full","className":"eliashof-section section-ansprechpartner bg-graph-white","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull eliashof-section section-ansprechpartner bg-graph-white">
 
 	<!-- wp:heading {"level":2,"textAlign":"center"} -->
@@ -19,10 +19,10 @@
 		<!-- ── Sekretariat ── -->
 		<!-- wp:column -->
 		<div class="wp-block-column">
-			<!-- wp:group {"className":"eliashof-contact-card card-sekretariat","layout":{"type":"constrained"}} -->
+			<!-- wp:group {"templateLock":"contentOnly","className":"eliashof-contact-card card-sekretariat","layout":{"type":"constrained"}} -->
 			<div class="wp-block-group eliashof-contact-card card-sekretariat">
 				<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"contact-image"} -->
-				<figure class="wp-block-image size-full contact-image"><img src="" alt="Frau Neumann"/></figure>
+				<figure class="wp-block-image size-full contact-image"></figure>
 				<!-- /wp:image -->
 				<!-- wp:heading {"level":4,"textAlign":"center"} -->
 				<h4 class="wp-block-heading has-text-align-center">FRAU NEUMANN</h4>
@@ -38,10 +38,10 @@
 		<!-- ── Schuldirektor ── -->
 		<!-- wp:column -->
 		<div class="wp-block-column">
-			<!-- wp:group {"className":"eliashof-contact-card card-schulleitung","layout":{"type":"constrained"}} -->
+			<!-- wp:group {"templateLock":"contentOnly","className":"eliashof-contact-card card-schulleitung","layout":{"type":"constrained"}} -->
 			<div class="wp-block-group eliashof-contact-card card-schulleitung">
 				<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"contact-image"} -->
-				<figure class="wp-block-image size-full contact-image"><img src="" alt="Armin Geißler"/></figure>
+				<figure class="wp-block-image size-full contact-image"></figure>
 				<!-- /wp:image -->
 				<!-- wp:heading {"level":4,"textAlign":"center"} -->
 				<h4 class="wp-block-heading has-text-align-center">ARMIN GEISSLER</h4>
@@ -57,10 +57,10 @@
 		<!-- ── Leitung Hort/SPB ── -->
 		<!-- wp:column -->
 		<div class="wp-block-column">
-			<!-- wp:group {"className":"eliashof-contact-card card-hortleitung","layout":{"type":"constrained"}} -->
+			<!-- wp:group {"templateLock":"contentOnly","className":"eliashof-contact-card card-hortleitung","layout":{"type":"constrained"}} -->
 			<div class="wp-block-group eliashof-contact-card card-hortleitung">
 				<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"contact-image"} -->
-				<figure class="wp-block-image size-full contact-image"><img src="" alt="Herr Segeth"/></figure>
+				<figure class="wp-block-image size-full contact-image"></figure>
 				<!-- /wp:image -->
 				<!-- wp:heading {"level":4,"textAlign":"center"} -->
 				<h4 class="wp-block-heading has-text-align-center">HERR SEGETH</h4>
@@ -76,10 +76,10 @@
 		<!-- ── Schulhund ── -->
 		<!-- wp:column -->
 		<div class="wp-block-column">
-			<!-- wp:group {"className":"eliashof-contact-card card-schulhund","layout":{"type":"constrained"}} -->
+			<!-- wp:group {"templateLock":"contentOnly","className":"eliashof-contact-card card-schulhund","layout":{"type":"constrained"}} -->
 			<div class="wp-block-group eliashof-contact-card card-schulhund">
 				<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"contact-image"} -->
-				<figure class="wp-block-image size-full contact-image"><img src="" alt="Maja"/></figure>
+				<figure class="wp-block-image size-full contact-image"></figure>
 				<!-- /wp:image -->
 				<!-- wp:heading {"level":4,"textAlign":"center"} -->
 				<h4 class="wp-block-heading has-text-align-center">MAJA</h4>
