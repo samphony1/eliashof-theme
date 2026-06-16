@@ -27,9 +27,7 @@
 		<!-- wp:column {"verticalAlignment":"top","width":"50%","className":"eliashof-hero-right-col"} -->
 		<div class="wp-block-column is-vertically-aligned-top eliashof-hero-right-col" style="flex-basis:50%">
 
-			<!-- wp:image {"sizeSlug":"large","linkDestination":"none","style":{"border":{"radius":"40px"},"spacing":{"margin":{"bottom":"40px"}}}} -->
-			<figure class="wp-block-image size-large has-custom-border" style="border-radius:40px;margin-bottom:40px"></figure>
-			<!-- /wp:image -->
+			<!-- wp:image {"sizeSlug":"large","linkDestination":"none","style":{"border":{"radius":"40px"},"spacing":{"margin":{"bottom":"40px"}}}} /-->
 
 			<!-- wp:group {"className":"eliashof-hero-right-bottom","layout":{"type":"constrained"}} -->
 			<div class="wp-block-group eliashof-hero-right-bottom">

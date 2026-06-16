@@ -18,25 +18,19 @@
 
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
-			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"none"} -->
-			<figure class="wp-block-image aligncenter size-full"></figure>
-			<!-- /wp:image -->
+			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"none"} /-->
 		</div>
 		<!-- /wp:column -->
 
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
-			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"none"} -->
-			<figure class="wp-block-image aligncenter size-full"></figure>
-			<!-- /wp:image -->
+			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"none"} /-->
 		</div>
 		<!-- /wp:column -->
 
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
-			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"none"} -->
-			<figure class="wp-block-image aligncenter size-full"></figure>
-			<!-- /wp:image -->
+			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"none"} /-->
 		</div>
 		<!-- /wp:column -->
 

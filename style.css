@@ -1346,14 +1346,14 @@ main.wp-block-group {
 }
 
 /* Image Wrappers and Styling */
-.contact-image {
+.eliashof-contact-card .wp-block-image {
 	width: 100% !important;
 	height: auto !important;
 	margin: 0 auto !important;
 	display: block !important;
 }
 
-.contact-image img {
+.eliashof-contact-card .wp-block-image img {
 	width: 100% !important;
 	height: auto !important;
 	display: block !important;
@@ -1361,16 +1361,16 @@ main.wp-block-group {
 }
 
 /* Individual Aspect Ratios matching Figma dimensions */
-.card-sekretariat .contact-image {
+.card-sekretariat .wp-block-image {
 	aspect-ratio: 348 / 331 !important;
 }
-.card-schulleitung .contact-image {
+.card-schulleitung .wp-block-image {
 	aspect-ratio: 327 / 313 !important;
 }
-.card-hortleitung .contact-image {
+.card-hortleitung .wp-block-image {
 	aspect-ratio: 328 / 327 !important;
 }
-.card-schulhund .contact-image {
+.card-schulhund .wp-block-image {
 	aspect-ratio: 348 / 331 !important;
 }
 

@@ -16,10 +16,11 @@
 	<!-- wp:query {"queryId":1,"query":{"perPage":8,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"className":"eliashof-aktuelles-carousel","layout":{"type":"default"}} -->
 	<div class="wp-block-query eliashof-aktuelles-carousel">
 
-		<!-- wp:post-template {"templateLock":"all","layout":{"type":"default"}} -->
+		<!-- wp:post-template -->
+		<li class="wp-block-post">
 
 			<!-- wp:group {"style":{"spacing":{"blockGap":"33px"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"left","alignItems":"center"}} -->
-			<div class="wp-block-group is-layout-flex is-vertical is-content-justification-left is-align-items-center wp-block-group-is-layout-flex" style="--wp--style--block-gap:33px;max-width:100%">
+			<div class="wp-block-group">
 
 				<!-- wp:post-title {"level":3,"textAlign":"center","isLink":false,"className":"eliashof-card-title","style":{"typography":{"fontFamily":"'Neucha', cursive","fontSize":"36px","letterSpacing":"0.05em","lineHeight":"1.1","textTransform":"uppercase"},"color":{"text":"#000000"},"spacing":{"margin":{"top":"0","bottom":"0"}}}} /-->
 
@@ -30,6 +31,7 @@
 			</div>
 			<!-- /wp:group -->
 
+		</li>
 		<!-- /wp:post-template -->
 
 		<!-- wp:query-no-results -->
