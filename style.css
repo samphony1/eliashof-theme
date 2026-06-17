@@ -619,24 +619,32 @@ body {
 }
 
 .burger-menu-nav {
-	display: flex;
-	flex-direction: column;
-	gap: 38px;
-	align-items: center;
+	display: flex !important;
+	flex-direction: column !important;
+	gap: 38px !important;
+	align-items: center !important;
 }
 
+.burger-menu-nav p {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.burger-menu-nav a,
 .burger-menu-nav .navlink {
-	color: #000000;
-	text-decoration: none;
-	font-family: 'Neucha', cursive;
-	font-size: 50px;
-	line-height: 53px;
-	letter-spacing: 0.05em;
-	transition: opacity 0.2s ease;
+	color: #000000 !important;
+	text-decoration: none !important;
+	font-family: 'Neucha', cursive !important;
+	font-size: 50px !important;
+	line-height: 53px !important;
+	letter-spacing: 0.05em !important;
+	transition: opacity 0.2s ease !important;
+	display: inline-block !important;
 }
 
+.burger-menu-nav a:hover,
 .burger-menu-nav .navlink:hover {
-	opacity: 0.7;
+	opacity: 0.7 !important;
 }
 
 /* ═══════════════════════════════════════════════════════════════════
