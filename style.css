@@ -362,6 +362,37 @@ body {
 		font-size: 20px !important;
 		padding: 12px 32px !important;
 	}
+
+	/* Header and Logo Scaling on Mobile */
+	.eliashof-header {
+		top: 24px !important;
+		padding: 0 24px !important;
+	}
+
+	.logo-eliashof {
+		width: 75px !important;
+		height: 66.35px !important;
+	}
+
+	.burger-toggle {
+		transform: scale(0.65) !important;
+		transform-origin: right center !important;
+	}
+
+	.burger-menu-overlay {
+		justify-content: flex-start !important;
+		padding-top: 120px !important;
+	}
+
+	.burger-menu-nav {
+		gap: 24px !important;
+	}
+
+	.burger-menu-nav a,
+	.burger-menu-nav .navlink {
+		font-size: 34px !important;
+		line-height: 38px !important;
+	}
 }
 
 
