@@ -1408,3 +1408,380 @@ main.wp-block-group {
 		max-width: 328px !important;
 	}
 }
+
+/* ==========================================================================
+   Eliashof Responsive Footer Style Definitions
+   ========================================================================== */
+
+/* Main Footer Wrapper */
+.eliashof-footer {
+	background-color: #eec68e !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	width: 100% !important;
+	box-sizing: border-box !important;
+}
+
+/* Footer Main Area (Orange/Peach Background) */
+.eliashof-footer-main {
+	background-color: #eec68e !important;
+	width: 100% !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+}
+
+/* Container for desktop dual-column layout */
+.eliashof-footer-container {
+	display: flex !important;
+	flex-direction: row !important;
+	justify-content: space-between !important;
+	align-items: flex-end !important;
+	width: 100% !important;
+	max-width: 100% !important;
+	margin: 0 !important;
+	padding-left: 0 !important;
+	padding-right: max(40px, calc((100vw - 1280px) / 2 + 40px)) !important;
+	box-sizing: border-box !important;
+	position: relative !important;
+}
+
+/* Left Column: Illustration */
+.eliashof-footer-illustration {
+	flex: 0 1 48% !important;
+	margin: 0 0 -5px 0 !important;
+	padding: 0 !important;
+	line-height: 0 !important;
+	align-self: flex-end !important;
+	max-width: 850px !important;
+}
+
+.eliashof-footer-illustration img {
+	width: 100% !important;
+	height: auto !important;
+	display: block !important;
+	object-fit: contain !important;
+	object-position: bottom left !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+/* Right Column: Logo and Details */
+.eliashof-footer-content {
+	flex: 0 1 auto !important;
+	max-width: 606px !important;
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: flex-start !important;
+	gap: 25px !important;
+	padding: 60px 0 40px 0 !important;
+	box-sizing: border-box !important;
+	text-align: left !important;
+}
+
+/* Logo Block */
+.eliashof-footer-logo-img {
+	width: 296px !important;
+	height: 61px !important;
+	margin: 0 0 10px 0 !important;
+	display: block !important;
+}
+
+.eliashof-footer-logo-img img {
+	width: 100% !important;
+	height: auto !important;
+	display: block !important;
+	object-fit: contain !important;
+}
+
+/* Address Block */
+.eliashof-footer-address {
+	font-family: 'Montserrat', sans-serif !important;
+	font-size: 24px !important;
+	line-height: 29px !important;
+	font-weight: 300 !important; /* Light */
+	color: #000000 !important;
+	margin: 0 !important;
+}
+
+/* Office Hours & Contact Details */
+.eliashof-footer-sprechzeiten {
+	font-family: 'Montserrat', sans-serif !important;
+	font-size: 24px !important;
+	font-weight: 300 !important; /* Light */
+	color: #000000 !important;
+	margin: 0 !important;
+}
+
+.eliashof-footer-sprechzeiten p {
+	margin: 0 !important;
+	padding: 0 !important;
+	font-family: inherit !important;
+	font-size: inherit !important;
+	font-weight: inherit !important;
+	color: inherit !important;
+}
+
+.desktop-only-br {
+	display: none !important;
+}
+
+.eliashof-footer-sprechzeiten .sprechzeiten-title {
+	font-family: 'Montserrat', sans-serif !important;
+	font-weight: 600 !important; /* Semi-bold */
+	display: block !important;
+	margin-bottom: 4px !important;
+	line-height: 40px !important;
+}
+
+.eliashof-footer-sprechzeiten .sprechzeiten-hours {
+	display: block !important;
+	line-height: 30px !important;
+	margin-bottom: 6px !important;
+}
+
+.eliashof-footer-sprechzeiten .sprechzeiten-tel {
+	display: inline !important;
+	line-height: 40.01px !important;
+}
+
+.eliashof-footer-sprechzeiten .sprechzeiten-separator {
+	display: inline !important;
+	line-height: 40.01px !important;
+}
+
+.eliashof-footer-sprechzeiten .sprechzeiten-fax {
+	display: inline !important;
+	line-height: 40.01px !important;
+}
+
+.sprechzeiten-email-container {
+	display: block !important;
+	margin: 0 !important;
+}
+
+.eliashof-footer-sprechzeiten .sprechzeiten-email {
+	display: inline-block !important;
+	line-height: 40.01px !important;
+}
+
+.eliashof-footer-sprechzeiten a {
+	color: #000000 !important;
+	text-decoration: underline !important;
+}
+
+.eliashof-footer-sprechzeiten a:hover {
+	opacity: 0.7 !important;
+}
+
+/* Social Pedagogical Area */
+.eliashof-footer-spb {
+	font-family: 'Montserrat', sans-serif !important;
+	font-size: 24px !important;
+	font-weight: 300 !important; /* Light */
+	color: #000000 !important;
+	margin: 0 !important;
+}
+
+.eliashof-footer-spb p {
+	margin: 0 !important;
+	padding: 0 !important;
+	font-family: inherit !important;
+	font-size: inherit !important;
+	font-weight: inherit !important;
+	color: inherit !important;
+}
+
+.eliashof-footer-spb .spb-title {
+	font-family: 'Montserrat', sans-serif !important;
+	font-weight: 600 !important; /* Semi-bold */
+	line-height: 40px !important;
+	display: block !important;
+}
+
+.eliashof-footer-spb .spb-tel {
+	line-height: 29px !important;
+	display: block !important;
+}
+
+.eliashof-footer-spb .spb-email-container {
+	display: block !important;
+	margin: 0 !important;
+}
+
+.eliashof-footer-spb .spb-email {
+	display: inline-block !important;
+	line-height: 40.01px !important;
+	color: #000000 !important;
+	text-decoration: underline !important;
+}
+
+.eliashof-footer-spb a:hover {
+	opacity: 0.7 !important;
+}
+
+/* Copyright Bar (Dark background) */
+.eliashof-footer-copyright {
+	background-color: #241f21 !important;
+	width: 100% !important;
+	margin: 0 !important;
+	padding: 50px 0 !important;
+	box-sizing: border-box !important;
+}
+
+.eliashof-footer-copyright-container {
+	width: 100% !important;
+	max-width: 100% !important;
+	margin: 0 !important;
+	padding-left: 40px !important;
+	padding-right: max(40px, calc((100vw - 1280px) / 2 + 40px)) !important;
+	display: flex !important;
+	justify-content: flex-end !important;
+	box-sizing: border-box !important;
+}
+
+.eliashof-footer-copyright .copyright-text {
+	color: #eae7dd !important;
+	font-family: 'Montserrat', sans-serif !important;
+	font-weight: 300 !important; /* Light */
+	font-size: 22px !important;
+	line-height: 1.2 !important;
+	margin: 0 !important;
+	text-align: right !important;
+}
+
+/* Responsive Styles */
+@media (max-width: 1199px) {
+	.eliashof-footer-container {
+		padding: 0 30px !important;
+	}
+	
+	.eliashof-footer-logo .logo-text-bottom {
+		font-size: 28px !important;
+	}
+	
+	.eliashof-footer-address,
+	.eliashof-footer-sprechzeiten,
+	.eliashof-footer-spb {
+		font-size: 20px !important;
+	}
+	
+	.eliashof-footer-copyright .copyright-text {
+		font-size: 18px !important;
+	}
+}
+
+@media (max-width: 991px) {
+	.eliashof-footer-container {
+		flex-direction: column-reverse !important;
+		align-items: center !important;
+		padding: 40px 24px 0 24px !important;
+		gap: 40px !important;
+	}
+	
+	.eliashof-footer-illustration {
+		flex: 1 1 auto !important;
+		width: 100% !important;
+		max-width: 600px !important;
+	}
+	
+	.eliashof-footer-content {
+		flex: 1 1 auto !important;
+		width: 100% !important;
+		align-items: center !important;
+		text-align: center !important;
+		padding: 0 !important;
+	}
+	
+	.eliashof-footer-logo-img {
+		margin: 0 auto 10px auto !important;
+	}
+	
+	.eliashof-footer-address,
+	.eliashof-footer-sprechzeiten,
+	.eliashof-footer-spb {
+		text-align: center !important;
+		width: 100% !important;
+		font-size: 18px !important;
+	}
+	
+	.eliashof-footer-copyright {
+		padding: 30px 0 !important;
+	}
+	
+	.eliashof-footer-copyright-container {
+		justify-content: center !important;
+		padding: 0 24px !important;
+	}
+	
+	.eliashof-footer-copyright .copyright-text {
+		text-align: center !important;
+		font-size: 16px !important;
+	}
+	
+	.desktop-only-br {
+		display: none !important;
+	}
+	
+	.eliashof-footer-address {
+		line-height: 22px !important;
+	}
+	
+	.eliashof-footer-sprechzeiten .sprechzeiten-title {
+		display: block !important;
+		margin: 0 0 10px 0 !important;
+		line-height: 32px !important;
+	}
+	
+	.eliashof-footer-sprechzeiten .sprechzeiten-hours {
+		display: block !important;
+		margin-bottom: 6px !important;
+		line-height: 22px !important;
+	}
+	
+	.eliashof-footer-sprechzeiten .sprechzeiten-tel {
+		display: block !important;
+		margin-bottom: 6px !important;
+		line-height: 28px !important;
+	}
+	
+	.eliashof-footer-sprechzeiten .sprechzeiten-separator {
+		display: none !important;
+	}
+	
+	.eliashof-footer-sprechzeiten .sprechzeiten-fax {
+		display: block !important;
+		margin-bottom: 6px !important;
+		line-height: 28px !important;
+	}
+	
+	.eliashof-footer-sprechzeiten .sprechzeiten-email {
+		display: block !important;
+		line-height: 28px !important;
+	}
+	
+	.eliashof-footer-spb .spb-title {
+		line-height: 32px !important;
+	}
+	
+	.eliashof-footer-spb .spb-tel {
+		line-height: 22px !important;
+	}
+	
+	.eliashof-footer-spb .spb-email {
+		line-height: 28px !important;
+	}
+}
+
+@media (max-width: 480px) {
+	.eliashof-footer-logo-img {
+		width: 236px !important;
+		height: auto !important;
+	}
+	
+	.eliashof-footer-address,
+	.eliashof-footer-sprechzeiten,
+	.eliashof-footer-spb {
+		font-size: 16px !important;
+	}
+}

@@ -1,76 +1,89 @@
-<!-- wp:group {"align":"full","style":{"color":{"background":"#241f21"},"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-background" style="background-color:#241f21;padding:0">
+<!-- wp:group {"align":"full","className":"eliashof-footer","layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull eliashof-footer">
 
-	<!-- ── Three-column info strip ── -->
-	<!-- wp:group {"style":{"spacing":{"padding":{"top":"60px","bottom":"60px","left":"clamp(24px,6vw,100px)","right":"clamp(24px,6vw,100px)"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group" style="padding-top:60px;padding-bottom:60px;padding-left:clamp(24px,6vw,100px);padding-right:clamp(24px,6vw,100px)">
+	<!-- wp:group {"className":"eliashof-footer-main","layout":{"type":"default"}} -->
+	<div class="wp-block-group eliashof-footer-main">
 
-		<!-- wp:columns {"style":{"spacing":{"blockGap":"48px"}}} -->
-		<div class="wp-block-columns">
+		<!-- wp:group {"className":"eliashof-footer-container","layout":{"type":"default"}} -->
+		<div class="wp-block-group eliashof-footer-container">
 
-			<!-- ── Schule column ── -->
-			<!-- wp:column -->
-			<div class="wp-block-column">
-				<!-- wp:heading {"level":4,"fontFamily":"neucha","style":{"typography":{"fontSize":"26px","letterSpacing":"1px"},"color":{"text":"#f8ac41"},"spacing":{"margin":{"bottom":"20px"}}}} -->
-				<h4 class="wp-block-heading has-neucha-font-family" style="color:#f8ac41;font-family:'Neucha',cursive;font-size:26px;letter-spacing:1px;margin-bottom:20px">Grundschule Eliashof</h4>
-				<!-- /wp:heading -->
-				<!-- wp:paragraph {"fontFamily":"montserrat","style":{"typography":{"fontWeight":"300","fontSize":"16px","lineHeight":"1.8"},"color":{"text":"#eae7dd"}}} -->
-				<p class="has-montserrat-font-family" style="color:#eae7dd;font-family:'Montserrat',sans-serif;font-size:16px;font-weight:300;line-height:1.8">Eliashofstraße 1<br/>70599 Stuttgart</p>
+			<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"eliashof-footer-illustration"} -->
+			<figure class="wp-block-image size-full eliashof-footer-illustration"><img src="/wp-content/themes/eliashof-theme/assets/images/illustration02.svg" alt="Illustration" /></figure>
+			<!-- /wp:image -->
+
+			<!-- wp:group {"className":"eliashof-footer-content","layout":{"type":"default"}} -->
+			<div class="wp-block-group eliashof-footer-content">
+
+				<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"eliashof-footer-logo-img"} -->
+				<figure class="wp-block-image size-full eliashof-footer-logo-img"><img src="/wp-content/themes/eliashof-theme/assets/images/logo-eliashof_text.svg" alt="Logo Eliashof" /></figure>
+				<!-- /wp:image -->
+
+				<!-- wp:paragraph {"className":"eliashof-footer-address"} -->
+				<p class="eliashof-footer-address">Senefelderstraße 6 | 10437 Berlin-Pankow</p>
 				<!-- /wp:paragraph -->
-				<!-- wp:spacer {"height":"16px"} -->
-				<div style="height:16px" aria-hidden="true" class="wp-block-spacer"></div>
-				<!-- /wp:spacer -->
-				<!-- wp:paragraph {"fontFamily":"montserrat","style":{"typography":{"fontWeight":"300","fontSize":"16px","lineHeight":"1.8"},"color":{"text":"#eae7dd"}}} -->
-				<p class="has-montserrat-font-family" style="color:#eae7dd;font-family:'Montserrat',sans-serif;font-size:16px;font-weight:300;line-height:1.8">📞 <a href="tel:+497110000000" style="color:#8cc8d1;text-decoration:none">0711 / 000 000 0</a><br/>✉️ <a href="mailto:info@grundschule-eliashof.de" style="color:#8cc8d1;text-decoration:none">info@grundschule-eliashof.de</a></p>
-				<!-- /wp:paragraph -->
+
+				<!-- wp:group {"className":"eliashof-footer-sprechzeiten","layout":{"type":"default"}} -->
+				<div class="wp-block-group eliashof-footer-sprechzeiten">
+					<!-- wp:paragraph {"className":"sprechzeiten-title"} -->
+					<p class="sprechzeiten-title">Sprechzeiten Büro:</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph {"className":"sprechzeiten-hours"} -->
+					<p class="sprechzeiten-hours">7.45 – 8.15 Uhr &amp; 11.00 – 12.30 Uhr</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph {"className":"sprechzeiten-tel"} -->
+					<p class="sprechzeiten-tel">Tel: 030 / 40 50 48 00</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph {"className":"sprechzeiten-separator"} -->
+					<p class="sprechzeiten-separator"> | </p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph {"className":"sprechzeiten-fax"} -->
+					<p class="sprechzeiten-fax">Fax: 030 / 40 30 18 89</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph {"className":"sprechzeiten-email-container"} -->
+					<p class="sprechzeiten-email-container"><a href="mailto:sekretariat@03g46.schule.berlin.de" class="sprechzeiten-email">sekretariat@03g46.schule.berlin.de</a></p>
+					<!-- /wp:paragraph -->
+				</div>
+				<!-- /wp:group -->
+
+				<!-- wp:group {"className":"eliashof-footer-spb","layout":{"type":"default"}} -->
+				<div class="wp-block-group eliashof-footer-spb">
+					<!-- wp:paragraph {"className":"spb-title"} -->
+					<p class="spb-title">Sozialpädagogischer Bereich:</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph {"className":"spb-tel"} -->
+					<p class="spb-tel">Tel: 030 / 40 30 19 18</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph {"className":"spb-email-container"} -->
+					<p class="spb-email-container"><a href="mailto:eliashof@tjfbg.de" class="spb-email">eliashof@tjfbg.de</a></p>
+					<!-- /wp:paragraph -->
+				</div>
+				<!-- /wp:group -->
+
 			</div>
-			<!-- /wp:column -->
-
-			<!-- ── Navigation column ── -->
-			<!-- wp:column -->
-			<div class="wp-block-column">
-				<!-- wp:heading {"level":4,"fontFamily":"neucha","style":{"typography":{"fontSize":"26px","letterSpacing":"1px"},"color":{"text":"#f8ac41"},"spacing":{"margin":{"bottom":"20px"}}}} -->
-				<h4 class="wp-block-heading has-neucha-font-family" style="color:#f8ac41;font-family:'Neucha',cursive;font-size:26px;letter-spacing:1px;margin-bottom:20px">Navigation</h4>
-				<!-- /wp:heading -->
-				<!-- wp:paragraph {"fontFamily":"montserrat","style":{"typography":{"fontWeight":"300","fontSize":"16px","lineHeight":"2.0"},"color":{"text":"#eae7dd"}}} -->
-				<p class="has-montserrat-font-family" style="color:#eae7dd;font-family:'Montserrat',sans-serif;font-size:16px;font-weight:300;line-height:2.0"><a href="#" style="color:#eae7dd;text-decoration:none">Unsere Schule</a><br/><a href="#" style="color:#eae7dd;text-decoration:none">Aktuelles</a><br/><a href="#" style="color:#eae7dd;text-decoration:none">SPB &amp; Hort</a><br/><a href="#" style="color:#eae7dd;text-decoration:none">Downloads</a><br/><a href="#" style="color:#eae7dd;text-decoration:none">Kontakt</a></p>
-				<!-- /wp:paragraph -->
-			</div>
-			<!-- /wp:column -->
-
-			<!-- ── Öffnungszeiten column ── -->
-			<!-- wp:column -->
-			<div class="wp-block-column">
-				<!-- wp:heading {"level":4,"fontFamily":"neucha","style":{"typography":{"fontSize":"26px","letterSpacing":"1px"},"color":{"text":"#f8ac41"},"spacing":{"margin":{"bottom":"20px"}}}} -->
-				<h4 class="wp-block-heading has-neucha-font-family" style="color:#f8ac41;font-family:'Neucha',cursive;font-size:26px;letter-spacing:1px;margin-bottom:20px">Sekretariat</h4>
-				<!-- /wp:heading -->
-				<!-- wp:paragraph {"fontFamily":"montserrat","style":{"typography":{"fontWeight":"300","fontSize":"16px","lineHeight":"1.8"},"color":{"text":"#eae7dd"}}} -->
-				<p class="has-montserrat-font-family" style="color:#eae7dd;font-family:'Montserrat',sans-serif;font-size:16px;font-weight:300;line-height:1.8">Mo – Fr: 07:30 – 13:00 Uhr<br/>Mo &amp; Di: 13:00 – 15:30 Uhr</p>
-				<!-- /wp:paragraph -->
-				<!-- wp:spacer {"height":"16px"} -->
-				<div style="height:16px" aria-hidden="true" class="wp-block-spacer"></div>
-				<!-- /wp:spacer -->
-				<!-- wp:paragraph {"fontFamily":"montserrat","style":{"typography":{"fontWeight":"300","fontSize":"14px","lineHeight":"1.6"},"color":{"text":"#8cc8d1"}}} -->
-				<p class="has-montserrat-font-family" style="color:#8cc8d1;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:300;line-height:1.6"><a href="#" style="color:#8cc8d1">Impressum</a> · <a href="#" style="color:#8cc8d1">Datenschutz</a></p>
-				<!-- /wp:paragraph -->
-			</div>
-			<!-- /wp:column -->
+			<!-- /wp:group -->
 
 		</div>
-		<!-- /wp:columns -->
+		<!-- /wp:group -->
 
 	</div>
 	<!-- /wp:group -->
 
-	<!-- ── Copyright bar ── -->
-	<!-- wp:group {"style":{"color":{"background":"#57463a"},"spacing":{"padding":{"top":"18px","bottom":"18px","left":"clamp(24px,6vw,100px)","right":"clamp(24px,6vw,100px)"}}},"layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
-	<div class="wp-block-group has-background" style="background-color:#57463a;padding-top:18px;padding-bottom:18px;padding-left:clamp(24px,6vw,100px);padding-right:clamp(24px,6vw,100px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
-		<!-- wp:paragraph {"fontFamily":"montserrat","style":{"typography":{"fontWeight":"300","fontSize":"14px"},"color":{"text":"#eae7dd"}}} -->
-		<p class="has-montserrat-font-family" style="color:#eae7dd;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:300;margin:0">© 2025 Grundschule im Eliashof, Stuttgart</p>
-		<!-- /wp:paragraph -->
-		<!-- wp:paragraph {"fontFamily":"montserrat","style":{"typography":{"fontWeight":"300","fontSize":"14px"},"color":{"text":"#eae7dd"}}} -->
-		<p class="has-montserrat-font-family" style="color:#eae7dd;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:300;margin:0">Gestaltung: <a href="https://foxmagpie.com" style="color:#8cc8d1;text-decoration:none">Fox &amp; Magpie</a></p>
-		<!-- /wp:paragraph -->
+	<!-- wp:group {"className":"eliashof-footer-copyright","layout":{"type":"default"}} -->
+	<div class="wp-block-group eliashof-footer-copyright">
+		<!-- wp:group {"className":"eliashof-footer-copyright-container","layout":{"type":"default"}} -->
+		<div class="wp-block-group eliashof-footer-copyright-container">
+			<!-- wp:paragraph {"className":"copyright-text"} -->
+			<p class="copyright-text">@ copyright 2026</p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
 	</div>
 	<!-- /wp:group -->
 
