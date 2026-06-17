@@ -735,6 +735,10 @@ main.wp-block-group {
 		padding-bottom: 80px !important;
 	}
 
+	.eliashof-hero-wrap h1 {
+		text-align: center !important;
+	}
+
 	.eliashof-hero-wrap .relative-content {
 		order: 1 !important;
 		margin-bottom: clamp(240px, 55vw, 340px) !important;
