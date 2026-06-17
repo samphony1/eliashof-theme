@@ -732,11 +732,12 @@ main.wp-block-group {
 		min-height: auto;
 		display: flex !important;
 		flex-direction: column !important;
-		padding-bottom: clamp(180px, 40vw, 300px) !important;
+		padding-bottom: 80px !important;
 	}
 
 	.eliashof-hero-wrap .relative-content {
 		order: 1 !important;
+		margin-bottom: clamp(160px, 45vw, 280px) !important;
 	}
 
 	.eliashof-hero-drawing {
