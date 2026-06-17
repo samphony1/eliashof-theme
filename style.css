@@ -739,13 +739,22 @@ main.wp-block-group {
 	}
 
 	.eliashof-hero-drawing {
-		width: 100% !important;
+		width: 75% !important;
+		max-width: 450px !important;
 		left: 0 !important;
 		position: relative !important;
 		/* On mobile it sits at the bottom of the section */
 		order: 2 !important;
 		margin-top: 40px !important;
 		margin-bottom: -80px !important;
+		margin-left: 0 !important;
+		margin-right: auto !important;
+	}
+
+	.eliashof-hero-drawing img {
+		display: block !important;
+		margin-left: 0 !important;
+		margin-right: auto !important;
 	}
 }
 
