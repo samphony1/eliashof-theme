@@ -496,28 +496,16 @@ body {
 	position: relative;
 }
 
-.logo-eliashof .vector {
-	width: 78.05%;
-	height: 100%;
-	position: absolute;
-	right: 1.03%;
-	left: 20.92%;
-	bottom: -100.33%;
-	top: 100.33%;
-	transform: translate(0px, -104.02px);
-	overflow: visible;
+.logo-eliashof a {
+	display: block !important;
+	width: 100% !important;
+	height: 100% !important;
 }
 
-.logo-eliashof .group {
-	width: 61.8%;
-	height: 99.98%;
-	position: absolute;
-	right: 39.23%;
-	left: -1.03%;
-	bottom: -100.31%;
-	top: 100.33%;
-	transform: translate(0px, -104.01px);
-	overflow: visible;
+.logo-eliashof img {
+	width: 100% !important;
+	height: 100% !important;
+	display: block !important;
 }
 
 .burger-toggle {

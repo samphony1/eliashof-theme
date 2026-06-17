@@ -1,0 +1,11 @@
+<svg width="118" height="104" viewBox="0 0 117.57 104.03" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Green shape (vector) shifted by 25.79 to the right -->
+    <g transform="translate(25.79, 0)">
+        <path d="M66.109 0V76.825H0V104.025H66.109H91.769V76.825V0H66.109Z" fill="#89BD24" />
+    </g>
+    <!-- Orange/blue shapes (group) starting at 0 -->
+    <g>
+        <path d="M0 104.007H25.791V26.9541H0V104.007Z" fill="#F49600" />
+        <path d="M0 26.9727H72.656V0H0V26.9727Z" fill="#0BBBEF" />
+    </g>
+</svg>
