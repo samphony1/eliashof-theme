@@ -732,6 +732,7 @@ main.wp-block-group {
 		min-height: auto;
 		display: flex !important;
 		flex-direction: column !important;
+		padding-bottom: clamp(180px, 40vw, 300px) !important;
 	}
 
 	.eliashof-hero-wrap .relative-content {
@@ -739,22 +740,31 @@ main.wp-block-group {
 	}
 
 	.eliashof-hero-drawing {
+		position: absolute !important;
+		bottom: 0 !important;
+		left: 0 !important;
 		width: 75% !important;
 		max-width: 450px !important;
-		left: 0 !important;
-		position: relative !important;
-		/* On mobile it sits at the bottom of the section */
-		order: 2 !important;
-		margin-top: 40px !important;
-		margin-bottom: -80px !important;
-		margin-left: 0 !important;
-		margin-right: auto !important;
+		margin: 0 !important;
+		z-index: 2 !important;
+		pointer-events: none !important;
 	}
 
 	.eliashof-hero-drawing img {
 		display: block !important;
 		margin-left: 0 !important;
 		margin-right: auto !important;
+		width: 100% !important;
+		height: auto !important;
+	}
+
+	/* Also update the editor wrapper responsiveness */
+	.eliashof-hero-wrap .block-editor-block-list__block.eliashof-hero-drawing,
+	.eliashof-hero-wrap .block-editor-block-list__block:has(.eliashof-hero-drawing) {
+		width: 75% !important;
+		max-width: 450px !important;
+		min-width: 0 !important;
+		margin: 0 !important;
 	}
 }
 
