@@ -737,7 +737,7 @@ main.wp-block-group {
 
 	.eliashof-hero-wrap .relative-content {
 		order: 1 !important;
-		margin-bottom: clamp(160px, 45vw, 280px) !important;
+		margin-bottom: clamp(240px, 55vw, 340px) !important;
 	}
 
 	.eliashof-hero-drawing {
