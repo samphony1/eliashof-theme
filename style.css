@@ -382,10 +382,15 @@ body {
 	.burger-menu-overlay {
 		justify-content: flex-start !important;
 		padding-top: 120px !important;
+		width: 100vw !important;
+		height: 100vh !important;
+		left: 0 !important;
+		top: 0 !important;
 	}
 
 	.burger-menu-nav {
 		gap: 24px !important;
+		width: 100% !important;
 	}
 
 	.burger-menu-nav a,
