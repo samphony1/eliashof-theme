@@ -302,8 +302,8 @@ add_action( 'init', function() {
 
 			// F. Fix Hero and Links heading / button validation errors in the database
 			$content = preg_replace(
-				'/<h1 class="wp-block-heading[^>]*>.*?WILLKOMMEN IN.*?DER GRUNDSCHULE.*?IM ELIASHOF!.*?<\/h1>/s',
-				'<h1 class="wp-block-heading has-text-color" style="color:#000000;margin-bottom:40px;font-family:\'Neucha\', cursive;font-size:clamp(40px, 4.8vw, 86px);letter-spacing:0.05em;line-height:1.1"><span class="hero-title-line">WILLKOMMEN IN</span><br><span class="hero-title-line">DER GRUNDSCHULE</span><br><span class="hero-title-line">IM ELIASHOF!</span></h1>',
+				'/<h1 class="wp-block-heading[^>]*>.*?WILLKOMMEN.*?DER.*?ELIASHOF!.*?<\/h1>/s',
+				'<h1 class="wp-block-heading">WILLKOMMEN&nbsp;IN<br>DER&nbsp;GRUNDSCHULE<br>IM&nbsp;ELIASHOF!</h1>',
 				$content
 			);
 

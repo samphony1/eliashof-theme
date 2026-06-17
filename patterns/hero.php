@@ -19,7 +19,7 @@
 		<!-- wp:column {"verticalAlignment":"top","width":"50%","className":"eliashof-hero-left-col"} -->
 		<div class="wp-block-column is-vertically-aligned-top eliashof-hero-left-col" style="flex-basis:50%">
 			<!-- wp:heading {"level":1} -->
-			<h1 class="wp-block-heading"><span class="hero-title-line">WILLKOMMEN IN</span><br><span class="hero-title-line">DER GRUNDSCHULE</span><br><span class="hero-title-line">IM ELIASHOF!</span></h1>
+			<h1 class="wp-block-heading">WILLKOMMEN&nbsp;IN<br>DER&nbsp;GRUNDSCHULE<br>IM&nbsp;ELIASHOF!</h1>
 			<!-- /wp:heading -->
 		</div>
 		<!-- /wp:column -->
