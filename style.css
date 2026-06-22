@@ -1916,19 +1916,30 @@ main.wp-block-group {
 	}
 
 	/* Centered Peek Carousel for Mobile */
+	.eliashof-aktuelles {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+
 	.eliashof-aktuelles-carousel {
 		padding-left: 0 !important;
 		padding-right: 0 !important;
 	}
 
 	.eliashof-aktuelles-carousel .wp-block-post-template {
-		padding-left: 10% !important;
-		padding-right: 10% !important;
+		padding-left: 14vw !important;
+		padding-right: 14vw !important;
 		gap: 20px !important;
 	}
 
 	.eliashof-aktuelles-carousel .wp-block-post-template>li {
-		flex-basis: 80% !important;
+		flex-basis: 72vw !important;
 		scroll-snap-align: center !important;
+	}
+
+	.eliashof-aktuelles-carousel .eliashof-card-title,
+	.eliashof-aktuelles-carousel h3.wp-block-post-title,
+	.eliashof-aktuelles-carousel .wp-block-post-title {
+		font-size: 26px !important;
 	}
 }
