@@ -398,12 +398,7 @@ body {
 	}
 }
 
-/* Mobile: 1 card + peek of next */
-@media (max-width: 599px) {
-	.eliashof-aktuelles-carousel .wp-block-post-template>li {
-		flex-basis: 85%;
-	}
-}
+
 
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -1918,5 +1913,22 @@ main.wp-block-group {
 	.burger-menu-nav .navlink {
 		font-size: clamp(24px, 7.5vw, 30px) !important;
 		line-height: 1.2 !important;
+	}
+
+	/* Centered Peek Carousel for Mobile */
+	.eliashof-aktuelles-carousel {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+
+	.eliashof-aktuelles-carousel .wp-block-post-template {
+		padding-left: 10% !important;
+		padding-right: 10% !important;
+		gap: 20px !important;
+	}
+
+	.eliashof-aktuelles-carousel .wp-block-post-template>li {
+		flex-basis: 80% !important;
+		scroll-snap-align: center !important;
 	}
 }
