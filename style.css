@@ -725,6 +725,18 @@ main.wp-block-group {
 
 .eliashof-hero-right-bottom {
 	margin-top: auto;
+	display: flex !important;
+	flex-direction: column !important;
+	gap: clamp(24px, 3vw, 32px) !important;
+}
+
+.eliashof-hero-right-bottom > * {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.eliashof-hero-right-bottom .wp-block-spacer {
+	display: none !important;
 }
 
 @media (max-width: 781px) {
