@@ -118,10 +118,34 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 	}
 }
 
-/* ── Pill button cursor ────────────────────────────────────────────── */
+/* ── Global standardized buttons (Desktop & Mobile Base) ───────────── */
 .wp-element-button,
-.wp-block-button__link {
-	cursor: pointer;
+.wp-block-button__link,
+.eliashof-aktuelles-carousel .wp-block-read-more {
+	background-color: #f8ac41 !important;
+	color: #000000 !important;
+	border-radius: 40px !important;
+	border: 0.7px solid #000000 !important;
+	padding: 0 50px !important;
+	height: 50px !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	font-family: 'Neucha', cursive !important;
+	font-size: 25px !important;
+	line-height: 27px !important;
+	letter-spacing: 0.05em !important;
+	text-decoration: none !important;
+	box-sizing: border-box !important;
+	cursor: pointer !important;
+	transition: background-color 0.2s ease, transform 0.2s ease !important;
+}
+
+.wp-element-button:hover,
+.wp-block-button__link:hover,
+.eliashof-aktuelles-carousel .wp-block-read-more:hover {
+	background-color: #f0a030 !important;
+	transform: translateY(-2px) !important;
 }
 
 
@@ -238,27 +262,10 @@ body {
 	display: block;
 }
 
-/* wp:read-more styled as Eliashof pill button */
+/* wp:read-more layout overrides */
 .eliashof-aktuelles-carousel .wp-block-read-more {
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	background-color: #f8ac41;
-	color: #000000 !important;
-	border-radius: 40px;
-	border: 0.7px solid #000;
-	font-family: 'Neucha', cursive;
-	font-size: 25px;
-	padding: 8px 55px;
-	text-decoration: none;
 	margin-top: auto !important;
 	align-self: center !important;
-	line-height: 27px;
-	letter-spacing: 0.05em;
-}
-
-.eliashof-aktuelles-carousel .wp-block-read-more:hover {
-	background-color: #f0a030;
 }
 
 
@@ -358,17 +365,8 @@ body {
 
 	.wp-element-button,
 	.wp-block-button__link,
-	.eliashof-aktuelles-carousel .wp-block-read-more,
-	.eliashof-hero-wrap .wp-block-button__link,
-	.section-downloads .button .wp-block-button__link,
-	.section-downloads .button2 .wp-block-button__link,
-	.section-spb .wp-block-button__link {
+	.eliashof-aktuelles-carousel .wp-block-read-more {
 		font-size: 20px !important;
-		padding: 0 50px !important;
-		height: 50px !important;
-		display: inline-flex !important;
-		align-items: center !important;
-		justify-content: center !important;
 	}
 }
 
@@ -869,27 +867,7 @@ main.wp-block-group {
 	margin: 0 !important;
 }
 
-.section-downloads .button .wp-block-button__link,
-.section-downloads .button2 .wp-block-button__link {
-	background: #f8ac41 !important;
-	border-radius: 40px !important;
-	border: 0.7px solid #000000 !important;
-	padding: 8px clamp(30px, 4vw, 55px) !important;
-	display: inline-flex !important;
-	align-items: center !important;
-	justify-content: center !important;
-	height: 56px !important;
-	text-decoration: none !important;
-	box-sizing: border-box !important;
-	cursor: pointer !important;
-	transition: background-color 0.2s ease, transform 0.2s ease !important;
-}
-
-.section-downloads .button .wp-block-button__link:hover,
-.section-downloads .button2 .wp-block-button__link:hover {
-	background-color: #f0a030 !important;
-	transform: translateY(-2px) !important;
-}
+/* Downloads buttons inherited from global theme styles */
 
 .section-downloads .mehr-erfahren {
 	color: #000000 !important;
@@ -1059,11 +1037,7 @@ main.wp-block-group {
 	color: #000000 !important;
 }
 
-.eliashof-hero-wrap .wp-block-button__link {
-	color: #000000 !important;
-	letter-spacing: 0.05em !important;
-	padding: 8px 55px !important;
-}
+/* Hero button inherited from global theme styles */
 
 /* Editor visual alignment matching */
 .eliashof-hero-wrap .block-editor-block-list__block.eliashof-hero-drawing,
@@ -1185,29 +1159,7 @@ main.wp-block-group {
 	margin: 0 0 38px 0 !important;
 }
 
-.section-spb .wp-block-button__link {
-	background: #f8ac41 !important;
-	color: #000000 !important;
-	border-radius: 40px !important;
-	border: 0.7px solid #000000 !important;
-	padding: 8px 55px !important;
-	height: 56px !important;
-	font-family: 'Neucha', cursive !important;
-	font-size: 25px !important;
-	line-height: 27px !important;
-	letter-spacing: 0.05em !important;
-	display: inline-flex !important;
-	align-items: center !important;
-	justify-content: center !important;
-	box-sizing: border-box !important;
-	text-decoration: none !important;
-	transition: background-color 0.2s ease, transform 0.2s ease !important;
-}
-
-.section-spb .wp-block-button__link:hover {
-	background-color: #f0a030 !important;
-	transform: translateY(-2px) !important;
-}
+/* SPB button inherited from global theme styles */
 
 @media (max-width: 1279px) {
 	.section-spb {
