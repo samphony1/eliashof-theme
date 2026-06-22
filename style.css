@@ -358,9 +358,17 @@ body {
 
 	.wp-element-button,
 	.wp-block-button__link,
-	.eliashof-aktuelles-carousel .wp-block-read-more {
+	.eliashof-aktuelles-carousel .wp-block-read-more,
+	.eliashof-hero-wrap .wp-block-button__link,
+	.section-downloads .button .wp-block-button__link,
+	.section-downloads .button2 .wp-block-button__link,
+	.section-spb .wp-block-button__link {
 		font-size: 20px !important;
-		padding: 12px 32px !important;
+		padding: 0 50px !important;
+		height: 50px !important;
+		display: inline-flex !important;
+		align-items: center !important;
+		justify-content: center !important;
 	}
 }
 
