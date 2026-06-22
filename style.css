@@ -389,14 +389,14 @@ body {
 	}
 
 	.burger-menu-nav {
-		gap: 24px !important;
+		gap: 16px !important;
 		width: 100% !important;
 	}
 
 	.burger-menu-nav a,
 	.burger-menu-nav .navlink {
-		font-size: 34px !important;
-		line-height: 38px !important;
+		font-size: 28px !important;
+		line-height: 32px !important;
 	}
 }
 
