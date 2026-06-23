@@ -33,3 +33,32 @@ This document outlines the recent implementations and structural decisions made 
 
 ### 6. Version Control
 - **Git Tracking:** Initialized a local Git repository in the theme directory and created the first major commit documenting the structural foundation.
+
+## Session Summary: Mobile Responsiveness, Carousel Peek Layout & Button Standardization
+
+### 7. Mobile Header & Overlay Navigation Refinement
+- **Header Positioning & Sizing:** Detached header offset from `77px` to `24px` on screen widths under `767px`. Proportionally scaled down the logo to `75px` width and scaled the burger toggle button down using `transform: scale(0.65) !important` to ensure a compact, elegant layout on small mobile screens.
+- **Overlay Centering:** Configured the burger menu overlay navigation `.burger-menu-overlay` to use `width: 100vw !important` and `height: 100vh !important`, centering the menu links perfectly with a top padding of `120px` to guarantee zero overlap with logo or toggle buttons. Styled menu links dynamically using `clamp(24px, 7.5vw, 30px)` and line-height `1.2`.
+- **Hero Top Padding Adjustment:** Reduced the top padding of the hero container `.eliashof-hero-wrap` to `75px !important` (down from desktop `210px`) to prevent excessive vertical spacing.
+
+### 8. Centered Peek Carousel for Mobile (`patterns/aktuelles.php`)
+- **Viewport-Relative Layout (Symmetric Peek):** Set `.eliashof-aktuelles` parent padding to `0 !important` on mobile. Configured the horizontal scroll track (`.wp-block-post-template`) with padding `14vw !important` on the left and right and gap `20px !important`. Individual cards (`li.wp-block-post`) are set to `72vw !important` width.
+- *Viewport-Width (vw) Resolution:* Using `vw` units instead of percentages (`%`) ensures that the card size and padding are resolved relative to the absolute viewport width, rather than the track's inner content width. This centers the active card perfectly on the screen while showing preceding/succeeding card boundaries peeking symmetrically on the viewport edges.
+- **Dot Navigation Fix:** Correctly resolved `getVisibleCount()` to `1` on mobile inside `assets/js/carousel.js`, rendering exactly 6 navigation dots (one per post) instead of 3.
+- **Card Title Scaling:** Scaled card titles to `26px !important` on mobile viewports so that long titles (e.g. "UNSER SOMMERFEST") fit neatly on a single line.
+
+### 9. Global Button Standardization
+- **Unified Design System:** Styled all button classes on both desktop and mobile to look identical and share the same styling tokens:
+  - Height: `50px !important`
+  - Padding: `0 50px !important`
+  - Border Radius: `40px !important`
+  - Border: `0.7px solid #000000 !important`
+  - Background: `#f8ac41 !important` (hover: `#f0a030 !important`)
+  - Typography: `Neucha` font (`25px` on desktop, scaled to `20px` on mobile)
+  - Centering: `display: inline-flex !important; align-items: center !important; justify-content: center !important;`
+  - Hover Animation: Smooth `transform: translateY(-2px) !important` shift.
+- **Cleaned Up Duplications:** Removed all section-specific button overrides (for hero, carousel, downloads, and SPB blocks) in `style.css`, reducing stylesheet codebase size by a net of 48 lines.
+
+### 10. Version Control Update
+- **Git Tracking:** Staged and committed the responsive layout adjustments and button refactoring style rules inside the theme repository.
+
