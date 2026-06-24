@@ -76,8 +76,17 @@ This document outlines the recent implementations and structural decisions made 
 - **Burger Morph Active State Translation:** Updated the active state transformations on mobile (`translateY(21.5px)` for top, `translateY(-21.5px)` for bottom) to account for the `50px` height container, ensuring the close "X" morph centers perfectly when toggled.
 - **Hero Welcome Title Spacing:** Set the first column `padding-top` to `30px !important` inside the mobile media query. This configures a precise `30px` separation gap above the welcome title ("WILLKOMMEN IN...") within the column container while maintaining the `90px` top padding on the outer `.eliashof-hero-wrap` to clear the `50px` header cleanly.
 
-### 14. Version Control Update
+### 14. Version Control Update (Previous)
 - **Git Tracking:** Committed the mobile header layout adjustments and spacing refinements in the theme repository (`style.css` and `claude.md`).
+
+### 15. Dynamic Classic Menu Support
+- **Classic Menu Support Activation:** Added `register_nav_menus()` in `functions.php` to register the `primary` menu location. This automatically re-enables the classic **Design > Menüs** page in the WordPress dashboard.
+- **[eliashof_menu] Shortcode:** Created a custom theme shortcode that renders the assigned classic primary menu via `wp_nav_menu()` with an inline HTML fallback list representing the default 7 pages and hashlinks.
+- **Header Template Part Update:** Replaced the static header overlay links in `parts/header.html` with the Gutenberg Shortcode block rendering the dynamic `[eliashof_menu]` shortcode.
+- **Menu CSS Style Extensions:** Added style support for standard WordPress menu markup lists (`.burger-menu-nav ul` and `.burger-menu-nav li a`) to ensure both fallbacks and backend-assigned menus style exactly as the original mockups (maintaining fonts, line-heights, letter spacing, hover opacity, and responsive font sizing).
+
+### 16. Version Control Update
+- **Git Tracking:** Staged and committed classic menu support and shortcode implementation in the theme repository (`functions.php`, `parts/header.html`, `style.css`, and `claude.md`).
 
 
 
