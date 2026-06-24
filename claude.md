@@ -59,6 +59,15 @@ This document outlines the recent implementations and structural decisions made 
   - Hover Animation: Smooth `transform: translateY(-2px) !important` shift.
 - **Cleaned Up Duplications:** Removed all section-specific button overrides (for hero, carousel, downloads, and SPB blocks) in `style.css`, reducing stylesheet codebase size by a net of 48 lines.
 
-### 10. Version Control Update
+### 10. Version Control Update (Previous)
 - **Git Tracking:** Staged and committed the responsive layout adjustments and button refactoring style rules inside the theme repository.
+
+### 11. Mobile Background Restructuring (`paperbg.jpg`)
+- **Red Line Removal:** Shifted the background position to the left using viewport-relative units (`background-position: -15vw 0 !important;`), placing the vertical red notebook line completely off-screen.
+- **Horizontal Repeat Prevention:** Set the background repeating to vertical only (`background-repeat: repeat-y !important;`) to prevent the red margin line from reappearing on wider mobile and tablet viewports.
+- **Fluid Grid Scaling:** Scaled the checkered pattern dynamically using `background-size: 115vw auto !important`. This makes the grid squares proportionally smaller (~9px on mobile phones, ~18px on tablets) compared to the desktop size (~40px) while ensuring full horizontal viewport coverage.
+
+### 12. Version Control Update
+- **Git Tracking:** Committed the mobile background restructuring styles inside the theme repository (`style.css` and `claude.md`).
+
 
