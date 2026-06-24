@@ -368,6 +368,12 @@ body {
 	.eliashof-aktuelles-carousel .wp-block-read-more {
 		font-size: 20px !important;
 	}
+
+	body {
+		background-size: 115vw auto !important;
+		background-position: -15vw 0 !important;
+		background-repeat: repeat-y !important;
+	}
 }
 
 
