@@ -328,3 +328,45 @@ add_action( 'init', function() {
 		}
 	}
 } );
+
+/**
+ * Register Classic Navigation Menu.
+ * This makes the classic "Design > Menüs" screen visible in the WP admin backend.
+ */
+function eliashof_register_menus() {
+	register_nav_menus( array(
+		'primary' => __( 'Primary Navigation', 'eliashof' ),
+	) );
+}
+add_action( 'after_setup_theme', 'eliashof_register_menus' );
+
+/**
+ * Shortcode to render the primary classic menu with list markup.
+ * Use [eliashof_menu] in block templates or content editor.
+ */
+function eliashof_render_menu_shortcode() {
+	ob_start();
+	wp_nav_menu( array(
+		'theme_location' => 'primary',
+		'container'      => false,
+		'menu_class'     => '',
+		'fallback_cb'    => 'eliashof_fallback_menu',
+	) );
+	return ob_get_clean();
+}
+add_shortcode( 'eliashof_menu', 'eliashof_render_menu_shortcode' );
+
+/**
+ * Fallback menu callback when no custom menu is assigned in backend.
+ */
+function eliashof_fallback_menu() {
+	echo '<ul>';
+	echo '<li><a href="#aktuelles">AKTUELLES</a></li>';
+	echo '<li><a href="#unsere-schule">UNSERE SCHULE</a></li>';
+	echo '<li><a href="#spb-hort">SPB / HORT</a></li>';
+	echo '<li><a href="#eltern">ELTERN</a></li>';
+	echo '<li><a href="#foerderverein">FÖRDERVEREIN</a></li>';
+	echo '<li><a href="#unsere-partner">UNSERE PARTNER</a></li>';
+	echo '<li><a href="#kontakt">KONTAKT</a></li>';
+	echo '</ul>';
+}
