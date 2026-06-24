@@ -757,7 +757,7 @@ main.wp-block-group {
 
 	.eliashof-hero-left-col,
 	.eliashof-hero-wrap .wp-block-columns .wp-block-column:first-child {
-		padding-top: 0 !important;
+		padding-top: 30px !important;
 	}
 
 	.eliashof-hero-wrap h1 {
