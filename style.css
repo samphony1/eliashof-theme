@@ -751,8 +751,13 @@ main.wp-block-group {
 		min-height: auto;
 		display: flex !important;
 		flex-direction: column !important;
-		padding-top: 75px !important;
+		padding-top: 80px !important;
 		padding-bottom: 80px !important;
+	}
+
+	.eliashof-hero-left-col,
+	.eliashof-hero-wrap .wp-block-columns .wp-block-column:first-child {
+		padding-top: 0 !important;
 	}
 
 	.eliashof-hero-wrap h1 {
@@ -1849,16 +1854,37 @@ main.wp-block-group {
 	.eliashof-header {
 		top: 24px !important;
 		padding: 0 24px !important;
+		align-items: flex-start !important;
 	}
 
 	.logo-eliashof {
-		width: 75px !important;
-		height: 66.35px !important;
+		width: 50px !important;
+		height: 44px !important;
+		margin: 0 !important;
 	}
 
 	.burger-toggle {
-		transform: scale(0.65) !important;
-		transform-origin: right center !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		width: 57px !important;
+		height: 44px !important;
+		transform: none !important;
+		display: flex !important;
+		align-items: center !important;
+	}
+
+	.burger-morph {
+		width: 100% !important;
+		height: 100% !important;
+	}
+
+	.burger-bar {
+		height: 6px !important;
+		border-radius: 3px !important;
+	}
+
+	.burger-middle {
+		margin-top: -3px !important;
 	}
 
 	.burger-menu-overlay {
