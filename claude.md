@@ -67,7 +67,16 @@ This document outlines the recent implementations and structural decisions made 
 - **Horizontal Repeat Prevention:** Set the background repeating to vertical only (`background-repeat: repeat-y !important;`) to prevent the red margin line from reappearing on wider mobile and tablet viewports.
 - **Fluid Grid Scaling:** Scaled the checkered pattern dynamically using `background-size: 115vw auto !important`. This makes the grid squares proportionally smaller (~9px on mobile phones, ~18px on tablets) compared to the desktop size (~40px) while ensuring full horizontal viewport coverage.
 
-### 12. Version Control Update
+### 12. Version Control Update (Previous)
 - **Git Tracking:** Committed the mobile background restructuring styles inside the theme repository (`style.css` and `claude.md`).
+
+### 13. Mobile Header & Hero Spacing Refinements
+- **Logo and Menu Sizing & Top Alignment:** Scaled down the header logo on mobile directly to `width: 50px !important` and `height: 44px !important` to match the exact size of the scaled burger menu (`width: 57px`, `height: 44px`). Configured `.eliashof-header` to use `align-items: flex-start !important` so both items align perfectly at the top baseline rather than centering or bottom-aligning.
+- **Burger Menu Scale Refactoring:** Removed the `transform: scale(0.65)` rule on mobile and styled dimensions directly, preventing visual translation shift or transform-origin offset issues that pushed the burger toggle downwards.
+- **Hero Welcome Title Spacing:** Reset the first column `padding-top` to `0 !important` inside the mobile media query. This removes the minimum `40px` top padding and pulls the welcome title ("WILLKOMMEN IN...") up to sit cleanly right below the mobile header area (only a clean `12px` separation margin remains).
+
+### 14. Version Control Update
+- **Git Tracking:** Committed the mobile header layout adjustments and spacing refinements in the theme repository (`style.css` and `claude.md`).
+
 
 
