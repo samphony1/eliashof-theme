@@ -71,9 +71,10 @@ This document outlines the recent implementations and structural decisions made 
 - **Git Tracking:** Committed the mobile background restructuring styles inside the theme repository (`style.css` and `claude.md`).
 
 ### 13. Mobile Header & Hero Spacing Refinements
-- **Logo and Menu Sizing & Top Alignment:** Scaled down the header logo on mobile directly to `width: 50px !important` and `height: 44px !important` to match the exact size of the scaled burger menu (`width: 57px`, `height: 44px`). Configured `.eliashof-header` to use `align-items: flex-start !important` so both items align perfectly at the top baseline rather than centering or bottom-aligning.
-- **Burger Menu Scale Refactoring:** Removed the `transform: scale(0.65)` rule on mobile and styled dimensions directly, preventing visual translation shift or transform-origin offset issues that pushed the burger toggle downwards.
-- **Hero Welcome Title Spacing:** Reset the first column `padding-top` to `0 !important` inside the mobile media query. This removes the minimum `40px` top padding and pulls the welcome title ("WILLKOMMEN IN...") up to sit cleanly right below the mobile header area (only a clean `12px` separation margin remains).
+- **Logo Sizing Preservation:** Retained the original mobile logo size (`width: 75px !important` and `height: 66px !important`).
+- **Burger Sized Up & Top Alignment:** Scaled up the burger menu dimensions to match the logo size exactly: `.burger-toggle` is set to `width: 86px !important` and `height: 66px !important` without using `transform: scale()`. The horizontal bars thickness was increased to `11px` (`border-radius: 5.5px`) to look balanced. Configured `.eliashof-header` to use `align-items: flex-start !important` so both items align perfectly at the top baseline.
+- **Burger Morph Active State Translation:** Updated the active state transformations on mobile (`translateY(27.5px)` for top, `translateY(-27.5px)` for bottom) to account for the larger `66px` height container, ensuring the close "X" morph centers perfectly when toggled.
+- **Hero Welcome Title Spacing:** Reset the first column `padding-top` to `0 !important` and adjusted `.eliashof-hero-wrap`'s mobile `padding-top` to `110px !important` to account for the taller `66px` header. This leaves a clean `20px` gap below the header and pulls the welcome title ("WILLKOMMEN IN...") up dynamically.
 
 ### 14. Version Control Update
 - **Git Tracking:** Committed the mobile header layout adjustments and spacing refinements in the theme repository (`style.css` and `claude.md`).
