@@ -105,8 +105,14 @@ This document outlines the recent implementations and structural decisions made 
 - **CSS Styling:** Fixed-positioned at the bottom right (`bottom: 30px; right: 30px;`) with a circular orange background (`#f8ac41`), dark border (`0.7px solid #000000`), custom hover colors, keyboard focus visibility (`focus-visible`), and a fluid scaling/fade-in animation (`opacity` and `transform`). Micro-animation lifts the arrow icon up by `-2px` on hover.
 - **Scroll Behavior JS:** Appended to `assets/js/navigation.js` to listen for the scroll event, fade in the button once `scrollY > 300` pixels, and smoothly scroll back to the top of the viewport on click.
 
-### 19. Version Control Update
-- **Git Tracking:** Committed the Back to Top button files (`parts/footer.html`, `patterns/footer-section.php`, `assets/js/navigation.js`, `style.css`, and `claude.md`) inside the theme repository.
+## Session Summary: Subpage Header Overlap Protection
+
+### 19. Subpage Header Spacing
+- **Automatic Top Spacing:** Added a CSS selector targeting `.wp-block-post-content > :first-child:not(.eliashof-hero-wrap)` and `.entry-content > :first-child:not(.eliashof-hero-wrap)`.
+- **Responsive Offsets:** Set `padding-top: 210px !important` on desktop and `padding-top: 90px !important` on mobile under the `767px` media query. This pushes down the first block of any subpage to start cleanly below the absolute header. Using `padding-top` ensures that full-bleed sections with background colors or images still extend cleanly under the transparent header overlay, maintaining design fidelity.
+
+### 20. Version Control Update
+- **Git Tracking:** Committed the subpage header spacing rules, Back to Top button files, and changelog updates inside the theme repository.
 
 
 

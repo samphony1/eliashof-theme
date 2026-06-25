@@ -481,6 +481,19 @@ body {
 	z-index: 100;
 }
 
+/* Push down the first block of any page content to prevent clashing with the absolute header */
+.wp-block-post-content > :first-child:not(.eliashof-hero-wrap),
+.entry-content > :first-child:not(.eliashof-hero-wrap) {
+	padding-top: 210px !important;
+}
+
+@media (max-width: 767px) {
+	.wp-block-post-content > :first-child:not(.eliashof-hero-wrap),
+	.entry-content > :first-child:not(.eliashof-hero-wrap) {
+		padding-top: 90px !important;
+	}
+}
+
 .eliashof-header {
 	padding: 0 clamp(24px, 6vw, 138px);
 	display: flex;
