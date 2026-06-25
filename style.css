@@ -1969,3 +1969,81 @@ main.wp-block-group {
 		font-size: 26px !important;
 	}
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   BACK TO TOP BUTTON
+   ═══════════════════════════════════════════════════════════════════ */
+
+.back-to-top {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: #f8ac41 !important;
+	border: 0.7px solid #000000 !important;
+	color: #000000 !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	cursor: pointer;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(20px) scale(0.8);
+	transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+				visibility 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+				transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+				background-color 0.3s ease,
+				box-shadow 0.3s ease !important;
+	z-index: 999;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	padding: 0 !important;
+}
+
+.back-to-top.is-visible {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0) scale(1);
+}
+
+.back-to-top:hover {
+	background-color: #f0a030 !important;
+	transform: translateY(-3px) scale(1.05);
+	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.back-to-top svg {
+	transition: transform 0.3s ease;
+	width: 24px;
+	height: 24px;
+}
+
+.back-to-top:hover svg {
+	transform: translateY(-2px);
+}
+
+/* Keyboard focus indicator */
+.back-to-top:focus-visible {
+	outline: 3px solid #6CADDF !important;
+	outline-offset: 3px;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 767px) {
+	.back-to-top {
+		bottom: 20px;
+		right: 20px;
+		width: 44px;
+		height: 44px;
+	}
+	
+	.back-to-top:hover {
+		transform: none !important;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	}
+	
+	.back-to-top.is-visible:hover {
+		transform: translateY(0) scale(1) !important;
+	}
+}
