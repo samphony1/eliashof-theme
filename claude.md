@@ -88,5 +88,15 @@ This document outlines the recent implementations and structural decisions made 
 ### 16. Version Control Update
 - **Git Tracking:** Staged and committed classic menu support and shortcode implementation in the theme repository (`functions.php`, `parts/header.html`, `style.css`, and `claude.md`).
 
+## Session Summary: Revert Mobile Logo Size Change to 50px Height
+
+### 17. Reverted Mobile Logo size & Smaller Burger Menu
+- **Reverted Logo Sizing:** Returned the mobile logo to `50px` height (`56px` width) as scaled down previously.
+- **Scaled Burger Menu:** Sized the burger menu morph container to `25px` height (`32px` width), which is exactly half of the logo height.
+- **Hitbox/Padding:** Adjusted the burger button padding to `10px !important`, resulting in a `45px` height touch target for comfortable index-finger accessibility. Top aligned both logo and burger container (`margin-top: -10px`).
+- **Burger Morph Active State Translation:** Updated translation offsets to `10.5px` to center the "X" correctly.
+- **Hero Top Padding Adjustment:** Changed the top padding of the hero container `.eliashof-hero-wrap` to `90px !important` to match the `50px` header layout cleanly.
+
+
 
 
