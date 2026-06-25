@@ -1905,8 +1905,18 @@ main.wp-block-group {
 		transform: translateY(10.5px) scaleX(0) !important;
 	}
 
+	.burger-toggle.is-active .burger-middle {
+		transform: rotate(45deg) !important;
+		background: #f39801 !important;
+		width: 32px !important;
+		left: 0 !important;
+	}
+
 	.burger-toggle.is-active .burger-bottom {
 		transform: translateY(-10.5px) rotate(-45deg) !important;
+		background: #8cbb13 !important;
+		width: 32px !important;
+		left: 0 !important;
 	}
 
 	.burger-menu-overlay {
