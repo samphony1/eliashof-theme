@@ -11,6 +11,37 @@ Text Domain: eliashof
 Tags: custom-colors, custom-typography, full-site-editing, block-theme
 */
 
+/* ── Theme Color Variables ────────────────────────────────────────── */
+:root {
+	--color-black: #000000;
+	--color-white: #ffffff;
+	
+	/* Brand Main Colors */
+	--color-brand-yellow: #eec68e;
+	--color-brand-yellow-alt: #eec58d;
+	--color-brand-orange: #f8ac41;
+	--color-brand-orange-hover: #f0a030;
+	--color-brand-orange-active: #f39801;
+	--color-brand-orange-accent: #f49600;
+	
+	/* Typography & Backgrounds */
+	--color-text-dark: #241f21;
+	--color-cream-light: #eae7dd;
+
+	/* Blue Accent Shades */
+	--color-blue-sky: #6caddf;
+	--color-blue-bright: #0bbbef;
+	--color-blue-medium: #4db8cc;
+	--color-blue-pale: #8cc8d1;
+
+	/* Green Accent Shades */
+	--color-green-light: #a6c954;
+	--color-green-active: #8cbb13;
+	--color-green-accent: #89bd24;
+	--color-green-pale: #c5d799;
+}
+
+
 /* ── Section spacing ───────────────────────────────────────────────── */
 .eliashof-section {
 	padding-top: clamp(60px, 8vw, 100px);
@@ -61,7 +92,7 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 }
 
 .section-partners h2 {
-	color: #000000 !important;
+	color: var(--color-black) !important;
 	font-family: 'Neucha', cursive !important;
 	font-size: 50px !important;
 	line-height: 53px !important;
@@ -122,10 +153,10 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 .wp-element-button,
 .wp-block-button__link,
 .eliashof-aktuelles-carousel .wp-block-read-more {
-	background-color: #f8ac41 !important;
-	color: #000000 !important;
+	background-color: var(--color-brand-orange) !important;
+	color: var(--color-black) !important;
 	border-radius: 40px !important;
-	border: 0.7px solid #000000 !important;
+	border: 0.7px solid var(--color-black) !important;
 	padding: 0 50px !important;
 	height: 50px !important;
 	display: inline-flex !important;
@@ -144,7 +175,7 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 .wp-element-button:hover,
 .wp-block-button__link:hover,
 .eliashof-aktuelles-carousel .wp-block-read-more:hover {
-	background-color: #f0a030 !important;
+	background-color: var(--color-brand-orange-hover) !important;
 	transform: translateY(-2px) !important;
 }
 
@@ -286,8 +317,8 @@ body {
 	width: 14px;
 	height: 14px;
 	border-radius: 50%;
-	background: #ffffff;
-	border: 1px solid #241f21;
+	background: var(--color-white);
+	border: 1px solid var(--color-text-dark);
 	padding: 0;
 	cursor: pointer;
 	transition: background 0.2s ease;
@@ -295,7 +326,7 @@ body {
 }
 
 .eliashof-carousel-dot.is-active {
-	background: #4db8cc;
+	background: var(--color-blue-medium);
 }
 
 
@@ -562,18 +593,18 @@ body {
 
 .burger-top {
 	top: 0;
-	background: #6CADDF;
+	background: var(--color-blue-sky);
 }
 
 .burger-middle {
 	top: 50%;
 	margin-top: -4px;
-	background: #F8AC41;
+	background: var(--color-brand-orange);
 }
 
 .burger-bottom {
 	bottom: 0;
-	background: #A6C954;
+	background: var(--color-green-light);
 }
 
 /* Active State (X Close Icon) */
@@ -584,7 +615,7 @@ body {
 
 .burger-toggle.is-active .burger-middle {
 	transform: rotate(45deg);
-	background: #f39801;
+	background: var(--color-brand-orange-active);
 	/* Morph to the exact orange from the close SVG */
 	width: 56px;
 	/* Slightly narrower to match 44x44 diagonal */
@@ -593,7 +624,7 @@ body {
 
 .burger-toggle.is-active .burger-bottom {
 	transform: translateY(-20px) rotate(-45deg);
-	background: #8cbb13;
+	background: var(--color-green-active);
 	/* Morph to the exact green from the close SVG */
 	width: 56px;
 	left: 3px;
@@ -609,7 +640,7 @@ body {
 	left: 0;
 	width: 100%;
 	height: 100vh;
-	background: #eec68e;
+	background: var(--color-brand-yellow);
 	z-index: 100;
 	/* Just below the header elements */
 	display: flex;
@@ -647,7 +678,7 @@ body {
 .burger-menu-nav a,
 .burger-menu-nav li a,
 .burger-menu-nav .navlink {
-	color: #000000 !important;
+	color: var(--color-black) !important;
 	text-decoration: none !important;
 	font-family: 'Neucha', cursive !important;
 	font-size: 50px !important;
@@ -685,7 +716,7 @@ body {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: #eec68e;
+	background-color: var(--color-brand-yellow);
 	mix-blend-mode: multiply;
 	z-index: 0;
 	pointer-events: none;
@@ -821,7 +852,7 @@ main.wp-block-group {
 
 /* ── Section Downloads & Terminkalender ────────────────────────────── */
 .section-downloads {
-	background: #eec58d !important;
+	background: var(--color-brand-yellow-alt) !important;
 	padding: clamp(60px, 6vw, 79px) clamp(24px, 10vw, 271px) !important;
 	display: flex !important;
 	flex-direction: row !important;
@@ -860,7 +891,7 @@ main.wp-block-group {
 
 .section-downloads .downloads,
 .section-downloads .terminkalender {
-	color: #000000 !important;
+	color: var(--color-black) !important;
 	font-family: 'Neucha', cursive !important;
 	font-size: clamp(34px, 4.5vw, 50px) !important;
 	line-height: 1.1 !important;
@@ -880,7 +911,7 @@ main.wp-block-group {
 
 .section-downloads .hier-finden-sie-eine-sammlung-aller-downloads-von,
 .section-downloads .alle-termine-des-laufenden-schuljahres {
-	color: #000000 !important;
+	color: var(--color-black) !important;
 	text-align: center !important;
 	font-family: 'Montserrat', sans-serif !important;
 	font-size: clamp(18px, 2.2vw, 24px) !important;
@@ -902,7 +933,7 @@ main.wp-block-group {
 /* Downloads buttons inherited from global theme styles */
 
 .section-downloads .mehr-erfahren {
-	color: #000000 !important;
+	color: var(--color-black) !important;
 	font-family: 'Neucha', cursive !important;
 	font-size: clamp(20px, 2.2vw, 25px) !important;
 	line-height: 27px !important;
@@ -942,7 +973,7 @@ main.wp-block-group {
 }
 
 .section-links h2 {
-	color: #000000 !important;
+	color: var(--color-black) !important;
 	font-family: 'Neucha', cursive !important;
 	font-size: 50px !important;
 	line-height: 53px !important;
@@ -1051,7 +1082,7 @@ main.wp-block-group {
 
 /* ── Hero Custom Styles (Gutenberg Compatibility) ──────────────── */
 .eliashof-hero-wrap h1 {
-	color: #000000 !important;
+	color: var(--color-black) !important;
 	font-family: 'Neucha', cursive !important;
 	font-size: clamp(40px, 4.8vw, 86px) !important;
 	line-height: 1.1 !important;
@@ -1066,7 +1097,7 @@ main.wp-block-group {
 }
 
 .eliashof-hero-wrap p {
-	color: #000000 !important;
+	color: var(--color-black) !important;
 }
 
 /* Hero button inherited from global theme styles */
@@ -1125,7 +1156,7 @@ main.wp-block-group {
 
 /* ── Section SPB / Hort ────────────────────────────────────────────── */
 .section-spb {
-	background: #c5d799 !important;
+	background: var(--color-green-pale) !important;
 	padding: 78px clamp(24px, 10.8vw, 208px) 78px clamp(24px, 10.8vw, 208px) !important;
 	display: flex !important;
 	flex-direction: column !important;
@@ -1138,7 +1169,7 @@ main.wp-block-group {
 }
 
 .section-spb h2 {
-	color: #000000 !important;
+	color: var(--color-black) !important;
 	font-family: 'Neucha', cursive !important;
 	font-size: clamp(28px, 3.1vw, 50px) !important;
 	line-height: 1.1 !important;
@@ -1183,7 +1214,7 @@ main.wp-block-group {
 }
 
 .section-spb p {
-	color: #000000 !important;
+	color: var(--color-black) !important;
 	font-family: 'Montserrat', sans-serif !important;
 	font-size: clamp(18px, 1.5vw, 24px) !important;
 	font-weight: 300 !important;
@@ -1225,7 +1256,7 @@ main.wp-block-group {
 
 /* ── Section Highlight (Förderverein) ────────────────────────────── */
 .section-highlight {
-	background: #8cc8d1 !important;
+	background: var(--color-blue-pale) !important;
 	padding: 78px clamp(24px, 10.8vw, 208px) 78px clamp(24px, 10.8vw, 208px) !important;
 	display: flex !important;
 	flex-direction: column !important;
@@ -1268,7 +1299,7 @@ main.wp-block-group {
 }
 
 .section-highlight h2 {
-	color: #000000 !important;
+	color: var(--color-black) !important;
 	font-family: 'Neucha', cursive !important;
 	font-size: clamp(28px, 3.1vw, 50px) !important;
 	line-height: 1.1 !important;
@@ -1280,7 +1311,7 @@ main.wp-block-group {
 }
 
 .section-highlight p {
-	color: #000000 !important;
+	color: var(--color-black) !important;
 	font-family: 'Montserrat', sans-serif !important;
 	font-size: clamp(18px, 1.5vw, 24px) !important;
 	font-weight: 300 !important;
@@ -1337,7 +1368,7 @@ main.wp-block-group {
 }
 
 .section-ansprechpartner h2 {
-	color: #000000 !important;
+	color: var(--color-black) !important;
 	font-family: 'Neucha', cursive !important;
 	font-size: 50px !important;
 	line-height: 53px !important;
@@ -1399,7 +1430,7 @@ main.wp-block-group {
 	font-size: 35px !important;
 	line-height: 37px !important;
 	font-weight: 400 !important;
-	color: #000000 !important;
+	color: var(--color-black) !important;
 	letter-spacing: 0.05em !important;
 	text-transform: uppercase !important;
 	margin: 24px 0 6px 0 !important;
@@ -1417,16 +1448,16 @@ main.wp-block-group {
 
 /* Role Colors */
 .card-sekretariat .contact-role {
-	color: #f49600 !important;
+	color: var(--color-brand-orange-accent) !important;
 }
 .card-schulleitung .contact-role {
-	color: #0bbbef !important;
+	color: var(--color-blue-bright) !important;
 }
 .card-hortleitung .contact-role {
-	color: #89bd24 !important;
+	color: var(--color-green-accent) !important;
 }
 .card-schulhund .contact-role {
-	color: #f49600 !important;
+	color: var(--color-brand-orange-accent) !important;
 }
 
 /* Image Wrappers and Styling */
@@ -1499,7 +1530,7 @@ main.wp-block-group {
 
 /* Main Footer Wrapper */
 .eliashof-footer {
-	background-color: #eec68e !important;
+	background-color: var(--color-brand-yellow) !important;
 	padding: 0 !important;
 	margin: 0 !important;
 	width: 100% !important;
@@ -1508,7 +1539,7 @@ main.wp-block-group {
 
 /* Footer Main Area (Orange/Peach Background) */
 .eliashof-footer-main {
-	background-color: #eec68e !important;
+	background-color: var(--color-brand-yellow) !important;
 	width: 100% !important;
 	margin: 0 !important;
 	padding: 0 !important;
@@ -1584,7 +1615,7 @@ main.wp-block-group {
 	font-size: 24px !important;
 	line-height: 29px !important;
 	font-weight: 300 !important; /* Light */
-	color: #000000 !important;
+	color: var(--color-black) !important;
 	margin: 0 !important;
 }
 
@@ -1593,7 +1624,7 @@ main.wp-block-group {
 	font-family: 'Montserrat', sans-serif !important;
 	font-size: 24px !important;
 	font-weight: 300 !important; /* Light */
-	color: #000000 !important;
+	color: var(--color-black) !important;
 	margin: 0 !important;
 }
 
@@ -1650,7 +1681,7 @@ main.wp-block-group {
 }
 
 .eliashof-footer-sprechzeiten a {
-	color: #000000 !important;
+	color: var(--color-black) !important;
 	text-decoration: underline !important;
 }
 
@@ -1663,7 +1694,7 @@ main.wp-block-group {
 	font-family: 'Montserrat', sans-serif !important;
 	font-size: 24px !important;
 	font-weight: 300 !important; /* Light */
-	color: #000000 !important;
+	color: var(--color-black) !important;
 	margin: 0 !important;
 }
 
@@ -1696,7 +1727,7 @@ main.wp-block-group {
 .eliashof-footer-spb .spb-email {
 	display: inline-block !important;
 	line-height: 40.01px !important;
-	color: #000000 !important;
+	color: var(--color-black) !important;
 	text-decoration: underline !important;
 }
 
@@ -1706,7 +1737,7 @@ main.wp-block-group {
 
 /* Copyright Bar (Dark background) */
 .eliashof-footer-copyright {
-	background-color: #241f21 !important;
+	background-color: var(--color-text-dark) !important;
 	width: 100% !important;
 	margin: 0 !important;
 	padding: 50px 0 !important;
@@ -1725,7 +1756,7 @@ main.wp-block-group {
 }
 
 .eliashof-footer-copyright .copyright-text {
-	color: #eae7dd !important;
+	color: var(--color-cream-light) !important;
 	font-family: 'Montserrat', sans-serif !important;
 	font-weight: 300 !important; /* Light */
 	font-size: 22px !important;
@@ -1920,14 +1951,14 @@ main.wp-block-group {
 
 	.burger-toggle.is-active .burger-middle {
 		transform: rotate(45deg) !important;
-		background: #f39801 !important;
+		background: var(--color-brand-orange-active) !important;
 		width: 32px !important;
 		left: 0 !important;
 	}
 
 	.burger-toggle.is-active .burger-bottom {
 		transform: translateY(-10.5px) rotate(-45deg) !important;
-		background: #8cbb13 !important;
+		background: var(--color-green-active) !important;
 		width: 32px !important;
 		left: 0 !important;
 	}
@@ -1994,9 +2025,9 @@ main.wp-block-group {
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
-	background-color: #f8ac41 !important;
-	border: 0.7px solid #000000 !important;
-	color: #000000 !important;
+	background-color: var(--color-brand-orange) !important;
+	border: 0.7px solid var(--color-black) !important;
+	color: var(--color-black) !important;
 	display: inline-flex !important;
 	align-items: center !important;
 	justify-content: center !important;
@@ -2021,7 +2052,7 @@ main.wp-block-group {
 }
 
 .back-to-top:hover {
-	background-color: #f0a030 !important;
+	background-color: var(--color-brand-orange-hover) !important;
 	transform: translateY(-3px) scale(1.05);
 	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
@@ -2038,7 +2069,7 @@ main.wp-block-group {
 
 /* Keyboard focus indicator */
 .back-to-top:focus-visible {
-	outline: 3px solid #6CADDF !important;
+	outline: 3px solid var(--color-blue-sky) !important;
 	outline-offset: 3px;
 }
 

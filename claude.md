@@ -111,8 +111,14 @@ This document outlines the recent implementations and structural decisions made 
 - **Automatic Top Spacing:** Added a CSS selector targeting `.wp-block-post-content > :first-child:not(.eliashof-hero-wrap)` and `.entry-content > :first-child:not(.eliashof-hero-wrap)`.
 - **Responsive Offsets:** Set `padding-top: 210px !important` on desktop and `padding-top: 90px !important` on mobile under the `767px` media query. This pushes down the first block of any subpage to start cleanly below the absolute header. Using `padding-top` ensures that full-bleed sections with background colors or images still extend cleanly under the transparent header overlay, maintaining design fidelity.
 
-### 20. Version Control Update
-- **Git Tracking:** Committed the subpage header spacing rules, Back to Top button files, and changelog updates inside the theme repository.
+## Session Summary: Color Refactoring with CSS Variables
+
+### 20. Color Refactoring to :root
+- **CSS Variables Block:** Declared all brand and layout colors (yellow backgrounds, orange buttons/hover, green highlights, text colors, white, black, blue/green accents) as CSS Custom Properties (variables) in the `:root` pseudo-class at the top of `style.css`.
+- **References:** Replaced all hardcoded hex color values throughout `style.css` with references to these variables (`var(--color-...)`), making it simple to change color schemes globally.
+
+### 21. Version Control Update
+- **Git Tracking:** Committed the CSS variables refactoring, subpage header spacing rules, Back to Top button files, and changelog updates inside the theme repository.
 
 
 
