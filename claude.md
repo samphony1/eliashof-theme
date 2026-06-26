@@ -120,6 +120,18 @@ This document outlines the recent implementations and structural decisions made 
 ### 21. Version Control Update
 - **Git Tracking:** Committed the CSS variables refactoring, subpage header spacing rules, Back to Top button files, and changelog updates inside the theme repository.
 
+## Session Summary: Subpage & Blog Post Hero Implementation
+
+### 22. Subpage & Blog Post Hero Section Layout
+- **Box-Sizing Reset:** Added `box-sizing: border-box` to `.eliashof-subpage-hero` and all descendants to resolve padding width expansion and completely fix the horizontal overflow/scrollbar issues.
+- **Header Spacing Fix:** Reconfigured the hero block top spacing to start below the absolute-positioned transparent header, setting `padding-top: 210px` on desktop and `padding-top: 90px !important` on mobile under the `991px` media query.
+- **Figma Background Opacity:** Set the background color overlay opacity on `.bg-graph-blue::before` to `0.4` (40%) to match the Figma mockups.
+- **Transparent SVG Illustration:** Replaced the non-transparent `illustration-children-line.png` with `illustration-children-line.svg` (copied from `illustration03.svg`) in the templates, patterns, and mockup layouts, rendering crisp line-art vectors without border boxes.
+- **New dynamic `hero-blog` Block Pattern:** Created a new pattern `patterns/hero-blog.php` (slug `eliashof/hero-blog`) that uses `wp:post-title` and `wp:post-featured-image`. Referenced it in `templates/single.html` to automatically render post titles on the right and featured images on the left.
+
+### 23. Version Control Update
+- **Git Tracking:** Staged and committed new files and changes to the Git repository.
+
 
 
 
