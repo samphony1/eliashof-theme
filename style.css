@@ -2574,8 +2574,9 @@ main.wp-block-group {
 	}
 }
 
-/* Leitbild Section styling (perfectly aligned with textbox and SPB) */
-.eliashof-leitbild-section {
+/* Leitbild & Ausstattung Section styling (perfectly aligned with textbox and SPB) */
+.eliashof-leitbild-section,
+.eliashof-ausstattung-section {
 	background-color: transparent !important;
 	padding: 80px clamp(24px, 10.8vw, 208px) !important;
 	margin: 0 !important;
@@ -2584,13 +2585,15 @@ main.wp-block-group {
 	z-index: 2;
 }
 
-.eliashof-leitbild-section-container {
+.eliashof-leitbild-section-container,
+.eliashof-ausstattung-section-container {
 	max-width: 1497px !important;
 	margin: 0 auto !important;
 	width: 100% !important;
 }
 
-.eliashof-leitbild-title {
+.eliashof-leitbild-title,
+.eliashof-ausstattung-title {
 	color: var(--color-black) !important;
 	font-family: 'Neucha', cursive !important;
 	font-size: clamp(28px, 3.1vw, 50px) !important;
@@ -2603,7 +2606,8 @@ main.wp-block-group {
 	width: 100% !important;
 }
 
-.eliashof-leitbild-item {
+.eliashof-leitbild-item,
+.eliashof-ausstattung-item {
 	font-family: 'Montserrat', sans-serif !important;
 	font-size: clamp(18px, 1.4vw, 22px) !important;
 	line-height: 1.67 !important;
@@ -2613,7 +2617,8 @@ main.wp-block-group {
 	text-align: left !important;
 }
 
-.eliashof-leitbild-item:last-child {
+.eliashof-leitbild-item:last-child,
+.eliashof-ausstattung-item:last-child {
 	margin-bottom: 0 !important;
 }
 
@@ -2628,7 +2633,8 @@ main.wp-block-group {
 }
 
 @media (max-width: 767px) {
-	.eliashof-leitbild-section {
+	.eliashof-leitbild-section,
+	.eliashof-ausstattung-section {
 		padding: 50px 24px !important;
 	}
 }
