@@ -12,16 +12,19 @@
 		
 		<!-- Left column: Featured Image -->
 		<div class="eliashof-subpage-hero-image-col">
-			<!-- wp:post-featured-image {"className":"eliashof-subpage-featured-img"} /-->
+			<div class="eliashof-subpage-featured-img-container">
+				<!-- wp:post-featured-image {"className":"eliashof-subpage-featured-img"} /-->
+			</div>
 		</div>
 		
-		<!-- Right column: Title and Illustration -->
+		<!-- Right column: Title -->
 		<div class="eliashof-subpage-hero-content-col">
 			<!-- wp:post-title {"level":1,"className":"eliashof-subpage-title"} /-->
-			
-			<div class="eliashof-subpage-hero-illustration">
-				<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration-children-line.svg" alt="Illustration" />
-			</div>
+		</div>
+		
+		<!-- Illustration (anchored bottom right) -->
+		<div class="eliashof-subpage-hero-illustration">
+			<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration-children-line.svg" alt="Illustration" />
 		</div>
 		
 	</div>
