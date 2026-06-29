@@ -857,7 +857,7 @@ main.wp-block-group {
 	width: 100% !important;
 	display: flex !important;
 	flex-direction: row !important;
-	align-items: flex-start !important;
+	align-items: stretch !important;
 	justify-content: space-between !important;
 	gap: clamp(40px, 8vw, 136px) !important;
 }
@@ -875,7 +875,7 @@ main.wp-block-group {
 .section-lebenskunde-religion .wp-block-columns {
 	display: flex !important;
 	flex-direction: row !important;
-	align-items: flex-start !important;
+	align-items: stretch !important;
 	justify-content: space-between !important;
 	gap: clamp(40px, 8vw, 136px) !important;
 	margin: 0 auto !important;
@@ -888,13 +888,14 @@ main.wp-block-group {
 .section-lebenskunde-religion .wp-block-column:first-child,
 .section-downloads .post-container,
 .section-lebenskunde-religion .post-container {
-	flex: 0 1 684px !important;
+	flex: 1 1 684px !important;
 	max-width: 684px !important;
 	width: 100% !important;
 	box-sizing: border-box !important;
 	display: flex !important;
 	flex-direction: column !important;
 	align-items: center !important;
+	justify-content: flex-start !important;
 }
 
 /* Second Column (Right) */
@@ -902,13 +903,14 @@ main.wp-block-group {
 .section-lebenskunde-religion .wp-block-column:last-child,
 .section-downloads .post-container2,
 .section-lebenskunde-religion .post-container2 {
-	flex: 0 1 677px !important;
+	flex: 1 1 677px !important;
 	max-width: 677px !important;
 	width: 100% !important;
 	box-sizing: border-box !important;
 	display: flex !important;
 	flex-direction: column !important;
 	align-items: center !important;
+	justify-content: flex-start !important;
 }
 
 /* Common text-button wrapper styling for both structures */
@@ -920,6 +922,7 @@ main.wp-block-group {
 	display: flex !important;
 	flex-direction: column !important;
 	align-items: center !important;
+	flex-grow: 1 !important;
 }
 
 /* Headings */
@@ -973,7 +976,10 @@ main.wp-block-group {
 
 .section-downloads .wp-block-buttons,
 .section-lebenskunde-religion .wp-block-buttons {
-	margin: 0 !important;
+	margin-top: auto !important;
+	margin-bottom: 0 !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
 	padding: 0 !important;
 	display: flex !important;
 	justify-content: center !important;
