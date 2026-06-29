@@ -27,7 +27,7 @@ function eliashof_scripts() {
 		'eliashof-style',
 		get_template_directory_uri() . '/style.css',
 		[],
-		wp_get_theme()->get( 'Version' )
+		filemtime( get_template_directory() . '/style.css' )
 	);
 	wp_enqueue_script(
 		'eliashof-carousel',
@@ -370,3 +370,6 @@ function eliashof_fallback_menu() {
 	echo '<li><a href="#kontakt">KONTAKT</a></li>';
 	echo '</ul>';
 }
+
+
+

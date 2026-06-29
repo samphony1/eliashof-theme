@@ -513,16 +513,28 @@ body {
 }
 
 /* Push down the first block of any page content to prevent clashing with the absolute header */
-.wp-block-post-content > :first-child:not(.eliashof-hero-wrap),
-.entry-content > :first-child:not(.eliashof-hero-wrap) {
+.wp-block-post-content > :first-child:not(.eliashof-hero-wrap):not(.eliashof-subpage-hero),
+.entry-content > :first-child:not(.eliashof-hero-wrap):not(.eliashof-subpage-hero) {
 	padding-top: 210px !important;
 }
 
 @media (max-width: 767px) {
-	.wp-block-post-content > :first-child:not(.eliashof-hero-wrap),
-	.entry-content > :first-child:not(.eliashof-hero-wrap) {
+	.wp-block-post-content > :first-child:not(.eliashof-hero-wrap):not(.eliashof-subpage-hero),
+	.entry-content > :first-child:not(.eliashof-hero-wrap):not(.eliashof-subpage-hero) {
 		padding-top: 90px !important;
 	}
+}
+
+/* Reset padding-top on the first child of the content block when any hero is present */
+body:has(.eliashof-subpage-hero) .wp-block-post-content > :first-child,
+body:has(.eliashof-subpage-hero) .entry-content > :first-child,
+body:has(.eliashof-hero-wrap) .wp-block-post-content > :first-child,
+body:has(.eliashof-hero-wrap) .entry-content > :first-child,
+.eliashof-subpage-hero ~ .eliashof-subpage-content-wrapper .wp-block-post-content > :first-child,
+.eliashof-subpage-hero ~ .eliashof-subpage-content-wrapper .entry-content > :first-child,
+.eliashof-subpage-hero ~ .wp-block-post-content > :first-child,
+.eliashof-subpage-hero ~ .entry-content > :first-child {
+	padding-top: 0 !important;
 }
 
 .eliashof-header {
@@ -2208,6 +2220,11 @@ main.wp-block-group {
 	padding: 63px clamp(24px, 10.5vw, 202px) !important;
 	max-width: 1516px !important;
 	margin: 0 auto !important;
+}
+
+.eliashof-subpage-content-wrapper,
+.eliashof-subpage-content-wrapper .wp-block-post-content,
+.eliashof-subpage-content-wrapper .entry-content {
 	display: flex !important;
 	flex-direction: column !important;
 	gap: 45px !important;
@@ -2215,7 +2232,9 @@ main.wp-block-group {
 	justify-content: flex-start !important;
 }
 
-.eliashof-subpage-content-wrapper p {
+.eliashof-subpage-content-wrapper p,
+.eliashof-subpage-content-wrapper .wp-block-post-content p,
+.eliashof-subpage-content-wrapper .entry-content p {
 	font-family: 'Montserrat', sans-serif !important;
 	font-size: clamp(18px, 1.5vw, 24px) !important;
 	line-height: 1.67 !important; /* ~40.08px at 24px font size */
@@ -2280,6 +2299,68 @@ main.wp-block-group {
 	}
 }
 
+.eliashof-post-navigation {
+	box-sizing: border-box !important;
+	display: flex !important;
+	flex-direction: row !important;
+	align-items: center !important;
+	justify-content: space-between !important;
+	width: 100% !important;
+	max-width: 1516px !important;
+	margin: 80px auto !important;
+	padding: 0 clamp(24px, 10.5vw, 202px) !important;
+	gap: 20px !important;
+}
+
+.eliashof-post-nav-prev,
+.eliashof-post-nav-next,
+.eliashof-post-nav-home {
+	flex: 1 1 30% !important;
+	display: flex !important;
+}
+
+.eliashof-post-nav-prev {
+	justify-content: flex-start !important;
+}
+
+.eliashof-post-nav-home {
+	justify-content: center !important;
+}
+
+.eliashof-post-nav-next {
+	justify-content: flex-end !important;
+}
+
+/* Style the dynamic WordPress post navigation links as Eliashof buttons */
+.eliashof-post-navigation a,
+.eliashof-post-navigation .wp-block-post-navigation-link a {
+	background-color: var(--color-brand-orange) !important;
+	color: var(--color-black) !important;
+	border-radius: 40px !important;
+	border: 0.7px solid var(--color-black) !important;
+	padding: 0 40px !important;
+	height: 50px !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	font-family: 'Neucha', cursive !important;
+	font-size: 22px !important;
+	line-height: 24px !important;
+	letter-spacing: 0.05em !important;
+	text-decoration: none !important;
+	box-sizing: border-box !important;
+	cursor: pointer !important;
+	transition: background-color 0.2s ease, transform 0.2s ease !important;
+	text-transform: uppercase !important;
+	white-space: nowrap !important;
+}
+
+.eliashof-post-navigation a:hover,
+.eliashof-post-navigation .wp-block-post-navigation-link a:hover {
+	background-color: var(--color-brand-orange-hover) !important;
+	transform: translateY(-2px) !important;
+}
+
 @media (max-width: 767px) {
 	.eliashof-subpage-featured-img-container {
 		border-radius: 30px !important;
@@ -2288,5 +2369,33 @@ main.wp-block-group {
 	.eliashof-subpage-content-wrapper {
 		padding: 40px 24px !important;
 		gap: 30px !important;
+	}
+	
+	.eliashof-subpage-content-wrapper .wp-block-post-content,
+	.eliashof-subpage-content-wrapper .entry-content {
+		gap: 30px !important;
+	}
+	
+	.eliashof-post-navigation {
+		flex-direction: column !important;
+		gap: 15px !important;
+		margin: 40px auto !important;
+		padding: 0 24px !important;
+	}
+	
+	.eliashof-post-nav-prev,
+	.eliashof-post-nav-next,
+	.eliashof-post-nav-home {
+		flex: 0 1 auto !important;
+		width: 100% !important;
+		justify-content: center !important;
+	}
+	
+	.eliashof-post-navigation a,
+	.eliashof-post-navigation .wp-block-post-navigation-link a {
+		width: 100% !important;
+		max-width: 320px !important;
+		font-size: 20px !important;
+		padding: 0 24px !important;
 	}
 }
