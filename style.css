@@ -2632,3 +2632,22 @@ main.wp-block-group {
 		padding: 50px 24px !important;
 	}
 }
+
+/* Parallax Background Section */
+.eliashof-parallax-section {
+	height: 902.9px !important;
+	min-height: 902.9px !important;
+	position: relative !important;
+	overflow: hidden !important;
+	margin: 0 !important;
+}
+
+@media (max-width: 991px) {
+	.eliashof-parallax-section {
+		height: 450px !important;
+		min-height: 450px !important;
+	}
+	.eliashof-parallax-section .wp-block-cover__image-background {
+		background-attachment: scroll !important;
+	}
+}
