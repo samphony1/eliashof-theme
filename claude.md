@@ -151,6 +151,7 @@ This document outlines the recent implementations and structural decisions made 
 - **Updated Hero Spacing Padding:** Configured `.eliashof-hero-blog-schule-container` with a `66px` top padding on desktop, and set `padding-top: 20px !important` on mobile.
 - **Created Modular Section Snippets:** Replaced the master "page-unsere-schule" pattern with two separate modular block patterns: `patterns/section-textbox.php` (for the transparent textbox section below the hero) and `patterns/section-ueber-uns.php` (for the solid green grid section containing the alternating text/image rows).
 - **Added Style Utilities:** Implemented `.bg-graph-green`, `.bg-graph-orange`, and `.bg-graph-yellow` as solid background colors (hiding grid pseudo-elements) to match Figma layouts, and added `.eliashof-textbox-section` (configured with transparent background to let the paper grid shine through). Restored the transparent, blended paper grid lines for the blue hero background (`.bg-graph-blue`).
+- **Aligned Section Ueber Uns with SPB Styling:** Configured the green "Über uns" section to match the SPB layout structure, custom image borders (`49.3px`), content gaps, and alternating rows (Row 1: Text Left / Image Right; Row 2: Image Left / Text Right) without buttons, and enabled layout locking (`templateLock: contentOnly`).
 
 ### 25. Version Control Update
 - **Git Tracking:** Staged and committed layout refinements and documentation updates inside the theme repository.
