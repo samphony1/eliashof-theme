@@ -2263,7 +2263,7 @@ main.wp-block-group {
 	.eliashof-hero-blog-schule-container {
 		flex-direction: column !important;
 		gap: 24px !important;
-		padding-top: 0 !important;
+		padding-top: 20px !important;
 		padding-bottom: 3px !important;
 	}
 	
