@@ -9,8 +9,8 @@
 <!-- wp:group {"align":"full","anchor":"downloads-terminkalender","templateLock":"contentOnly","className":"eliashof-section section-downloads bg-graph-orange","layout":{"type":"constrained"}} -->
 <div id="downloads-terminkalender" class="wp-block-group alignfull eliashof-section section-downloads bg-graph-orange">
 
-	<!-- wp:columns {"align":"wide","verticalAlignment":"center","className":"eliashof-grid-row"} -->
-	<div class="wp-block-columns alignwide are-vertically-aligned-center eliashof-grid-row">
+	<!-- wp:columns {"align":"wide","verticalAlignment":"center"} -->
+	<div class="wp-block-columns alignwide are-vertically-aligned-center">
 
 		<!-- wp:column {"verticalAlignment":"center","width":"50%","className":"eliashof-grid-text"} -->
 		<div class="wp-block-column is-vertically-aligned-center eliashof-grid-text" style="flex-basis:50%">

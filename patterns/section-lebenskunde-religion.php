@@ -9,8 +9,8 @@
 <!-- wp:group {"align":"full","anchor":"section-lebenskunde-religion","templateLock":"contentOnly","className":"eliashof-section section-lebenskunde-religion bg-graph-blue-sky","layout":{"type":"constrained"}} -->
 <div id="section-lebenskunde-religion" class="wp-block-group alignfull eliashof-section section-lebenskunde-religion bg-graph-blue-sky">
 
-	<!-- wp:columns {"align":"wide","verticalAlignment":"center","className":"eliashof-grid-row"} -->
-	<div class="wp-block-columns alignwide are-vertically-aligned-center eliashof-grid-row">
+	<!-- wp:columns {"align":"wide","verticalAlignment":"center"} -->
+	<div class="wp-block-columns alignwide are-vertically-aligned-center">
 
 		<!-- wp:column {"verticalAlignment":"center","width":"50%","className":"eliashof-grid-text"} -->
 		<div class="wp-block-column is-vertically-aligned-center eliashof-grid-text" style="flex-basis:50%">

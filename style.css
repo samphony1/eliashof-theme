@@ -867,8 +867,27 @@ main.wp-block-group {
 
 .section-downloads .wp-block-columns,
 .section-lebenskunde-religion .wp-block-columns {
-	max-width: 1497px !important;
+	display: flex !important;
+	flex-direction: row !important;
+	align-items: flex-start !important;
+	justify-content: space-between !important;
+	gap: clamp(40px, 8vw, 136px) !important;
 	margin: 0 auto !important;
+	width: 100% !important;
+	max-width: 1497px !important;
+}
+
+.section-downloads .wp-block-column:first-child,
+.section-lebenskunde-religion .wp-block-column:first-child {
+	flex: 0 1 684px !important;
+	max-width: 684px !important;
+	width: 100% !important;
+}
+
+.section-downloads .wp-block-column:last-child,
+.section-lebenskunde-religion .wp-block-column:last-child {
+	flex: 0 1 677px !important;
+	max-width: 677px !important;
 	width: 100% !important;
 }
 
@@ -885,7 +904,19 @@ main.wp-block-group {
 	text-align: center !important;
 }
 
-.section-downloads p,
+/* Downloads (Orange) text is centered */
+.section-downloads p {
+	color: var(--color-black) !important;
+	text-align: center !important;
+	font-family: 'Montserrat', sans-serif !important;
+	font-size: clamp(18px, 1.4vw, 22px) !important;
+	line-height: 1.67 !important;
+	font-weight: 300 !important;
+	margin: 0 auto 28px auto !important;
+	max-width: 684px !important;
+}
+
+/* Lebenskunde & Religion (Blue) text is left-aligned and starts exactly at the left margin */
 .section-lebenskunde-religion p {
 	color: var(--color-black) !important;
 	text-align: left !important;
@@ -893,8 +924,8 @@ main.wp-block-group {
 	font-size: clamp(18px, 1.4vw, 22px) !important;
 	line-height: 1.67 !important;
 	font-weight: 300 !important;
-	margin: 0 auto 28px auto !important;
-	max-width: 684px !important; /* Matches SPB content text limit */
+	margin: 0 0 28px 0 !important;
+	max-width: 684px !important;
 }
 
 .section-downloads .wp-block-buttons,
@@ -903,6 +934,22 @@ main.wp-block-group {
 	padding: 0 !important;
 	display: flex !important;
 	justify-content: center !important;
+}
+
+@media (max-width: 991px) {
+	.section-downloads .wp-block-columns,
+	.section-lebenskunde-religion .wp-block-columns {
+		flex-direction: column !important;
+		gap: 30px !important;
+		margin-bottom: 50px !important;
+	}
+	
+	.section-downloads .wp-block-columns > .wp-block-column,
+	.section-lebenskunde-religion .wp-block-columns > .wp-block-column {
+		flex-basis: 100% !important;
+		width: 100% !important;
+		max-width: 100% !important;
+	}
 }
 
 @media (max-width: 767px) {
