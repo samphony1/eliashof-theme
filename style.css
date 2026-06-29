@@ -2269,7 +2269,7 @@ main.wp-block-group {
 	.eliashof-subpage-hero-container {
 		flex-direction: column !important;
 		gap: 24px !important;
-		padding-bottom: 24px !important;
+		padding-bottom: 3px !important;
 	}
 	
 	.eliashof-subpage-hero-image-col {
@@ -2290,12 +2290,14 @@ main.wp-block-group {
 	
 	.eliashof-subpage-title {
 		text-align: center !important;
+		margin: 0 !important;
 	}
 	
 	.eliashof-subpage-hero-illustration {
 		order: 3 !important;
 		position: static !important;
 		margin-top: 0 !important;
+		margin-bottom: -5px !important;
 		max-width: 450px !important;
 		align-self: center !important;
 	}
