@@ -150,7 +150,7 @@ This document outlines the recent implementations and structural decisions made 
 - **Renamed to Hero Blog & Schule:** Renamed CSS classes from `.eliashof-subpage-hero` to `.eliashof-hero-blog-schule` and consolidated the patterns into a single unified dynamic pattern `patterns/hero-blog-schule.php` (slug `eliashof/hero-blog-schule`).
 - **Updated Hero Spacing Padding:** Configured `.eliashof-hero-blog-schule-container` with a `66px` top padding on desktop, and set `padding-top: 20px !important` on mobile.
 - **Created Modular Section Snippets:** Replaced the master "page-unsere-schule" pattern with two separate modular block patterns: `patterns/section-textbox.php` (for the solid white textbox section below the hero) and `patterns/section-ueber-uns.php` (for the solid green grid section containing the alternating text/image rows).
-- **Added Style Utilities:** Implemented `.bg-graph-green`, `.bg-graph-blue`, `.bg-graph-orange`, and `.bg-graph-yellow` as solid background colors (hiding grid pseudo-elements) to match Figma layouts, and added `.eliashof-textbox-section` for the solid white textbox area.
+- **Added Style Utilities:** Implemented `.bg-graph-green`, `.bg-graph-orange`, and `.bg-graph-yellow` as solid background colors (hiding grid pseudo-elements) to match Figma layouts, and added `.eliashof-textbox-section` for the solid white textbox area. Restored the transparent, blended paper grid lines for the blue hero background (`.bg-graph-blue`).
 
 ### 25. Version Control Update
 - **Git Tracking:** Staged and committed layout refinements and documentation updates inside the theme repository.
