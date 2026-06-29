@@ -2536,7 +2536,7 @@ main.wp-block-group {
 
 /* Solid textbox section below the hero */
 .eliashof-textbox-section {
-	background-color: var(--color-white) !important;
+	background-color: transparent !important;
 	padding: 80px clamp(24px, 6vw, 138px) !important;
 	margin: 0 !important;
 	box-sizing: border-box !important;
