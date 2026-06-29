@@ -711,25 +711,17 @@ body {
 }
 
 .bg-graph-yellow {
-	background-color: transparent !important;
+	background-color: var(--color-brand-yellow) !important;
 	position: relative;
+	z-index: 2;
 }
 
 .bg-graph-yellow::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: var(--color-brand-yellow);
-	mix-blend-mode: multiply;
-	z-index: 0;
-	pointer-events: none;
+	display: none !important;
 }
 
 .bg-graph-white {
-	background-color: transparent !important;
+	background-color: var(--color-white) !important;
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -2100,22 +2092,13 @@ main.wp-block-group {
 
 /* ── Subpage & Article Hero Section ──────────────────────────────── */
 .bg-graph-blue {
-	background-color: transparent !important;
+	background-color: #bfeaf7 !important; /* Soft solid sky blue */
 	position: relative;
+	z-index: 2;
 }
 
 .bg-graph-blue::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: var(--color-blue-bright);
-	mix-blend-mode: multiply;
-	opacity: 0.4;
-	z-index: 0;
-	pointer-events: none;
+	display: none !important;
 }
 
 .eliashof-hero-blog-schule,
@@ -2409,41 +2392,23 @@ main.wp-block-group {
 
 /* Graph background color overrides */
 .bg-graph-green {
-	background-color: transparent !important;
+	background-color: var(--color-green-pale) !important; /* Soft solid light green */
 	position: relative;
+	z-index: 2;
 }
 
 .bg-graph-green::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: var(--color-green-pale);
-	mix-blend-mode: multiply;
-	opacity: 0.45;
-	z-index: 0;
-	pointer-events: none;
+	display: none !important;
 }
 
 .bg-graph-orange {
-	background-color: transparent !important;
+	background-color: #ffe0b2 !important; /* Soft solid light orange */
 	position: relative;
+	z-index: 2;
 }
 
 .bg-graph-orange::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: var(--color-brand-orange);
-	mix-blend-mode: multiply;
-	opacity: 0.4;
-	z-index: 0;
-	pointer-events: none;
+	display: none !important;
 }
 
 /* Transparent card wrapper */
@@ -2557,5 +2522,41 @@ main.wp-block-group {
 @media (max-width: 767px) {
 	.eliashof-rounded-img-container {
 		border-radius: 40px !important;
+	}
+}
+
+/* Solid textbox section below the hero */
+.eliashof-textbox-section {
+	background-color: var(--color-white) !important;
+	padding: 80px clamp(24px, 6vw, 138px) !important;
+	margin: 0 !important;
+	box-sizing: border-box !important;
+	position: relative;
+	z-index: 2;
+}
+
+.eliashof-textbox-section-container {
+	max-width: 1240px !important;
+	margin: 0 auto !important;
+	width: 100% !important;
+}
+
+.eliashof-textbox-section p {
+	font-family: 'Montserrat', sans-serif !important;
+	font-size: clamp(18px, 1.4vw, 22px) !important;
+	line-height: 1.67 !important;
+	font-weight: 300 !important;
+	color: var(--color-black) !important;
+	margin: 0 0 30px 0 !important;
+	text-align: left !important;
+}
+
+.eliashof-textbox-section p:last-child {
+	margin-bottom: 0 !important;
+}
+
+@media (max-width: 767px) {
+	.eliashof-textbox-section {
+		padding: 50px 24px !important;
 	}
 }

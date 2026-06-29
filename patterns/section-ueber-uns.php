@@ -1,28 +1,14 @@
 <?php
 /**
- * Title: Seite Unsere Schule
- * Slug: eliashof/page-unsere-schule
+ * Title: Über unsere Schule (Sektion)
+ * Slug: eliashof/section-ueber-uns
  * Categories: eliashof-sections
- * Description: Complete layout for the "Unsere Schule" subpage including hero, transparent textbox, and Über Uns grid rows.
+ * Description: Alternating text and image grid rows inside a green background section.
  */
 ?>
-<!-- wp:pattern {"slug":"eliashof/hero-blog-schule"} /-->
-
 <!-- wp:group {"align":"full","className":"bg-graph-green","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull bg-graph-green">
+<div class="wp-block-group alignfull bg-graph-green" style="padding-top: 80px; padding-bottom: 80px;">
 	
-	<!-- wp:group {"className":"eliashof-transparent-card","layout":{"type":"default"}} -->
-	<div class="wp-block-group eliashof-transparent-card">
-		<!-- wp:paragraph -->
-		<p>Die Vorbereitung unserer Schülerinnen und Schüler auf das Leben hat für uns zentrale Bedeutung. Unsere pädagogische Arbeit zielt daher immer auch darauf, die Fähigkeiten zum eigenständigen Handeln zu fördern. Wir ermutigen die Kinder zur Übernahme von Verantwortung und bieten Raum zur Mitgestaltung des Schullebens.</p>
-		<!-- /wp:paragraph -->
-		
-		<!-- wp:paragraph -->
-		<p>Unsere Schule ist personell und materiell sehr gut aufgestellt. Es stehen Fachräume für Nawi und die Computernutzung zur Verfügung. Es gibt zudem Tablets in Klassenstärke. Digitale Medien ergänzen an unserer Schule sinnvoll den klassischen Unterricht.</p>
-		<!-- /wp:paragraph -->
-	</div>
-	<!-- /wp:group -->
-
 	<!-- wp:heading {"level":2,"className":"eliashof-section-title"} -->
 	<h2 class="wp-block-heading eliashof-section-title">Über unsere Schule</h2>
 	<!-- /wp:heading -->
