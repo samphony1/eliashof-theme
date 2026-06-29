@@ -149,8 +149,8 @@ This document outlines the recent implementations and structural decisions made 
 - **Aligned Desktop Header Top Offset:** Lifted the desktop absolute header `.eliashof-header` top spacing from `77px` to `50px` for a clean layout balance.
 - **Renamed to Hero Blog & Schule:** Renamed CSS classes from `.eliashof-subpage-hero` to `.eliashof-hero-blog-schule` and consolidated the patterns into a single unified dynamic pattern `patterns/hero-blog-schule.php` (slug `eliashof/hero-blog-schule`).
 - **Updated Hero Spacing Padding:** Configured `.eliashof-hero-blog-schule-container` with a `66px` top padding on desktop, and set `padding-top: 20px !important` on mobile.
-- **Created Unsere Schule Block Pattern:** Developed a complete page-level pattern `patterns/page-unsere-schule.php` bundling the dynamic hero, transparent textbox container, and alternating "Über unsere Schule" layout columns.
-- **Added Style Utilities:** Implemented `.bg-graph-green` and `.bg-graph-orange` overlay rules in `style.css` to enable multi-colored grid section blocks, styled `.eliashof-transparent-card` container elements, and configured `.eliashof-rounded-img-container` grid image components.
+- **Created Modular Section Snippets:** Replaced the master "page-unsere-schule" pattern with two separate modular block patterns: `patterns/section-textbox.php` (for the solid white textbox section below the hero) and `patterns/section-ueber-uns.php` (for the solid green grid section containing the alternating text/image rows).
+- **Added Style Utilities:** Implemented `.bg-graph-green`, `.bg-graph-blue`, `.bg-graph-orange`, and `.bg-graph-yellow` as solid background colors (hiding grid pseudo-elements) to match Figma layouts, and added `.eliashof-textbox-section` for the solid white textbox area.
 
 ### 25. Version Control Update
 - **Git Tracking:** Staged and committed layout refinements and documentation updates inside the theme repository.
