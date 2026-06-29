@@ -1220,6 +1220,10 @@ main.wp-block-group {
 	margin: 0 0 38px 0 !important;
 }
 
+.section-spb p:last-child {
+	margin-bottom: 0 !important;
+}
+
 /* SPB button inherited from global theme styles */
 
 @media (max-width: 1279px) {
