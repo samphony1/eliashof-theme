@@ -145,6 +145,8 @@ This document outlines the recent implementations and structural decisions made 
 - **Eliashof Post Navigation Buttons:** Appended Previous Post, Next Post, and a centered Zurück zur Startseite navigation button row inside `templates/single.html` sharing standard brand styles (orange background, Neucha typography). Added `box-sizing: border-box !important` to center buttons side-by-side on desktop without clipping.
 - **Automatic Browser Cache Busting:** Enqueued the theme stylesheet in `functions.php` using the file modification timestamp (`filemtime`) as the version number, forcing instant updates on stylesheet changes.
 - **Subpage Hero Mobile Order & Spacing:** Re-ordered elements responsively inside the `@media (max-width: 991px)` media query: Title/Heading appears at the top (`order: 1`), Featured Image in the middle (`order: 2`), and Children Illustration centered at the bottom (`order: 3`), with vertical gap spacing reduced to a clean `24px` layout.
+- **Restored Homepage Hero Padding:** Fixed padding-top collapse on the homepage hero block by limiting first-child padding-top resets strictly to content wrapper elements on subpages.
+- **Aligned Desktop Header Top Offset:** Lifted the desktop absolute header `.eliashof-header` top spacing from `77px` to `50px` for a clean layout balance.
 
 ### 25. Version Control Update
 - **Git Tracking:** Staged and committed layout refinements and documentation updates inside the theme repository.
