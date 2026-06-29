@@ -896,6 +896,7 @@ main.wp-block-group {
 	flex-direction: column !important;
 	align-items: center !important;
 	justify-content: flex-start !important;
+	align-self: stretch !important;
 }
 
 /* Second Column (Right) */
@@ -911,6 +912,7 @@ main.wp-block-group {
 	flex-direction: column !important;
 	align-items: center !important;
 	justify-content: flex-start !important;
+	align-self: stretch !important;
 }
 
 /* Common text-button wrapper styling for both structures */
