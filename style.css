@@ -855,6 +855,11 @@ main.wp-block-group {
 	margin: 0 !important;
 	box-sizing: border-box !important;
 	width: 100% !important;
+	display: flex !important;
+	flex-direction: row !important;
+	align-items: flex-start !important;
+	justify-content: space-between !important;
+	gap: clamp(40px, 8vw, 136px) !important;
 }
 
 .section-downloads {
@@ -865,6 +870,7 @@ main.wp-block-group {
 	background: #9DE4F9 !important;
 }
 
+/* Support both native Gutenberg Columns block and old custom group block structure */
 .section-downloads .wp-block-columns,
 .section-lebenskunde-religion .wp-block-columns {
 	display: flex !important;
@@ -877,22 +883,52 @@ main.wp-block-group {
 	max-width: 1497px !important;
 }
 
+/* First Column (Left) */
 .section-downloads .wp-block-column:first-child,
-.section-lebenskunde-religion .wp-block-column:first-child {
+.section-lebenskunde-religion .wp-block-column:first-child,
+.section-downloads .post-container,
+.section-lebenskunde-religion .post-container {
 	flex: 0 1 684px !important;
 	max-width: 684px !important;
 	width: 100% !important;
+	box-sizing: border-box !important;
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: center !important;
 }
 
+/* Second Column (Right) */
 .section-downloads .wp-block-column:last-child,
-.section-lebenskunde-religion .wp-block-column:last-child {
+.section-lebenskunde-religion .wp-block-column:last-child,
+.section-downloads .post-container2,
+.section-lebenskunde-religion .post-container2 {
 	flex: 0 1 677px !important;
 	max-width: 677px !important;
 	width: 100% !important;
+	box-sizing: border-box !important;
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: center !important;
 }
 
+/* Common text-button wrapper styling for both structures */
+.section-downloads .text-button,
+.section-downloads .text-button2,
+.section-lebenskunde-religion .text-button,
+.section-lebenskunde-religion .text-button2 {
+	width: 100% !important;
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: center !important;
+}
+
+/* Headings */
 .section-downloads h2,
-.section-lebenskunde-religion h2 {
+.section-lebenskunde-religion h2,
+.section-downloads .downloads,
+.section-downloads .terminkalender,
+.section-lebenskunde-religion .lebenskunde-heading,
+.section-lebenskunde-religion .religion-heading {
 	color: var(--color-black) !important;
 	font-family: 'Neucha', cursive !important;
 	font-size: clamp(34px, 3.1vw, 50px) !important;
@@ -902,10 +938,13 @@ main.wp-block-group {
 	text-transform: uppercase !important;
 	margin: 0 auto 24px auto !important;
 	text-align: center !important;
+	width: 100% !important;
 }
 
 /* Downloads (Orange) text is centered */
-.section-downloads p {
+.section-downloads p,
+.section-downloads .hier-finden-sie-eine-sammlung-aller-downloads-von,
+.section-downloads .alle-termine-des-laufenden-schuljahres {
 	color: var(--color-black) !important;
 	text-align: center !important;
 	font-family: 'Montserrat', sans-serif !important;
@@ -914,10 +953,13 @@ main.wp-block-group {
 	font-weight: 300 !important;
 	margin: 0 auto 28px auto !important;
 	max-width: 684px !important;
+	align-self: stretch;
 }
 
-/* Lebenskunde & Religion (Blue) text is left-aligned and starts exactly at the left margin */
-.section-lebenskunde-religion p {
+/* Lebenskunde & Religion (Blue) text is left-aligned */
+.section-lebenskunde-religion p,
+.section-lebenskunde-religion .lebenskunde-text,
+.section-lebenskunde-religion .religion-text {
 	color: var(--color-black) !important;
 	text-align: left !important;
 	font-family: 'Montserrat', sans-serif !important;
@@ -926,6 +968,7 @@ main.wp-block-group {
 	font-weight: 300 !important;
 	margin: 0 0 28px 0 !important;
 	max-width: 684px !important;
+	align-self: stretch;
 }
 
 .section-downloads .wp-block-buttons,
@@ -936,16 +979,37 @@ main.wp-block-group {
 	justify-content: center !important;
 }
 
+.section-downloads .mehr-erfahren,
+.section-lebenskunde-religion .mehr-erfahren {
+	color: var(--color-black) !important;
+	font-family: 'Neucha', cursive !important;
+	font-size: clamp(20px, 2.2vw, 25px) !important;
+	line-height: 27px !important;
+	letter-spacing: 0.05em !important;
+	font-weight: 400;
+}
+
+/* Responsive layouts */
 @media (max-width: 991px) {
+	.section-downloads,
+	.section-lebenskunde-religion {
+		flex-direction: column !important;
+		align-items: center !important;
+		gap: 64px !important;
+	}
+
 	.section-downloads .wp-block-columns,
 	.section-lebenskunde-religion .wp-block-columns {
 		flex-direction: column !important;
-		gap: 30px !important;
-		margin-bottom: 50px !important;
+		gap: 64px !important;
 	}
 	
 	.section-downloads .wp-block-columns > .wp-block-column,
-	.section-lebenskunde-religion .wp-block-columns > .wp-block-column {
+	.section-lebenskunde-religion .wp-block-columns > .wp-block-column,
+	.section-downloads .post-container,
+	.section-downloads .post-container2,
+	.section-lebenskunde-religion .post-container,
+	.section-lebenskunde-religion .post-container2 {
 		flex-basis: 100% !important;
 		width: 100% !important;
 		max-width: 100% !important;
@@ -956,6 +1020,16 @@ main.wp-block-group {
 	.section-downloads,
 	.section-lebenskunde-religion {
 		padding: 60px 24px !important;
+	}
+}
+
+/* Widescreen centering fallback to align with SPB and Textbox containers */
+@media (min-width: 1913px) {
+	.section-downloads,
+	.section-lebenskunde-religion {
+		padding-left: calc((100vw - 1497px) / 2) !important;
+		padding-right: calc((100vw - 1497px) / 2) !important;
+		justify-content: center !important;
 	}
 }
 
