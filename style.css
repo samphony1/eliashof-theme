@@ -1034,7 +1034,9 @@ main.wp-block-group {
 /* Widescreen centering fallback to align with SPB and Textbox containers */
 @media (min-width: 1913px) {
 	.section-downloads,
-	.section-lebenskunde-religion {
+	.section-lebenskunde-religion,
+	.section-highlight,
+	.section-kooperationen {
 		padding-left: calc((100vw - 1497px) / 2) !important;
 		padding-right: calc((100vw - 1497px) / 2) !important;
 		justify-content: center !important;
@@ -1436,6 +1438,105 @@ main.wp-block-group {
 	}
 
 	.section-highlight p {
+		font-size: 18px !important;
+		line-height: 1.6 !important;
+	}
+}
+
+/* ── Section Kooperationen ────────────────────────────────────────── */
+.section-kooperationen {
+	background: #D0E5A7 !important;
+	padding: 78px clamp(24px, 10.8vw, 208px) 78px clamp(24px, 10.8vw, 208px) !important;
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: center !important;
+	justify-content: center !important;
+	min-height: 627px !important;
+	width: 100% !important;
+	box-sizing: border-box !important;
+}
+
+.section-kooperationen .wp-block-columns {
+	display: flex !important;
+	flex-direction: row !important;
+	align-items: center !important;
+	justify-content: center !important;
+	gap: clamp(40px, 8vw, 136px) !important;
+	margin: 0 auto !important;
+	width: 100% !important;
+	max-width: 1497px !important;
+}
+
+.section-kooperationen .wp-block-column:first-child {
+	flex: 0 1 684px !important;
+	max-width: 684px !important;
+	width: 100% !important;
+}
+
+.section-kooperationen .wp-block-column:last-child {
+	flex: 0 1 677px !important;
+	max-width: 677px !important;
+	width: 100% !important;
+}
+
+.section-kooperationen .wp-block-image img {
+	width: 100% !important;
+	height: auto !important;
+	aspect-ratio: 684 / 471.6 !important;
+	object-fit: cover !important;
+	border-radius: 49.3px !important;
+}
+
+.section-kooperationen h2 {
+	color: var(--color-black) !important;
+	font-family: 'Neucha', cursive !important;
+	font-size: clamp(28px, 3.1vw, 50px) !important;
+	line-height: 1.1 !important;
+	letter-spacing: 0.05em !important;
+	font-weight: 400 !important;
+	text-transform: uppercase !important;
+	margin: 0 0 24px 0 !important;
+	text-align: left !important;
+}
+
+.section-kooperationen p {
+	color: var(--color-black) !important;
+	font-family: 'Montserrat', sans-serif !important;
+	font-size: clamp(18px, 1.5vw, 24px) !important;
+	font-weight: 300 !important;
+	line-height: 40px !important;
+	margin: 0 !important;
+}
+
+@media (max-width: 1279px) {
+	.section-kooperationen {
+		padding: 60px 24px !important;
+		min-height: auto !important;
+	}
+
+	.section-kooperationen .wp-block-columns {
+		flex-direction: column !important;
+		gap: 48px !important;
+	}
+
+	.section-kooperationen .wp-block-column:first-child,
+	.section-kooperationen .wp-block-column:last-child {
+		flex: 1 1 100% !important;
+		max-width: 100% !important;
+		width: 100% !important;
+	}
+
+	.section-kooperationen .wp-block-image img {
+		height: auto !important;
+		aspect-ratio: 684 / 471.6 !important;
+	}
+
+	.section-kooperationen h2 {
+		text-align: center !important;
+		margin-bottom: 16px !important;
+	}
+
+	.section-kooperationen p {
 		font-size: 18px !important;
 		line-height: 1.6 !important;
 	}
@@ -2497,6 +2598,16 @@ main.wp-block-group {
 }
 
 .bg-graph-green::before {
+	display: none !important;
+}
+
+.bg-graph-green-light {
+	background-color: #D0E5A7 !important; /* Custom soft light green for Kooperationen */
+	position: relative;
+	z-index: 2;
+}
+
+.bg-graph-green-light::before {
 	display: none !important;
 }
 
