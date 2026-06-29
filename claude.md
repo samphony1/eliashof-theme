@@ -140,6 +140,10 @@ This document outlines the recent implementations and structural decisions made 
 - **Empty Featured Image Box Container:** Introduced `.eliashof-subpage-featured-img-container` with border, border-radius (`65px` desktop), and shadow. When no featured image is uploaded on a post, the box container remains visible as a blank rounded placeholder, displaying the graph background inside it and maintaining the 45% column layout width.
 - **Figma Post Content Block Layout:** Configured `.eliashof-subpage-content-wrapper` to use a flex column with a gap of `45px` on desktop and `30px` on mobile, aligning direct child elements. Styled paragraphs (`p`) using Montserrat Light, 24px (fluid scaling), black color, and `1.67` line-height (~40px) to match Figma specifications.
 - **Embedded Media Support:** Added style definitions for embedded images and videos inside the content wrapper, applying matching rounded corners (`border-radius: 20px`) and thin black borders.
+- **Resolved First-Paragraph Padding Conflict:** Excluded pages containing `.eliashof-subpage-hero` or `.eliashof-hero-wrap` from inheriting the global `210px` header push-down rule, resetting first-child top padding to `0` to keep content aligned right under the hero.
+- **Gutenberg Layout Constraints Fix:** Removed `layout: {"type":"constrained"}` parameter settings from the navigation block pattern inside `templates/single.html` to prevent Gutenberg from injecting layout margin overrides.
+- **Eliashof Post Navigation Buttons:** Appended Previous Post, Next Post, and a centered Zurück zur Startseite navigation button row inside `templates/single.html` sharing standard brand styles (orange background, Neucha typography). Added `box-sizing: border-box !important` to center buttons side-by-side on desktop without clipping.
+- **Automatic Browser Cache Busting:** Enqueued the theme stylesheet in `functions.php` using the file modification timestamp (`filemtime`) as the version number, forcing instant updates on stylesheet changes.
 
 ### 25. Version Control Update
 - **Git Tracking:** Staged and committed layout refinements and documentation updates inside the theme repository.
