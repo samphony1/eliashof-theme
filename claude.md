@@ -132,6 +132,18 @@ This document outlines the recent implementations and structural decisions made 
 ### 23. Version Control Update
 - **Git Tracking:** Staged and committed new files and changes to the Git repository.
 
+## Session Summary: Hero Spacing Adjustments & Post Content Layout Upgrades
+
+### 24. Layout Alignment and Spacing Refinements
+- **Illustration Anchor Offset:** Moved `.eliashof-subpage-hero-illustration` to be a direct child of the container, setting `bottom: -4px` and aligning it with the content column right edge. This anchors the children line drawing flush against the bottom edge of the blue hero, leaving no background gaps underneath.
+- **Top Padding Adjustment:** Adjusted the hero desktop `padding-top` to `150px` (down from `210px`) to match the user's updated layout preferences.
+- **Empty Featured Image Box Container:** Introduced `.eliashof-subpage-featured-img-container` with border, border-radius (`65px` desktop), and shadow. When no featured image is uploaded on a post, the box container remains visible as a blank rounded placeholder, displaying the graph background inside it and maintaining the 45% column layout width.
+- **Figma Post Content Block Layout:** Configured `.eliashof-subpage-content-wrapper` to use a flex column with a gap of `45px` on desktop and `30px` on mobile, aligning direct child elements. Styled paragraphs (`p`) using Montserrat Light, 24px (fluid scaling), black color, and `1.67` line-height (~40px) to match Figma specifications.
+- **Embedded Media Support:** Added style definitions for embedded images and videos inside the content wrapper, applying matching rounded corners (`border-radius: 20px`) and thin black borders.
+
+### 25. Version Control Update
+- **Git Tracking:** Staged and committed layout refinements and documentation updates inside the theme repository.
+
 
 
 
