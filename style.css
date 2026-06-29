@@ -851,7 +851,7 @@ main.wp-block-group {
 /* ── Section Downloads & Terminkalender ────────────────────────────── */
 .section-downloads {
 	background: var(--color-brand-yellow-alt) !important;
-	padding: clamp(60px, 6vw, 79px) clamp(24px, 10vw, 271px) !important;
+	padding: clamp(60px, 6vw, 79px) clamp(24px, 10.8vw, 208px) !important;
 	display: flex !important;
 	flex-direction: row !important;
 	align-items: center !important;
@@ -2661,7 +2661,7 @@ main.wp-block-group {
 /* Sektion Lebenskunde & Religion */
 .section-lebenskunde-religion {
 	background: #9DE4F9 !important;
-	padding: clamp(60px, 6vw, 79px) clamp(24px, 10vw, 271px) !important;
+	padding: clamp(60px, 6vw, 79px) clamp(24px, 10.8vw, 208px) !important;
 	display: flex !important;
 	flex-direction: row !important;
 	align-items: center !important;
@@ -2761,5 +2761,14 @@ main.wp-block-group {
 	.section-lebenskunde-religion .post-container,
 	.section-lebenskunde-religion .post-container2 {
 		max-width: 100% !important;
+	}
+}
+
+/* Widescreen centering fallback to align with SPB and Textbox containers */
+@media (min-width: 1913px) {
+	.section-downloads,
+	.section-lebenskunde-religion {
+		padding-left: calc((100vw - 1497px) / 2) !important;
+		padding-right: calc((100vw - 1497px) / 2) !important;
 	}
 }
