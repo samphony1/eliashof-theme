@@ -148,7 +148,7 @@ This document outlines the recent implementations and structural decisions made 
 - **Restored Homepage Hero Padding:** Fixed padding-top collapse on the homepage hero block by limiting first-child padding-top resets strictly to content wrapper elements on subpages.
 - **Aligned Desktop Header Top Offset:** Lifted the desktop absolute header `.eliashof-header` top spacing from `77px` to `50px` for a clean layout balance.
 - **Renamed to Hero Blog & Schule:** Renamed CSS classes from `.eliashof-subpage-hero` to `.eliashof-hero-blog-schule` and consolidated the patterns into a single unified dynamic pattern `patterns/hero-blog-schule.php` (slug `eliashof/hero-blog-schule`).
-- **Updated Hero Spacing Padding:** Configured `.eliashof-hero-blog-schule-container` with a `66px` top padding on desktop to separate the absolute header cleanly from the hero elements, and reset it to `0` on mobile.
+- **Updated Hero Spacing Padding:** Configured `.eliashof-hero-blog-schule-container` with a `66px` top padding on desktop, and set `padding-top: 20px !important` on mobile.
 
 ### 25. Version Control Update
 - **Git Tracking:** Staged and committed layout refinements and documentation updates inside the theme repository.
