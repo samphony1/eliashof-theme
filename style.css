@@ -2268,17 +2268,21 @@ main.wp-block-group {
 	
 	.eliashof-subpage-hero-container {
 		flex-direction: column !important;
-		gap: 40px !important;
-		padding-bottom: 40px !important;
+		gap: 24px !important;
+		padding-bottom: 24px !important;
 	}
 	
-	.eliashof-subpage-hero-image-col,
+	.eliashof-subpage-hero-image-col {
+		flex: 0 1 100% !important;
+		width: 100% !important;
+		order: 2 !important;
+		justify-content: center !important;
+	}
+	
 	.eliashof-subpage-hero-content-col {
 		flex: 0 1 100% !important;
 		width: 100% !important;
-	}
-	
-	.eliashof-subpage-hero-content-col {
+		order: 1 !important;
 		padding-bottom: 0 !important;
 		align-items: center !important;
 		text-align: center !important;
@@ -2289,9 +2293,11 @@ main.wp-block-group {
 	}
 	
 	.eliashof-subpage-hero-illustration {
+		order: 3 !important;
 		position: static !important;
-		margin-top: 30px !important;
+		margin-top: 0 !important;
 		max-width: 450px !important;
+		align-self: center !important;
 	}
 	
 	.eliashof-subpage-featured-img-container {
