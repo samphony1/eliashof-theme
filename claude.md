@@ -153,6 +153,7 @@ This document outlines the recent implementations and structural decisions made 
 - **Added Style Utilities:** Implemented `.bg-graph-green`, `.bg-graph-orange`, and `.bg-graph-yellow` as solid background colors (hiding grid pseudo-elements) to match Figma layouts. Restored the transparent, blended paper grid lines for the blue hero background (`.bg-graph-blue`).
 - **Aligned Section Ueber Uns with SPB Styling:** Configured the green "Über uns" section to match the SPB layout structure, custom image borders (`49.3px`), content gaps, and alternating rows (Row 1: Text Left / Image Right; Row 2: Image Left / Text Right) without buttons, and enabled layout locking (`templateLock: contentOnly`).
 - **Synchronized Textblock Paddings & Widths:** Configured identical horizontal padding (`clamp(24px, 10.8vw, 208px)`) and maximum container width (`1497px`) for both `.eliashof-textbox-section` and `.eliashof-leitbild-section` to align perfectly with the SPB layout's text columns.
+- **Preconfigured Block HTML Anchors:** Added default HTML anchor definitions (`id="..."` and Gutenberg `"anchor"` block attributes) on the parent container blocks of all 13 custom Eliashof block patterns to support direct hash linking in menus (e.g. `#ueber-uns`, `#foerderverein`, etc.) even when layout editing is locked.
 
 ### 25. Version Control Update
 - **Git Tracking:** Staged and committed layout refinements and documentation updates inside the theme repository.
