@@ -6,8 +6,8 @@
  * Description: Alternating text and image rows matching the SPB layout, without buttons. Layout locked.
  */
 ?>
-<!-- wp:group {"align":"full","templateLock":"contentOnly","className":"eliashof-section section-spb section-ueber-uns bg-graph-green","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull eliashof-section section-spb section-ueber-uns bg-graph-green">
+<!-- wp:group {"align":"full","anchor":"section-ueber-uns","templateLock":"contentOnly","className":"eliashof-section section-spb section-ueber-uns bg-graph-green","layout":{"type":"constrained"}} -->
+<div id="section-ueber-uns" class="wp-block-group alignfull eliashof-section section-spb section-ueber-uns bg-graph-green">
 	
 	<!-- wp:heading {"level":2,"textAlign":"center"} -->
 	<h2 class="wp-block-heading has-text-align-center">ÜBER UNSERE SCHULE</h2>

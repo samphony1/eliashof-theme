@@ -6,8 +6,8 @@
  * Description: Leitbild section featuring GEMEINSAM, VIELFALT, LERNEN.
  */
 ?>
-<!-- wp:group {"align":"full","className":"eliashof-leitbild-section","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull eliashof-leitbild-section">
+<!-- wp:group {"align":"full","anchor":"section-leitbild","className":"eliashof-leitbild-section","layout":{"type":"constrained"}} -->
+<div id="section-leitbild" class="wp-block-group alignfull eliashof-leitbild-section">
 	<!-- wp:group {"className":"eliashof-leitbild-section-container","layout":{"type":"default"}} -->
 	<div class="wp-block-group eliashof-leitbild-section-container">
 		

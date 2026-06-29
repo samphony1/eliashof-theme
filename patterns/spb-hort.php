@@ -6,8 +6,8 @@
  * Description: Image left, text and button right on a green background. Layout locked.
  */
 ?>
-<!-- wp:group {"align":"full","templateLock":"contentOnly","className":"eliashof-section section-spb","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull eliashof-section section-spb">
+<!-- wp:group {"align":"full","anchor":"spb-hort","templateLock":"contentOnly","className":"eliashof-section section-spb","layout":{"type":"constrained"}} -->
+<div id="spb-hort" class="wp-block-group alignfull eliashof-section section-spb">
 
 	<!-- wp:heading {"level":2,"textAlign":"center"} -->
 	<h2 class="wp-block-heading has-text-align-center">UNSER SOZIALPÄDAGOGISCHER BEREICH (SPB = DER HORT)</h2>

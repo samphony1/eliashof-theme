@@ -6,8 +6,8 @@
  * Description: Live Query Loop carousel. Editors set post type and tag in the block sidebar. Card layout is locked — only query parameters are configurable.
  */
 ?>
-<!-- wp:group {"align":"full","templateLock":"contentOnly","className":"eliashof-section eliashof-aktuelles","style":{"color":{"background":"#8cc8d1"},"spacing":{"padding":{"top":"clamp(60px,8vw,100px)","bottom":"clamp(60px,8vw,100px)"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull eliashof-section eliashof-aktuelles has-background" style="background-color:#8cc8d1;padding-top:clamp(60px,8vw,100px);padding-bottom:clamp(60px,8vw,100px)">
+<!-- wp:group {"align":"full","anchor":"aktuelles","templateLock":"contentOnly","className":"eliashof-section eliashof-aktuelles","style":{"color":{"background":"#8cc8d1"},"spacing":{"padding":{"top":"clamp(60px,8vw,100px)","bottom":"clamp(60px,8vw,100px)"}}},"layout":{"type":"constrained"}} -->
+<div id="aktuelles" class="wp-block-group alignfull eliashof-section eliashof-aktuelles has-background" style="background-color:#8cc8d1;padding-top:clamp(60px,8vw,100px);padding-bottom:clamp(60px,8vw,100px)">
 
 	<!-- wp:heading {"level":2,"textAlign":"center","style":{"spacing":{"margin":{"top":"0","bottom":"52px"}}}} -->
 	<h2 class="wp-block-heading has-text-align-center" style="margin-top:0;margin-bottom:52px">AKTUELLES</h2>

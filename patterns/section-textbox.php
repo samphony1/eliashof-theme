@@ -6,8 +6,8 @@
  * Description: Solid white textbox block below the hero.
  */
 ?>
-<!-- wp:group {"align":"full","className":"eliashof-textbox-section","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull eliashof-textbox-section">
+<!-- wp:group {"align":"full","anchor":"section-textbox","className":"eliashof-textbox-section","layout":{"type":"constrained"}} -->
+<div id="section-textbox" class="wp-block-group alignfull eliashof-textbox-section">
 	<!-- wp:group {"className":"eliashof-textbox-section-container","layout":{"type":"default"}} -->
 	<div class="wp-block-group eliashof-textbox-section-container">
 		<!-- wp:paragraph -->

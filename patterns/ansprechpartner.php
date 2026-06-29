@@ -6,8 +6,8 @@
  * Description: Four organic portrait cards with name and role. White background. Layout locked.
  */
 ?>
-<!-- wp:group {"align":"full","className":"eliashof-section section-ansprechpartner bg-graph-white","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull eliashof-section section-ansprechpartner bg-graph-white">
+<!-- wp:group {"align":"full","anchor":"ansprechpartner","className":"eliashof-section section-ansprechpartner bg-graph-white","layout":{"type":"constrained"}} -->
+<div id="ansprechpartner" class="wp-block-group alignfull eliashof-section section-ansprechpartner bg-graph-white">
 
 	<!-- wp:heading {"level":2,"textAlign":"center"} -->
 	<h2 class="wp-block-heading has-text-align-center">IHRE ANSPRECHPARTNER</h2>

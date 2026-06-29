@@ -6,8 +6,8 @@
  * Description: Image left, heading and text right on a blue background. Layout locked.
  */
 ?>
-<!-- wp:group {"align":"full","templateLock":"contentOnly","className":"eliashof-section section-highlight","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull eliashof-section section-highlight">
+<!-- wp:group {"align":"full","anchor":"foerderverein","templateLock":"contentOnly","className":"eliashof-section section-highlight","layout":{"type":"constrained"}} -->
+<div id="foerderverein" class="wp-block-group alignfull eliashof-section section-highlight">
 
 	<!-- wp:columns {"verticalAlignment":"center"} -->
 	<div class="wp-block-columns are-vertically-aligned-center">

@@ -6,8 +6,8 @@
  * Description: Two-column section on an orange background — Downloads left, Terminkalender right. Layout locked — editors can edit list items only.
  */
 ?>
-<!-- wp:group {"align":"full","templateLock":"contentOnly","className":"eliashof-section section-downloads","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull eliashof-section section-downloads">
+<!-- wp:group {"align":"full","anchor":"downloads-terminkalender","templateLock":"contentOnly","className":"eliashof-section section-downloads","layout":{"type":"constrained"}} -->
+<div id="downloads-terminkalender" class="wp-block-group alignfull eliashof-section section-downloads">
 
 	<!-- wp:group {"className":"post-container","layout":{"type":"constrained"}} -->
 	<div class="wp-block-group post-container">

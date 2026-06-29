@@ -6,8 +6,8 @@
  * Description: Header section for single blog posts and subpages with featured image on the left, post title on the right, and illustration.
  */
 ?>
-<!-- wp:group {"align":"full","className":"eliashof-hero-blog-schule bg-graph-blue","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull eliashof-hero-blog-schule bg-graph-blue">
+<!-- wp:group {"align":"full","anchor":"hero-blog-schule","className":"eliashof-hero-blog-schule bg-graph-blue","layout":{"type":"constrained"}} -->
+<div id="hero-blog-schule" class="wp-block-group alignfull eliashof-hero-blog-schule bg-graph-blue">
 
 	<!-- wp:group {"className":"eliashof-hero-blog-schule-container","layout":{"type":"default"}} -->
 	<div class="wp-block-group eliashof-hero-blog-schule-container">
