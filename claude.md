@@ -160,6 +160,7 @@ This document outlines the recent implementations and structural decisions made 
 - **Kooperationen Section Pattern:** Repurposed the two-column highlights (Förderverein) block layout to create the new `section-kooperationen` pattern (slug `eliashof/section-kooperationen`) with a solid light green background (`#D0E5A7`), custom image with `49.3px` rounded borders, and left-aligned text parameters.
 - **Media Library Sync:** Programmatically imported and registered 61 local image files from Google Drive into the WordPress Media Library with full thumbnail generation.
 - **Footer Gap Fixes:** Removed Gutenberg's default top margins on the FSE `footer` element and hid empty editor paragraphs (`p:empty`) inside page entries to resolve the horizontal gap displaying layout background paper grid lines.
+- **Translucent Yellow Hero Background:** Converted `.bg-graph-yellow` back to use a translucent multiply-blend overlay (`background-color: transparent !important`, `mix-blend-mode: multiply`, `opacity: 0.4`), allowing the underlying paper grid pattern to shine through.
 
 ### 25. Version Control Update
-- **Git Tracking:** Staged and committed layout refinements, new block patterns, footer gap fixes, and documentation updates inside the theme repository.
+- **Git Tracking:** Staged and committed layout refinements, new block patterns, footer gap fixes, translucent yellow hero styling, and documentation updates inside the theme repository.
