@@ -319,6 +319,23 @@ add_action( 'init', function() {
 				$content
 			);
 
+			// G. Fix Nav Circles Links
+			$content = str_replace(
+				'<a href="#"><img src="http://eliashof.local/wp-content/themes/eliashof-theme/assets/images/link-element-se-schule.svg" alt="Unsere Schule" /></a>',
+				'<a href="/unsere-schule/"><img src="http://eliashof.local/wp-content/themes/eliashof-theme/assets/images/link-element-se-schule.svg" alt="Unsere Schule" /></a>',
+				$content
+			);
+			$content = str_replace(
+				'<a href="#"><img src="http://eliashof.local/wp-content/themes/eliashof-theme/assets/images/link-element-se-hort.svg" alt="Unser Hort" /></a>',
+				'<a href="/#spb-hort"><img src="http://eliashof.local/wp-content/themes/eliashof-theme/assets/images/link-element-se-hort.svg" alt="Unser Hort" /></a>',
+				$content
+			);
+			$content = str_replace(
+				'<a href="#"><img src="http://eliashof.local/wp-content/themes/eliashof-theme/assets/images/link-element-se-eltern.svg" alt="Unsere Eltern" /></a>',
+				'<a href="/#eltern"><img src="http://eliashof.local/wp-content/themes/eliashof-theme/assets/images/link-element-se-eltern.svg" alt="Unsere Eltern" /></a>',
+				$content
+			);
+
 			if ( $content !== $original_content ) {
 				wp_update_post( [
 					'ID'           => $homepage_id,
@@ -326,6 +343,32 @@ add_action( 'init', function() {
 				] );
 			}
 		}
+	}
+
+	// 3. Programmatically clean up and update the Primary Menu items
+	if ( get_post_status( 111 ) ) {
+		wp_delete_post( 111, true );
+	}
+	if ( get_post_status( 98 ) ) {
+		update_post_meta( 98, '_menu_item_url', '/unsere-schule/' );
+	}
+	if ( get_post_status( 97 ) ) {
+		update_post_meta( 97, '_menu_item_url', '/#aktuelles' );
+	}
+	if ( get_post_status( 99 ) ) {
+		update_post_meta( 99, '_menu_item_url', '/#spb-hort' );
+	}
+	if ( get_post_status( 100 ) ) {
+		update_post_meta( 100, '_menu_item_url', '/#eltern' );
+	}
+	if ( get_post_status( 101 ) ) {
+		update_post_meta( 101, '_menu_item_url', '/#foerderverein' );
+	}
+	if ( get_post_status( 102 ) ) {
+		update_post_meta( 102, '_menu_item_url', '/#unsere-partner' );
+	}
+	if ( get_post_status( 103 ) ) {
+		update_post_meta( 103, '_menu_item_url', '/#kontakt' );
 	}
 } );
 
@@ -361,15 +404,41 @@ add_shortcode( 'eliashof_menu', 'eliashof_render_menu_shortcode' );
  */
 function eliashof_fallback_menu() {
 	echo '<ul>';
-	echo '<li><a href="#aktuelles">AKTUELLES</a></li>';
-	echo '<li><a href="#unsere-schule">UNSERE SCHULE</a></li>';
-	echo '<li><a href="#spb-hort">SPB / HORT</a></li>';
-	echo '<li><a href="#eltern">ELTERN</a></li>';
-	echo '<li><a href="#foerderverein">FÖRDERVEREIN</a></li>';
-	echo '<li><a href="#unsere-partner">UNSERE PARTNER</a></li>';
-	echo '<li><a href="#kontakt">KONTAKT</a></li>';
+	echo '<li><a href="/#aktuelles">AKTUELLES</a></li>';
+	echo '<li><a href="/unsere-schule/">UNSERE SCHULE</a></li>';
+	echo '<li><a href="/#spb-hort">SPB / HORT</a></li>';
+	echo '<li><a href="/#foerderverein">FÖRDERVEREIN</a></li>';
+	echo '<li><a href="/#unsere-partner">UNSERE PARTNER</a></li>';
+	echo '<li><a href="/#kontakt">KONTAKT</a></li>';
 	echo '</ul>';
 }
 
+/**
+ * Filter menu objects to enforce uppercase, remove inactive/duplicate links, and format anchors.
+ */
+function eliashof_filter_menu_items( $sorted_menu_items, $args ) {
+	$filtered = array();
+	foreach ( $sorted_menu_items as $item ) {
+		// 1. Remove 'ELTERN' (not live)
+		if ( strcasecmp( $item->title, 'ELTERN' ) === 0 || $item->url === '#eltern' || $item->url === '/#eltern' ) {
+			continue;
+		}
 
+		// 2. Remove redundant 'UNSERE SCHULE' custom anchor item (prefer the live page link)
+		if ( $item->url === '#unsere-schule' || $item->url === '/#unsere-schule' ) {
+			continue;
+		}
 
+		// 3. Make sure relative anchor links start with a slash / so they work from other pages
+		if ( strpos( $item->url, '#' ) === 0 ) {
+			$item->url = '/' . $item->url;
+		}
+
+		// 4. Force title to uppercase
+		$item->title = mb_strtoupper( $item->title, 'UTF-8' );
+
+		$filtered[] = $item;
+	}
+	return $filtered;
+}
+add_filter( 'wp_nav_menu_objects', 'eliashof_filter_menu_items', 10, 2 );

@@ -694,6 +694,7 @@ body {
 	font-size: 50px !important;
 	line-height: 53px !important;
 	letter-spacing: 0.05em !important;
+	text-transform: uppercase !important;
 	transition: opacity 0.2s ease !important;
 	display: inline-block !important;
 }
@@ -815,7 +816,7 @@ main.wp-block-group {
 	display: none !important;
 }
 
-@media (max-width: 781px) {
+@media (max-width: 1120px) {
 	.eliashof-hero-wrap {
 		min-height: auto;
 		display: flex !important;
@@ -1333,7 +1334,7 @@ main.wp-block-group {
 
 /* SPB button inherited from global theme styles */
 
-@media (max-width: 1279px) {
+@media (max-width: 991px) {
 	.section-spb {
 		padding: 60px 24px !important;
 		min-height: auto !important;
@@ -1342,6 +1343,10 @@ main.wp-block-group {
 	.section-spb .wp-block-columns {
 		flex-direction: column !important;
 		gap: 48px !important;
+	}
+
+	.section-spb .wp-block-buttons {
+		justify-content: center !important;
 	}
 
 	.section-spb .wp-block-column:first-child,
@@ -1428,7 +1433,7 @@ main.wp-block-group {
 	margin: 0 !important;
 }
 
-@media (max-width: 1279px) {
+@media (max-width: 991px) {
 	.section-highlight {
 		padding: 60px 24px !important;
 		min-height: auto !important;
@@ -1527,7 +1532,7 @@ main.wp-block-group {
 	margin: 0 !important;
 }
 
-@media (max-width: 1279px) {
+@media (max-width: 991px) {
 	.section-kooperationen {
 		padding: 60px 24px !important;
 		min-height: auto !important;
@@ -1698,7 +1703,7 @@ main.wp-block-group {
 }
 
 /* Responsive adjustments for Ansprechpartner */
-@media (max-width: 1199px) {
+@media (max-width: 1280px) {
 	.section-ansprechpartner {
 		padding: 60px 24px !important;
 	}
@@ -2109,6 +2114,25 @@ main.wp-block-group {
 	}
 }
 
+@media (max-width: 1200px) {
+	.eliashof-header-wrapper {
+		top: 30px !important;
+	}
+
+	.logo-eliashof {
+		width: 85px !important;
+		height: 75.2px !important;
+	}
+
+	.burger-toggle {
+		margin-top: -5px !important;
+	}
+
+	.eliashof-hero-wrap {
+		padding-top: 140px !important;
+	}
+}
+
 /* ── Mobile Header and Menu Overrides (placed at bottom to override desktop !important) ── */
 @media (max-width: 767px) {
 	.eliashof-header {
@@ -2329,8 +2353,8 @@ main.wp-block-group {
 	width: 100%;
 	position: relative;
 	overflow: hidden;
-	height: 829px !important;
-	min-height: 829px !important;
+	height: auto !important;
+	min-height: auto !important;
 	padding-top: 0 !important;
 }
 
@@ -2341,28 +2365,29 @@ main.wp-block-group {
 	justify-content: space-between;
 	width: 100%;
 	max-width: 1920px !important;
-	height: 100% !important;
+	height: auto !important;
 	box-sizing: border-box !important;
 	margin: 0 auto;
-	padding-top: 207.77px !important;
-	padding-bottom: 74.48px !important;
-	padding-left: clamp(24px, 6.9vw, 132px) !important;
-	padding-right: clamp(24px, 6.9vw, 132px) !important;
+	padding-top: clamp(120px, 10.8vw, 207.77px) !important;
+	padding-bottom: clamp(40px, 3.8vw, 74.48px) !important;
+	padding-left: clamp(24px, 6.9vw, 132.45px) !important;
+	padding-right: clamp(24px, 6.9vw, 132.45px) !important;
 	position: relative;
 	z-index: 2;
 }
 
 .eliashof-hero-blog-schule-image-col {
-	flex: 0 0 828.67px !important;
+	flex: 0 1 43.05% !important;
 	max-width: 828.67px !important;
-	height: 546.75px !important;
+	width: 43.05% !important;
+	height: auto !important;
 	display: flex;
 	align-items: center;
 }
 
 .eliashof-hero-blog-schule-featured-img-container {
 	width: 100% !important;
-	height: 100% !important;
+	height: auto !important;
 	aspect-ratio: 828.67 / 546.75 !important;
 	border-radius: 65px !important;
 	border: 0.7px solid var(--color-black) !important;
@@ -2386,13 +2411,15 @@ main.wp-block-group {
 }
 
 .eliashof-hero-blog-schule-content-col {
-	flex: 1 !important;
-	height: 100% !important;
+	flex: 0 1 51.95% !important;
+	max-width: 51.95% !important;
+	width: 51.95% !important;
+	height: auto !important;
 	padding-bottom: 0 !important;
 	padding-left: 5% !important;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
+	justify-content: center;
 	position: relative;
 }
 
@@ -2410,8 +2437,8 @@ main.wp-block-group {
 	position: absolute !important;
 	bottom: 0 !important;
 	right: 2.86% !important;
-	width: 780px !important;
-	max-width: 50vw !important;
+	width: 40.63% !important;
+	max-width: 780px !important;
 	z-index: 3 !important;
 	pointer-events: none !important;
 }
@@ -2524,6 +2551,10 @@ main.wp-block-group {
 	.eliashof-hero-blog-schule-featured-img-container {
 		border-radius: 40px !important;
 		height: auto !important;
+	}
+
+	.section-ueber-uns .wp-block-columns:first-of-type .wp-block-column:last-child {
+		display: none !important;
 	}
 }
 

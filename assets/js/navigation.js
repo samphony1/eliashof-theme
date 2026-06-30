@@ -19,6 +19,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.body.style.overflow = '';
             }
         });
+
+        // Close menu when clicking on a link
+        const menuLinks = burgerMenuOverlay.querySelectorAll('a');
+        menuLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                burgerToggle.classList.remove('is-active');
+                burgerMenuOverlay.classList.remove('is-active');
+                burgerToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
     }
 
     // Back to top button functionality
