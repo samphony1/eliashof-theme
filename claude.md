@@ -162,6 +162,7 @@ This document outlines the recent implementations and structural decisions made 
 - **Footer Gap Fixes:** Removed Gutenberg's default top margins on the FSE `footer` element and hid empty editor paragraphs (`p:empty`) inside page entries to resolve the horizontal gap displaying layout background paper grid lines.
 - **Translucent Yellow Hero Background:** Converted `.bg-graph-yellow` back to use a translucent multiply-blend overlay (`background-color: transparent !important`, `mix-blend-mode: multiply`, using color `#eec68e`), allowing the underlying paper grid pattern to shine through as specified in Figma.
 - **School/Blog Hero Image Proportions:** Resized the columns of `.eliashof-hero-blog-schule` to match Figma specifications: set the image column to `43.05%`, content column to `51.95%`, and set the image container to the exact aspect ratio `828.67 / 546.75`.
+- **Responsive Background Scaling:** Configured `body` background grid pattern to scale dynamically with the screen width on desktop screens (`background-size: 100% auto; background-repeat: repeat-y;` on viewports >= 992px) to keep the vertical red margin line perfectly aligned with the left edge of the header logo at all resolutions.
 
 ### 25. Version Control Update
-- **Git Tracking:** Staged and committed layout refinements, new block patterns, footer gap fixes, translucent yellow hero styling matching Figma color specifications, school hero image layouts, and documentation updates inside the theme repository.
+- **Git Tracking:** Staged and committed layout refinements, new block patterns, footer gap fixes, translucent yellow hero styling matching Figma color specifications, school hero image layouts, background scaling rules, and documentation updates inside the theme repository.
