@@ -710,6 +710,13 @@ body {
 	background-attachment: scroll;
 }
 
+@media (min-width: 992px) {
+	body {
+		background-size: 100% auto;
+		background-repeat: repeat-y;
+	}
+}
+
 .bg-graph-yellow {
 	background-color: transparent !important;
 	position: relative;
