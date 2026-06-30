@@ -816,7 +816,7 @@ main.wp-block-group {
 	display: none !important;
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 991px) {
 	.eliashof-hero-wrap {
 		min-height: auto;
 		display: flex !important;

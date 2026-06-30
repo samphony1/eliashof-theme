@@ -165,7 +165,7 @@ This document outlines the recent implementations and structural decisions made 
 - **Responsive Background Scaling:** Configured `body` background grid pattern to scale dynamically with the screen width on desktop screens (`background-size: 100% auto; background-repeat: repeat-y;` on viewports >= 992px) to keep the vertical red margin line perfectly aligned with the left edge of the header logo at all resolutions.
 - **Section Background Colors:** Changed the solid background color of the `Aktuelles` and `Förderverein` (`.section-highlight`) sections to match the sky blue (`#9DE4F9`) of the Lebenskunde & Religion section.
 - **Proportional Section Image Scaling:** Postponed the column stacking breakpoint from `1279px` down to `991px` for SPB, Förderverein, and Kooperationen sections, allowing their images to scale down side-by-side proportionally on intermediate viewports rather than stretching to massive single-column layouts.
-- **Startpage Hero Media Query Breakpoint**: Changed startpage hero stacking media query from `781px` to `1120px` as requested to trigger mobile collapse earlier.
+- **Startpage Hero Media Query Breakpoint**: Changed startpage hero stacking media query from `781px` to `991px` to collapse at `992px` viewport and below.
 - **Ansprechpartner Grid Layout Breakpoint**: Shifted Ansprechpartner 2x2 wrapping media query from `1199px` to `1280px`.
 - **SPB Button Centering**: Added CSS rules to center buttons in the SPB section on mobile/collapsed views (<= `991px`).
 - **Live Menu Filter & Uppercasing**: Added `eliashof_filter_menu_items` in `functions.php` to drop non-live links (ELTERN) and duplicates (custom UNSERE SCHULE link), prepend `/` to relative section anchors (making them work on subpages), and force all menu links to uppercase.
@@ -173,5 +173,5 @@ This document outlines the recent implementations and structural decisions made 
 - **Stacked Column Width Limits**: Capped stacked columns in SPB, Förderverein, Kooperationen, Downloads, and Lebenskunde sections at `680px` max-width and centered them inside their padded containers, ensuring optimal text readability on tablet/mobile screens.
 
 ### 25. Version Control Update
-- **Git Tracking:** Staged and committed layout refinements, new block patterns, footer gap fixes, translucent yellow hero styling, school hero image layouts, background scaling rules, section background colors, responsive layouts, header clearances, menu filters, tablet layout paddings, column width limits, and documentation updates inside the theme repository.
+- **Git Tracking:** Staged and committed layout refinements, new block patterns, footer gap fixes, translucent yellow hero styling, school hero image layouts, background scaling rules, section background colors, responsive layouts, header clearances, menu filters, tablet layout paddings, column width limits, startpage hero stacking breakpoint update, and documentation updates inside the theme repository.
 
