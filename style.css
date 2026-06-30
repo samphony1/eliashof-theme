@@ -2336,14 +2336,15 @@ main.wp-block-group {
 }
 
 .eliashof-hero-blog-schule-image-col {
-	flex: 0 1 45%;
+	flex: 0 1 43.05% !important;
+	max-width: 43.05% !important;
 	display: flex;
 	align-items: center;
 }
 
 .eliashof-hero-blog-schule-featured-img-container {
 	width: 100%;
-	aspect-ratio: 4 / 3;
+	aspect-ratio: 828.67 / 546.75 !important;
 	border-radius: 65px;
 	border: 0.7px solid var(--color-black);
 	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
@@ -2366,7 +2367,8 @@ main.wp-block-group {
 }
 
 .eliashof-hero-blog-schule-content-col {
-	flex: 0 1 50%;
+	flex: 0 1 51.95% !important;
+	max-width: 51.95% !important;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
