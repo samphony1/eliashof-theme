@@ -169,7 +169,9 @@ This document outlines the recent implementations and structural decisions made 
 - **Ansprechpartner Grid Layout Breakpoint**: Shifted Ansprechpartner 2x2 wrapping media query from `1199px` to `1280px`.
 - **SPB Button Centering**: Added CSS rules to center buttons in the SPB section on mobile/collapsed views (<= `991px`).
 - **Live Menu Filter & Uppercasing**: Added `eliashof_filter_menu_items` in `functions.php` to drop non-live links (ELTERN) and duplicates (custom UNSERE SCHULE link), prepend `/` to relative section anchors (making them work on subpages), and force all menu links to uppercase.
+- **Tablet Padding Alignment**: Unified horizontal margins across SPB, Förderverein, and Kooperationen sections by retaining their desktop `10.8vw` paddings on tablet viewports (between `768px` and `991px`), matching the Leitbild section.
+- **Stacked Column Width Limits**: Capped stacked columns in SPB, Förderverein, Kooperationen, Downloads, and Lebenskunde sections at `680px` max-width and centered them inside their padded containers, ensuring optimal text readability on tablet/mobile screens.
 
 ### 25. Version Control Update
-- **Git Tracking:** Staged and committed layout refinements, new block patterns, footer gap fixes, translucent yellow hero styling matching the corrected color `#F6D59F`, school hero image layouts, background scaling rules, section background colors, responsive layouts, header clearances, menu filters, and documentation updates inside the theme repository.
+- **Git Tracking:** Staged and committed layout refinements, new block patterns, footer gap fixes, translucent yellow hero styling, school hero image layouts, background scaling rules, section background colors, responsive layouts, header clearances, menu filters, tablet layout paddings, column width limits, and documentation updates inside the theme repository.
 

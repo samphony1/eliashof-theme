@@ -1040,7 +1040,9 @@ main.wp-block-group {
 	.section-lebenskunde-religion .post-container2 {
 		flex-basis: 100% !important;
 		width: 100% !important;
-		max-width: 100% !important;
+		max-width: 680px !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
 	}
 }
 
@@ -1336,7 +1338,8 @@ main.wp-block-group {
 
 @media (max-width: 991px) {
 	.section-spb {
-		padding: 60px 24px !important;
+		padding-top: 60px !important;
+		padding-bottom: 60px !important;
 		min-height: auto !important;
 	}
 
@@ -1352,8 +1355,10 @@ main.wp-block-group {
 	.section-spb .wp-block-column:first-child,
 	.section-spb .wp-block-column:last-child {
 		flex: 1 1 100% !important;
-		max-width: 100% !important;
+		max-width: 680px !important;
 		width: 100% !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
 	}
 
 	.section-spb .wp-block-image img {
@@ -1435,7 +1440,8 @@ main.wp-block-group {
 
 @media (max-width: 991px) {
 	.section-highlight {
-		padding: 60px 24px !important;
+		padding-top: 60px !important;
+		padding-bottom: 60px !important;
 		min-height: auto !important;
 	}
 
@@ -1447,8 +1453,10 @@ main.wp-block-group {
 	.section-highlight .wp-block-column:first-child,
 	.section-highlight .wp-block-column:last-child {
 		flex: 1 1 100% !important;
-		max-width: 100% !important;
+		max-width: 680px !important;
 		width: 100% !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
 	}
 
 	.section-highlight .wp-block-image img {
@@ -1534,7 +1542,8 @@ main.wp-block-group {
 
 @media (max-width: 991px) {
 	.section-kooperationen {
-		padding: 60px 24px !important;
+		padding-top: 60px !important;
+		padding-bottom: 60px !important;
 		min-height: auto !important;
 	}
 
@@ -1546,8 +1555,10 @@ main.wp-block-group {
 	.section-kooperationen .wp-block-column:first-child,
 	.section-kooperationen .wp-block-column:last-child {
 		flex: 1 1 100% !important;
-		max-width: 100% !important;
+		max-width: 680px !important;
 		width: 100% !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
 	}
 
 	.section-kooperationen .wp-block-image img {
@@ -2514,10 +2525,12 @@ main.wp-block-group {
 	
 	.eliashof-hero-blog-schule-image-col {
 		flex: 0 1 100% !important;
-		max-width: 100% !important;
+		max-width: 600px !important;
 		width: 100% !important;
 		height: auto !important;
 		order: 2 !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
 		justify-content: center !important;
 	}
 	
@@ -2944,4 +2957,34 @@ main > *:last-child {
 /* Hide empty editor paragraphs that cause unwanted margins */
 .entry-content p:empty {
 	display: none !important;
+}
+
+/* Cap and center section images on tablet/mobile views to prevent them from growing too large */
+@media (max-width: 1024px) {
+	.section-spb .wp-block-image,
+	.section-highlight .wp-block-image,
+	.section-kooperationen .wp-block-image {
+		max-width: 600px !important;
+		width: 100% !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
+
+	.section-spb .wp-block-image img,
+	.section-highlight .wp-block-image img,
+	.section-kooperationen .wp-block-image img {
+		width: 100% !important;
+		max-width: 100% !important;
+		height: auto !important;
+	}
+}
+
+/* On mobile viewports under 768px, shrink horizontal padding to 24px */
+@media (max-width: 767px) {
+	.section-spb,
+	.section-highlight,
+	.section-kooperationen {
+		padding-left: 24px !important;
+		padding-right: 24px !important;
+	}
 }
