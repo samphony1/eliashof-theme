@@ -2854,3 +2854,21 @@ main.wp-block-group {
 		background-attachment: scroll !important;
 	}
 }
+
+/* ── Gap Fixes Above Footer ────────────────────────────────────────── */
+.wp-site-blocks > footer,
+footer.wp-block-template-part {
+	margin-top: 0 !important;
+	margin-block-start: 0 !important;
+}
+
+.entry-content > *:last-child,
+main > *:last-child {
+	margin-bottom: 0 !important;
+	margin-block-end: 0 !important;
+}
+
+/* Hide empty editor paragraphs that cause unwanted margins */
+.entry-content p:empty {
+	display: none !important;
+}
