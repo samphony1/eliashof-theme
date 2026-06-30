@@ -713,7 +713,6 @@ body {
 .bg-graph-yellow {
 	background-color: transparent !important;
 	position: relative;
-	z-index: 2;
 }
 
 .bg-graph-yellow::before {
