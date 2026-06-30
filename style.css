@@ -2318,7 +2318,9 @@ main.wp-block-group {
 	width: 100%;
 	position: relative;
 	overflow: hidden;
-	padding-top: 150px;
+	height: 829px !important;
+	min-height: 829px !important;
+	padding-top: 0 !important;
 }
 
 .eliashof-hero-blog-schule-container {
@@ -2326,29 +2328,35 @@ main.wp-block-group {
 	flex-direction: row;
 	align-items: stretch;
 	justify-content: space-between;
-	gap: 5%;
 	width: 100%;
-	max-width: 1648px;
+	max-width: 1920px !important;
+	height: 100% !important;
+	box-sizing: border-box !important;
 	margin: 0 auto;
-	padding: 66px clamp(24px, 6vw, 138px) 60px clamp(24px, 6vw, 138px);
+	padding-top: 207.77px !important;
+	padding-bottom: 74.48px !important;
+	padding-left: clamp(24px, 6.9vw, 132px) !important;
+	padding-right: clamp(24px, 6.9vw, 132px) !important;
 	position: relative;
 	z-index: 2;
 }
 
 .eliashof-hero-blog-schule-image-col {
-	flex: 0 1 43.05% !important;
-	max-width: 43.05% !important;
+	flex: 0 0 828.67px !important;
+	max-width: 828.67px !important;
+	height: 546.75px !important;
 	display: flex;
 	align-items: center;
 }
 
 .eliashof-hero-blog-schule-featured-img-container {
-	width: 100%;
+	width: 100% !important;
+	height: 100% !important;
 	aspect-ratio: 828.67 / 546.75 !important;
-	border-radius: 65px;
-	border: 0.7px solid var(--color-black);
-	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-	overflow: hidden;
+	border-radius: 65px !important;
+	border: 0.7px solid var(--color-black) !important;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+	overflow: hidden !important;
 	background: transparent;
 	display: block;
 }
@@ -2367,13 +2375,14 @@ main.wp-block-group {
 }
 
 .eliashof-hero-blog-schule-content-col {
-	flex: 0 1 51.95% !important;
-	max-width: 51.95% !important;
+	flex: 1 !important;
+	height: 100% !important;
+	padding-bottom: 0 !important;
+	padding-left: 5% !important;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	position: relative;
-	padding-bottom: 240px; /* Reserves space for absolute illustration */
 }
 
 .eliashof-hero-blog-schule-title {
@@ -2387,13 +2396,13 @@ main.wp-block-group {
 }
 
 .eliashof-hero-blog-schule-illustration {
-	position: absolute;
-	bottom: -4px;
-	right: clamp(24px, 6vw, 138px);
-	width: 100%;
-	max-width: 580px;
-	z-index: 3;
-	pointer-events: none;
+	position: absolute !important;
+	bottom: 0 !important;
+	right: 2.86% !important;
+	width: 780px !important;
+	max-width: 50vw !important;
+	z-index: 3 !important;
+	pointer-events: none !important;
 }
 
 .eliashof-hero-blog-schule-illustration img {
@@ -2451,6 +2460,8 @@ main.wp-block-group {
 @media (max-width: 991px) {
 	.eliashof-hero-blog-schule {
 		padding-top: 90px !important;
+		height: auto !important;
+		min-height: auto !important;
 	}
 	
 	.eliashof-hero-blog-schule-container {
@@ -2458,20 +2469,28 @@ main.wp-block-group {
 		gap: 24px !important;
 		padding-top: 20px !important;
 		padding-bottom: 3px !important;
+		padding-left: 24px !important;
+		padding-right: 24px !important;
+		height: auto !important;
 	}
 	
 	.eliashof-hero-blog-schule-image-col {
 		flex: 0 1 100% !important;
+		max-width: 100% !important;
 		width: 100% !important;
+		height: auto !important;
 		order: 2 !important;
 		justify-content: center !important;
 	}
 	
 	.eliashof-hero-blog-schule-content-col {
 		flex: 0 1 100% !important;
+		max-width: 100% !important;
 		width: 100% !important;
+		height: auto !important;
 		order: 1 !important;
 		padding-bottom: 0 !important;
+		padding-left: 0 !important;
 		align-items: center !important;
 		text-align: center !important;
 	}
@@ -2486,12 +2505,14 @@ main.wp-block-group {
 		position: static !important;
 		margin-top: 0 !important;
 		margin-bottom: -5px !important;
+		width: 100% !important;
 		max-width: 450px !important;
 		align-self: center !important;
 	}
 	
 	.eliashof-hero-blog-schule-featured-img-container {
 		border-radius: 40px !important;
+		height: auto !important;
 	}
 }
 
