@@ -722,6 +722,19 @@ body {
 	}
 }
 
+@media (max-width: 991px) {
+	body {
+		background-position: center top, -170px top !important;
+	}
+}
+
+@media (max-width: 767px) {
+	body {
+		background-position: center top, -260px top !important;
+	}
+}
+
+
 .bg-graph-yellow {
 	background-color: transparent !important;
 	position: relative;
