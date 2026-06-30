@@ -157,6 +157,7 @@ This document outlines the recent implementations and structural decisions made 
 - **Auto-assigned Database Anchors:** Programmatically updated and auto-assigned HTML anchors (`anchor` block properties and corresponding HTML `id` attributes) to all matching section blocks on existing database-stored pages (e.g., "Unsere Schule", "Willkommen").
 - **Parallax Background Integration:** Integrated the new Parallax image section using a native Gutenberg `core/cover` block with a pre-configured height of `902.9px` and a custom photography asset (`unsere-schule-parallax.png`) depicting a child reading a book outdoors. Optimised its mobile view to scale down to `450px`.
 - **Lebenskunde & Religion Section:** Repurposed the two-column downloads layout into the `section-lebenskunde-religion` pattern, featuring a custom sky blue (`#9DE4F9`) background color, centered Neucha headers, left-aligned body text paragraphs (with left margin aligned perfectly to the column start), and custom CTA buttons. Downloads section columns text is kept centered.
+- **Kooperationen Section Pattern:** Repurposed the two-column highlights (Förderverein) block layout to create the new `section-kooperationen` pattern (slug `eliashof/section-kooperationen`) with a solid light green background (`#D0E5A7`), custom image with `49.3px` rounded borders, and left-aligned text parameters.
 
 ### 25. Version Control Update
-- **Git Tracking:** Staged and committed layout refinements and documentation updates inside the theme repository.
+- **Git Tracking:** Staged and committed layout refinements, new block patterns, and documentation updates inside the theme repository.
