@@ -161,6 +161,7 @@ This document outlines the recent implementations and structural decisions made 
 - **Media Library Sync:** Programmatically imported and registered 61 local image files from Google Drive into the WordPress Media Library with full thumbnail generation.
 - **Footer Gap Fixes:** Removed Gutenberg's default top margins on the FSE `footer` element and hid empty editor paragraphs (`p:empty`) inside page entries to resolve the horizontal gap displaying layout background paper grid lines.
 - **Translucent Yellow Hero Background:** Converted `.bg-graph-yellow` back to use a translucent multiply-blend overlay (`background-color: transparent !important`, `mix-blend-mode: multiply`, using color `#eec68e`), allowing the underlying paper grid pattern to shine through as specified in Figma.
+- **School/Blog Hero Image Proportions:** Resized the columns of `.eliashof-hero-blog-schule` to match Figma specifications: set the image column to `43.05%`, content column to `51.95%`, and set the image container to the exact aspect ratio `828.67 / 546.75`.
 
 ### 25. Version Control Update
-- **Git Tracking:** Staged and committed layout refinements, new block patterns, footer gap fixes, translucent yellow hero styling matching Figma color specifications, and documentation updates inside the theme repository.
+- **Git Tracking:** Staged and committed layout refinements, new block patterns, footer gap fixes, translucent yellow hero styling matching Figma color specifications, school hero image layouts, and documentation updates inside the theme repository.
