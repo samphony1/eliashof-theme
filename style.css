@@ -1279,8 +1279,9 @@ main.wp-block-group {
 	flex-grow: 1 !important;
 }
 
-/* ── Section SPB / Hort ────────────────────────────────────────────── */
-.section-spb {
+/* ── Section SPB / Hort & GEV ────────────────────────────────────── */
+.section-spb,
+.section-gev {
 	background: var(--color-green-pale) !important;
 	padding: 78px clamp(24px, 10.8vw, 208px) 78px clamp(24px, 10.8vw, 208px) !important;
 	display: flex !important;
@@ -1293,7 +1294,8 @@ main.wp-block-group {
 	box-sizing: border-box !important;
 }
 
-.section-spb h2 {
+.section-spb h2,
+.section-gev h2 {
 	color: var(--color-black) !important;
 	font-family: 'Neucha', cursive !important;
 	font-size: clamp(28px, 3.1vw, 50px) !important;
@@ -1307,7 +1309,8 @@ main.wp-block-group {
 	max-width: 1497px !important;
 }
 
-.section-spb .wp-block-columns {
+.section-spb .wp-block-columns,
+.section-gev .wp-block-columns {
 	display: flex !important;
 	flex-direction: row !important;
 	align-items: center !important;
@@ -1318,19 +1321,32 @@ main.wp-block-group {
 	max-width: 1497px !important;
 }
 
+/* Column widths for SPB (Image Left, Text Right) */
 .section-spb .wp-block-column:first-child {
 	flex: 0 1 684px !important;
 	max-width: 684px !important;
 	width: 100% !important;
 }
-
 .section-spb .wp-block-column:last-child {
 	flex: 0 1 677px !important;
 	max-width: 677px !important;
 	width: 100% !important;
 }
 
-.section-spb .wp-block-image img {
+/* Column widths for GEV (Text Left, Image Right) */
+.section-gev .wp-block-column:first-child {
+	flex: 0 1 677px !important;
+	max-width: 677px !important;
+	width: 100% !important;
+}
+.section-gev .wp-block-column:last-child {
+	flex: 0 1 684px !important;
+	max-width: 684px !important;
+	width: 100% !important;
+}
+
+.section-spb .wp-block-image img,
+.section-gev .wp-block-image img {
 	width: 100% !important;
 	height: auto !important;
 	aspect-ratio: 684 / 471.6 !important;
@@ -1338,7 +1354,8 @@ main.wp-block-group {
 	border-radius: 49.3px !important;
 }
 
-.section-spb p {
+.section-spb p,
+.section-gev p {
 	color: var(--color-black) !important;
 	font-family: 'Montserrat', sans-serif !important;
 	font-size: clamp(18px, 1.5vw, 24px) !important;
@@ -1347,30 +1364,36 @@ main.wp-block-group {
 	margin: 0 0 38px 0 !important;
 }
 
-.section-spb p:last-child {
+.section-spb p:last-child,
+.section-gev p:last-child {
 	margin-bottom: 0 !important;
 }
 
 /* SPB button inherited from global theme styles */
 
 @media (max-width: 991px) {
-	.section-spb {
+	.section-spb,
+	.section-gev {
 		padding-top: 60px !important;
 		padding-bottom: 60px !important;
 		min-height: auto !important;
 	}
 
-	.section-spb .wp-block-columns {
+	.section-spb .wp-block-columns,
+	.section-gev .wp-block-columns {
 		flex-direction: column !important;
 		gap: 48px !important;
 	}
 
-	.section-spb .wp-block-buttons {
+	.section-spb .wp-block-buttons,
+	.section-gev .wp-block-buttons {
 		justify-content: center !important;
 	}
 
 	.section-spb .wp-block-column:first-child,
-	.section-spb .wp-block-column:last-child {
+	.section-spb .wp-block-column:last-child,
+	.section-gev .wp-block-column:first-child,
+	.section-gev .wp-block-column:last-child {
 		flex: 1 1 100% !important;
 		max-width: 680px !important;
 		width: 100% !important;
@@ -1378,12 +1401,14 @@ main.wp-block-group {
 		margin-right: auto !important;
 	}
 
-	.section-spb .wp-block-image img {
+	.section-spb .wp-block-image img,
+	.section-gev .wp-block-image img {
 		height: auto !important;
 		aspect-ratio: 684 / 471.6 !important;
 	}
 
-	.section-spb p {
+	.section-spb p,
+	.section-gev p {
 		font-size: 18px !important;
 		line-height: 1.6 !important;
 		margin-bottom: 24px !important;
@@ -3033,6 +3058,7 @@ main > *:last-child {
 /* Cap and center section images on tablet/mobile views to prevent them from growing too large */
 @media (max-width: 1024px) {
 	.section-spb .wp-block-image,
+	.section-gev .wp-block-image,
 	.section-highlight .wp-block-image,
 	.section-kooperationen .wp-block-image {
 		max-width: 600px !important;
@@ -3042,6 +3068,7 @@ main > *:last-child {
 	}
 
 	.section-spb .wp-block-image img,
+	.section-gev .wp-block-image img,
 	.section-highlight .wp-block-image img,
 	.section-kooperationen .wp-block-image img {
 		width: 100% !important;
@@ -3053,6 +3080,7 @@ main > *:last-child {
 /* On mobile viewports under 768px, shrink horizontal padding to 24px */
 @media (max-width: 767px) {
 	.section-spb,
+	.section-gev,
 	.section-highlight,
 	.section-kooperationen {
 		padding-left: 24px !important;
