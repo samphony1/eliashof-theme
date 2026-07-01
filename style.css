@@ -2467,11 +2467,12 @@ main.wp-block-group {
 	max-width: 51.95% !important;
 	width: 51.95% !important;
 	height: auto !important;
+	padding-top: clamp(20px, 3.5vw, 60px) !important;
 	padding-bottom: 0 !important;
 	padding-left: 5% !important;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start !important;
 	position: relative;
 }
 
@@ -2582,6 +2583,7 @@ main.wp-block-group {
 		width: 100% !important;
 		height: auto !important;
 		order: 1 !important;
+		padding-top: 0 !important;
 		padding-bottom: 0 !important;
 		padding-left: 0 !important;
 		align-items: center !important;
