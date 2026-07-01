@@ -1,13 +1,13 @@
 <?php
 /**
- * Title: Hero (Eltern)
- * Slug: eliashof/hero-blog-eltern
+ * Title: Hero (Unsere Schule - Seite)
+ * Slug: eliashof/hero-blog-schule-page
  * Categories: eliashof-sections
- * Description: Header section for subpages with featured image on the left, post title on the right, and illustration 04.
+ * Description: Editable header section for the Schule page with featured image on the left, custom heading on the right, and illustration.
  */
 ?>
-<!-- wp:group {"align":"full","anchor":"hero-blog-eltern","className":"eliashof-hero-blog-schule bg-graph-yellow eliashof-hero-blog-eltern","layout":{"type":"constrained"}} -->
-<div id="hero-blog-eltern" class="wp-block-group alignfull eliashof-hero-blog-schule bg-graph-yellow eliashof-hero-blog-eltern">
+<!-- wp:group {"align":"full","anchor":"hero-blog-schule-page","className":"eliashof-hero-blog-schule bg-graph-blue eliashof-hero-blog-schule-page","layout":{"type":"constrained"}} -->
+<div id="hero-blog-schule-page" class="wp-block-group alignfull eliashof-hero-blog-schule bg-graph-blue eliashof-hero-blog-schule-page">
 
 	<!-- wp:group {"className":"eliashof-hero-blog-schule-container","layout":{"type":"default"}} -->
 	<div class="wp-block-group eliashof-hero-blog-schule-container">
@@ -29,7 +29,7 @@
 		<!-- wp:group {"className":"eliashof-hero-blog-schule-content-col","layout":{"type":"default"}} -->
 		<div class="wp-block-group eliashof-hero-blog-schule-content-col">
 			<!-- wp:heading {"level":1,"placeholder":"Titel eingeben...","className":"eliashof-hero-blog-schule-title"} -->
-			<h1 class="wp-block-heading eliashof-hero-blog-schule-title">ELTERNENGAGEMENT AN DER GRUNDSCHULE IM ELIASHOF</h1>
+			<h1 class="wp-block-heading eliashof-hero-blog-schule-title">UNSERE SCHULE</h1>
 			<!-- /wp:heading -->
 		</div>
 		<!-- /wp:group -->
@@ -37,8 +37,8 @@
 		<!-- Illustration (anchored bottom right) -->
 		<!-- wp:group {"className":"eliashof-hero-blog-schule-illustration","layout":{"type":"default"}} -->
 		<div class="wp-block-group eliashof-hero-blog-schule-illustration">
-			<!-- wp:image {"sizeSlug":"full","linkDestination":"none","url":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration04.svg"} -->
-			<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration04.svg" alt="Illustration" /></figure>
+			<!-- wp:image {"sizeSlug":"full","linkDestination":"none","url":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration-children-line.svg"} -->
+			<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration-children-line.svg" alt="Illustration" /></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:group -->
