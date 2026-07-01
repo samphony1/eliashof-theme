@@ -2955,6 +2955,27 @@ main.wp-block-group {
 	margin-bottom: 0 !important;
 }
 
+/* Center text in the flex column variant (like the GEV/Links section on the Eltern page) */
+.eliashof-ausstattung-section.is-layout-flex .eliashof-ausstattung-item {
+	text-align: center !important;
+}
+
+/* Text links styling (#F49600, underline on hover) */
+.wp-block-post-content a:not(.wp-block-button__link):not(.wp-block-navigation-item__content),
+.entry-content a:not(.wp-block-button__link):not(.wp-block-navigation-item__content),
+.eliashof-subpage-content-wrapper a:not(.wp-block-button__link),
+.eliashof-ausstattung-item a {
+	color: #F49600 !important;
+	text-decoration: none !important;
+}
+
+.wp-block-post-content a:not(.wp-block-button__link):not(.wp-block-navigation-item__content):hover,
+.entry-content a:not(.wp-block-button__link):not(.wp-block-navigation-item__content):hover,
+.eliashof-subpage-content-wrapper a:not(.wp-block-button__link):hover,
+.eliashof-ausstattung-item a:hover {
+	text-decoration: underline !important;
+}
+
 .eliashof-leitbild-item strong {
 	font-family: 'Neucha', cursive !important;
 	font-size: clamp(22px, 1.8vw, 30px) !important;
