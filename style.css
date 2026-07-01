@@ -3059,3 +3059,82 @@ main > *:last-child {
 		padding-right: 24px !important;
 	}
 }
+
+/* Eltern Infos Section (GEV & Links) */
+.section-eltern-infos {
+	background-color: transparent !important;
+	padding: 80px clamp(24px, 10.8vw, 208px) !important;
+	margin: 0 !important;
+	box-sizing: border-box !important;
+	position: relative;
+	z-index: 2;
+}
+
+.eliashof-eltern-infos-container {
+	max-width: 1497px !important;
+	margin: 0 auto !important;
+	width: 100% !important;
+}
+
+.eliashof-eltern-infos-columns {
+	display: flex !important;
+	flex-direction: row !important;
+	align-items: stretch !important; /* Forces columns to be equal height */
+	justify-content: space-between !important;
+	width: 100% !important;
+}
+
+.eliashof-eltern-infos-col {
+	flex: 1 1 45% !important;
+	display: flex !important;
+	flex-direction: column !important;
+	justify-content: flex-start !important;
+	align-items: center !important;
+	height: auto !important;
+	box-sizing: border-box !important;
+}
+
+.eliashof-eltern-infos-subtitle {
+	color: var(--color-black) !important;
+	font-family: 'Neucha', cursive !important;
+	font-size: clamp(28px, 3.1vw, 50px) !important;
+	line-height: 1.1 !important;
+	letter-spacing: 0.05em !important;
+	font-weight: 400 !important;
+	text-transform: uppercase !important;
+	margin: 0 auto 35px auto !important;
+	text-align: center !important;
+	width: 100% !important;
+}
+
+.eliashof-eltern-infos-item {
+	font-family: 'Montserrat', sans-serif !important;
+	font-size: clamp(18px, 1.4vw, 22px) !important;
+	line-height: 1.67 !important;
+	font-weight: 300 !important;
+	color: var(--color-black) !important;
+	margin: 0 !important;
+	text-align: center !important;
+	width: 100% !important;
+}
+
+/* Ensure links inside the items are orange and underline on hover */
+.eliashof-eltern-infos-item a {
+	color: #B55A00 !important;
+	text-decoration: none !important;
+}
+
+.eliashof-eltern-infos-item a:hover {
+	text-decoration: underline !important;
+}
+
+@media (max-width: 767px) {
+	.section-eltern-infos {
+		padding: 50px 24px !important;
+	}
+	.eliashof-eltern-infos-columns {
+		flex-direction: column !important;
+		gap: 50px !important;
+	}
+}
+
