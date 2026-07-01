@@ -2467,7 +2467,7 @@ main.wp-block-group {
 	max-width: 51.95% !important;
 	width: 51.95% !important;
 	height: auto !important;
-	padding-top: clamp(20px, 3.5vw, 60px) !important;
+	padding-top: 0 !important;
 	padding-bottom: 0 !important;
 	padding-left: 5% !important;
 	display: flex;
@@ -2479,7 +2479,7 @@ main.wp-block-group {
 .eliashof-hero-blog-schule-title {
 	color: var(--color-black) !important;
 	font-family: 'Neucha', cursive !important;
-	font-size: clamp(32px, 3.8vw, 70px) !important;
+	font-size: clamp(32px, 3.8vw, 60px) !important;
 	line-height: 1.1 !important;
 	letter-spacing: 0.05em !important;
 	text-transform: uppercase !important;
