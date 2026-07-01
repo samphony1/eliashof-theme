@@ -35,7 +35,7 @@
 		<!-- Illustration (anchored bottom right) -->
 		<!-- wp:group {"className":"eliashof-hero-blog-schule-illustration","layout":{"type":"default"}} -->
 		<div class="wp-block-group eliashof-hero-blog-schule-illustration">
-			<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
+			<!-- wp:image {"sizeSlug":"full","linkDestination":"none","url":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration04.svg"} -->
 			<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration04.svg" alt="Illustration" /></figure>
 			<!-- /wp:image -->
 		</div>

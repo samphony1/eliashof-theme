@@ -517,21 +517,23 @@ body {
 }
 
 /* Push down the first block of any page content to prevent clashing with the absolute header */
-.wp-block-post-content > :first-child:not(.eliashof-hero-wrap):not(.eliashof-hero-blog-schule),
-.entry-content > :first-child:not(.eliashof-hero-wrap):not(.eliashof-hero-blog-schule) {
+.wp-block-post-content > :first-child:not(.eliashof-hero-wrap):not(.eliashof-hero-blog-schule):not(.eliashof-hero-blog-eltern),
+.entry-content > :first-child:not(.eliashof-hero-wrap):not(.eliashof-hero-blog-schule):not(.eliashof-hero-blog-eltern) {
 	padding-top: 210px !important;
 }
 
 @media (max-width: 767px) {
-	.wp-block-post-content > :first-child:not(.eliashof-hero-wrap):not(.eliashof-hero-blog-schule),
-	.entry-content > :first-child:not(.eliashof-hero-wrap):not(.eliashof-hero-blog-schule) {
+	.wp-block-post-content > :first-child:not(.eliashof-hero-wrap):not(.eliashof-hero-blog-schule):not(.eliashof-hero-blog-eltern),
+	.entry-content > :first-child:not(.eliashof-hero-wrap):not(.eliashof-hero-blog-schule):not(.eliashof-hero-blog-eltern) {
 		padding-top: 90px !important;
 	}
 }
 
 /* Reset padding-top on the first child of the content block when preceded by a subpage hero */
 .eliashof-hero-blog-schule ~ .eliashof-subpage-content-wrapper .wp-block-post-content > :first-child,
-.eliashof-hero-blog-schule ~ .eliashof-subpage-content-wrapper .entry-content > :first-child {
+.eliashof-hero-blog-schule ~ .eliashof-subpage-content-wrapper .entry-content > :first-child,
+.eliashof-hero-blog-eltern ~ .eliashof-subpage-content-wrapper .wp-block-post-content > :first-child,
+.eliashof-hero-blog-eltern ~ .eliashof-subpage-content-wrapper .entry-content > :first-child {
 	padding-top: 0 !important;
 }
 
@@ -2392,11 +2394,14 @@ main.wp-block-group {
 }
 
 .eliashof-hero-blog-schule,
-.eliashof-hero-blog-schule * {
+.eliashof-hero-blog-eltern,
+.eliashof-hero-blog-schule *,
+.eliashof-hero-blog-eltern * {
 	box-sizing: border-box;
 }
 
-.eliashof-hero-blog-schule {
+.eliashof-hero-blog-schule,
+.eliashof-hero-blog-eltern {
 	width: 100%;
 	position: relative;
 	overflow: hidden;
@@ -2543,7 +2548,8 @@ main.wp-block-group {
 
 /* Mobile responsive styling */
 @media (max-width: 991px) {
-	.eliashof-hero-blog-schule {
+	.eliashof-hero-blog-schule,
+	.eliashof-hero-blog-eltern {
 		padding-top: 90px !important;
 		height: auto !important;
 		min-height: auto !important;
