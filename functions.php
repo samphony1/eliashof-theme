@@ -354,7 +354,7 @@ add_action( 'init', function() {
 			$original_content = $content;
 
 			// If the content has double wrapper or old left-over blocks before the textbox section, replace it
-			if ( strpos( $content, 'hero-blog-schule-page' ) !== false && strpos( $content, 'section-textbox' ) !== false ) {
+			if ( strpos( $content, '<!-- wp:group {"align":"full","className":"eliashof-hero-blog-schule bg-graph-blue"' ) !== false && strpos( $content, 'section-textbox' ) !== false ) {
 				$parts = explode( '<!-- wp:group {"metadata":{"categories":["eliashof-sections"],"patternName":"eliashof/section-textbox"', $content, 2 );
 				if ( count( $parts ) === 2 ) {
 					$new_hero = '<!-- wp:group {"metadata":{"categories":["eliashof-sections"],"patternName":"eliashof/hero-blog-schule-page","name":"Hero (Unsere Schule - Seite)"},"align":"full","className":"eliashof-hero-blog-schule bg-graph-blue eliashof-hero-blog-schule-page","layout":{"type":"constrained"}} -->
