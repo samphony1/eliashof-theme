@@ -2960,12 +2960,12 @@ main.wp-block-group {
 	text-align: center !important;
 }
 
-/* Text links styling (#F49600, underline on hover) */
+/* Text links styling (#B55A00, underline on hover) */
 .wp-block-post-content a:not(.wp-block-button__link):not(.wp-block-navigation-item__content),
 .entry-content a:not(.wp-block-button__link):not(.wp-block-navigation-item__content),
 .eliashof-subpage-content-wrapper a:not(.wp-block-button__link),
 .eliashof-ausstattung-item a {
-	color: #F49600 !important;
+	color: #B55A00 !important;
 	text-decoration: none !important;
 }
 
