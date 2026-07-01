@@ -345,6 +345,54 @@ add_action( 'init', function() {
 		}
 	}
 
+	// 2.5. Automatically clean up "Unsere Schule" page (ID 106) database content
+	$schule_page_id = 106;
+	if ( get_post_status( $schule_page_id ) ) {
+		$post = get_post( $schule_page_id );
+		if ( $post ) {
+			$content = $post->post_content;
+			$original_content = $content;
+
+			// If the content has double wrapper or old left-over blocks before the textbox section, replace it
+			if ( strpos( $content, 'hero-blog-schule-page' ) !== false && strpos( $content, 'section-textbox' ) !== false ) {
+				$parts = explode( '<!-- wp:group {"metadata":{"categories":["eliashof-sections"],"patternName":"eliashof/section-textbox"', $content, 2 );
+				if ( count( $parts ) === 2 ) {
+					$new_hero = '<!-- wp:group {"metadata":{"categories":["eliashof-sections"],"patternName":"eliashof/hero-blog-schule-page","name":"Hero (Unsere Schule - Seite)"},"align":"full","className":"eliashof-hero-blog-schule bg-graph-blue eliashof-hero-blog-schule-page","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull eliashof-hero-blog-schule bg-graph-blue eliashof-hero-blog-schule-page" id="hero-blog-schule-page"><!-- wp:group {"className":"eliashof-hero-blog-schule-container","layout":{"type":"default"}} -->
+<div class="wp-block-group eliashof-hero-blog-schule-container"><!-- wp:group {"className":"eliashof-hero-blog-schule-image-col","layout":{"type":"default"}} -->
+<div class="wp-block-group eliashof-hero-blog-schule-image-col"><!-- wp:group {"className":"eliashof-hero-blog-schule-featured-img-container","layout":{"type":"default"}} -->
+<div class="wp-block-group eliashof-hero-blog-schule-featured-img-container"><!-- wp:post-featured-image {"className":"eliashof-hero-blog-schule-featured-img"} /--></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"eliashof-hero-blog-schule-content-col","layout":{"type":"default"}} -->
+<div class="wp-block-group eliashof-hero-blog-schule-content-col"><!-- wp:heading {"level":1,"placeholder":"Titel eingeben...","className":"eliashof-hero-blog-schule-title"} -->
+<h1 class="wp-block-heading eliashof-hero-blog-schule-title">UNSERE SCHULE</h1>
+<!-- /wp:heading --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"eliashof-hero-blog-schule-illustration","layout":{"type":"default"}} -->
+<div class="wp-block-group eliashof-hero-blog-schule-illustration"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","url":"' . esc_url( get_template_directory_uri() ) . '/assets/images/illustration-children-line.svg"} -->
+<figure class="wp-block-image size-full"><img src="' . esc_url( get_template_directory_uri() ) . '/assets/images/illustration-children-line.svg" alt="Illustration"/></figure>
+<!-- /wp:image --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+';
+					$content = $new_hero . '<!-- wp:group {"metadata":{"categories":["eliashof-sections"],"patternName":"eliashof/section-textbox"' . $parts[1];
+				}
+			}
+
+			if ( $content !== $original_content ) {
+				wp_update_post( [
+					'ID'           => $schule_page_id,
+					'post_content' => $content,
+				] );
+			}
+		}
+	}
+
 	// 3. Programmatically clean up and update the Primary Menu items
 	if ( get_post_status( 111 ) ) {
 		wp_delete_post( 111, true );
