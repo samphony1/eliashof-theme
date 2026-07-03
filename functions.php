@@ -393,6 +393,21 @@ add_action( 'init', function() {
 		}
 	}
 
+	// 2.6. Automatically create the "Förderverein" page if it doesn't exist
+	$foerderverein_page = get_page_by_path( 'foerderverein' );
+	if ( ! $foerderverein_page ) {
+		$foerderverein_id = wp_insert_post( [
+			'post_title'   => 'Förderverein',
+			'post_name'    => 'foerderverein',
+			'post_status'  => 'publish',
+			'post_type'    => 'page',
+			'post_content' => '<!-- wp:pattern {"slug":"eliashof/page-foerderverein"} /-->',
+		] );
+		if ( $foerderverein_id && ! is_wp_error( $foerderverein_id ) ) {
+			set_post_thumbnail( $foerderverein_id, 156 );
+		}
+	}
+
 	// 3. Programmatically clean up and update the Primary Menu items
 	if ( get_post_status( 111 ) ) {
 		wp_delete_post( 111, true );
@@ -410,7 +425,7 @@ add_action( 'init', function() {
 		update_post_meta( 100, '_menu_item_url', '/#eltern' );
 	}
 	if ( get_post_status( 101 ) ) {
-		update_post_meta( 101, '_menu_item_url', '/#foerderverein' );
+		update_post_meta( 101, '_menu_item_url', '/foerderverein/' );
 	}
 	if ( get_post_status( 102 ) ) {
 		update_post_meta( 102, '_menu_item_url', '/#unsere-partner' );
@@ -455,7 +470,7 @@ function eliashof_fallback_menu() {
 	echo '<li><a href="/aktuelles/">AKTUELLES</a></li>';
 	echo '<li><a href="/unsere-schule/">UNSERE SCHULE</a></li>';
 	echo '<li><a href="/#spb-hort">SPB / HORT</a></li>';
-	echo '<li><a href="/#foerderverein">FÖRDERVEREIN</a></li>';
+	echo '<li><a href="/foerderverein/">FÖRDERVEREIN</a></li>';
 	echo '<li><a href="/#unsere-partner">UNSERE PARTNER</a></li>';
 	echo '<li><a href="/#kontakt">KONTAKT</a></li>';
 	echo '</ul>';

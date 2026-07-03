@@ -6,8 +6,8 @@
  * Description: Full-width hero with heading, body text, image, and CTA button. Layout is locked — only text, image, and button label/link are editable.
  */
 ?>
-<!-- wp:group {"align":"full","anchor":"hero","templateLock":"contentOnly","className":"eliashof-section bg-graph-yellow eliashof-hero-wrap","style":{"spacing":{"padding":{"top":"210px","bottom":"80px","left":"clamp(24px,6vw,100px)","right":"clamp(24px,6vw,100px)"}}},"layout":{"type":"constrained","wideSize":"1400px","contentSize":"1200px"}} -->
-<div id="hero" class="wp-block-group alignfull eliashof-section bg-graph-yellow eliashof-hero-wrap" style="padding-top:210px;padding-bottom:80px;padding-left:clamp(24px,6vw,100px);padding-right:clamp(24px,6vw,100px)">
+<!-- wp:group {"align":"full","anchor":"hero","templateLock":"contentOnly","className":"eliashof-section bg-graph-yellow eliashof-hero-wrap","style":{"spacing":{"padding":{"top":"210px","bottom":"80px","left":"clamp(24px,7.2vw,138px)","right":"clamp(24px,7.2vw,138px)"}}},"layout":{"type":"constrained","wideSize":"1400px","contentSize":"1200px"}} -->
+<div id="hero" class="wp-block-group alignfull eliashof-section bg-graph-yellow eliashof-hero-wrap" style="padding-top:210px;padding-bottom:80px;padding-left:clamp(24px,7.2vw,138px);padding-right:clamp(24px,7.2vw,138px)">
 
 	<!-- wp:image {"className":"eliashof-hero-drawing","sizeSlug":"full","linkDestination":"none","url":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration01.svg"} -->
 	<figure class="wp-block-image size-full eliashof-hero-drawing"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration01.svg" alt="Illustration von Schulkindern und Lehrern"/></figure>

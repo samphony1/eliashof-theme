@@ -31,6 +31,14 @@
 			<p>Auch in diesem Jahr veranstaltet der Förderverein der Grundschule Eliashof das beliebte Sommerfest und lädt alle Familien, Lehrkräfte, Erzieher*innen und Freunde herzlich dazu ein. Es wird ein buntes Programm mit Musik, Spielen, leckerem Essen und vielem mehr geboten!<br>Kommen Sie vorbei, lernen Sie andere Familien kennen und verbringen Sie einen wunderschönen Nachmittag auf dem Schulhof. Wir freuen uns auf Sie!</p>
 			<!-- /wp:paragraph -->
 
+			<!-- wp:buttons -->
+			<div class="wp-block-buttons">
+				<!-- wp:button -->
+				<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#">MEHR</a></div>
+				<!-- /wp:button -->
+			</div>
+			<!-- /wp:buttons -->
+
 		</div>
 		<!-- /wp:column -->
 

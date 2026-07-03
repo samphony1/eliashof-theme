@@ -191,3 +191,74 @@ This document outlines the recent implementations and structural decisions made 
 
 ### 25. Version Control Update
 - **Git Tracking:** Staged and committed layout refinements, new block patterns, footer gap fixes, translucent yellow hero styling, school hero image layouts, background scaling rules, section background colors, responsive layouts, header clearances, menu filters, tablet layout paddings, column width limits, startpage hero stacking breakpoint update, body background position margin shifts, Eltern Hero block pattern, school page hero block pattern, imported illustration asset, top-aligned hero title styling adjustments, database page 106 migration cleanups and trigger corrections, right-aligned illustration coordinates, Aktuelles (Eltern) block pattern, GEV and Links column centering overrides, accessible orange link styles, theme.json global link color updates, parents page hero and footer GEV/Links migrations, new Eltern Infos pattern, custom GEV block pattern with reversed columns, matching layout responsive rules, Aktuelles page block pattern, shortcode and real-time JS category filters, menu redirection links, transparent post grid background utility, round frame card image style rules, and documentation updates inside the theme repository.
+
+---
+
+## Session Summary: July 3 2026 — Alignment, GEV Image, Hero Titles, Archive Grid, PHP Fixes
+
+### 26. Aktuelles Archiv — Paper Background Transparency
+- **Problem:** The post card grid on `/aktuelles/` was rendering on a solid white background instead of showing the underlying paper texture.
+- **Fix:** Removed any `background-color` overrides from `.eliashof-archive-section` and the archive grid container, and ensured the section inherits the body's `paperbg.jpg` texture. Applied `background: transparent !important` to the section wrapper so the paper grid shines through the card grid.
+
+### 27. Post Card Fallback Image (Missing Featured Image)
+- **Fallback Color Fill:** When a blog post has no featured image, the PHP shortcode in `functions.php` now dynamically generates a colored placeholder using one of three brand palette colors (Pale Blue `#8cc8d1`, Brand Yellow `#eec68e`, Pale Green `#c5d799`) cycled by post ID (modulo 3).
+- **Illustration03 Overlay:** `illustration03.svg` is positioned absolutely at the bottom-right of each fallback card at 80% width, maintaining visual cohesion across the grid even for image-less posts.
+- **Transparent SVG:** The SVG renders without any background box, matching the treatment used in the hero section.
+
+### 28. Header / Hero Alignment — Unified Horizontal Padding Token
+- **Problem:** The Eliashof logo in the header was misaligned with the left edge of the hero and subpage hero content, visible in a Figma comparison screenshot.
+- **Root Cause:** The header used `clamp(24px, 6vw, 138px)` while the hero used `clamp(24px, 6vw, 100px)` and the subpage hero container used `clamp(24px, 6.9vw, 132.45px)` — three different max values causing a gap at large viewports.
+- **Fix — Unified Token:** A single site-wide horizontal padding token `clamp(24px, 7.2vw, 138px)` was applied to **every** element that defines the page's left/right content edge:
+  - `.eliashof-header` (CSS, line 544)
+  - `.eliashof-hero-blog-schule-container` (CSS, subpage hero)
+  - `patterns/hero.php` (homepage hero group block)
+  - `patterns/links.php`
+  - `patterns/unsere-partner.php`
+  - `patterns/nav-circles.php`
+  - `.eliashof-aktuelles-carousel` (CSS)
+- **Result:** At 1920px viewport the value resolves to exactly **138px**, matching the Figma spec. All content left edges (logo, hero text, section headings) are now perfectly vertically aligned.
+
+### 29. Subpage Hero Title Line Height
+- **Change:** Updated `line-height` on `.eliashof-hero-blog-schule-title` from `1.1` to `1.2` in `style.css`.
+- **Applies To:** All subpage hero titles — Schule, Blog, Eltern, and Aktuelles Archiv — because they all share this CSS class.
+- **Reason:** At `clamp(32px, 3.8vw, 60px)` font-size, `1.1` left multi-line titles feeling too tight on the 3-line title mock ("DIE GRUNDSCHULE IM ELIASHOF – EIN STANDORT MIT VIELEN STÄRKEN"). `1.2` provides better optical breathing room.
+
+### 30. GEV Section — Taller Image Container
+- **Figma Spec:** The GEV image should render at `720.52px` tall × `684px` wide at full desktop.
+- **Previous behaviour:** The image used `aspect-ratio: 684 / 471.6` (same as SPB), rendering at only `471.6px` tall.
+- **Fix:**
+  - Split the combined `.section-spb .wp-block-columns, .section-gev .wp-block-columns` rule into two separate rules.
+  - GEV columns: `align-items: stretch` (was `center`) so the image column grows to full row height.
+  - GEV image column: `align-self: stretch`, `display: flex`, `flex-direction: column`.
+  - GEV image block: `height: 100%`.
+  - GEV image: `height: 100%`, `min-height: clamp(400px, 37.5vw, 720.52px)`, `object-fit: cover`, `object-position: center`.
+  - Section `min-height`: bumped from `735px` → `900px`.
+  - SPB layout was kept fully intact (still `align-items: center`, fixed aspect-ratio image).
+
+### 31. Förderverein Section — "MEHR" Button Added
+- **Pattern:** `patterns/foerderverein.php`
+- **Change:** Added a `wp:buttons` / `wp:button` block group immediately after the paragraph text in the right column, using label `MEHR` and `href="#"` as an editable placeholder.
+- **Consistency:** Used the exact same block markup structure as the SPB/Hort section's "MEHR ERFAHREN" button for visual and structural consistency.
+
+### 32. Pattern Rule — Anchor Field Required
+- **Rule established:** Every `wp:group` block that acts as a standalone section pattern **must** have an `"anchor"` attribute in the block comment JSON AND a matching `id="..."` attribute on the rendered HTML `<div>`. This enables direct `#hash` linking from menus and navigation.
+- **Audit performed:** All 25 pattern files were checked. Two were found missing:
+  - `footer-section.php` — **Fixed:** Added `"anchor":"footer"` and `id="footer"`.
+  - `page-startseite.php` — **Intentionally exempt:** This is a page assembler pattern (contains only `wp:pattern` references, no own outer block wrapper).
+- **All other 23 patterns:** Already had anchors — confirmed ✅.
+
+### 33. Global Button Constraints
+- **Single-line enforcement:** Added `white-space: nowrap !important` to `.wp-block-button__link` in `style.css`. Buttons will never wrap their label onto a second line regardless of container width.
+- **20-character max-width:** Added `max-width: 20ch !important` using the CSS `ch` unit (= width of the "0" glyph in the current font). At Neucha 25px this resolves to approximately 20 average-width characters.
+- **Overflow handling:** Added `overflow: hidden !important` and `text-overflow: ellipsis !important` so any label longer than the allowed width is gracefully clipped with `…` rather than overflowing or breaking layout.
+- **Applies to:** All buttons site-wide (`.wp-block-button__link` and `.eliashof-aktuelles-carousel .wp-block-read-more`).
+
+### 34. Dedicated Förderverein Page
+- **Page Auto-Creation:** Added an automated check in `functions.php` (on the `init` hook) that programmatically inserts the "Förderverein" page (slug `foerderverein`) into the database if it doesn't already exist, and sets its featured image thumbnail ID to `156` (representing `foerderverein.jpg`).
+- **Patterns:**
+  - `patterns/hero-blog-foerderverein.php` (slug `eliashof/hero-blog-foerderverein`): Set up a subpage hero using the yellow graph background overlay (`bg-graph-yellow`), dynamic featured image, page header "FÖRDERVEREIN", and SVG children line illustration.
+  - `patterns/page-foerderverein.php` (slug `eliashof/page-foerderverein`): Integrates the subpage hero with an `.eliashof-subpage-content-wrapper` description text block and the Sommerfest flyer image (`1_flyer_foerderverin_RZ.jpg`, attachment ID `74`).
+- **Menu Routing Update:** Updated the Primary Menu configuration inside `functions.php` to clean up and point the "FÖRDERVEREIN" menu item URL metadata (ID `101`) and the fallback menu callback to `/foerderverein/` instead of `/ #foerderverein`.
+
+### 35. Version Control Update
+- **Git Tracking:** Staged and committed all changes: archive transparency fix, post card fallback illustration, unified horizontal padding token across all patterns and CSS, subpage hero title line-height update, GEV taller image container CSS refactoring, Förderverein MEHR button, footer section anchor, global button single-line/20ch constraints, and dedicated Förderverein subpage with hero and page patterns.

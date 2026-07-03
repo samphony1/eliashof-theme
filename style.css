@@ -170,6 +170,11 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 	box-sizing: border-box !important;
 	cursor: pointer !important;
 	transition: background-color 0.2s ease, transform 0.2s ease !important;
+	/* Single-line constraint — max ~20 characters */
+	white-space: nowrap !important;
+	max-width: 20ch !important;
+	overflow: hidden !important;
+	text-overflow: ellipsis !important;
 }
 
 .wp-element-button:hover,
@@ -208,8 +213,8 @@ body {
 	width: 100%;
 	overflow: hidden;
 	/* clip scroll track without clipping the section */
-	padding-left: clamp(24px, 6vw, 100px);
-	padding-right: clamp(24px, 6vw, 100px);
+	padding-left: clamp(24px, 7.2vw, 138px);
+	padding-right: clamp(24px, 7.2vw, 138px);
 	box-sizing: border-box;
 }
 
@@ -542,7 +547,7 @@ body {
 }
 
 .eliashof-header {
-	padding: 0 clamp(24px, 6vw, 138px);
+	padding: 0 clamp(24px, 7.2vw, 138px);
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -1295,7 +1300,7 @@ main.wp-block-group {
 	gap: 55px !important;
 	align-items: center !important;
 	justify-content: flex-start !important;
-	min-height: 735px !important;
+	min-height: 900px !important;
 	width: 100% !important;
 	box-sizing: border-box !important;
 }
@@ -1315,11 +1320,21 @@ main.wp-block-group {
 	max-width: 1497px !important;
 }
 
-.section-spb .wp-block-columns,
-.section-gev .wp-block-columns {
+.section-spb .wp-block-columns {
 	display: flex !important;
 	flex-direction: row !important;
 	align-items: center !important;
+	justify-content: center !important;
+	gap: clamp(40px, 8vw, 136px) !important;
+	margin: 0 auto !important;
+	width: 100% !important;
+	max-width: 1497px !important;
+}
+
+.section-gev .wp-block-columns {
+	display: flex !important;
+	flex-direction: row !important;
+	align-items: stretch !important;
 	justify-content: center !important;
 	gap: clamp(40px, 8vw, 136px) !important;
 	margin: 0 auto !important;
@@ -1349,15 +1364,32 @@ main.wp-block-group {
 	flex: 0 1 684px !important;
 	max-width: 684px !important;
 	width: 100% !important;
+	align-self: stretch !important;
+	display: flex !important;
+	flex-direction: column !important;
 }
 
-.section-spb .wp-block-image img,
-.section-gev .wp-block-image img {
+.section-spb .wp-block-image img {
 	width: 100% !important;
 	height: auto !important;
 	aspect-ratio: 684 / 471.6 !important;
 	object-fit: cover !important;
 	border-radius: 49.3px !important;
+}
+
+.section-gev .wp-block-image {
+	height: 100% !important;
+	margin: 0 !important;
+}
+
+.section-gev .wp-block-image img {
+	width: 100% !important;
+	height: 100% !important;
+	min-height: clamp(400px, 37.5vw, 720.52px) !important;
+	object-fit: cover !important;
+	object-position: center !important;
+	border-radius: 49.3px !important;
+	display: block !important;
 }
 
 .section-spb p,
@@ -2458,8 +2490,8 @@ main.wp-block-group {
 	margin: 0 auto;
 	padding-top: clamp(120px, 10.8vw, 207.77px) !important;
 	padding-bottom: clamp(40px, 3.8vw, 74.48px) !important;
-	padding-left: clamp(24px, 6.9vw, 132.45px) !important;
-	padding-right: clamp(24px, 6.9vw, 132.45px) !important;
+	padding-left: clamp(24px, 7.2vw, 138px) !important;
+	padding-right: clamp(24px, 7.2vw, 138px) !important;
 	position: relative;
 	z-index: 2;
 }
@@ -2516,7 +2548,7 @@ main.wp-block-group {
 	color: var(--color-black) !important;
 	font-family: 'Neucha', cursive !important;
 	font-size: clamp(32px, 3.8vw, 60px) !important;
-	line-height: 1.1 !important;
+	line-height: 1.2 !important;
 	letter-spacing: 0.05em !important;
 	text-transform: uppercase !important;
 	margin: 0 0 30px 0 !important;

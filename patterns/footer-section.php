@@ -6,8 +6,8 @@
  * Description: Rebuilt responsive footer with children illustration and two-column contact details.
  */
 ?>
-<!-- wp:group {"align":"full","className":"eliashof-footer","layout":{"type":"default"}} -->
-<div class="wp-block-group alignfull eliashof-footer">
+<!-- wp:group {"align":"full","anchor":"footer","className":"eliashof-footer","layout":{"type":"default"}} -->
+<div id="footer" class="wp-block-group alignfull eliashof-footer">
 
 	<!-- wp:group {"className":"eliashof-footer-main","layout":{"type":"default"}} -->
 	<div class="wp-block-group eliashof-footer-main">
