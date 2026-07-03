@@ -3422,3 +3422,207 @@ main > *:last-child {
 }
 
 
+/* ── Förderverein Page Custom Styles ────────────────────────────────── */
+
+/* 1. Hero & Balloon Overlay Positioning */
+.eliashof-hero-blog-foerderverein {
+	overflow: visible !important;
+}
+
+.eliashof-hero-foerderverein-balloon {
+	position: absolute !important;
+	top: 0 !important;
+	right: clamp(10px, 3.5vw, 60px) !important;
+	width: clamp(350px, 28vw, 550px) !important;
+	height: auto !important;
+	z-index: 10 !important;
+	pointer-events: none !important;
+}
+
+.eliashof-balloon-desktop {
+	display: block !important;
+	width: 100% !important;
+	height: auto !important;
+}
+
+.eliashof-balloon-mobile {
+	display: none !important;
+}
+
+/* Responsive Balloon styling */
+@media (max-width: 991px) {
+	.eliashof-hero-blog-foerderverein {
+		overflow: hidden !important; /* Reset back to normal on small screens */
+	}
+	.eliashof-hero-foerderverein-balloon {
+		position: static !important;
+		order: 3 !important;
+		margin: 20px auto -5px auto !important;
+		width: 100% !important;
+		max-width: 250px !important;
+		transform: none !important;
+	}
+	.eliashof-balloon-desktop {
+		display: none !important;
+	}
+	.eliashof-balloon-mobile {
+		display: block !important;
+		width: 100% !important;
+		height: auto !important;
+	}
+}
+
+/* 2. T-Shirt Blurp Badge styling */
+.eliashof-wer-wir-sind-badge-col {
+	display: flex !important;
+	justify-content: flex-start !important;
+	align-items: center !important;
+	padding-right: 15% !important;
+}
+
+.eliashof-tshirt-badge {
+	max-width: clamp(140px, 12vw, 220px) !important;
+	height: auto !important;
+	transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+	box-shadow: none !important;
+}
+
+.eliashof-tshirt-badge:hover {
+	transform: scale(1.08) rotate(3deg) !important;
+}
+
+@media (max-width: 991px) {
+	.eliashof-wer-wir-sind-badge-col {
+		justify-content: center !important;
+		padding-right: 0 !important;
+		margin-top: 30px !important;
+	}
+	.eliashof-tshirt-badge {
+		max-width: 180px !important;
+		margin: 0 auto !important;
+	}
+}
+
+/* 4. Was wir tun and membership sections */
+.section-was-wir-tun .eliashof-section-image img,
+.section-foerderverein-mitglied .eliashof-section-image img {
+	border-radius: 40px !important;
+	border: 0.7px solid var(--color-black) !important;
+	width: 100% !important;
+	height: auto !important;
+	object-fit: cover !important;
+}
+
+.section-was-wir-tun .eliashof-section-image img {
+	max-height: 380px !important;
+}
+
+.section-foerderverein-mitglied .eliashof-section-image img {
+	max-height: 380px !important;
+}
+
+.mitglied-highlight-text {
+	font-size: clamp(20px, 2.2vw, 32px) !important;
+	font-family: 'Neucha', cursive !important;
+	margin-bottom: 30px !important;
+	color: var(--color-black) !important;
+}
+
+/* 5. Highlight Banner (CTA) text style */
+.foerderverein-cta-text {
+	font-family: 'Neucha', cursive !important;
+	font-size: clamp(24px, 3.2vw, 42px) !important;
+	line-height: 1.3 !important;
+	letter-spacing: 0.02em !important;
+	max-width: 1100px !important;
+	margin: 0 auto 40px auto !important;
+	text-transform: uppercase !important;
+	color: var(--color-black) !important;
+}
+
+/* 6. Unsere Treffen and Contact details section styling */
+.section-foerderverein-treffen {
+	position: relative !important;
+	background-color: #9de4f9 !important;
+}
+
+.section-foerderverein-treffen .eliashof-grid-text h2 {
+	margin-bottom: 25px !important;
+}
+
+.treffen-highlight-text {
+	font-family: 'Neucha', cursive !important;
+	font-size: clamp(20px, 2.4vw, 32px) !important;
+	font-weight: 700 !important;
+	margin-top: 35px !important;
+	text-transform: uppercase !important;
+	color: var(--color-black) !important;
+	border-bottom: 2px solid var(--color-black) !important;
+	display: inline-block !important;
+	padding-bottom: 5px !important;
+}
+
+.eliashof-treffen-badge {
+	position: absolute !important;
+	bottom: -40px !important;
+	right: 10% !important;
+	width: 170px !important;
+	height: auto !important;
+	z-index: 5 !important;
+	transform: rotate(6deg) !important;
+	transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.eliashof-treffen-badge:hover {
+	transform: rotate(0deg) scale(1.08) !important;
+}
+
+/* 7. Weitere Infos Cards style override */
+.eliashof-info-cards-columns {
+	gap: 40px !important;
+}
+
+.eliashof-info-card-col {
+	margin-bottom: 40px !important;
+}
+
+.eliashof-info-card-group {
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: center !important;
+	justify-content: flex-start !important;
+	height: 100% !important;
+	text-align: center !important;
+	gap: 33px !important;
+}
+
+/* 8. Downloads buttons and Board layout */
+.foerderverein-downloads-buttons {
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: flex-start !important;
+	gap: 16px !important;
+}
+
+.section-foerderverein-vorstand .eliashof-grid-text h2 {
+	margin-bottom: 30px !important;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 767px) {
+	.eliashof-badge-and-sign-container {
+		flex-direction: column !important;
+		gap: 30px !important;
+		margin-top: 30px !important;
+	}
+	
+	.eliashof-treffen-badge {
+		position: static !important;
+		margin: 30px auto 0 auto !important;
+		display: block !important;
+		width: 130px !important;
+	}
+}
+
+
+

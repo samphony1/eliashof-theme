@@ -262,3 +262,33 @@ This document outlines the recent implementations and structural decisions made 
 
 ### 35. Version Control Update
 - **Git Tracking:** Staged and committed all changes: archive transparency fix, post card fallback illustration, unified horizontal padding token across all patterns and CSS, subpage hero title line-height update, GEV taller image container CSS refactoring, Förderverein MEHR button, footer section anchor, global button single-line/20ch constraints, and dedicated Förderverein subpage with hero and page patterns.
+
+---
+
+## Session Summary: July 3 2026 — Förderverein Subpage Modular Redesign, Balloon Illustrations & Badges
+
+### 36. Förderverein Page Modular Section Rebuild
+- **Rule Followed:** Rebuilt the single Förderverein page template into 9 independent, modular Gutenberg block patterns.
+- **Section Patterns Built:**
+  - `patterns/hero-blog-foerderverein.php` (Slug: `eliashof/hero-blog-foerderverein`): The blue subpage hero containing the page title header "FÖRDERVEREIN", featured image thumbnail container on the left, and the custom dual-media balloon illustration (`Balloon-cropped.svg` and `Balloon.svg`) on the right.
+  - `patterns/section-wer-wir-sind.php` (Slug: `eliashof/section-wer-wir-sind`): A transparent graph section displaying "WER WIR SIND" description text on the left, and the cyan "JETZT ANMELDEN" badge (`Blurp-T-Shirt.svg`) on the right.
+  - `patterns/section-was-wir-tun.php` (Slug: `eliashof/section-was-wir-tun`): An orange background section (`bg-graph-orange`) rendering the Sommerfest stand photo (`Foerderverein-Stand-Sommerfest.jpg`) on the left and the active projects description text on the right.
+  - `patterns/section-foerderverein-cta.php` (Slug: `eliashof/section-foerderverein-cta`): A clean, transparent highlight banner with a centered "JETZT MITGLIED WERDEN" button.
+  - `patterns/section-foerderverein-mitglied.php` (Slug: `eliashof/section-foerderverein-mitglied`): A soft green background section (`bg-graph-green`) explaining membership categories on the left, and a rounded image of the Eliashof fabric bag (`img_0575.jpg`) on the right.
+  - `patterns/section-foerderverein-parallax.php` (Slug: `eliashof/section-foerderverein-parallax`): Reuses the full-width Cover block (`unsere-schule-parallax.png`) with parallax enabled to maintain visual consistency across subpages.
+  - `patterns/section-foerderverein-treffen.php` (Slug: `eliashof/section-foerderverein-treffen`): A sky blue section (`#9DE4F9`) detailing meetings and contact information, with the blue circular badge (`Blurp-Wir foerdern Zukunft.svg`) floating overlay.
+  - `patterns/section-foerderverein-infos.php` (Slug: `eliashof/section-foerderverein-infos`): Duplicates the exact card layout of the Aktuelles section (centered Neucha titles, Montserrat text, and orange outline buttons) but renders them without card backgrounds on the transparent grid paper, matching the Figma mockup.
+  - `patterns/section-foerderverein-vorstand.php` (Slug: `eliashof/section-foerderverein-vorstand`): A light green section displaying Vorstand names on the right and download buttons on the left.
+- **Page Assembler:** Updated `patterns/page-foerderverein.php` to modularly references all 9 patterns. Since `/foerderverein/` is dynamically registered in the database pointing to this assembler block, all subpage sections load automatically without database overhead.
+
+### 37. Balloon Illustration Overlay & Responsive Layouts
+- **Spanning over 2 Sections:** Positioned the balloon illustration absolutely on the top-right of the blue hero block (`position: absolute`, `top: 0`, `right: clamp(10px, 3.5vw, 60px)`, `z-index: 10`). By setting `overflow: visible !important` on the hero wrapper, the balloon's lower basket and attached signboard ("SCHULE! GEMEINSAM! GESTALTEN!") overlay the "Wer wir sind" section below it.
+- **Dual SVGs:** Uses `Balloon-cropped.svg` on desktop (screens >= 992px) and hides it on smaller viewports, swapping dynamically to the full-size `Balloon.svg` centered within standard columns on mobile and tablet stacked views.
+
+### 38. Blurp Badges & Spacing
+- **Cyan Badge:** Renders `Blurp-T-Shirt.svg` directly in the right column of "Wer wir sind" with a responsive padding-right offset on desktop, keeping the layout perfectly clear of the absolute-positioned balloon signboard hanging down on the far right.
+- **Blue Badge:** Positioned `Blurp-Wir foerdern Zukunft.svg` floating absolutely on the bottom-right of the "Unsere Treffen" section container, overlapping the bottom border boundary.
+- **Card Styling:** Styled Weitere Infos cards to mirror Aktuelles columns, with centered layout parameters (`gap: 33px`) and standard margins.
+
+### 39. Version Control Update
+- **Git Tracking:** Staged and committed all modifications: modular Förderverein section patterns, refined balloon and badge CSS definitions, and changelog updates in the repository.
