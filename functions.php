@@ -548,6 +548,18 @@ function eliashof_render_aktuelles_archiv() {
 										<?php the_post_thumbnail( 'full' ); ?>
 									</a>
 								</div>
+							<?php else : 
+								// Cycle between Pale Blue, Brand Yellow, and Pale Green
+								$colors = array( '#8cc8d1', '#eec68e', '#c5d799' );
+								$fallback_color = $colors[ get_the_ID() % count( $colors ) ];
+								?>
+								<div class="eliashof-archive-card-image-wrapper fallback-bg" style="background-color: <?php echo esc_attr( $fallback_color ); ?> !important;">
+									<a href="<?php the_permalink(); ?>">
+										<div class="eliashof-archive-card-fallback-inner">
+											<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration-children-line.svg" alt="Illustration" class="eliashof-archive-card-fallback-illustration" />
+										</div>
+									</a>
+								</div>
 							<?php endif; ?>
 							
 							<h3 class="eliashof-archive-card-title"><?php the_title(); ?></h3>

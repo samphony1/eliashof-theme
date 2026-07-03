@@ -3277,6 +3277,40 @@ main > *:last-child {
 	transform: scale(1.05) !important;
 }
 
+/* Fallback image styling for cards missing featured image */
+.eliashof-archive-card-image-wrapper.fallback-bg {
+	position: relative !important;
+	display: flex !important;
+	align-items: flex-end !important;
+	justify-content: center !important;
+}
+
+.eliashof-archive-card-fallback-inner {
+	width: 100% !important;
+	height: 100% !important;
+	display: flex !important;
+	align-items: flex-end !important;
+	justify-content: center !important;
+	padding-bottom: 0 !important;
+	box-sizing: border-box !important;
+}
+
+.eliashof-archive-card-fallback-illustration {
+	width: 85% !important;
+	height: auto !important;
+	max-height: 85% !important;
+	object-fit: contain !important;
+	margin: 0 auto !important;
+	display: block !important;
+	transform: none !important;
+}
+
+/* Make hover transition on fallback illustration card clean and subtle */
+.eliashof-archive-card:hover .eliashof-archive-card-image-wrapper.fallback-bg .eliashof-archive-card-fallback-illustration {
+	transform: translateY(-5px) !important;
+	transition: transform 0.3s ease !important;
+}
+
 .eliashof-archive-card-title {
 	text-align: center !important;
 	margin-top: 0 !important;
