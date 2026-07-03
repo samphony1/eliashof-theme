@@ -763,6 +763,10 @@ body {
 	background-color: var(--color-white) !important;
 }
 
+.bg-transparent {
+	background-color: transparent !important;
+}
+
 /* ═══════════════════════════════════════════════════════════════════
    HERO OVERRIDES
    ═══════════════════════════════════════════════════════════════════ */
@@ -3167,4 +3171,186 @@ main > *:last-child {
 		gap: 50px !important;
 	}
 }
+
+/* ── Section Aktuelles Archiv Grid & Filters ──────────────────────── */
+.eliashof-archive-wrapper {
+	max-width: 1400px !important;
+	margin: 0 auto !important;
+	width: 100% !important;
+	box-sizing: border-box !important;
+}
+
+.eliashof-archive-filter-bar {
+	display: flex !important;
+	flex-direction: row !important;
+	flex-wrap: wrap !important;
+	align-items: center !important;
+	justify-content: center !important;
+	gap: 20px !important;
+	margin-bottom: 60px !important;
+	width: 100% !important;
+}
+
+.eliashof-filter-btn {
+	background-color: var(--color-brand-orange) !important;
+	color: var(--color-black) !important;
+	border-radius: 40px !important;
+	border: 0.7px solid var(--color-black) !important;
+	padding: 0 45px !important;
+	height: 50px !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	font-family: 'Neucha', cursive !important;
+	font-size: 24px !important;
+	line-height: 1.1 !important;
+	letter-spacing: 0.05em !important;
+	text-transform: uppercase !important;
+	text-decoration: none !important;
+	box-sizing: border-box !important;
+	cursor: pointer !important;
+	transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
+}
+
+.eliashof-filter-btn:hover {
+	background-color: var(--color-brand-orange-hover) !important;
+	transform: translateY(-2px) !important;
+	text-decoration: none !important;
+	color: var(--color-black) !important;
+}
+
+.eliashof-filter-btn.active {
+	background-color: var(--color-black) !important;
+	color: var(--color-cream-light) !important;
+	border-color: var(--color-black) !important;
+}
+
+.eliashof-filter-btn.active:hover {
+	transform: translateY(-2px) !important;
+	color: var(--color-cream-light) !important;
+}
+
+.eliashof-archive-grid {
+	display: grid !important;
+	grid-template-columns: repeat(3, 1fr) !important;
+	gap: 60px 40px !important;
+	width: 100% !important;
+	box-sizing: border-box !important;
+}
+
+.eliashof-archive-card {
+	display: flex;
+	flex-direction: column !important;
+	height: auto !important;
+	box-sizing: border-box !important;
+	transition: opacity 0.25s ease, transform 0.25s ease !important;
+	opacity: 1;
+	transform: scale(1);
+}
+
+.eliashof-archive-card-inner {
+	display: flex !important;
+	flex-direction: column !important;
+	height: 100% !important;
+	flex-grow: 1 !important;
+}
+
+.eliashof-archive-card-image-wrapper {
+	width: 100% !important;
+	height: 200px !important;
+	margin-bottom: 24px !important;
+	overflow: hidden !important;
+	border-radius: 16px !important;
+}
+
+.eliashof-archive-card-image-wrapper img {
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: cover !important;
+	display: block !important;
+	transition: transform 0.3s ease !important;
+}
+
+.eliashof-archive-card:hover .eliashof-archive-card-image-wrapper img {
+	transform: scale(1.05) !important;
+}
+
+.eliashof-archive-card-title {
+	text-align: center !important;
+	margin-top: 0 !important;
+	margin-bottom: 16px !important;
+	font-family: 'Neucha', cursive !important;
+	font-size: 35px !important;
+	line-height: 1.1 !important;
+	font-weight: 400 !important;
+	color: var(--color-black) !important;
+	text-transform: uppercase !important;
+}
+
+.eliashof-archive-card-excerpt {
+	flex-grow: 1 !important;
+	display: flex !important;
+	flex-direction: column !important;
+}
+
+.eliashof-archive-card-excerpt p {
+	color: var(--color-black) !important;
+	font-family: 'Montserrat', sans-serif !important;
+	font-size: 20px !important;
+	font-weight: 300 !important;
+	line-height: 1.5 !important;
+	text-align: center !important;
+	margin: 0 0 24px 0 !important;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.eliashof-archive-card-button-wrapper {
+	display: flex !important;
+	justify-content: center !important;
+	margin-top: auto !important;
+}
+
+.eliashof-archive-no-results {
+	grid-column: 1 / -1 !important;
+	text-align: center !important;
+	font-family: 'Montserrat', sans-serif !important;
+	font-size: 24px !important;
+	font-weight: 300 !important;
+	color: var(--color-black) !important;
+	padding: 40px 0 !important;
+}
+
+@media (max-width: 991px) {
+	.eliashof-archive-grid {
+		grid-template-columns: repeat(2, 1fr) !important;
+		gap: 48px 30px !important;
+	}
+	.eliashof-archive-filter-bar {
+		gap: 15px !important;
+		margin-bottom: 40px !important;
+	}
+	.eliashof-filter-btn {
+		font-size: 20px !important;
+		padding: 0 35px !important;
+		height: 46px !important;
+	}
+}
+
+@media (max-width: 767px) {
+	.eliashof-archive-grid {
+		grid-template-columns: repeat(1, 1fr) !important;
+		gap: 40px !important;
+	}
+	.eliashof-archive-card-title {
+		font-size: 28px !important;
+	}
+	.eliashof-archive-card-excerpt p {
+		font-size: 18px !important;
+	}
+}
+
 

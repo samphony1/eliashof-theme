@@ -401,7 +401,7 @@ add_action( 'init', function() {
 		update_post_meta( 98, '_menu_item_url', '/unsere-schule/' );
 	}
 	if ( get_post_status( 97 ) ) {
-		update_post_meta( 97, '_menu_item_url', '/#aktuelles' );
+		update_post_meta( 97, '_menu_item_url', '/aktuelles/' );
 	}
 	if ( get_post_status( 99 ) ) {
 		update_post_meta( 99, '_menu_item_url', '/#spb-hort' );
@@ -452,7 +452,7 @@ add_shortcode( 'eliashof_menu', 'eliashof_render_menu_shortcode' );
  */
 function eliashof_fallback_menu() {
 	echo '<ul>';
-	echo '<li><a href="/#aktuelles">AKTUELLES</a></li>';
+	echo '<li><a href="/aktuelles/">AKTUELLES</a></li>';
 	echo '<li><a href="/unsere-schule/">UNSERE SCHULE</a></li>';
 	echo '<li><a href="/#spb-hort">SPB / HORT</a></li>';
 	echo '<li><a href="/#foerderverein">FÖRDERVEREIN</a></li>';
@@ -490,3 +490,128 @@ function eliashof_filter_menu_items( $sorted_menu_items, $args ) {
 	return $filtered;
 }
 add_filter( 'wp_nav_menu_objects', 'eliashof_filter_menu_items', 10, 2 );
+
+/**
+ * Shortcode to render the dynamic Aktuelles (News) Archive page with real-time category filters.
+ * Use [eliashof_aktuelles_archiv] in block content.
+ */
+function eliashof_render_aktuelles_archiv() {
+	// 1. Get all categories (include empty ones so they appear immediately when created)
+	$categories = get_categories( array(
+		'hide_empty' => false,
+	) );
+
+	// Filter out the 'uncategorized' / 'allgemein' category if desired
+	$categories = array_filter( $categories, function( $cat ) {
+		return strcasecmp( $cat->slug, 'allgemein' ) !== 0 && strcasecmp( $cat->slug, 'uncategorized' ) !== 0;
+	} );
+
+	ob_start();
+	?>
+	<div class="eliashof-archive-wrapper">
+		<!-- Filter Bar -->
+		<div class="eliashof-archive-filter-bar">
+			<button class="wp-element-button wp-block-button__link eliashof-filter-btn active" data-filter="all">ALL</button>
+			<?php foreach ( $categories as $cat ) : ?>
+				<button class="wp-element-button wp-block-button__link eliashof-filter-btn" data-filter="<?php echo esc_attr( $cat->slug ); ?>">
+					<?php echo esc_html( mb_strtoupper( $cat->name, 'UTF-8' ) ); ?>
+				</button>
+			<?php endforeach; ?>
+		</div>
+
+		<!-- Posts Grid -->
+		<div class="eliashof-archive-grid">
+			<?php
+			$args = array(
+				'post_type'      => 'post',
+				'posts_per_page' => 100, // Load enough posts for client-side real-time filtering
+				'post_status'    => 'publish',
+				'orderby'        => 'date',
+				'order'          => 'DESC',
+			);
+			$query = new WP_Query( $args );
+			if ( $query->have_posts() ) :
+				while ( $query->have_posts() ) : $query->the_post();
+					$post_cats = get_the_category();
+					$cat_slugs = array();
+					foreach ( $post_cats as $pc ) {
+						$cat_slugs[] = $pc->slug;
+					}
+					$cat_data = implode( ' ', $cat_slugs );
+					$has_image = has_post_thumbnail();
+					?>
+					<div class="eliashof-archive-card" data-categories="<?php echo esc_attr( $cat_data ); ?>">
+						<div class="eliashof-archive-card-inner">
+							<?php if ( $has_image ) : ?>
+								<div class="eliashof-archive-card-image-wrapper">
+									<a href="<?php the_permalink(); ?>">
+										<?php the_post_thumbnail( 'full' ); ?>
+									</a>
+								</div>
+							<?php endif; ?>
+							
+							<h3 class="eliashof-archive-card-title"><?php the_title(); ?></h3>
+							
+							<div class="eliashof-archive-card-excerpt">
+								<p><?php echo wp_trim_words( get_the_excerpt(), 20, '...' ); ?></p>
+							</div>
+							
+							<div class="eliashof-archive-card-button-wrapper">
+								<a class="wp-element-button wp-block-button__link" href="<?php the_permalink(); ?>">MEHR</a>
+							</div>
+						</div>
+					</div>
+					<?php
+				endwhile;
+				wp_reset_postdata();
+			else :
+				?>
+				<p class="eliashof-archive-no-results">Keine Beiträge gefunden.</p>
+			<?php endif; ?>
+		</div>
+	</div>
+
+	<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		const buttons = document.querySelectorAll('.eliashof-filter-btn');
+		const cards = document.querySelectorAll('.eliashof-archive-card');
+
+		buttons.forEach(btn => {
+			btn.addEventListener('click', function() {
+				if (this.classList.contains('active')) return;
+
+				buttons.forEach(b => b.classList.remove('active'));
+				this.classList.add('active');
+
+				const filterValue = this.getAttribute('data-filter');
+
+				// Fade out all cards
+				cards.forEach(card => {
+					card.style.opacity = '0';
+					card.style.transform = 'scale(0.95)';
+				});
+
+				// Wait for fade out to complete, toggle visibility, then fade in
+				setTimeout(() => {
+					cards.forEach(card => {
+						const cats = (card.getAttribute('data-categories') || '').split(' ');
+						if (filterValue === 'all' || cats.includes(filterValue)) {
+							card.style.setProperty('display', 'flex', 'important');
+							// Force browser layout reflow
+							card.offsetHeight;
+							card.style.opacity = '1';
+							card.style.transform = 'scale(1)';
+						} else {
+							card.style.setProperty('display', 'none', 'important');
+						}
+					});
+				}, 200);
+			});
+		});
+	});
+	</script>
+	<?php
+	return ob_get_clean();
+}
+add_shortcode( 'eliashof_aktuelles_archiv', 'eliashof_render_aktuelles_archiv' );
+
