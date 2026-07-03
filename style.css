@@ -3504,21 +3504,94 @@ main > *:last-child {
 }
 
 /* 4. Was wir tun and membership sections */
+.section-was-wir-tun,
+.section-foerderverein-mitglied,
+.section-foerderverein-treffen,
+.section-foerderverein-vorstand {
+	padding: 78px clamp(24px, 10.8vw, 208px) 78px clamp(24px, 10.8vw, 208px) !important;
+	display: flex !important;
+	flex-direction: column !important;
+	gap: 55px !important;
+	align-items: center !important;
+	justify-content: flex-start !important;
+	min-height: 900px !important;
+	width: 100% !important;
+	box-sizing: border-box !important;
+}
+
+.section-was-wir-tun h2,
+.section-foerderverein-mitglied h2,
+.section-foerderverein-treffen h2,
+.section-foerderverein-vorstand h2 {
+	color: var(--color-black) !important;
+	font-family: 'Neucha', cursive !important;
+	font-size: clamp(28px, 3.1vw, 50px) !important;
+	line-height: 1.1 !important;
+	letter-spacing: 0.05em !important;
+	font-weight: 400 !important;
+	text-transform: uppercase !important;
+	margin: 0 !important;
+	text-align: center !important;
+	width: 100% !important;
+	max-width: 1497px !important;
+}
+
+.section-was-wir-tun .wp-block-columns,
+.section-foerderverein-mitglied .wp-block-columns,
+.section-foerderverein-treffen .wp-block-columns,
+.section-foerderverein-vorstand .wp-block-columns {
+	display: flex !important;
+	flex-direction: row !important;
+	align-items: center !important;
+	justify-content: center !important;
+	gap: clamp(40px, 8vw, 136px) !important;
+	margin: 0 auto !important;
+	width: 100% !important;
+	max-width: 1497px !important;
+}
+
+/* Was wir tun Columns widths (matching SPB: Image Left, Text Right) */
+.section-was-wir-tun .wp-block-column:first-child {
+	flex: 0 1 684px !important;
+	max-width: 684px !important;
+	width: 100% !important;
+}
+.section-was-wir-tun .wp-block-column:last-child {
+	flex: 0 1 677px !important;
+	max-width: 677px !important;
+	width: 100% !important;
+}
+
+/* Membership Columns widths (matching GEV: Text Left, Image Right) */
+.section-foerderverein-mitglied .wp-block-column:first-child {
+	flex: 0 1 677px !important;
+	max-width: 677px !important;
+	width: 100% !important;
+}
+.section-foerderverein-mitglied .wp-block-column:last-child {
+	flex: 0 1 684px !important;
+	max-width: 684px !important;
+	width: 100% !important;
+}
+
+/* Treffen & Vorstand Columns widths */
+.section-foerderverein-treffen .wp-block-column:first-child,
+.section-foerderverein-treffen .wp-block-column:last-child,
+.section-foerderverein-vorstand .wp-block-column:first-child,
+.section-foerderverein-vorstand .wp-block-column:last-child {
+	flex: 0 1 677px !important;
+	max-width: 677px !important;
+	width: 100% !important;
+}
+
 .section-was-wir-tun .eliashof-section-image img,
 .section-foerderverein-mitglied .eliashof-section-image img {
-	border-radius: 40px !important;
+	border-radius: 49.3px !important; /* Unified border-radius matching Unsere Schule */
 	border: 0.7px solid var(--color-black) !important;
 	width: 100% !important;
 	height: auto !important;
+	aspect-ratio: 684 / 471.6 !important; /* Unified aspect ratio matching Unsere Schule */
 	object-fit: cover !important;
-}
-
-.section-was-wir-tun .eliashof-section-image img {
-	max-height: 380px !important;
-}
-
-.section-foerderverein-mitglied .eliashof-section-image img {
-	max-height: 380px !important;
 }
 
 .mitglied-highlight-text {
@@ -3544,10 +3617,6 @@ main > *:last-child {
 .section-foerderverein-treffen {
 	position: relative !important;
 	background-color: #9de4f9 !important;
-}
-
-.section-foerderverein-treffen .eliashof-grid-text h2 {
-	margin-bottom: 25px !important;
 }
 
 .treffen-highlight-text {
@@ -3604,8 +3673,46 @@ main > *:last-child {
 	gap: 16px !important;
 }
 
-.section-foerderverein-vorstand .eliashof-grid-text h2 {
-	margin-bottom: 30px !important;
+/* Responsive tablet/mobile stacked columns (matching Unsere Schule section-spb styles) */
+@media (max-width: 991px) {
+	.section-was-wir-tun,
+	.section-foerderverein-mitglied,
+	.section-foerderverein-treffen,
+	.section-foerderverein-vorstand {
+		padding: 60px clamp(24px, 10.8vw, 208px) !important;
+		gap: 35px !important;
+		min-height: auto !important;
+	}
+
+	.section-was-wir-tun .wp-block-columns,
+	.section-foerderverein-mitglied .wp-block-columns,
+	.section-foerderverein-treffen .wp-block-columns,
+	.section-foerderverein-vorstand .wp-block-columns {
+		flex-direction: column !important;
+		gap: 40px !important;
+	}
+
+	.section-was-wir-tun .wp-block-column:first-child,
+	.section-was-wir-tun .wp-block-column:last-child,
+	.section-foerderverein-mitglied .wp-block-column:first-child,
+	.section-foerderverein-mitglied .wp-block-column:last-child,
+	.section-foerderverein-treffen .wp-block-column:first-child,
+	.section-foerderverein-treffen .wp-block-column:last-child,
+	.section-foerderverein-vorstand .wp-block-column:first-child,
+	.section-foerderverein-vorstand .wp-block-column:last-child {
+		flex: 1 1 auto !important;
+		max-width: 680px !important;
+		width: 100% !important;
+	}
+
+	.section-was-wir-tun .eliashof-section-image img,
+	.section-foerderverein-mitglied .eliashof-section-image img {
+		border-radius: 40px !important; /* smaller border radius on mobile views */
+		max-height: 340px !important;
+		width: 100% !important;
+		height: auto !important;
+		aspect-ratio: auto !important;
+	}
 }
 
 /* Mobile responsive adjustments */
