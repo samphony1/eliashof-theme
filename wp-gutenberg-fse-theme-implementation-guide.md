@@ -282,7 +282,8 @@ This document outlines the recent implementations and structural decisions made 
 - **Page Assembler:** Updated `patterns/page-foerderverein.php` to modularly references all 9 patterns. Since `/foerderverein/` is dynamically registered in the database pointing to this assembler block, all subpage sections load automatically without database overhead.
 
 ### 37. Balloon Illustration Overlay & Responsive Layouts
-- **Spanning over 2 Sections:** Positioned the balloon illustration absolutely on the top-right of the blue hero block (`position: absolute`, `top: 0`, `right: clamp(10px, 3.5vw, 60px)`, `z-index: 10`). By setting `overflow: visible !important` on the hero wrapper, the balloon's lower basket and attached signboard ("SCHULE! GEMEINSAM! GESTALTEN!") overlay the "Wer wir sind" section below it.
+- **Spanning over 2 Sections:** Positioned the balloon illustration absolutely on the top-right of the blue hero block. Cleaned up inherited stylesheet properties by setting `bottom: auto !important` (overriding the `.eliashof-hero-blog-schule-illustration` base class) to prevent height stretching conflicts. Aligned the balloon's right boundary perfectly with the page grid margins using `right: clamp(24px, 7.2vw, 138px) !important` to align with the header burger menu. Scaled the balloon width to `clamp(400px, 35.3vw, 678px)` to match the Figma mockup, allowing the balloon to scale vertically and hang down naturally over both the Hero and "Wer wir sind" sections.
+- **Hero Image Fix:** Set the database featured image ID for the page to `150` (representing `06-lauf1-scaled.jpg`) and updated `functions.php` to set `150` instead of `156`, displaying the correct children group photo from the Figma mockup on the left side of the hero.
 - **Dual SVGs:** Uses `Balloon-cropped.svg` on desktop (screens >= 992px) and hides it on smaller viewports, swapping dynamically to the full-size `Balloon.svg` centered within standard columns on mobile and tablet stacked views.
 
 ### 38. Blurp Badges & Spacing
@@ -291,4 +292,4 @@ This document outlines the recent implementations and structural decisions made 
 - **Card Styling:** Styled Weitere Infos cards to mirror Aktuelles columns, with centered layout parameters (`gap: 33px`) and standard margins.
 
 ### 39. Version Control Update
-- **Git Tracking:** Staged and committed all modifications: modular Förderverein section patterns, refined balloon and badge CSS definitions, and changelog updates in the repository.
+- **Git Tracking:** Staged and committed all modifications: modular Förderverein section patterns, refined balloon and badge CSS definitions, thumbnail database and functions.php synchronization, and changelog updates in the repository.
