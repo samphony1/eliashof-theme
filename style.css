@@ -3432,11 +3432,22 @@ main > *:last-child {
 .eliashof-hero-foerderverein-balloon {
 	position: absolute !important;
 	top: 0 !important;
-	right: clamp(10px, 3.5vw, 60px) !important;
-	width: clamp(350px, 28vw, 550px) !important;
+	bottom: auto !important; /* override the bottom: 0 from the base illustration class */
+	right: clamp(24px, 7.2vw, 138px) !important; /* align with header burger menu */
+	width: clamp(400px, 35.3vw, 678px) !important;
 	height: auto !important;
 	z-index: 10 !important;
 	pointer-events: none !important;
+}
+
+.eliashof-hero-foerderverein-balloon figure,
+.eliashof-hero-foerderverein-balloon img {
+	margin: 0 !important;
+	padding: 0 !important;
+	border: none !important;
+	display: block !important;
+	width: 100% !important;
+	height: auto !important;
 }
 
 .eliashof-balloon-desktop {

@@ -404,7 +404,7 @@ add_action( 'init', function() {
 			'post_content' => '<!-- wp:pattern {"slug":"eliashof/page-foerderverein"} /-->',
 		] );
 		if ( $foerderverein_id && ! is_wp_error( $foerderverein_id ) ) {
-			set_post_thumbnail( $foerderverein_id, 156 );
+			set_post_thumbnail( $foerderverein_id, 150 );
 		}
 	}
 
