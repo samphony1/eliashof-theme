@@ -20,7 +20,7 @@
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph -->
-			<p>Die Vorstandssitzungen des Vereins finden in der Regel einmal im Monat, mittwochs um 19:30 Uhr, in der Mediothek der Schule statt. Treffen des Vereins sind öffentlich, Gäste und neue Gesichter sind immer herzlich willkommen.</p>
+			<p>Zur Verwirklichung unserer Ideen treffen wir uns alle sechs Wochen um 19:30 Uhr in der <strong>Pizzeria „Zoe“ in der Senefelderstrasse</strong>. Die Termine werden den Mitgliedern hier und per Mail bekannt gegeben und hängen im Eingangsbereich des Hortes am schwarzen Brett.</p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:paragraph {"className":"treffen-highlight-text"} -->
@@ -45,7 +45,7 @@
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph -->
-			<p>Förderverein Grundschule im Eliashof e.V.<br>IBAN: DE21 1005 0000 0121 2206 07<br>Berliner Sparkasse</p>
+			<p><strong>Förderverein Grundschule im Eliashof e.V.</strong><br>IBAN: DE51 1005 0000 0191 339687<br>Berliner Sparkasse</p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:column -->

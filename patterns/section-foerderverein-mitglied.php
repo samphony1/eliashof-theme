@@ -20,15 +20,15 @@
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph {"className":"mitglied-highlight-text"} -->
-			<p class="mitglied-highlight-text">Für nur 12 € im Jahr können Sie Mitglied werden.</p>
+			<p class="mitglied-highlight-text">Für nur 30 € im Jahr können Sie Mitglied werden:</p>
 			<!-- /wp:paragraph -->
 
-			<!-- wp:paragraph -->
-			<p><strong>STILL MITGLIED:</strong> Sie unterstützen unsere Arbeit finanziell durch Ihren Jahresbeitrag und regelmäßige Spenden für unsere Projekte.</p>
+			<!-- wp:paragraph {"className":"mitglied-text"} -->
+			<p class="mitglied-text"><strong>Stilles Mitglied:</strong> Sie unterstützen unsere Arbeit mit Ihrer jährlichen Spende in Höhe von 30 € und bekommen regelmäßige Updates über unsere Aktivitäten.</p>
 			<!-- /wp:paragraph -->
 
-			<!-- wp:paragraph -->
-			<p><strong>AKTIV MITGLIED:</strong> Sie helfen aktiv bei unseren Festen und Aktionen, bringen Ihre Ideen ein und gestalten das Schulleben mit.</p>
+			<!-- wp:paragraph {"className":"mitglied-text"} -->
+			<p class="mitglied-text"><strong>Aktives Mitglied:</strong> Zusätzlich nehmen Sie an unseren Treffen teil, bringen Ideen ein, planen und gestalten das Schulleben aktiv mit.</p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:column -->

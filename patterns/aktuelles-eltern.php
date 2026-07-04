@@ -27,7 +27,7 @@ $eltern_cat_id = $eltern_cat ? $eltern_cat->term_id : 0;
 
 				<!-- wp:post-excerpt {"excerptLength":20,"style":{"typography":{"fontFamily":"'Montserrat', sans-serif","fontWeight":"300","fontSize":"24px","lineHeight":"1.4"},"color":{"text":"#000000"},"spacing":{"margin":{"top":"0","bottom":"0"}}}} /-->
 
-				<!-- wp:read-more {"content":"MEHR"} /-->
+				<!-- wp:read-more {"content":"MEHR","className":"wp-block-button__link wp-element-button"} /-->
 
 			</div>
 			<!-- /wp:group -->
