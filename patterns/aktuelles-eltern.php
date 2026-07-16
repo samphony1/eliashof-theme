@@ -2,7 +2,7 @@
 /**
  * Title: Aktuelles (Eltern)
  * Slug: eliashof/aktuelles-eltern
- * Categories: eliashof-sections
+ * Categories: eliashof-eltern
  * Description: News Carousel filtered for the Eltern category.
  */
 

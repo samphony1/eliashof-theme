@@ -2,7 +2,7 @@
 /**
  * Title: Förderverein
  * Slug: eliashof/foerderverein
- * Categories: eliashof-sections
+ * Categories: eliashof-startseite
  * Description: Image left, heading and text right on a blue background. Layout locked.
  */
 ?>
@@ -14,8 +14,8 @@
 
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
-			<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
-			<figure class="wp-block-image size-full"><img alt=""/></figure>
+			<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"eliashof-section-image","url":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/Foerderverein-Stand-Sommerfest.jpg"} -->
+			<figure class="wp-block-image size-full eliashof-section-image"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/Foerderverein-Stand-Sommerfest.jpg" alt="Förderverein beim Sommerfest" /></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->

@@ -2,7 +2,7 @@
 /**
  * Title: Sektion - Was wir tun
  * Slug: eliashof/section-was-wir-tun
- * Categories: eliashof-sections
+ * Categories: eliashof-foerderverein
  * Description: Section for the Förderverein page detailing what we do, with image on the left and description text on the right.
  */
 ?>
@@ -12,7 +12,6 @@
 	<!-- wp:columns {"verticalAlignment":"center"} -->
 	<div class="wp-block-columns are-vertically-aligned-center">
 		
-		<!-- Left Column: Image -->
 		<!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
 		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">
 			<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"eliashof-section-image"} -->
@@ -21,7 +20,6 @@
 		</div>
 		<!-- /wp:column -->
 
-		<!-- Right Column: Description -->
 		<!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
 		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">
 			<!-- wp:heading -->

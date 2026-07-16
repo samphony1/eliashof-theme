@@ -2,7 +2,7 @@
 /**
  * Title: Über unsere Schule (Sektion)
  * Slug: eliashof/section-ueber-uns
- * Categories: eliashof-sections
+ * Categories: eliashof-unsere-schule
  * Description: Alternating text and image rows matching the SPB layout, without buttons. Layout locked.
  */
 ?>

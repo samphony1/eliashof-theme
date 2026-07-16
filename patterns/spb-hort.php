@@ -2,7 +2,7 @@
 /**
  * Title: SPB & Hort
  * Slug: eliashof/spb-hort
- * Categories: eliashof-sections
+ * Categories: eliashof-startseite, eliashof-spb-hort
  * Description: Image left, text and button right on a green background. Layout locked.
  */
 ?>
@@ -18,8 +18,8 @@
 
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
-			<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
-			<figure class="wp-block-image size-full"><img alt=""/></figure>
+			<!-- wp:image {"sizeSlug":"full","linkDestination":"none","url":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration04.svg"} -->
+			<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration04.svg" alt="Illustration für den SPB und Hort" /></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->

@@ -2,13 +2,12 @@
 Theme Name: Eliashof Theme
 Theme URI: https://foxmagpie.com
 Author: Fox & Magpie Design Studio
-Description: Custom Block Theme for Grundschule Eliashof based on Figma Design
-Version: 1.3.5
+Description: Custom Block Theme
+Version: 1.3.6
 License: Proprietary - Fox & Magpie Design Studio
 Requires at least: 6.4
 Requires PHP: 7.4
 Text Domain: eliashof
-Tags: custom-colors, custom-typography, full-site-editing, block-theme
 */
 
 /* ── Theme Color Variables ────────────────────────────────────────── */
@@ -48,6 +47,30 @@ Tags: custom-colors, custom-typography, full-site-editing, block-theme
 	padding-bottom: clamp(60px, 8vw, 100px);
 	margin-top: 0 !important;
 	margin-bottom: 0 !important;
+}
+
+/* ── Section SPB Angebote — Styles → Ende der Datei (SPB ANGEBOTE Block) ── */
+
+/* Prevent layout blockGap from inserting white seams above synced/manual patterns.
+WordPress wraps saved patterns in .wp-block-block and applies flow spacing there. */
+.wp-block-post-content.is-layout-flow > .eliashof-section,
+.entry-content > .eliashof-section,
+.wp-block-post-content.is-layout-flow > .wp-block-block,
+.entry-content > .wp-block-block {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+	margin-block-start: 0 !important;
+	margin-block-end: 0 !important;
+}
+
+.has-eliashof-theme-bg {
+	background-color: var(--eliashof-theme-bg) !important;
+}
+
+.bg-graph-yellow.has-eliashof-theme-bg::before,
+.bg-graph-blue.has-eliashof-theme-bg::before {
+	background-color: var(--eliashof-theme-bg) !important;
+	opacity: 1 !important;
 }
 
 /* ── Circular portrait images (Ansprechpartner) ────────────────────── */
@@ -350,7 +373,8 @@ body {
 }
 
 .eliashof-nav-circles>.wp-block-columns {
-	max-width: 1300px !important;
+	max-width: 1440px !important;
+	gap: 100px !important;
 	margin-left: auto !important;
 	margin-right: auto !important;
 }
@@ -726,7 +750,7 @@ body {
    ═══════════════════════════════════════════════════════════════════ */
 
 body {
-	background-image: linear-gradient(to left, rgba(255, 255, 255, 0.70), rgba(255, 255, 255, 0.70)), url('assets/images/paperbg.jpg');
+	background-image: linear-gradient(to left, rgba(255, 255, 255, var(--eliashof-paperbg-dim, 0.70)), rgba(255, 255, 255, var(--eliashof-paperbg-dim, 0.70))), url('assets/images/paperbg.jpg');
 	background-repeat: repeat;
 	background-attachment: scroll;
 }
@@ -935,6 +959,11 @@ main.wp-block-group {
 	margin: 0 auto !important;
 	width: 100% !important;
 	max-width: 1497px !important;
+}
+
+.section-downloads .wp-block-columns {
+	gap: 240px !important;
+	max-width: none !important;
 }
 
 /* First Column (Left) */
@@ -1504,7 +1533,10 @@ main.wp-block-group {
 .section-highlight .wp-block-image img {
 	width: 100% !important;
 	height: auto !important;
+	aspect-ratio: 684 / 471.6 !important;
 	object-fit: cover !important;
+	border-radius: 49.3px !important;
+	display: block !important;
 }
 
 .section-highlight h2 {
@@ -2717,8 +2749,8 @@ main.wp-block-group {
 	justify-content: space-between !important;
 	width: 100% !important;
 	max-width: 1516px !important;
-	margin: 80px auto !important;
-	padding: 0 clamp(24px, 10.5vw, 202px) !important;
+	margin: 80px auto 0 !important;
+	padding: 0 clamp(24px, 10.5vw, 202px) clamp(56px, 7vw, 96px) !important;
 	gap: 20px !important;
 }
 
@@ -2771,6 +2803,13 @@ main.wp-block-group {
 	transform: translateY(-2px) !important;
 }
 
+.eliashof-post-nav-placeholder {
+	display: inline-flex !important;
+	width: min(100%, 242px) !important;
+	height: 50px !important;
+	visibility: hidden !important;
+}
+
 @media (max-width: 767px) {
 	.eliashof-subpage-featured-img-container {
 		border-radius: 30px !important;
@@ -2789,8 +2828,8 @@ main.wp-block-group {
 	.eliashof-post-navigation {
 		flex-direction: column !important;
 		gap: 15px !important;
-		margin: 40px auto !important;
-		padding: 0 24px !important;
+		margin: 40px auto 0 !important;
+		padding: 0 24px 56px !important;
 	}
 
 	.eliashof-post-nav-prev,
@@ -2838,8 +2877,8 @@ main.wp-block-group {
 }
 
 .bg-graph-orange {
-	background-color: #ffe0b2 !important;
-	/* Soft solid light orange */
+	background-color: var(--color-brand-yellow-alt) !important;
+	/* Match the Downloads section's light orange */
 	position: relative;
 	z-index: 2;
 }
@@ -3862,10 +3901,77 @@ main>*:last-child {
 
 /* 8. Downloads buttons and Board layout */
 .foerderverein-downloads-buttons {
+	display: grid !important;
+	grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+	justify-content: center !important;
+	align-items: center !important;
+	gap: 24px 34px !important;
+	max-width: 520px !important;
+	margin: 0 auto !important;
+}
+
+.section-foerderverein-vorstand {
+	min-height: 0 !important;
+	padding: clamp(44px, 5vw, 84px) clamp(24px, 8vw, 140px) !important;
+}
+
+.section-foerderverein-vorstand .wp-block-columns {
+	max-width: 1360px !important;
+	align-items: center !important;
+	gap: clamp(32px, 7vw, 120px) !important;
+}
+
+.section-foerderverein-vorstand h2 {
+	width: auto !important;
+	max-width: none !important;
+	text-align: center !important;
+}
+
+.section-foerderverein-vorstand .wp-block-column {
 	display: flex !important;
 	flex-direction: column !important;
-	align-items: flex-start !important;
-	gap: 16px !important;
+	align-items: center !important;
+}
+
+.section-foerderverein-vorstand .foerderverein-downloads-column {
+	gap: 28px !important;
+}
+
+.section-foerderverein-vorstand .foerderverein-downloads-buttons .wp-block-button {
+	display: flex !important;
+	justify-content: center !important;
+	margin: 0 !important;
+	width: 100% !important;
+}
+
+.section-foerderverein-vorstand .foerderverein-downloads-buttons .wp-block-button:only-child {
+	grid-column: 1 / -1 !important;
+	justify-self: center !important;
+	width: auto !important;
+}
+
+.section-foerderverein-vorstand .foerderverein-downloads-buttons .wp-block-button__link {
+	width: 100% !important;
+	min-width: 0 !important;
+}
+
+.section-foerderverein-vorstand .foerderverein-downloads-buttons .wp-block-button:only-child .wp-block-button__link {
+	width: auto !important;
+	min-width: clamp(180px, 15vw, 214px) !important;
+}
+
+.section-foerderverein-vorstand .foerderverein-vorstand-column {
+	gap: 24px !important;
+}
+
+.foerderverein-vorstand-copy {
+	margin: 0 !important;
+	font-family: 'Montserrat', sans-serif !important;
+	font-size: clamp(18px, 1.45vw, 28px) !important;
+	font-weight: 400 !important;
+	line-height: 1.45 !important;
+	color: var(--color-black) !important;
+	text-align: center !important;
 }
 
 /* Responsive tablet/mobile stacked columns (matching Unsere Schule section-spb styles) */
@@ -3886,6 +3992,16 @@ main>*:last-child {
 	.section-foerderverein-vorstand .wp-block-columns {
 		flex-direction: column !important;
 		gap: 40px !important;
+	}
+
+	.section-foerderverein-vorstand .foerderverein-downloads-buttons {
+		max-width: 320px !important;
+		grid-template-columns: 1fr !important;
+		gap: 16px !important;
+	}
+
+	.section-foerderverein-vorstand .foerderverein-downloads-buttons .wp-block-button {
+		width: 100% !important;
 	}
 
 	.section-was-wir-tun .wp-block-column:first-child,
@@ -3925,5 +4041,670 @@ main>*:last-child {
 		margin: 30px auto 0 auto !important;
 		display: block !important;
 		width: 130px !important;
+	}
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   INTERN DRAWER
+   ═══════════════════════════════════════════════════════════════════ */
+
+.eliashof-intern-drawer {
+	position: fixed;
+	inset: 0;
+	z-index: 1200;
+	display: flex;
+	justify-content: flex-end;
+	pointer-events: none;
+}
+
+.eliashof-intern-drawer__backdrop {
+	position: absolute;
+	inset: 0;
+	background: rgba(36, 31, 33, 0.22);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	opacity: 0;
+	transition: opacity 0.32s ease;
+}
+
+.eliashof-intern-drawer__panel {
+	position: relative;
+	width: min(680px, 46vw);
+	height: calc(100dvh - 32px);
+	margin: 16px;
+	background: var(--color-brand-yellow-alt);
+	border: 1px solid rgba(36, 31, 33, 0.08);
+	border-radius: 36px;
+	box-shadow: 0 24px 80px rgba(36, 31, 33, 0.18);
+	transform: translateX(calc(100% + 32px));
+	transition: transform 0.36s cubic-bezier(0.22, 1, 0.36, 1);
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	pointer-events: auto;
+}
+
+.eliashof-intern-drawer__handle {
+	display: none;
+}
+
+.eliashof-intern-drawer__close {
+	position: absolute;
+	top: 28px;
+	right: 28px;
+	width: 52px;
+	height: 52px;
+	border: 0;
+	border-radius: 999px;
+	background: rgba(36, 31, 33, 0.05);
+	color: var(--color-text-dark);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Neucha', cursive;
+	font-size: 42px;
+	font-weight: 400;
+	line-height: 1;
+	cursor: pointer;
+	transition: background-color 0.2s ease, transform 0.2s ease;
+	z-index: 2;
+}
+
+.eliashof-intern-drawer__close:hover {
+	background: rgba(36, 31, 33, 0.1);
+	transform: scale(1.08);
+}
+
+.eliashof-intern-drawer__header {
+	padding: 42px 92px 28px 32px;
+	border-bottom: 1px solid rgba(36, 31, 33, 0.08);
+}
+
+.eliashof-intern-drawer__title {
+	margin: 0;
+	font-family: 'Neucha', cursive;
+	font-size: clamp(42px, 4vw, 68px);
+	line-height: 0.95;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	color: var(--color-text-dark);
+}
+
+.eliashof-intern-drawer__body {
+	flex: 1;
+	overflow-y: auto;
+	padding: 32px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 20px;
+	line-height: 1.7;
+	color: #4a4748;
+}
+
+.eliashof-intern-drawer__body > :first-child {
+	margin-top: 0;
+}
+
+.eliashof-intern-drawer__body > :last-child {
+	margin-bottom: 0;
+}
+
+.eliashof-intern-drawer__body h2,
+.eliashof-intern-drawer__body h3,
+.eliashof-intern-drawer__body h4 {
+	font-family: 'Neucha', cursive;
+	color: var(--color-text-dark);
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+	line-height: 1.05;
+	margin-top: 1.2em;
+	margin-bottom: 0.35em;
+}
+
+.eliashof-intern-drawer__body h2 {
+	font-size: clamp(34px, 3vw, 48px);
+}
+
+.eliashof-intern-drawer__body h3 {
+	font-size: clamp(28px, 2.5vw, 36px);
+}
+
+.eliashof-intern-drawer__body p,
+.eliashof-intern-drawer__body li {
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.eliashof-intern-drawer__body a {
+	color: var(--color-text-dark);
+	text-decoration-thickness: 1.5px;
+	text-underline-offset: 0.16em;
+}
+
+.eliashof-intern-drawer__body .wp-block-file {
+	padding: 20px 24px;
+	border: 1px solid rgba(36, 31, 33, 0.08);
+	border-radius: 24px;
+	background: rgba(255, 255, 255, 0.32);
+}
+
+.eliashof-intern-drawer__body .wp-block-file a:first-child {
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.eliashof-intern-drawer__body .wp-block-file .wp-block-file__button {
+	margin-top: 14px;
+}
+
+.eliashof-intern-drawer__status {
+	min-height: 180px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-family: 'Neucha', cursive;
+	font-size: 34px;
+	line-height: 1.1;
+	color: var(--color-text-dark);
+}
+
+.eliashof-intern-drawer.is-open {
+	pointer-events: auto;
+}
+
+.eliashof-intern-drawer.is-open .eliashof-intern-drawer__backdrop {
+	opacity: 1;
+}
+
+.eliashof-intern-drawer.is-open .eliashof-intern-drawer__panel {
+	transform: translateX(0);
+}
+
+.eliashof-intern-drawer.is-dragging .eliashof-intern-drawer__panel,
+.eliashof-intern-drawer.is-dragging .eliashof-intern-drawer__backdrop {
+	transition: none !important;
+}
+
+@media (max-width: 782px) {
+	.eliashof-intern-drawer {
+		align-items: flex-end;
+		justify-content: stretch;
+	}
+
+	.eliashof-intern-drawer__panel {
+		width: 100%;
+		height: min(84dvh, 920px);
+		margin: 0;
+		border-radius: 34px 34px 0 0;
+		transform: translateY(calc(100% + 32px));
+		touch-action: none;
+		will-change: transform;
+	}
+
+	.eliashof-intern-drawer__handle {
+		display: block;
+		width: 96px;
+		height: 10px;
+		border-radius: 999px;
+		background: var(--wp--preset--color--brown);
+		margin: 18px auto 6px;
+		flex-shrink: 0;
+	}
+
+	.eliashof-intern-drawer__header {
+		padding: 22px 24px;
+		touch-action: none;
+		text-align: center;
+	}
+
+	.eliashof-intern-drawer__title {
+		font-size: clamp(34px, 9vw, 52px);
+		text-align: center;
+		margin: 0 auto;
+	}
+
+	.eliashof-intern-drawer__body {
+		padding: 24px;
+		font-size: 18px;
+		line-height: 1.65;
+	}
+
+	.eliashof-intern-drawer__close {
+		display: none;
+	}
+
+
+	.eliashof-intern-drawer.is-open .eliashof-intern-drawer__panel {
+		transform: translateY(0);
+	}
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   SPB ANGEBOTE
+   Section, filter, day columns, offer cards, mobile tabs, overlay.
+   No hardcoded background color — section inherits the editor choice.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Section ────────────────────────────────────────────────────── */
+.section-spb-angebote {
+	padding-left:  clamp(24px, 7vw, 120px) !important;
+	padding-right: clamp(24px, 7vw, 120px) !important;
+}
+
+/* ── Section header ─────────────────────────────────────────────── */
+.spb-header {
+	text-align: center;
+	margin-bottom: 48px;
+}
+
+.spb-header h2 {
+	margin-bottom: 20px !important;
+}
+
+.spb-header p {
+	font-family: 'Montserrat', sans-serif;
+	font-size: clamp(16px, 2vw, 20px);
+	font-weight: 300;
+	color: var(--color-text-dark);
+	max-width: 600px;
+	margin: 0 auto;
+	line-height: 1.5;
+}
+
+/* ── Filter ─────────────────────────────────────────────────────── */
+.spb-filter {
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+	gap: clamp(28px, 5vw, 64px);
+	margin-bottom: 52px;
+	flex-wrap: wrap;
+}
+
+.spb-filter-btn {
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 6px 0 10px;
+	font-family: 'Neucha', cursive;
+	font-size: clamp(20px, 2.5vw, 26px);
+	font-weight: 400;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	color: var(--color-text-dark);
+	position: relative;
+	line-height: 1.1;
+	transition: color 0.15s ease;
+}
+
+/* Hand-drawn SVG underline — always dark so it works on all theme backgrounds */
+.spb-filter-btn::after {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: -4px;
+	right: -4px;
+	height: 6px;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8' preserveAspectRatio='none'%3E%3Cpath d='M0,5 C10,2 18,7 28,4 C38,1 50,6 62,4 C72,2 84,6 100,3' stroke='%23241f21' stroke-width='2.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	opacity: 0;
+	transform: scaleX(0.8);
+	transform-origin: left;
+	transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.spb-filter-btn[aria-pressed="true"]::after {
+	opacity: 1;
+	transform: scaleX(1);
+}
+
+.spb-filter-btn:hover::after {
+	opacity: 0.45;
+	transform: scaleX(1);
+}
+
+.spb-filter-btn:focus-visible {
+	outline: 2.5px solid var(--color-text-dark);
+	outline-offset: 4px;
+	border-radius: 3px;
+}
+
+/* ── Day columns grid ───────────────────────────────────────────── */
+.spb-days {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: clamp(24px, 4vw, 56px);
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+/* ── Single day column ──────────────────────────────────────────── */
+.spb-day {
+	display: flex;
+	flex-direction: column;
+}
+
+.spb-day-heading {
+	font-family: 'Neucha', cursive;
+	font-size: clamp(16px, 1.8vw, 20px) !important;
+	font-weight: 400;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--color-text-dark);
+	margin-bottom: 20px !important;
+	padding-bottom: 10px;
+	border-bottom: 1px solid rgba(36, 31, 33, 0.18);
+}
+
+.spb-cards {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+/* ── Offer card ─────────────────────────────────────────────────── */
+.spb-card {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	padding: 14px 16px;
+	background: #f5f2eb;
+	border: 1px solid rgba(36, 31, 33, 0.28);
+	border-radius: 15px 14px 16px 15px;
+	cursor: pointer;
+	width: 100%;
+	text-align: left;
+	text-decoration: none;
+	color: inherit;
+	font-family: inherit;
+	transition: border-color 0.18s ease, transform 0.15s ease;
+}
+
+.spb-card:hover {
+	border-color: rgba(36, 31, 33, 0.52);
+	transform: translateY(-2px);
+}
+
+.spb-card:focus-visible {
+	outline: 2.5px solid var(--color-text-dark);
+	outline-offset: 3px;
+	border-radius: 15px 14px 16px 15px;
+}
+
+.spb-card[hidden] {
+	display: none !important;
+}
+
+/* ── AG / IG badge ──────────────────────────────────────────────── */
+.spb-badge {
+	flex-shrink: 0;
+	width: 36px;
+	height: 36px;
+	border-radius: 8px 9px 8px 9px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Neucha', cursive;
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: 0.04em;
+	color: var(--color-text-dark);
+	border: 1px solid rgba(36, 31, 33, 0.18);
+}
+
+.spb-badge.ag { background-color: var(--color-blue-pale); }
+.spb-badge.ig { background-color: var(--color-brand-yellow-alt); }
+
+/* ── Card content ───────────────────────────────────────────────── */
+.spb-card-content {
+	flex: 1;
+	min-width: 0;
+}
+
+.spb-card-title {
+	font-family: 'Neucha', cursive;
+	font-size: clamp(15px, 1.6vw, 18px);
+	font-weight: 400;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--color-text-dark);
+	line-height: 1.2;
+	margin: 0 0 4px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.spb-card-meta {
+	font-family: 'Montserrat', sans-serif;
+	font-size: clamp(11px, 1.1vw, 13px);
+	font-weight: 400;
+	color: rgba(36, 31, 33, 0.60);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* ── Card arrow ─────────────────────────────────────────────────── */
+.spb-card-arrow {
+	flex-shrink: 0;
+	width: 20px;
+	height: 20px;
+	color: rgba(36, 31, 33, 0.40);
+	transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.spb-card:hover .spb-card-arrow {
+	transform: translateX(3px);
+	color: var(--color-text-dark);
+}
+
+/* ── Empty state ────────────────────────────────────────────────── */
+.spb-day-empty {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 14px;
+	color: rgba(36, 31, 33, 0.45);
+	padding: 12px 0;
+	display: none;
+}
+
+.spb-day-empty.is-visible {
+	display: block;
+}
+
+/* ── Mobile tabs ────────────────────────────────────────────────── */
+.spb-mobile-tabs {
+	display: none;
+	justify-content: center;
+	margin-bottom: 28px;
+	border-bottom: 1px solid rgba(36, 31, 33, 0.15);
+}
+
+.spb-tab-btn {
+	background: none;
+	border: none;
+	border-bottom: 3px solid transparent;
+	cursor: pointer;
+	padding: 10px clamp(12px, 4vw, 24px) 8px;
+	font-family: 'Neucha', cursive;
+	font-size: 16px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: rgba(36, 31, 33, 0.52);
+	transition: color 0.18s ease, border-color 0.18s ease;
+	position: relative;
+	bottom: -1px;
+	white-space: nowrap;
+}
+
+.spb-tab-btn[aria-selected="true"] {
+	color: var(--color-text-dark);
+	border-bottom-color: var(--color-text-dark);
+}
+
+.spb-tab-btn:focus-visible {
+	outline: 2.5px solid var(--color-text-dark);
+	outline-offset: 3px;
+	border-radius: 3px;
+}
+
+/* ── Fallback overlay ───────────────────────────────────────────── */
+#spb-fallback-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 1100;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+#spb-fallback-overlay[hidden] {
+	display: none !important;
+}
+
+.spb-overlay__backdrop {
+	position: absolute;
+	inset: 0;
+	background: rgba(36, 31, 33, 0.42);
+}
+
+.spb-overlay__sheet {
+	position: relative;
+	background: #f5f2eb;
+	border-radius: 20px 20px 0 0;
+	padding: 40px clamp(24px, 6vw, 64px) 48px;
+	max-width: 640px;
+	width: 100%;
+	max-height: 80vh;
+	overflow-y: auto;
+}
+
+.spb-overlay__close {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	background: rgba(36, 31, 33, 0.06);
+	border: none;
+	border-radius: 999px;
+	width: 44px;
+	height: 44px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 20px;
+	color: rgba(36, 31, 33, 0.55);
+	cursor: pointer;
+	transition: background 0.18s ease;
+}
+
+.spb-overlay__close:hover {
+	background: rgba(36, 31, 33, 0.12);
+}
+
+.spb-overlay__close:focus-visible {
+	outline: 2.5px solid var(--color-text-dark);
+	outline-offset: 3px;
+}
+
+.spb-overlay__badge {
+	display: inline-block;
+	border-radius: 8px;
+	padding: 4px 12px;
+	font-family: 'Neucha', cursive;
+	font-size: 14px;
+	border: 1px solid rgba(36, 31, 33, 0.18);
+	margin-bottom: 16px;
+	color: var(--color-text-dark);
+}
+
+.spb-overlay__badge[data-type="ag"] { background-color: var(--color-blue-pale); }
+.spb-overlay__badge[data-type="ig"] { background-color: var(--color-brand-yellow-alt); }
+
+.spb-overlay__title {
+	font-family: 'Neucha', cursive;
+	font-size: clamp(26px, 4vw, 36px);
+	font-weight: 400;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	margin-bottom: 12px;
+	line-height: 1.1;
+	color: var(--color-text-dark);
+}
+
+.spb-overlay__meta {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 15px;
+	color: rgba(36, 31, 33, 0.62);
+	margin-bottom: 24px;
+}
+
+.spb-overlay__note {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 15px;
+	font-weight: 300;
+	line-height: 1.6;
+	color: var(--color-text-dark);
+}
+
+/* ── Responsive: Tablet (max 1023px) ───────────────────────────── */
+@media (max-width: 1023px) {
+	.spb-days {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.spb-day:nth-child(3) {
+		grid-column: 1 / -1;
+		max-width: 55%;
+		margin: 0 auto;
+		padding-top: clamp(16px, 3vw, 28px);
+		border-top: 1px solid rgba(36, 31, 33, 0.10);
+	}
+}
+
+/* ── Responsive: Smartphone (max 600px) ─────────────────────────── */
+@media (max-width: 600px) {
+	.spb-mobile-tabs {
+		display: flex;
+	}
+
+	.section-spb-angebote {
+		padding-left:  20px !important;
+		padding-right: 20px !important;
+	}
+
+	.spb-filter {
+		gap: 24px;
+		margin-bottom: 32px;
+	}
+
+	.spb-filter-btn {
+		font-size: 20px;
+	}
+
+	.spb-days {
+		grid-template-columns: 1fr;
+		gap: 0;
+	}
+
+	.spb-day {
+		display: none;
+	}
+
+	.spb-day.is-active-tab {
+		display: flex;
+	}
+
+	.spb-day:nth-child(3) {
+		grid-column: auto;
+		border-top: none;
+		padding-top: 0;
+		max-width: 100%;
+		margin: 0;
+	}
+
+	.spb-day-heading {
+		display: none !important;
 	}
 }

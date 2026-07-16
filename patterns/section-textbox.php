@@ -2,7 +2,7 @@
 /**
  * Title: Textbox (Unterseite)
  * Slug: eliashof/section-textbox
- * Categories: eliashof-sections
+ * Categories: eliashof-unsere-schule
  * Description: Solid white textbox block below the hero.
  */
 ?>

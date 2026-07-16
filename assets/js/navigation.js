@@ -1,4 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const scrollLockSources = new Set();
+
+    window.eliashofSetScrollLock = function(source, locked) {
+        if (!source) {
+            return;
+        }
+
+        if (locked) {
+            scrollLockSources.add(source);
+        } else {
+            scrollLockSources.delete(source);
+        }
+
+        document.body.style.overflow = scrollLockSources.size > 0 ? 'hidden' : '';
+    };
+
     const burgerToggle = document.querySelector('.burger-toggle');
     const burgerMenuOverlay = document.querySelector('.burger-menu-overlay');
 
@@ -13,11 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
             burgerToggle.setAttribute('aria-expanded', isExpanded);
 
             // Prevent body scrolling when menu is open
-            if (isExpanded) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
+            window.eliashofSetScrollLock('burger-menu', isExpanded);
         });
 
         // Close menu when clicking on a link
@@ -27,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 burgerToggle.classList.remove('is-active');
                 burgerMenuOverlay.classList.remove('is-active');
                 burgerToggle.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
+                window.eliashofSetScrollLock('burger-menu', false);
             });
         });
     }

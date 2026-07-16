@@ -2,7 +2,7 @@
 /**
  * Title: Ausstattung (Sektion)
  * Slug: eliashof/section-ausstattung
- * Categories: eliashof-sections
+ * Categories: eliashof-unsere-schule
  * Description: Ausstattung section featuring the school's facilities and digital media details.
  */
 ?>

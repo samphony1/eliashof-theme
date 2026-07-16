@@ -2,7 +2,7 @@
 /**
  * Title: Startseite (Komplettes Layout)
  * Slug: eliashof/page-startseite
- * Categories: eliashof-sections
+ * Categories: eliashof-startseite
  * Description: Die komplette, fertig zusammengebaute Startseite mit allen Sektionen. Einfach einfügen und Inhalte anpassen!
  */
 ?>

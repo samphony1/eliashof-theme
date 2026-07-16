@@ -2,14 +2,14 @@
 /**
  * Title: Nav Circles
  * Slug: eliashof/nav-circles
- * Categories: eliashof-sections
+ * Categories: eliashof-startseite
  * Description: Three navigation circle SVGs on a graph-paper background. Drop in SVG images from the media library and set link URLs. Layout locked.
  */
 ?>
-<!-- wp:group {"align":"full","anchor":"nav-circles","templateLock":"contentOnly","className":"eliashof-section eliashof-nav-circles","style":{"spacing":{"padding":{"top":"clamp(60px,8vw,100px)","bottom":"clamp(60px,8vw,100px)","left":"clamp(24px,7.2vw,138px)","right":"clamp(24px,7.2vw,138px)"}}},"layout":{"type":"constrained"}} -->
-<div id="nav-circles" class="wp-block-group alignfull eliashof-section eliashof-nav-circles" style="padding-top:clamp(60px,8vw,100px);padding-bottom:clamp(60px,8vw,100px);padding-left:clamp(24px,7.2vw,138px);padding-right:clamp(24px,7.2vw,138px)">
+<!-- wp:group {"align":"full","anchor":"nav-circles","templateLock":"contentOnly","className":"eliashof-section eliashof-nav-circles","style":{"spacing":{"padding":{"top":"clamp(12px,2vw,28px)","bottom":"clamp(60px,8vw,100px)","left":"clamp(24px,7.2vw,138px)","right":"clamp(24px,7.2vw,138px)"}}},"layout":{"type":"constrained"}} -->
+<div id="nav-circles" class="wp-block-group alignfull eliashof-section eliashof-nav-circles" style="padding-top:clamp(12px,2vw,28px);padding-bottom:clamp(60px,8vw,100px);padding-left:clamp(24px,7.2vw,138px);padding-right:clamp(24px,7.2vw,138px)">
 
-	<!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":"40px"}}} -->
+	<!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":"100px"}}} -->
 	<div class="wp-block-columns are-vertically-aligned-center">
 
 		<!-- wp:column {"verticalAlignment":"center"} -->

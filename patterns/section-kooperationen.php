@@ -2,7 +2,7 @@
 /**
  * Title: Kooperationen (Sektion)
  * Slug: eliashof/section-kooperationen
- * Categories: eliashof-sections
+ * Categories: eliashof-unsere-schule
  * Description: Image left, heading and text right on a light green background. Layout locked.
  */
 ?>

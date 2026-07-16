@@ -2,7 +2,7 @@
 /**
  * Title: Hero
  * Slug: eliashof/hero
- * Categories: eliashof-sections
+ * Categories: eliashof-startseite
  * Description: Full-width hero with heading, body text, image, and CTA button. Layout is locked — only text, image, and button label/link are editable.
  */
 ?>

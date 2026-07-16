@@ -2,7 +2,7 @@
 /**
  * Title: Leitbild (Sektion)
  * Slug: eliashof/section-leitbild
- * Categories: eliashof-sections
+ * Categories: eliashof-unsere-schule
  * Description: Leitbild section featuring GEMEINSAM, VIELFALT, LERNEN.
  */
 ?>

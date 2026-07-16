@@ -2,7 +2,7 @@
 /**
  * Title: Sektion - Förderverein CTA
  * Slug: eliashof/section-foerderverein-cta
- * Categories: eliashof-sections
+ * Categories: eliashof-foerderverein
  * Description: Call to Action banner for the Förderverein page.
  */
 ?>

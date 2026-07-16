@@ -2,7 +2,7 @@
 /**
  * Title: Ansprechpartner / Kontakte
  * Slug: eliashof/ansprechpartner
- * Categories: eliashof-sections
+ * Categories: eliashof-startseite
  * Description: Four organic portrait cards with name and role. White background. Layout locked.
  */
 ?>
@@ -16,13 +16,12 @@
 	<!-- wp:columns {"verticalAlignment":"top"} -->
 	<div class="wp-block-columns are-vertically-aligned-top">
 
-		<!-- ── Sekretariat ── -->
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:group {"templateLock":"contentOnly","className":"eliashof-contact-card card-sekretariat","layout":{"type":"constrained"}} -->
 			<div class="wp-block-group eliashof-contact-card card-sekretariat">
-				<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
-				<figure class="wp-block-image size-full"><img alt=""/></figure>
+				<!-- wp:image {"sizeSlug":"full","linkDestination":"none","url":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration01.svg"} -->
+				<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration01.svg" alt="Sekretariat Platzhalter" /></figure>
 				<!-- /wp:image -->
 				<!-- wp:heading {"level":4,"textAlign":"center"} -->
 				<h4 class="wp-block-heading has-text-align-center">FRAU NEUMANN</h4>
@@ -35,13 +34,12 @@
 		</div>
 		<!-- /wp:column -->
 
-		<!-- ── Schuldirektor ── -->
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:group {"templateLock":"contentOnly","className":"eliashof-contact-card card-schulleitung","layout":{"type":"constrained"}} -->
 			<div class="wp-block-group eliashof-contact-card card-schulleitung">
-				<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
-				<figure class="wp-block-image size-full"><img alt=""/></figure>
+				<!-- wp:image {"sizeSlug":"full","linkDestination":"none","url":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration02.svg"} -->
+				<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration02.svg" alt="Schulleitung Platzhalter" /></figure>
 				<!-- /wp:image -->
 				<!-- wp:heading {"level":4,"textAlign":"center"} -->
 				<h4 class="wp-block-heading has-text-align-center">ARMIN GEISSLER</h4>
@@ -54,13 +52,12 @@
 		</div>
 		<!-- /wp:column -->
 
-		<!-- ── Leitung Hort/SPB ── -->
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:group {"templateLock":"contentOnly","className":"eliashof-contact-card card-hortleitung","layout":{"type":"constrained"}} -->
 			<div class="wp-block-group eliashof-contact-card card-hortleitung">
-				<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
-				<figure class="wp-block-image size-full"><img alt=""/></figure>
+				<!-- wp:image {"sizeSlug":"full","linkDestination":"none","url":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration04.svg"} -->
+				<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration04.svg" alt="Hortleitung Platzhalter" /></figure>
 				<!-- /wp:image -->
 				<!-- wp:heading {"level":4,"textAlign":"center"} -->
 				<h4 class="wp-block-heading has-text-align-center">HERR SEGETH</h4>
@@ -73,13 +70,12 @@
 		</div>
 		<!-- /wp:column -->
 
-		<!-- ── Schulhund ── -->
 		<!-- wp:column -->
 		<div class="wp-block-column">
 			<!-- wp:group {"templateLock":"contentOnly","className":"eliashof-contact-card card-schulhund","layout":{"type":"constrained"}} -->
 			<div class="wp-block-group eliashof-contact-card card-schulhund">
-				<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
-				<figure class="wp-block-image size-full"><img alt=""/></figure>
+				<!-- wp:image {"sizeSlug":"full","linkDestination":"none","url":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration-children-line.svg"} -->
+				<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration-children-line.svg" alt="Schulhund Platzhalter" /></figure>
 				<!-- /wp:image -->
 				<!-- wp:heading {"level":4,"textAlign":"center"} -->
 				<h4 class="wp-block-heading has-text-align-center">MAJA</h4>

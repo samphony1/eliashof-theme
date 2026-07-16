@@ -2,7 +2,7 @@
 /**
  * Title: Parallaxe Bild (Sektion)
  * Slug: eliashof/section-parallax
- * Categories: eliashof-sections
+ * Categories: eliashof-unsere-schule
  * Description: Full-width parallax background image section.
  */
 ?>

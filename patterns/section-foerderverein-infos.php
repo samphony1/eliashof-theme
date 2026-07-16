@@ -2,7 +2,7 @@
 /**
  * Title: Sektion - Weitere Infos
  * Slug: eliashof/section-foerderverein-infos
- * Categories: eliashof-sections
+ * Categories: eliashof-foerderverein
  * Description: News carousel filtered for the Förderverein category, matching the Aktuelles carousel but without a background color.
  */
 

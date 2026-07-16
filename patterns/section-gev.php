@@ -2,7 +2,7 @@
 /**
  * Title: GEV (Sektion)
  * Slug: eliashof/section-gev
- * Categories: eliashof-sections
+ * Categories: eliashof-eltern
  * Description: Centered heading, text left, image right on a light green background.
  */
 ?>
@@ -16,7 +16,6 @@
 	<!-- wp:columns {"verticalAlignment":"center"} -->
 	<div class="wp-block-columns are-vertically-aligned-center">
 
-		<!-- Left Column: Text -->
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
 
@@ -27,11 +26,10 @@
 		</div>
 		<!-- /wp:column -->
 
-		<!-- Right Column: Image -->
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
-			<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
-			<figure class="wp-block-image size-full"><img alt=""/></figure>
+			<!-- wp:image {"sizeSlug":"full","linkDestination":"none","url":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration-children-line-2.png"} -->
+			<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration-children-line-2.png" alt="Illustration zur Elternvertretung" /></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->

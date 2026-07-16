@@ -2,18 +2,21 @@
 /**
  * Title: Aktuelles / News Carousel
  * Slug: eliashof/aktuelles
- * Categories: eliashof-sections
+ * Categories: eliashof-startseite
  * Description: Live Query Loop carousel. Editors set post type and tag in the block sidebar. Card layout is locked — only query parameters are configurable.
  */
+
+$aktuelles_cat = get_category_by_slug( 'aktuelles' );
+$aktuelles_cat_id = $aktuelles_cat ? $aktuelles_cat->term_id : 0;
 ?>
-<!-- wp:group {"align":"full","anchor":"aktuelles","templateLock":"contentOnly","className":"eliashof-section eliashof-aktuelles","style":{"color":{"background":"#9DE4F9"},"spacing":{"padding":{"top":"clamp(60px,8vw,100px)","bottom":"clamp(60px,8vw,100px)"}}},"layout":{"type":"constrained"}} -->
-<div id="aktuelles" class="wp-block-group alignfull eliashof-section eliashof-aktuelles has-background" style="background-color:#9DE4F9;padding-top:clamp(60px,8vw,100px);padding-bottom:clamp(60px,8vw,100px)">
+<!-- wp:group {"align":"full","anchor":"aktuelles","templateLock":"contentOnly","className":"eliashof-section eliashof-aktuelles","style":{"color":{"background":"#9DE4F9"},"spacing":{"padding":{"top":"clamp(60px,8vw,100px)","bottom":"clamp(28px,4vw,48px)"}}},"layout":{"type":"constrained"}} -->
+<div id="aktuelles" class="wp-block-group alignfull eliashof-section eliashof-aktuelles has-background" style="background-color:#9DE4F9;padding-top:clamp(60px,8vw,100px);padding-bottom:clamp(28px,4vw,48px)">
 
 	<!-- wp:heading {"level":2,"textAlign":"center","style":{"spacing":{"margin":{"top":"0","bottom":"52px"}}}} -->
 	<h2 class="wp-block-heading has-text-align-center" style="margin-top:0;margin-bottom:52px">AKTUELLES</h2>
 	<!-- /wp:heading -->
 
-	<!-- wp:query {"queryId":1,"query":{"perPage":8,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"className":"eliashof-aktuelles-carousel","layout":{"type":"default"}} -->
+	<!-- wp:query {"queryId":1,"query":{"perPage":8,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":{"category":[<?php echo (int) $aktuelles_cat_id; ?>]}},"className":"eliashof-aktuelles-carousel","layout":{"type":"default"}} -->
 	<div class="wp-block-query eliashof-aktuelles-carousel">
 
 		<!-- wp:post-template -->

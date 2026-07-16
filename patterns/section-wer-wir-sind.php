@@ -2,7 +2,7 @@
 /**
  * Title: Sektion - Wer wir sind
  * Slug: eliashof/section-wer-wir-sind
- * Categories: eliashof-sections
+ * Categories: eliashof-foerderverein
  * Description: Section for the Förderverein page detailing who we are, with description text on the left and the cyan T-shirt badge on the right.
  */
 ?>
@@ -12,7 +12,6 @@
 	<!-- wp:columns {"verticalAlignment":"center","className":"eliashof-wer-wir-sind-columns"} -->
 	<div class="wp-block-columns are-vertically-aligned-center eliashof-wer-wir-sind-columns">
 		
-		<!-- Left Column: Description -->
 		<!-- wp:column {"verticalAlignment":"center","width":"60%","className":"eliashof-wer-wir-sind-text-col"} -->
 		<div class="wp-block-column is-vertically-aligned-center eliashof-wer-wir-sind-text-col" style="flex-basis:60%">
 			<!-- wp:heading -->
@@ -25,7 +24,6 @@
 		</div>
 		<!-- /wp:column -->
 
-		<!-- Right Column: T-Shirt Blurp Badge -->
 		<!-- wp:column {"verticalAlignment":"center","width":"40%","className":"eliashof-wer-wir-sind-badge-col"} -->
 		<div class="wp-block-column is-vertically-aligned-center eliashof-wer-wir-sind-badge-col" style="flex-basis:40%">
 			<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"eliashof-tshirt-badge"} -->

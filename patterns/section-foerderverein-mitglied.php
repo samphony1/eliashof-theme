@@ -2,7 +2,7 @@
 /**
  * Title: Sektion - Werden Sie Mitglied
  * Slug: eliashof/section-foerderverein-mitglied
- * Categories: eliashof-sections
+ * Categories: eliashof-foerderverein
  * Description: Section explaining membership options with text on the left and image on the right.
  */
 ?>
@@ -12,7 +12,6 @@
 	<!-- wp:columns {"verticalAlignment":"center"} -->
 	<div class="wp-block-columns are-vertically-aligned-center">
 		
-		<!-- Left Column: Content -->
 		<!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
 		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">
 			<!-- wp:heading -->
@@ -33,7 +32,6 @@
 		</div>
 		<!-- /wp:column -->
 
-		<!-- Right Column: Image -->
 		<!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
 		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">
 			<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"eliashof-section-image"} -->

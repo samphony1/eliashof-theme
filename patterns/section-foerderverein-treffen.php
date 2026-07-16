@@ -2,7 +2,7 @@
 /**
  * Title: Sektion - Unsere Treffen
  * Slug: eliashof/section-foerderverein-treffen
- * Categories: eliashof-sections
+ * Categories: eliashof-foerderverein
  * Description: Section for Förderverein page showing meeting schedule and contact details, with floating badge.
  */
 ?>
@@ -12,7 +12,6 @@
 	<!-- wp:columns {"verticalAlignment":"center"} -->
 	<div class="wp-block-columns are-vertically-aligned-center">
 		
-		<!-- Left Column: Treffen -->
 		<!-- wp:column {"verticalAlignment":"top","width":"50%","className":"eliashof-grid-text"} -->
 		<div class="wp-block-column is-vertically-aligned-top eliashof-grid-text" style="flex-basis:50%">
 			<!-- wp:heading -->
@@ -29,7 +28,6 @@
 		</div>
 		<!-- /wp:column -->
 
-		<!-- Right Column: Kontakt & Spenden -->
 		<!-- wp:column {"verticalAlignment":"top","width":"50%","className":"eliashof-grid-text"} -->
 		<div class="wp-block-column is-vertically-aligned-top eliashof-grid-text" style="flex-basis:50%">
 			<!-- wp:heading -->
@@ -53,7 +51,6 @@
 	</div>
 	<!-- /wp:columns -->
 
-	<!-- Floating Badge overlay -->
 	<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"eliashof-treffen-badge"} -->
 	<figure class="wp-block-image size-full eliashof-treffen-badge"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Blurp-Wir%20foerdern%20Zukunft.svg' ); ?>" alt="Wir fördern Zukunft" /></figure>
 	<!-- /wp:image -->

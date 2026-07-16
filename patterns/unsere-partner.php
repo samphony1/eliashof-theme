@@ -2,7 +2,7 @@
 /**
  * Title: Unsere Partner
  * Slug: eliashof/unsere-partner
- * Categories: eliashof-sections
+ * Categories: eliashof-startseite
  * Description: A 3-column logo row showcasing school partners. White background. Layout locked.
  */
 ?>
@@ -18,24 +18,24 @@
 
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
-			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"none"} -->
-			<figure class="wp-block-image aligncenter size-full"><img alt=""/></figure>
+			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"none","url":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/logo-header.svg"} -->
+			<figure class="wp-block-image aligncenter size-full"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/logo-header.svg" alt="Partner Platzhalter 1" /></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->
 
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
-			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"none"} -->
-			<figure class="wp-block-image aligncenter size-full"><img alt=""/></figure>
+			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"none","url":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/logo-eliashof_text.svg"} -->
+			<figure class="wp-block-image aligncenter size-full"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/logo-eliashof_text.svg" alt="Partner Platzhalter 2" /></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->
 
 		<!-- wp:column {"verticalAlignment":"center"} -->
 		<div class="wp-block-column is-vertically-aligned-center">
-			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"none"} -->
-			<figure class="wp-block-image aligncenter size-full"><img alt=""/></figure>
+			<!-- wp:image {"align":"center","sizeSlug":"full","linkDestination":"none","url":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration02.svg"} -->
+			<figure class="wp-block-image aligncenter size-full"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/illustration02.svg" alt="Partner Platzhalter 3" /></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->

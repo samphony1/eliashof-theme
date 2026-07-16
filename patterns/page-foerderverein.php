@@ -2,7 +2,7 @@
 /**
  * Title: Seite - Förderverein
  * Slug: eliashof/page-foerderverein
- * Categories: eliashof-sections
+ * Categories: eliashof-foerderverein
  * Description: Complete page pattern for the Förderverein page, assembling all sections modularly.
  */
 ?>

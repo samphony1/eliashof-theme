@@ -2,7 +2,7 @@
 /**
  * Title: Lebenskunde & Religion (Sektion)
  * Slug: eliashof/section-lebenskunde-religion
- * Categories: eliashof-sections
+ * Categories: eliashof-unsere-schule
  * Description: Two-column section on a sky blue background — Humanistische Lebenskunde left, Religionsunterricht right. Layout locked.
  */
 ?>

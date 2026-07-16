@@ -2,7 +2,7 @@
 /**
  * Title: Footer
  * Slug: eliashof/footer-section
- * Categories: eliashof-sections
+ * Categories: eliashof-allgemein
  * Description: Rebuilt responsive footer with children illustration and two-column contact details.
  */
 ?>

@@ -2,7 +2,7 @@
 /**
  * Title: Sektion - Förderverein Parallaxe
  * Slug: eliashof/section-foerderverein-parallax
- * Categories: eliashof-sections
+ * Categories: eliashof-foerderverein
  * Description: Full-width parallax background image section for the Förderverein page.
  */
 ?>

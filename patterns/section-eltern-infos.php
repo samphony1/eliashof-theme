@@ -2,7 +2,7 @@
 /**
  * Title: Eltern Infos (GEV & Links)
  * Slug: eliashof/section-eltern-infos
- * Categories: eliashof-sections
+ * Categories: eliashof-eltern
  * Description: Two-column section for parent GEV contact info and important external links. White background with grid pattern.
  */
 ?>
@@ -15,11 +15,10 @@
 		<h2 class="wp-block-heading has-text-align-center" style="margin-top:0;margin-bottom:52px">ELTERN INFOS</h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:columns {"verticalAlignment":null,"className":"eliashof-eltern-infos-columns","style":{"spacing":{"blockGap":"60px"}}} -->
-		<div class="wp-block-columns are-vertically-aligned-stretch eliashof-eltern-infos-columns">
+		<!-- wp:columns {"className":"eliashof-eltern-infos-columns","style":{"spacing":{"blockGap":"60px"}}} -->
+		<div class="wp-block-columns eliashof-eltern-infos-columns">
 
-			<!-- Left Column: GEV Contact Info -->
-			<!-- wp:column {"verticalAlignment":null,"className":"eliashof-eltern-infos-col"} -->
+			<!-- wp:column {"className":"eliashof-eltern-infos-col"} -->
 			<div class="wp-block-column eliashof-eltern-infos-col">
 				<!-- wp:heading {"level":3,"textAlign":"center","className":"eliashof-eltern-infos-subtitle"} -->
 				<h3 class="wp-block-heading has-text-align-center eliashof-eltern-infos-subtitle">ANSPRECHPARTNERINNEN</h3>
@@ -31,8 +30,7 @@
 			</div>
 			<!-- /wp:column -->
 
-			<!-- Right Column: Links -->
-			<!-- wp:column {"verticalAlignment":null,"className":"eliashof-eltern-infos-col"} -->
+			<!-- wp:column {"className":"eliashof-eltern-infos-col"} -->
 			<div class="wp-block-column eliashof-eltern-infos-col">
 				<!-- wp:heading {"level":3,"textAlign":"center","className":"eliashof-eltern-infos-subtitle"} -->
 				<h3 class="wp-block-heading has-text-align-center eliashof-eltern-infos-subtitle">LINKS</h3>
