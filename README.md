@@ -6,7 +6,7 @@ Individuelles WordPress-Full-Site-Editing-Theme für die Grundschule im Eliashof
 
 - WordPress 6.4 oder neuer
 - PHP 7.4 oder neuer
-- Plugin `fm-admin-tweaks` ab Version 1.6.3 für die dynamischen SPB-Angebote
+- Plugin `fm-admin-tweaks` ab Version 1.9.2 (SPB-Angebote, Medienordner und sicherer SVG-Upload)
 
 ## Zentrale Bestandteile
 
@@ -29,6 +29,21 @@ Die Editor-Erweiterung `assets/js/editor-section-colors.js` ergänzt:
 - stabile CSS-Klassen für redaktionelle SPB-Tagesablauf- und Anmeldegruppen.
 
 Für Montserrat stehen die Block-Stile `Montserrat Light`, `Montserrat Regular` und `Montserrat Semibold` bereit.
+
+## Medienverwaltung mit FM-AdminTweaks
+
+Die aktuell eingesetzte Plugin-Version 1.9.2 erweitert die WordPress-Mediathek um:
+
+- hierarchische virtuelle Ordner, ohne Dateien zu verschieben oder URLs zu ändern,
+- Ordnerfilter in Gutenberg, Beitragsbildern, Galerien und weiteren `wp.media`-Dialogen,
+- Mehrfachauswahl, Drag-and-drop-Zuordnung und acht Sekunden Undo,
+- einen fixierten Medieninspektor für Titel, Alternativtext, Beschriftung und Beschreibung,
+- Hinweise für fehlende Alternativtexte und eine Kennzeichnung dekorativer Bilder,
+- responsive Rasteransichten mit automatischer, Drei- oder Sechs-Spalten-Darstellung,
+- eine manuelle SHA-256-Duplikatsuche,
+- sicheren SVG-Upload mit Bereinigung, MIME-Prüfung, 2-MB-Limit und Vorschau.
+
+Unter **Einstellungen > FM-AdminTweaks** können Medienordner und SVG-Upload einzeln aktiviert werden. Die Option **Menüorder festsetzen** behält eine gespeicherte Admin-Menüreihenfolge bei, deaktiviert aber deren Drag-and-drop-Bearbeitung.
 
 ## SPB/Hort
 

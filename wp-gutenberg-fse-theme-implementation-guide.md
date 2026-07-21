@@ -330,3 +330,10 @@ This document outlines the recent implementations and structural decisions made 
 - Added the theme `README.md` as the operational entry point.
 - Added `docs/spb-implementation.md` for architecture, editorial workflow, patterns, extension points and QA.
 - Expanded the FM-AdminTweaks readme with the SPB feature set and usage instructions.
+
+### 46. FM-AdminTweaks 1.7.0–1.9.2 Integration
+- Updated the documented production dependency from FM-AdminTweaks 1.6.3 to 1.9.2.
+- Documented hierarchical virtual media folders, media-frame integration, drag-and-drop assignment, multi-selection and undo behavior.
+- Documented the sticky media inspector, accessibility metadata workflow, responsive grid modes and SHA-256 duplicate scanner.
+- Documented sanitized SVG uploads with MIME validation, a 2 MB size limit and media-library previews.
+- Documented the `Menüorder festsetzen` setting, which preserves the configured admin-menu order while disabling sidebar drag-and-drop.

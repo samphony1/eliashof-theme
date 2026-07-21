@@ -4,7 +4,7 @@
 
 Die Funktion ist zwischen Plugin und Theme getrennt:
 
-- `fm-admin-tweaks` verwaltet den Inhaltstyp `spb_angebot`, strukturierte Metadaten, Editor-Felder und den dynamischen Block `fm/spb-offers`.
+- `fm-admin-tweaks` (aktuell Version 1.9.2) verwaltet den Inhaltstyp `spb_angebot`, strukturierte Metadaten, Editor-Felder und den dynamischen Block `fm/spb-offers`.
 - `eliashof-theme` stellt Patterns, Darstellung, Filter/Tabs, Drawer, REST-Ausgabe und responsive Styles bereit.
 
 Damit bleiben Angebotsdaten unabhängig vom Theme erhalten, während das Theme ihre Darstellung steuert.
