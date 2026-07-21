@@ -311,6 +311,34 @@ document.addEventListener('DOMContentLoaded', function() {
         focusPanel();
     }
 
+    function openPreviewDrawer(color) {
+        if (color) {
+            document.documentElement.style.setProperty('--eliashof-drawer-background', color);
+        }
+
+        openDrawerShell();
+        drawer.classList.remove('is-loading', 'is-error');
+        drawer.classList.add('is-ready');
+        title.textContent = 'Drawer Vorschau';
+        body.innerHTML = [
+            '<h2>Beispielinhalt</h2>',
+            '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>',
+            '<h3>Weitere Informationen</h3>',
+            '<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>',
+            '<ul>',
+            '<li>Ein kurzer Beispielpunkt</li>',
+            '<li>Ein weiterer Eintrag zur Ansicht</li>',
+            '<li>Kontrast und Lesbarkeit prüfen</li>',
+            '</ul>',
+            '<p><a href="#" onclick="return false;">Beispiel-Link ansehen</a></p>'
+        ].join('');
+    }
+
+    window.eliashofPreviewDrawer = openPreviewDrawer;
+    window.addEventListener('eliashof:preview-drawer', function() {
+        openPreviewDrawer();
+    });
+
     function closeDrawer(options) {
         const settings = options || {};
 

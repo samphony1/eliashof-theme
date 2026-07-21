@@ -1,5 +1,7 @@
 # Eliashof Theme Development Changelog
 
+> Aktuelle Betriebs- und Redaktionsdokumentation: [README.md](README.md) und [docs/spb-implementation.md](docs/spb-implementation.md). Dieses Dokument bleibt das chronologische Entwicklungsprotokoll.
+
 ## Session Summary: Hero Section & Navigation Integration
 
 This document outlines the recent implementations and structural decisions made for the Eliashof Gutenberg Block Theme to ensure perfect fidelity with the Figma design.
@@ -201,7 +203,7 @@ This document outlines the recent implementations and structural decisions made 
 - **Fix:** Removed any `background-color` overrides from `.eliashof-archive-section` and the archive grid container, and ensured the section inherits the body's `paperbg.jpg` texture. Applied `background: transparent !important` to the section wrapper so the paper grid shines through the card grid.
 
 ### 27. Post Card Fallback Image (Missing Featured Image)
-- **Fallback Color Fill:** When a blog post has no featured image, the PHP shortcode in `functions.php` now dynamically generates a colored placeholder using one of three brand palette colors (Pale Blue `#8cc8d1`, Brand Yellow `#eec68e`, Pale Green `#c5d799`) cycled by post ID (modulo 3).
+- **Fallback Color Fill:** When a blog post has no featured image, the PHP shortcode in `functions.php` now dynamically generates a colored placeholder using one of three brand palette colors (Pale Blue `#9de4f9`, Brand Yellow `#eec68e`, Pale Green `#c5d799`) cycled by post ID (modulo 3).
 - **Illustration03 Overlay:** `illustration03.svg` is positioned absolutely at the bottom-right of each fallback card at 80% width, maintaining visual cohesion across the grid even for image-less posts.
 - **Transparent SVG:** The SVG renders without any background box, matching the treatment used in the hero section.
 
@@ -293,3 +295,38 @@ This document outlines the recent implementations and structural decisions made 
 
 ### 39. Version Control Update
 - **Git Tracking:** Staged and committed all modifications: modular Förderverein section patterns, refined balloon and badge CSS definitions, thumbnail database and functions.php synchronization, and changelog updates in the repository.
+
+---
+
+## Session Summary: July 21 2026 — SPB/Hort, Drawer, Editor Controls and Navigation
+
+### 40. SPB Content Architecture
+- Added the plugin-owned `spb_angebot` content type with revisioned REST metadata for offer type, weekday, contact person, room and sort order.
+- Added the server-rendered `fm/spb-offers` Gutenberg block, first-run seed migration and administrator capabilities.
+- Kept regular permalinks as fallbacks while enabling the theme-owned drawer presentation.
+
+### 41. SPB Page Patterns and Visual Variants
+- Added a dedicated SPB hero, introductory section, three offer layouts, three values layouts and two highlight-carousel layouts.
+- Added organic SVG masks and colored shape assets for the new visual variants.
+- Grouped all SPB patterns in the `eliashof-spb-hort` editor category and added responsive styles for desktop, tablet and mobile.
+
+### 42. Editor Controls
+- Expanded the Theme Color panel with the complete Eliashof palette and aliases for older color slugs.
+- Added per-shape color selection for the SPB values pattern.
+- Added editable maximum text width and left/center positioning for SPB header paragraphs; values are persisted in saved block markup.
+- Registered Montserrat Light, Regular and Semibold as selectable block styles.
+
+### 43. Drawer and Customizer
+- Added drawer routing for SPB offers, `intern` category posts and regular posts with the explicit drawer option.
+- Added structured SPB metadata to drawer and single-post output, plus REST loading, focus handling, mobile gestures and permalink fallbacks.
+- Added a Customizer palette for the drawer background with an automatic live preview containing representative sample content.
+
+### 44. Navigation and SPB Interaction
+- Added accessible toggle buttons for nested burger-menu submenus, including ARIA state, reset-on-close behavior and keyboard focus styles.
+- Refined mobile SPB tabs so only the tab strip scrolls, the selected tab remains centered and viewport changes restore the correct panel state.
+- Made dynamic block tab/panel IDs unique, allowing multiple offer-layout variants on one page without ARIA collisions.
+
+### 45. Documentation
+- Added the theme `README.md` as the operational entry point.
+- Added `docs/spb-implementation.md` for architecture, editorial workflow, patterns, extension points and QA.
+- Expanded the FM-AdminTweaks readme with the SPB feature set and usage instructions.

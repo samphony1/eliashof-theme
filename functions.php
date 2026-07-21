@@ -32,8 +32,9 @@ function eliashof_scripts() {
 	wp_add_inline_style(
 		'eliashof-style',
 		sprintf(
-			':root { --eliashof-paperbg-dim: %s; }',
-			esc_html( eliashof_get_paperbg_dim() )
+			':root { --eliashof-paperbg-dim: %s; --eliashof-drawer-background: %s; }',
+			esc_html( eliashof_get_paperbg_dim() ),
+			esc_html( eliashof_get_drawer_background() )
 		)
 	);
 	wp_enqueue_script(
@@ -47,7 +48,7 @@ function eliashof_scripts() {
 		'eliashof-navigation',
 		get_template_directory_uri() . '/assets/js/navigation.js',
 		[],
-		wp_get_theme()->get( 'Version' ),
+		filemtime( get_template_directory() . '/assets/js/navigation.js' ),
 		true
 	);
 	wp_enqueue_script(
@@ -60,7 +61,7 @@ function eliashof_scripts() {
 	wp_enqueue_script(
 		'eliashof-intern-drawer',
 		get_template_directory_uri() . '/assets/js/intern-drawer.js',
-		[],
+		is_customize_preview() ? array( 'customize-preview' ) : array(),
 		filemtime( get_template_directory() . '/assets/js/intern-drawer.js' ),
 		true
 	);
@@ -99,6 +100,16 @@ function eliashof_sanitize_paperbg_dim( $value ) {
 	$value = is_numeric( $value ) ? (int) $value : 70;
 
 	return max( 0, min( 100, $value ) );
+}
+
+/**
+ * Return the configured drawer background color.
+ */
+function eliashof_get_drawer_background() {
+	$default = '#ffdcac';
+	$value   = sanitize_hex_color( get_theme_mod( 'eliashof_drawer_background', $default ) );
+
+	return $value ? $value : $default;
 }
 
 if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Eliashof_Paperbg_Dim_Control' ) ) {
@@ -166,6 +177,46 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Eliashof_Paperbg
 			<?php
 		}
 	}
+
+	/**
+	 * Color picker with quick-access theme color swatches.
+	 */
+	class Eliashof_Drawer_Color_Control extends WP_Customize_Control {
+		/**
+		 * Render the curated Eliashof palette.
+		 */
+		public function render_content() {
+			$colors = array(
+				'#ffdcac' => __( 'Drawer Apricot', 'eliashof' ),
+				'#eec58d' => __( 'Bisheriges Beige', 'eliashof' ),
+				'#9de4f9' => __( 'Blau', 'eliashof' ),
+				'#23bbea' => __( 'Blau kraeftig', 'eliashof' ),
+				'#c5d799' => __( 'Gruen', 'eliashof' ),
+				'#f8ac41' => __( 'Orange', 'eliashof' ),
+				'#eae7dd' => __( 'Creme', 'eliashof' ),
+				'#ffffff' => __( 'Weiss', 'eliashof' ),
+			);
+			?>
+			<div class="eliashof-drawer-palette" aria-label="<?php esc_attr_e( 'Theme-Farben zur Schnellauswahl', 'eliashof' ); ?>">
+				<?php if ( ! empty( $this->label ) ) : ?>
+					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+				<?php endif; ?>
+				<?php if ( ! empty( $this->description ) ) : ?>
+				<span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
+				<?php endif; ?>
+				<div class="eliashof-drawer-palette__colors">
+					<?php foreach ( $colors as $color => $label ) : ?>
+						<?php $is_selected = strtolower( (string) $this->value() ) === strtolower( $color ); ?>
+						<button type="button" class="eliashof-drawer-palette__color<?php echo $is_selected ? ' is-selected' : ''; ?>" data-drawer-color="<?php echo esc_attr( $color ); ?>" title="<?php echo esc_attr( $label . ': ' . $color ); ?>" aria-label="<?php echo esc_attr( $label . ': ' . $color ); ?>" aria-pressed="<?php echo $is_selected ? 'true' : 'false'; ?>" style="--swatch-color: <?php echo esc_attr( $color ); ?>;"></button>
+					<?php endforeach; ?>
+				</div>
+				<button type="button" class="button button-secondary eliashof-drawer-palette__preview" data-drawer-preview>
+					<?php esc_html_e( 'Drawer anzeigen', 'eliashof' ); ?>
+				</button>
+			</div>
+			<?php
+		}
+	}
 }
 
 /**
@@ -202,6 +253,28 @@ function eliashof_customize_register( $wp_customize ) {
 			)
 		)
 	);
+
+	$wp_customize->add_setting(
+		'eliashof_drawer_background',
+		array(
+			'default'           => '#ffdcac',
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport'         => 'postMessage',
+			'type'              => 'theme_mod',
+		)
+	);
+
+	$wp_customize->add_control(
+		new Eliashof_Drawer_Color_Control(
+			$wp_customize,
+			'eliashof_drawer_background',
+			array(
+				'label'       => __( 'Drawer-Hintergrundfarbe', 'eliashof' ),
+				'description' => __( 'Neuer Standard: #ffdcac (rgb 255, 220, 172). Bisherige Farbe zum Vergleichen: #eec58d.', 'eliashof' ),
+				'section'     => 'eliashof_design',
+			)
+		)
+	);
 }
 add_action( 'customize_register', 'eliashof_customize_register' );
 
@@ -211,8 +284,61 @@ add_action( 'customize_register', 'eliashof_customize_register' );
 function eliashof_customize_controls_assets() {
 	?>
 	<script>
+		(function ($) {
+			window.eliashofUpdateDrawerPalette = function (color) {
+				$('[data-drawer-color]').each(function () {
+					var isSelected = this.getAttribute('data-drawer-color').toLowerCase() === String(color).toLowerCase();
+					this.classList.toggle('is-selected', isSelected);
+					this.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
+				});
+			};
+
+			window.eliashofShowDrawerPreview = function (color) {
+				var setting = wp.customize('eliashof_drawer_background');
+				var selectedColor = color || (setting ? setting.get() : '#ffdcac');
+				var previewWindow = wp.customize.previewer && wp.customize.previewer.targetWindow
+					? wp.customize.previewer.targetWindow()
+					: null;
+
+				if (previewWindow && typeof previewWindow.eliashofPreviewDrawer === 'function') {
+					previewWindow.eliashofPreviewDrawer(selectedColor);
+					return true;
+				}
+
+				wp.customize.previewer.send('eliashof-preview-drawer', selectedColor);
+				return false;
+			};
+
+			$(document).on('click', '[data-drawer-preview]', function (event) {
+				event.preventDefault();
+				window.eliashofShowDrawerPreview();
+			});
+
+			$(document).on('click', '[data-drawer-color]', function (event) {
+				event.preventDefault();
+				var color = this.getAttribute('data-drawer-color');
+				var setting = wp.customize('eliashof_drawer_background');
+
+				if (setting) {
+					setting.set(color);
+				}
+
+				window.eliashofUpdateDrawerPalette(color);
+				window.eliashofShowDrawerPreview(color);
+			});
+		})(jQuery);
+
 		wp.customize.bind('ready', function () {
 			var control = wp.customize.control('eliashof_paperbg_dim');
+			var drawerControl = wp.customize.control('eliashof_drawer_background');
+
+			if (drawerControl && drawerControl.container) {
+				drawerControl.setting.bind(function (color) {
+					window.eliashofUpdateDrawerPalette(color);
+				});
+
+				window.eliashofUpdateDrawerPalette(drawerControl.setting.get());
+			}
 
 			if (!control || !control.container) {
 				return;
@@ -279,25 +405,94 @@ function eliashof_customize_controls_assets() {
 			margin-top: 12px;
 			width: fit-content;
 		}
+
+		.eliashof-drawer-palette {
+			display: grid;
+			gap: 10px;
+		}
+
+		.eliashof-drawer-palette__colors {
+			display: grid;
+			grid-template-columns: repeat(8, 28px);
+			gap: 7px;
+		}
+
+		.eliashof-drawer-palette__color {
+			width: 28px;
+			height: 28px;
+			padding: 0;
+			border: 2px solid #fff;
+			border-radius: 50%;
+			background: var(--swatch-color);
+			box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+			cursor: pointer;
+		}
+
+		.eliashof-drawer-palette__color:hover,
+		.eliashof-drawer-palette__color:focus-visible,
+		.eliashof-drawer-palette__color.is-selected {
+			transform: scale(1.12);
+			box-shadow: 0 0 0 2px #2271b1;
+			outline: 0;
+		}
+
+		.eliashof-drawer-palette__preview {
+			width: fit-content;
+			margin-top: 4px;
+		}
 	</style>
 	<?php
 }
 add_action( 'customize_controls_print_footer_scripts', 'eliashof_customize_controls_assets' );
 
 /**
+ * Connect live drawer color changes and the automatic drawer preview.
+ */
+function eliashof_customize_preview_assets() {
+	if ( ! is_customize_preview() ) {
+		return;
+	}
+
+	wp_add_inline_script(
+		'eliashof-intern-drawer',
+		"wp.customize.preview.bind('eliashof-preview-drawer', function (color) { document.documentElement.style.setProperty('--eliashof-drawer-background', color); window.dispatchEvent(new CustomEvent('eliashof:preview-drawer')); });"
+	);
+}
+add_action( 'wp_enqueue_scripts', 'eliashof_customize_preview_assets', 20 );
+
+/**
  * Return published intern posts for the drawer link matcher.
  */
 function eliashof_get_intern_posts_for_drawer() {
-	$posts = get_posts(
+	$normal_posts = get_posts(
 		array(
 			'post_type'      => 'post',
 			'post_status'    => 'publish',
 			'posts_per_page' => -1,
-			'category_name'  => 'intern',
 			'orderby'        => 'date',
 			'order'          => 'DESC',
 		)
 	);
+	$normal_posts = array_filter(
+		$normal_posts,
+		static function( $post ) {
+			return has_category( 'intern', $post ) || (bool) get_post_meta( $post->ID, '_fm_drawer_enabled', true );
+		}
+	);
+
+	$spb_posts = post_type_exists( 'spb_angebot' )
+		? get_posts(
+			array(
+				'post_type'      => 'spb_angebot',
+				'post_status'    => 'publish',
+				'posts_per_page' => -1,
+				'orderby'        => 'title',
+				'order'          => 'ASC',
+			)
+		)
+		: array();
+
+	$posts = array_merge( $normal_posts, $spb_posts );
 
 	return array_map(
 		static function( $post ) {
@@ -320,7 +515,8 @@ function eliashof_get_intern_posts_for_drawer() {
  * Return data attributes for links that should open in the intern drawer.
  */
 function eliashof_get_intern_link_attributes( $post_id ) {
-	if ( ! has_category( 'intern', $post_id ) ) {
+	$post = get_post( $post_id );
+	if ( ! $post || ( 'spb_angebot' !== $post->post_type && ! has_category( 'intern', $post ) && ! get_post_meta( $post_id, '_fm_drawer_enabled', true ) ) ) {
 		return '';
 	}
 
@@ -544,13 +740,64 @@ function eliashof_register_intern_post_route() {
 add_action( 'rest_api_init', 'eliashof_register_intern_post_route' );
 
 /**
+ * Render the structured SPB offer information used by drawers and single posts.
+ */
+function eliashof_render_spb_offer_meta( $post_id ) {
+	$post = get_post( $post_id );
+	if ( ! $post || 'spb_angebot' !== $post->post_type ) {
+		return '';
+	}
+
+	$type   = sanitize_key( get_post_meta( $post_id, '_fm_spb_type', true ) );
+	$person = get_post_meta( $post_id, '_fm_spb_person', true );
+	$room   = get_post_meta( $post_id, '_fm_spb_room', true );
+
+	if ( ! in_array( $type, array( 'ag', 'ig' ), true ) ) {
+		$type = '';
+	}
+
+	$details = implode( ' · ', array_filter( array( $person, $room ) ) );
+	if ( ! $type && ! $details ) {
+		return '';
+	}
+
+	ob_start();
+	?>
+	<div class="spb-offer-meta" aria-label="<?php esc_attr_e( 'Angaben zum SPB-Angebot', 'eliashof' ); ?>">
+		<?php if ( $type ) : ?>
+			<span class="spb-offer-meta__badge <?php echo esc_attr( $type ); ?>"><?php echo esc_html( strtoupper( $type ) ); ?></span>
+		<?php endif; ?>
+		<?php if ( $details ) : ?>
+			<span class="spb-offer-meta__details"><?php echo esc_html( $details ); ?></span>
+		<?php endif; ?>
+	</div>
+	<?php
+	return ob_get_clean();
+}
+
+/**
+ * Show the structured information above SPB offer content on its single view.
+ */
+function eliashof_prepend_spb_offer_meta_to_content( $content ) {
+	if ( is_admin() || ! is_singular( 'spb_angebot' ) || ! in_the_loop() || ! is_main_query() ) {
+		return $content;
+	}
+
+	return eliashof_render_spb_offer_meta( get_the_ID() ) . $content;
+}
+add_filter( 'the_content', 'eliashof_prepend_spb_offer_meta_to_content', 8 );
+
+/**
  * Serve rendered content for published intern posts.
  */
 function eliashof_get_intern_post_payload( WP_REST_Request $request ) {
 	$post_id = (int) $request['id'];
 	$post    = get_post( $post_id );
 
-	if ( ! $post || 'post' !== $post->post_type || 'publish' !== $post->post_status || ! has_category( 'intern', $post ) ) {
+	$is_drawer_post = $post && 'post' === $post->post_type && ( has_category( 'intern', $post ) || get_post_meta( $post_id, '_fm_drawer_enabled', true ) );
+	$is_spb_offer   = $post && 'spb_angebot' === $post->post_type;
+
+	if ( ! $post || 'publish' !== $post->post_status || ( ! $is_drawer_post && ! $is_spb_offer ) ) {
 		return new WP_Error(
 			'eliashof_intern_post_not_found',
 			__( 'Der angefragte Beitrag ist nicht verfuegbar.', 'eliashof' ),
@@ -558,11 +805,16 @@ function eliashof_get_intern_post_payload( WP_REST_Request $request ) {
 		);
 	}
 
+	$content = apply_filters( 'the_content', $post->post_content );
+	if ( $is_spb_offer ) {
+		$content = eliashof_render_spb_offer_meta( $post_id ) . $content;
+	}
+
 	return rest_ensure_response(
 		array(
 			'id'        => $post_id,
 			'title'     => html_entity_decode( get_the_title( $post ), ENT_QUOTES, 'UTF-8' ),
-			'content'   => apply_filters( 'the_content', $post->post_content ),
+			'content'   => $content,
 			'permalink' => get_permalink( $post ),
 		)
 	);
@@ -613,6 +865,7 @@ function eliashof_enqueue_block_editor_assets() {
 			'wp-blocks',
 			'wp-components',
 			'wp-compose',
+			'wp-data',
 			'wp-element',
 			'wp-hooks',
 			'wp-i18n',
@@ -624,6 +877,44 @@ function eliashof_enqueue_block_editor_assets() {
 add_action( 'enqueue_block_editor_assets', 'eliashof_enqueue_block_editor_assets' );
 
 /**
+ * Offer consistent Montserrat weights for the common text blocks.
+ */
+function eliashof_register_montserrat_weight_styles() {
+	$block_types = array(
+		'core/paragraph',
+		'core/heading',
+		'core/list',
+		'core/quote',
+		'core/pullquote',
+		'core/verse',
+		'core/preformatted',
+		'core/table',
+	);
+
+	$styles = array(
+		array(
+			'name'  => 'montserrat-light',
+			'label' => __( 'Montserrat Light', 'eliashof' ),
+		),
+		array(
+			'name'  => 'montserrat-regular',
+			'label' => __( 'Montserrat Regular', 'eliashof' ),
+		),
+		array(
+			'name'  => 'montserrat-semibold',
+			'label' => __( 'Montserrat Semi Bold', 'eliashof' ),
+		),
+	);
+
+	foreach ( $block_types as $block_type ) {
+		foreach ( $styles as $style ) {
+			register_block_style( $block_type, $style );
+		}
+	}
+}
+add_action( 'init', 'eliashof_register_montserrat_weight_styles' );
+
+/**
  * Render custom theme background colors for blocks on the frontend.
  */
 function eliashof_render_custom_block_background( $block_content, $block ) {
@@ -633,10 +924,18 @@ function eliashof_render_custom_block_background( $block_content, $block ) {
 
 	$theme_bg = $block['attrs']['eliashofThemeBg'];
 	$allowed  = array(
-		'blue'        => '#8cc8d1',
+		'blue'        => '#9de4f9',
+		'spb-ag-text' => '#23bbea',
+		'blue-bright' => '#23bbea', // Backward compatibility for already saved blocks.
 		'green'       => '#c5d799',
-		'beige'       => '#eec58d',
-		'orange'      => '#f8ac41',
+		'orange'      => '#eec58d',
+		'beige'       => '#eec58d', // Backward compatibility for already saved blocks.
+		'yellow'      => '#f8ac41',
+		'brown'       => '#57463a',
+		'dark'        => '#241f21',
+		'cream'       => '#eae7dd',
+		'white'       => '#ffffff',
+		'black'       => '#000000',
 		'transparent' => 'transparent',
 	);
 
@@ -657,6 +956,36 @@ function eliashof_render_custom_block_background( $block_content, $block ) {
 }
 add_filter( 'render_block', 'eliashof_render_custom_block_background', 10, 2 );
 
+/**
+ * Give the two editorial SPB information groups a dependable styling hook.
+ * The content remains made from standard editable Gutenberg blocks.
+ */
+function eliashof_add_spb_info_section_classes( $block_content, $block ) {
+	if ( 'core/group' !== ( $block['blockName'] ?? '' ) || empty( $block_content ) ) {
+		return $block_content;
+	}
+
+	$sections = array(
+		'SO SIEHT UNSER BETREUUNGSTAG AUS' => 'eliashof-spb-day',
+		'BETREUUNG ANMELDEN'               => 'eliashof-spb-signup',
+	);
+
+	foreach ( $sections as $heading => $class_name ) {
+		if ( false === strpos( wp_strip_all_tags( $block_content ), $heading ) ) {
+			continue;
+		}
+
+		$processor = new WP_HTML_Tag_Processor( $block_content );
+		if ( $processor->next_tag() ) {
+			$processor->add_class( $class_name );
+			return $processor->get_updated_html();
+		}
+	}
+
+	return $block_content;
+}
+add_filter( 'render_block', 'eliashof_add_spb_info_section_classes', 20, 2 );
+
 
 
 /**
@@ -664,6 +993,8 @@ add_filter( 'render_block', 'eliashof_render_custom_block_background', 10, 2 );
  * Patterns themselves are auto-registered from the /patterns directory.
  */
 function eliashof_register_pattern_categories() {
+	delete_transient( 'wp_theme_files_patterns-' . get_stylesheet() );
+
 	register_block_pattern_category(
 		'eliashof-startseite',
 		[ 'label' => __( 'Eliashof Startseite', 'eliashof' ) ]
@@ -1395,6 +1726,9 @@ function eliashof_get_post_navigation_context( $post_id = 0 ) {
 	}
 
 	$contexts = array(
+		'highlight' => array(
+			'fallback_back_url' => eliashof_resolve_link_target( array( '/spb/#spb-hoehepunkte', 'spb', '/' ) ),
+		),
 		'foerderverein' => array(
 			'fallback_back_url' => eliashof_resolve_link_target( array( '/foerderverein/#weitere-infos', 'foerderverein', '/foerderverein/', '/' ) ),
 		),
@@ -1444,6 +1778,11 @@ function eliashof_get_post_back_target( $post_id = 0 ) {
 			home_url( '/#aktuelles' ),
 			home_url( '/aktuelles/' ),
 		);
+	} elseif ( 'highlight' === $context['slug'] ) {
+		$matched_urls = array(
+			home_url( '/spb/#spb-hoehepunkte' ),
+			home_url( '/spb/' ),
+		);
 	} elseif ( 'foerderverein' === $context['slug'] ) {
 		$matched_urls = array(
 			home_url( '/foerderverein/#weitere-infos' ),
@@ -1464,7 +1803,7 @@ function eliashof_get_post_back_target( $post_id = 0 ) {
 		}
 	}
 
-	if ( eliashof_url_matches_path( $referer, array( '/', '/aktuelles', '/foerderverein', '/eltern' ) ) ) {
+	if ( eliashof_url_matches_path( $referer, array( '/', '/aktuelles', '/spb', '/foerderverein', '/eltern' ) ) ) {
 		return array(
 			'url'   => $referer,
 			'label' => __( 'ZURÜCK', 'eliashof' ),
@@ -1594,7 +1933,7 @@ function eliashof_render_aktuelles_archiv() {
 	<div class="eliashof-archive-wrapper">
 		<!-- Filter Bar -->
 		<div class="eliashof-archive-filter-bar">
-			<button class="wp-element-button wp-block-button__link eliashof-filter-btn active" data-filter="all">ALL</button>
+			<button class="wp-element-button wp-block-button__link eliashof-filter-btn active" data-filter="all">ALLE</button>
 			<?php foreach ( $categories as $cat ) : ?>
 				<button class="wp-element-button wp-block-button__link eliashof-filter-btn" data-filter="<?php echo esc_attr( $cat->slug ); ?>">
 					<?php echo esc_html( mb_strtoupper( $cat->name, 'UTF-8' ) ); ?>
@@ -1633,7 +1972,7 @@ function eliashof_render_aktuelles_archiv() {
 								</div>
 							<?php else : 
 								// Cycle between Pale Blue, Brand Yellow, and Pale Green
-								$colors = array( '#8cc8d1', '#eec68e', '#c5d799' );
+								$colors = array( '#9de4f9', '#eec68e', '#c5d799' );
 								$fallback_color = $colors[ get_the_ID() % count( $colors ) ];
 								?>
 								<div class="eliashof-archive-card-image-wrapper fallback-bg" style="background-color: <?php echo esc_attr( $fallback_color ); ?> !important;">
