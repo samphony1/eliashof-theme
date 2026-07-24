@@ -77,7 +77,8 @@
 			return section.querySelector( '#' + tab.getAttribute( 'aria-controls' ) );
 		} );
 
-		const mobileQuery = window.matchMedia( '(max-width: 600px)' );
+		const tabBreakpoint = section.classList.contains( 'section-spb-angebote-v3' ) ? 1023 : 600;
+		const mobileQuery = window.matchMedia( '(max-width: ' + tabBreakpoint + 'px)' );
 
 		function centerTabInList( tab ) {
 			if ( ! tab ) return;

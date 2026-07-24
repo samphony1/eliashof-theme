@@ -15,6 +15,16 @@ if ( ! function_exists( 'eliashof_support' ) ) :
 endif;
 add_action( 'after_setup_theme', 'eliashof_support' );
 
+/**
+ * Allow fixed overlays to extend into the iOS safe-area/browser chrome region.
+ */
+function eliashof_viewport_meta_tag() {
+	remove_action( 'wp_head', '_block_template_viewport_meta_tag', 0 );
+	echo '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />' . "\n";
+	echo '<meta name="theme-color" content="' . esc_attr( eliashof_get_drawer_background() ) . '" />' . "\n";
+}
+add_action( 'wp_head', 'eliashof_viewport_meta_tag', -1 );
+
 // Disable remote block patterns from wordpress.org directory
 add_filter( 'should_load_remote_block_patterns', '__return_false' );
 
@@ -41,7 +51,7 @@ function eliashof_scripts() {
 		'eliashof-carousel',
 		get_template_directory_uri() . '/assets/js/carousel.js',
 		[],
-		wp_get_theme()->get( 'Version' ),
+		filemtime( get_template_directory() . '/assets/js/carousel.js' ),
 		true
 	);
 	wp_enqueue_script(
@@ -49,6 +59,20 @@ function eliashof_scripts() {
 		get_template_directory_uri() . '/assets/js/navigation.js',
 		[],
 		filemtime( get_template_directory() . '/assets/js/navigation.js' ),
+		true
+	);
+	wp_enqueue_script(
+		'eliashof-text-size',
+		get_template_directory_uri() . '/assets/js/text-size.js',
+		[],
+		filemtime( get_template_directory() . '/assets/js/text-size.js' ),
+		true
+	);
+	wp_enqueue_script(
+		'eliashof-button-labels',
+		get_template_directory_uri() . '/assets/js/button-labels.js',
+		[],
+		filemtime( get_template_directory() . '/assets/js/button-labels.js' ),
 		true
 	);
 	wp_enqueue_script(
@@ -1727,7 +1751,7 @@ function eliashof_get_post_navigation_context( $post_id = 0 ) {
 
 	$contexts = array(
 		'highlight' => array(
-			'fallback_back_url' => eliashof_resolve_link_target( array( '/spb/#spb-hoehepunkte', 'spb', '/' ) ),
+			'fallback_back_url' => eliashof_resolve_link_target( array( '/spb/#spb-hoehepunkte-rahmen', 'spb', '/' ) ),
 		),
 		'foerderverein' => array(
 			'fallback_back_url' => eliashof_resolve_link_target( array( '/foerderverein/#weitere-infos', 'foerderverein', '/foerderverein/', '/' ) ),
@@ -1780,8 +1804,7 @@ function eliashof_get_post_back_target( $post_id = 0 ) {
 		);
 	} elseif ( 'highlight' === $context['slug'] ) {
 		$matched_urls = array(
-			home_url( '/spb/#spb-hoehepunkte' ),
-			home_url( '/spb/' ),
+			home_url( '/spb/#spb-hoehepunkte-rahmen' ),
 		);
 	} elseif ( 'foerderverein' === $context['slug'] ) {
 		$matched_urls = array(
@@ -1801,6 +1824,16 @@ function eliashof_get_post_back_target( $post_id = 0 ) {
 				'label' => __( 'ZURÜCK', 'eliashof' ),
 			);
 		}
+	}
+
+	// URL fragments are never included in the HTTP Referer header. When a
+	// highlight was opened from the SPB page, restore its section anchor
+	// explicitly instead of returning to the top of /spb/.
+	if ( 'highlight' === $context['slug'] && eliashof_url_matches_path( $referer, array( '/spb' ) ) ) {
+		return array(
+			'url'   => $fallback,
+			'label' => __( 'ZURÜCK', 'eliashof' ),
+		);
 	}
 
 	if ( eliashof_url_matches_path( $referer, array( '/', '/aktuelles', '/spb', '/foerderverein', '/eltern' ) ) ) {

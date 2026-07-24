@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const body = drawer.querySelector('[data-intern-drawer-body]');
     const closeButtons = drawer.querySelectorAll('[data-intern-drawer-close]');
     const internPosts = Array.isArray(config.internPosts) ? config.internPosts : [];
+	let themeColorMeta = document.querySelector('meta[name="theme-color"]');
+	const hadThemeColorMeta = Boolean(themeColorMeta);
+	const initialThemeColor = themeColorMeta ? themeColorMeta.getAttribute('content') : '';
 
     let activePost = null;
     let activeTrigger = null;
@@ -64,6 +67,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
         document.body.style.overflow = isLocked ? 'hidden' : '';
     }
+
+	function setBrowserThemeColor(isDrawerOpen) {
+		if (!themeColorMeta && isDrawerOpen) {
+			themeColorMeta = document.createElement('meta');
+			themeColorMeta.setAttribute('name', 'theme-color');
+			document.head.appendChild(themeColorMeta);
+		}
+
+		if (!themeColorMeta) {
+			return;
+		}
+
+		if (isDrawerOpen) {
+			const drawerColor = window.getComputedStyle(panel).backgroundColor;
+			themeColorMeta.setAttribute('content', drawerColor || '#ffdcac');
+			return;
+		}
+
+		if (hadThemeColorMeta) {
+			themeColorMeta.setAttribute('content', initialThemeColor || '#ffffff');
+		} else {
+			themeColorMeta.remove();
+			themeColorMeta = null;
+		}
+	}
 
     function getCurrentUrl() {
         return new URL(window.location.href);
@@ -307,6 +335,7 @@ document.addEventListener('DOMContentLoaded', function() {
         drawer.classList.add('is-open');
         document.documentElement.classList.add('has-eliashof-drawer-open');
         setScrollLock(true);
+		setBrowserThemeColor(true);
         resetPanelPresentation();
         focusPanel();
     }
@@ -352,6 +381,7 @@ document.addEventListener('DOMContentLoaded', function() {
         drawer.classList.remove('is-open', 'is-loading', 'is-ready', 'is-error');
         document.documentElement.classList.remove('has-eliashof-drawer-open');
         setScrollLock(false);
+		setBrowserThemeColor(false);
 
         window.setTimeout(function() {
             if (!isOpen) {

@@ -2,8 +2,9 @@
 Theme Name: Eliashof Theme
 Theme URI: https://foxmagpie.com
 Author: Fox & Magpie Design Studio
+Author URI: https://foxmagpie.com
 Description: Custom Block Theme
-Version: 1.4.15
+Version: 1.4.19
 License: Proprietary - Fox & Magpie Design Studio
 Requires at least: 6.4
 Requires PHP: 7.4
@@ -41,6 +42,12 @@ Text Domain: eliashof
 	--color-green-active: #8cbb13;
 	--color-green-accent: #89bd24;
 	--color-green-pale: #c5d799;
+
+	/* Shared frame for editorial/content images. Change these values once to
+	   update Hero and all matching image blocks throughout the site. */
+	--eliashof-image-radius: 65px;
+	--eliashof-image-border: 0.7px solid var(--color-black);
+	--eliashof-image-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -83,6 +90,11 @@ WordPress wraps saved patterns in .wp-block-block and applies flow spacing there
 	max-width: 980px;
 	margin: 0 auto clamp(34px, 4vw, 56px) !important;
 	text-align: center;
+}
+
+.eliashof-spb-day > h2,
+.eliashof-spb-signup > h2 {
+	text-transform: uppercase !important;
 }
 
 .eliashof-spb-day > .wp-block-columns,
@@ -131,6 +143,7 @@ WordPress wraps saved patterns in .wp-block-block and applies flow spacing there
 
 .eliashof-spb-day__time {
 	width: fit-content;
+	max-width: none;
 	margin: 0 auto 18px !important;
 	padding: 8px 18px 5px;
 	border: 1px solid rgba(36, 31, 33, 0.28);
@@ -138,6 +151,18 @@ WordPress wraps saved patterns in .wp-block-block and applies flow spacing there
 	background: var(--wp--preset--color--orange);
 	font: 400 clamp(22px, 1.8vw, 28px)/1.1 var(--wp--preset--font-family--neucha);
 	text-align: center;
+	white-space: nowrap !important;
+}
+
+/* Existing editor content may contain a manual break before “Uhr”. Keep the
+   content editable, but render the badge as a single-line pill. */
+.eliashof-spb-day__time br {
+	display: inline;
+	content: " ";
+}
+
+.eliashof-spb-day__time br::after {
+	content: " ";
 }
 
 .eliashof-spb-day > .wp-block-columns > .wp-block-column:nth-child(2) .eliashof-spb-day__time {
@@ -165,7 +190,6 @@ WordPress wraps saved patterns in .wp-block-block and applies flow spacing there
 	max-width: 1120px;
 	margin: clamp(30px, 4vw, 52px) auto 0 !important;
 	padding: 22px 26px;
-	border-left: 5px solid var(--wp--preset--color--green);
 	border-radius: 0 18px 18px 0;
 	background: rgba(255, 255, 255, 0.52);
 }
@@ -199,10 +223,18 @@ WordPress wraps saved patterns in .wp-block-block and applies flow spacing there
 	background-color: transparent !important;
 }
 
+.eliashof-hero-spb.bg-graph-blue::before {
+	background-color: #88a938 !important;
+}
+
 .eliashof-hero-spb.has-eliashof-theme-bg::before {
 	background-color: var(--eliashof-theme-bg) !important;
 	opacity: 0.4 !important;
 	mix-blend-mode: multiply !important;
+}
+
+.eliashof-hero-spb.has-eliashof-theme-bg-green::before {
+	background-color: #88a938 !important;
 }
 
 /* ── Circular portrait images (Ansprechpartner) ────────────────────── */
@@ -291,16 +323,30 @@ WordPress wraps saved patterns in .wp-block-block and applies flow spacing there
 	}
 
 	.section-partners .wp-block-columns {
+		flex-direction: row !important;
+		flex-wrap: nowrap !important;
+		gap: clamp(24px, 4vw, 44px) !important;
+	}
+
+	.section-partners .wp-block-columns>.wp-block-column {
+		flex: 1 1 0 !important;
+		min-width: 0 !important;
+	}
+
+	.section-partners .wp-block-image img {
+		max-height: 80px !important;
+	}
+}
+
+@media (max-width: 767px) {
+	.section-partners .wp-block-columns {
 		flex-direction: column !important;
 		gap: 48px !important;
 	}
 
 	.section-partners .wp-block-columns>.wp-block-column {
+		flex-basis: auto !important;
 		max-width: 100% !important;
-	}
-
-	.section-partners .wp-block-image img {
-		max-height: 80px !important;
 	}
 }
 
@@ -312,9 +358,9 @@ WordPress wraps saved patterns in .wp-block-block and applies flow spacing there
 	color: var(--color-black) !important;
 	border-radius: 40px !important;
 	border: 0.7px solid var(--color-black) !important;
-	/* Neucha's glyphs sit high inside their line box; asymmetric padding keeps the
-	   visible label optically centered without changing the 50px button height. */
-	padding: 3px 50px 0 !important;
+	/* Cross-browser fallback: compensate for Neucha's asymmetric font metrics.
+	   Browsers supporting text-box use the automatic trim rule below instead. */
+	padding: 12px 50px 0 !important;
 	height: 50px !important;
 	display: inline-flex !important;
 	align-items: center !important;
@@ -332,6 +378,25 @@ WordPress wraps saved patterns in .wp-block-block and applies flow spacing there
 	max-width: 30ch !important;
 	overflow: hidden !important;
 	text-overflow: ellipsis !important;
+}
+
+/* Trim the font's invisible ascender/descender space, like Figma's tight text
+   box, so flexbox centers the visible label instead of the full line box. */
+@supports (text-box: trim-both cap alphabetic) {
+	.wp-element-button,
+	.wp-block-button__link,
+	.eliashof-aktuelles-carousel .wp-block-read-more {
+		padding: 0 50px !important;
+	}
+
+	.eliashof-button-label {
+		display: block;
+	}
+
+	.eliashof-button-label-text {
+		display: block;
+		text-box: trim-both cap alphabetic;
+	}
 }
 
 .wp-element-button:hover,
@@ -385,6 +450,7 @@ body {
 
 /* Remove constrained max-width so cards span edge-to-edge within the section */
 .eliashof-aktuelles-carousel {
+	position: relative;
 	max-width: none !important;
 	width: 100%;
 	overflow: hidden;
@@ -447,6 +513,8 @@ body {
 	flex-grow: 1 !important;
 	display: flex !important;
 	flex-direction: column !important;
+	width: 100% !important;
+	align-self: stretch !important;
 }
 
 /* Ensure paragraph truncates identically to Figma preview (exactly 3 lines) */
@@ -462,13 +530,26 @@ body {
 .eliashof-aktuelles-carousel .eliashof-card-title,
 .eliashof-aktuelles-carousel h3.wp-block-post-title,
 .eliashof-aktuelles-carousel .wp-block-post-title {
-	text-align: center !important;
+	display: -webkit-box !important;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: left !important;
 	margin-top: 0 !important;
 	margin-bottom: 0 !important;
-	font-size: 35px !important;
+	font-size: clamp(24px, 2.3vw, 32px) !important;
 	line-height: 1.1 !important;
 	width: 100% !important;
 	align-self: stretch !important;
+}
+
+@media (min-width: 1024px) {
+	.eliashof-aktuelles-carousel .eliashof-card-title,
+	.eliashof-aktuelles-carousel h3.wp-block-post-title,
+	.eliashof-aktuelles-carousel .wp-block-post-title {
+		text-align: center !important;
+	}
 }
 
 /* Featured image — fixed height, cover crop */
@@ -492,13 +573,86 @@ body {
    CAROUSEL DOTS
    ═══════════════════════════════════════════════════════════════════ */
 
+.eliashof-carousel-controls {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 40px;
+	padding: 0 clamp(24px, 6vw, 100px);
+}
+
 .eliashof-carousel-dots {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	gap: 16px;
-	margin-top: 40px;
-	padding: 0 clamp(24px, 6vw, 100px);
+}
+
+.eliashof-has-post-carousel {
+	position: relative;
+}
+
+.eliashof-carousel-arrow {
+	position: absolute;
+	top: 50%;
+	z-index: 3;
+	display: grid;
+	place-items: center;
+	width: 48px;
+	height: 48px;
+	padding: 0;
+	border: 1px solid var(--color-text-dark);
+	border-radius: 50%;
+	background: var(--color-brand-orange);
+	color: var(--color-text-dark);
+	font: 400 30px/1 var(--wp--preset--font-family--neucha);
+	cursor: pointer;
+	transform: translateY(-50%);
+	transition: transform 160ms ease, background-color 160ms ease, opacity 160ms ease;
+}
+
+.eliashof-carousel-arrow--previous {
+	left: clamp(8px, 2vw, 32px);
+}
+
+.eliashof-carousel-arrow--next {
+	right: clamp(8px, 2vw, 32px);
+}
+
+.eliashof-carousel-arrow svg {
+	display: block;
+	width: 23px;
+	height: 23px;
+	overflow: visible;
+}
+
+.eliashof-carousel-arrow path {
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.eliashof-carousel-arrow:hover:not(:disabled) {
+	transform: translateY(calc(-50% - 2px));
+	background: var(--color-brand-orange-hover);
+}
+
+.eliashof-carousel-arrow:focus-visible {
+	outline: 3px solid var(--color-text-dark);
+	outline-offset: 3px;
+}
+
+.eliashof-carousel-arrow:disabled {
+	opacity: 0.35;
+	cursor: default;
+}
+
+@media (max-width: 1023px) {
+	.eliashof-carousel-arrow {
+		display: none;
+	}
 }
 
 .eliashof-carousel-dot {
@@ -570,8 +724,9 @@ body {
 .eliashof-spb-hoehepunkte__carousel .wp-block-post-title {
 	min-height: 2.2em;
 	margin-bottom: 26px !important;
-	max-width: min(303px, 100%) !important;
+	max-width: min(474px, 100%) !important;
 	align-self: center !important;
+	text-align: center !important;
 	text-transform: uppercase;
 	display: -webkit-box !important;
 	-webkit-box-orient: vertical;
@@ -583,7 +738,7 @@ body {
 
 .eliashof-spb-hoehepunkte__carousel .wp-block-post-excerpt {
 	flex-grow: 0 !important;
-	width: min(474px, 100%);
+	width: min(474px, 100%) !important;
 	align-self: center;
 	margin: 0 0 32px !important;
 }
@@ -635,8 +790,12 @@ body {
 
 	.eliashof-spb-hoehepunkte__carousel .wp-block-post-template > li > .wp-block-group,
 	.eliashof-spb-hoehepunkte__carousel .wp-block-post-template > li.wp-block-post > .wp-block-group {
-		height: 650px !important;
-		min-height: 650px;
+		height: auto !important;
+		min-height: 0;
+	}
+
+	.eliashof-spb-hoehepunkte__carousel .wp-block-read-more {
+		margin-top: 0 !important;
 	}
 }
 
@@ -742,8 +901,9 @@ body {
 		font-size: 22px !important;
 	}
 
-	.eliashof-section p {
-		font-size: var(--wp--preset--font-size--body) !important;
+	body p {
+		font-size: 22px !important;
+		font-weight: 400 !important;
 	}
 
 	.wp-element-button,
@@ -788,7 +948,8 @@ body {
 
 /* Tablet: 2 cards visible */
 @media (max-width: 1023px) {
-	.eliashof-aktuelles-carousel .wp-block-post-template>li {
+	.eliashof-aktuelles-carousel .wp-block-post-template>li,
+	.eliashof-aktuelles-carousel .wp-block-post-template>li.wp-block-post {
 		flex-basis: calc(50% - 20px);
 	}
 }
@@ -878,7 +1039,15 @@ body {
 	}
 }
 
+/* The post editor renders the title outside .wp-block-post-content, so the
+   frontend header-clearance rule above must not pad the first content block. */
+.editor-styles-wrapper .wp-block-post-content> :first-child:not(.eliashof-hero-wrap):not(.eliashof-hero-blog-schule):not(.eliashof-hero-blog-eltern):not(.eliashof-hero-blog-schule-page) {
+	padding-top: 0 !important;
+}
+
 /* Reset padding-top on the first child of the content block when preceded by a subpage hero */
+#hero-blog-schule~.eliashof-subpage-content-wrapper .wp-block-post-content> :first-child,
+#hero-blog-schule~.eliashof-subpage-content-wrapper .entry-content> :first-child,
 .eliashof-hero-blog-schule~.eliashof-subpage-content-wrapper .wp-block-post-content> :first-child,
 .eliashof-hero-blog-schule~.eliashof-subpage-content-wrapper .entry-content> :first-child,
 .eliashof-hero-blog-eltern~.eliashof-subpage-content-wrapper .wp-block-post-content> :first-child,
@@ -924,6 +1093,115 @@ body {
 	width: 100% !important;
 	height: 100% !important;
 	display: block !important;
+}
+
+.eliashof-hero-left-col h1 {
+	overflow-wrap: normal !important;
+	word-break: normal !important;
+	text-wrap: balance;
+}
+
+.eliashof-header-actions {
+	display: flex;
+	align-items: center;
+	gap: clamp(6px, 1vw, 16px);
+}
+
+.eliashof-text-size {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.eliashof-text-size__trigger {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	padding: 0;
+	border: 0;
+	color: var(--color-black);
+	background: transparent;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.eliashof-text-size__trigger-label {
+	display: block;
+	font-size: 22px;
+	line-height: 1;
+	letter-spacing: -0.08em;
+	transform: translateY(-1px);
+}
+
+.eliashof-text-size__menu {
+	position: absolute;
+	top: calc(100% + 10px);
+	left: 50%;
+	display: flex;
+	align-items: center;
+	gap: 2px;
+	padding: 4px;
+	border: 1px solid currentColor;
+	border-radius: 999px;
+	background: #fff;
+	box-shadow: 0 5px 18px rgba(0, 0, 0, 0.18);
+	transform: translateX(-50%);
+}
+
+.eliashof-text-size__menu[hidden] {
+	display: none;
+}
+
+.eliashof-text-size__button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 38px;
+	height: 38px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	color: var(--color-black);
+	background: transparent;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.eliashof-text-size__button--decrease {
+	font-size: 15px;
+}
+
+.eliashof-text-size__button--increase {
+	font-size: 23px;
+}
+
+.eliashof-text-size__button--reset {
+	font-size: 22px;
+}
+
+.eliashof-text-size__button:hover {
+	background: var(--color-brand-yellow);
+}
+
+.eliashof-text-size__trigger:hover {
+	opacity: 0.65;
+}
+
+.eliashof-text-size__trigger:focus-visible,
+.eliashof-text-size__button:focus-visible {
+	outline: 3px solid var(--color-black);
+	outline-offset: 2px;
+}
+
+.eliashof-text-size__button:disabled {
+	opacity: 0.35;
+	cursor: not-allowed;
 }
 
 .burger-toggle {
@@ -1003,8 +1281,8 @@ body {
 
 .burger-menu-overlay {
 	position: fixed;
-	top: 0;
-	left: 0;
+	inset: 0;
+	margin: 0 !important;
 	width: 100%;
 	height: 100vh;
 	background: var(--color-brand-yellow);
@@ -1400,6 +1678,28 @@ main.wp-block-group {
 	align-self: stretch !important;
 }
 
+/* Repeating heading/copy/CTA columns use the same vertical rhythm as Aktuelles. */
+.section-downloads .wp-block-column,
+.section-lebenskunde-religion .wp-block-column,
+.section-downloads .text-button,
+.section-downloads .text-button2,
+.section-lebenskunde-religion .text-button,
+.section-lebenskunde-religion .text-button2 {
+	gap: 33px !important;
+}
+
+/* Gutenberg's flow layout adds its own block-start margin. Remove it here so
+   the 33px flex gap is the only vertical spacing source (frontend + editor). */
+.section-downloads .wp-block-column > *,
+.section-lebenskunde-religion .wp-block-column > *,
+.section-downloads .text-button > *,
+.section-downloads .text-button2 > *,
+.section-lebenskunde-religion .text-button > *,
+.section-lebenskunde-religion .text-button2 > * {
+	margin-block-start: 0 !important;
+	margin-block-end: 0 !important;
+}
+
 /* Common text-button wrapper styling for both structures */
 .section-downloads .text-button,
 .section-downloads .text-button2,
@@ -1426,9 +1726,18 @@ main.wp-block-group {
 	letter-spacing: 0.05em !important;
 	font-weight: 400 !important;
 	text-transform: uppercase !important;
-	margin: 0 auto 24px auto !important;
+	margin: 0 auto !important;
 	text-align: center !important;
 	width: 100% !important;
+}
+
+@media (min-width: 992px) {
+	.section-lebenskunde-religion h2,
+	.section-lebenskunde-religion .lebenskunde-heading,
+	.section-lebenskunde-religion .religion-heading {
+		font-size: clamp(30px, 2.4vw, 44px) !important;
+		white-space: nowrap;
+	}
 }
 
 /* Downloads (Orange) text is centered */
@@ -1441,9 +1750,10 @@ main.wp-block-group {
 	font-size: var(--wp--preset--font-size--body) !important;
 	line-height: 1.67 !important;
 	font-weight: 300 !important;
-	margin: 0 auto 28px auto !important;
+	margin: 0 auto !important;
 	max-width: 684px !important;
 	align-self: stretch;
+	flex-grow: 1 !important;
 }
 
 /* Lebenskunde & Religion (Blue) text is left-aligned */
@@ -1456,17 +1766,15 @@ main.wp-block-group {
 	font-size: var(--wp--preset--font-size--body) !important;
 	line-height: 1.67 !important;
 	font-weight: 300 !important;
-	margin: 0 0 28px 0 !important;
+	margin: 0 !important;
 	max-width: 684px !important;
 	align-self: stretch;
+	flex-grow: 1 !important;
 }
 
 .section-downloads .wp-block-buttons,
 .section-lebenskunde-religion .wp-block-buttons {
-	margin-top: auto !important;
-	margin-bottom: 0 !important;
-	margin-left: 0 !important;
-	margin-right: 0 !important;
+	margin: 0 !important;
 	padding: 0 !important;
 	display: flex !important;
 	justify-content: center !important;
@@ -1626,12 +1934,14 @@ main.wp-block-group {
 	}
 
 	.section-links .wp-block-columns {
-		flex-direction: column !important;
-		gap: 48px !important;
+		flex-direction: row !important;
+		flex-wrap: nowrap !important;
+		gap: clamp(20px, 3vw, 36px) !important;
 	}
 
 	.section-links .wp-block-columns>.wp-block-column {
-		max-width: 100% !important;
+		flex: 1 1 0 !important;
+		min-width: 0 !important;
 	}
 
 	.section-links .wp-block-columns>.wp-block-column:nth-child(1) img {
@@ -1653,6 +1963,18 @@ main.wp-block-group {
 		max-width: 244px !important;
 		height: auto !important;
 		max-height: 107px !important;
+	}
+}
+
+@media (max-width: 767px) {
+	.section-links .wp-block-columns {
+		flex-direction: column !important;
+		gap: 48px !important;
+	}
+
+	.section-links .wp-block-columns>.wp-block-column {
+		flex-basis: auto !important;
+		max-width: 100% !important;
 	}
 }
 
@@ -1842,9 +2164,12 @@ main.wp-block-group {
 	gap: 55px !important;
 	align-items: center !important;
 	justify-content: flex-start !important;
-	min-height: 900px !important;
 	width: 100% !important;
 	box-sizing: border-box !important;
+}
+
+.section-gev {
+	min-height: 900px !important;
 }
 
 .section-spb h2,
@@ -2835,6 +3160,46 @@ main.wp-block-group {
 		border: none !important;
 	}
 
+	.eliashof-header-actions {
+		gap: 3px;
+	}
+
+	.eliashof-text-size {
+		margin-top: -6px;
+	}
+
+	.eliashof-text-size__trigger {
+		width: 36px;
+		height: 36px;
+	}
+
+	.eliashof-text-size__trigger-label {
+		font-size: 19px !important;
+	}
+
+	.eliashof-text-size__menu {
+		left: auto;
+		right: -45px;
+		transform: none;
+	}
+
+	.eliashof-text-size__button {
+		width: 32px;
+		height: 32px;
+	}
+
+	.eliashof-text-size__button--decrease {
+		font-size: 13px !important;
+	}
+
+	.eliashof-text-size__button--increase {
+		font-size: 20px !important;
+	}
+
+	.eliashof-text-size__button--reset {
+		font-size: 19px !important;
+	}
+
 	.burger-morph {
 		width: 32px !important;
 		height: 25px !important;
@@ -2939,7 +3304,7 @@ main.wp-block-group {
 	.eliashof-aktuelles-carousel .eliashof-card-title,
 	.eliashof-aktuelles-carousel h3.wp-block-post-title,
 	.eliashof-aktuelles-carousel .wp-block-post-title {
-		font-size: 26px !important;
+		font-size: 24px !important;
 	}
 }
 
@@ -3151,6 +3516,33 @@ main.wp-block-group {
 	width: 100% !important;
 	height: auto !important;
 	display: block !important;
+}
+
+/* iPad Mini/iPad landscape: retain the two-column hero without letting the
+   headline collide with the bottom illustration. Portrait uses the stacked
+   layout below. */
+@media (min-width: 992px) and (max-width: 1366px) {
+	.eliashof-hero-blog-schule-container {
+		padding-top: 150px !important;
+		padding-right: 56px !important;
+		padding-bottom: 48px !important;
+		padding-left: 56px !important;
+	}
+
+	.eliashof-hero-blog-schule-title {
+		font-size: clamp(32px, 3.1vw, 36px) !important;
+		line-height: 1.12 !important;
+		letter-spacing: 0.04em !important;
+	}
+
+	.eliashof-hero-blog-schule-content-col {
+		padding-left: 4% !important;
+	}
+
+	.eliashof-hero-blog-schule-illustration {
+		width: 35% !important;
+		max-width: 410px !important;
+	}
 }
 
 /* Subpage Article Content Layout */
@@ -3770,6 +4162,13 @@ main.wp-block-group {
 	overflow-wrap: anywhere;
 }
 
+/* Match Figma's “Vertical trim: Cap height to baseline” for card labels. */
+@supports (text-box: trim-both cap alphabetic) {
+	.eliashof-spb-werte-card__label {
+		text-box: trim-both cap alphabetic;
+	}
+}
+
 @media (max-width: 991px) {
 	.eliashof-spb-werte-cards__grid {
 		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -4011,7 +4410,8 @@ main.wp-block-group {
 }
 
 .eliashof-leitbild-section,
-.eliashof-ausstattung-section {
+.eliashof-ausstattung-section,
+.eliashof-grundsaetze-section {
 	background-color: transparent !important;
 	padding: 80px clamp(24px, 10.8vw, 208px) !important;
 	margin: 0 !important;
@@ -4021,14 +4421,16 @@ main.wp-block-group {
 }
 
 .eliashof-leitbild-section-container,
-.eliashof-ausstattung-section-container {
+.eliashof-ausstattung-section-container,
+.eliashof-grundsaetze-section-container {
 	max-width: 1497px !important;
 	margin: 0 auto !important;
 	width: 100% !important;
 }
 
 .eliashof-leitbild-title,
-.eliashof-ausstattung-title {
+.eliashof-ausstattung-title,
+.eliashof-grundsaetze-title {
 	color: var(--color-black) !important;
 	font-family: 'Neucha', cursive !important;
 	font-size: clamp(28px, 3.1vw, 50px) !important;
@@ -4041,8 +4443,14 @@ main.wp-block-group {
 	width: 100% !important;
 }
 
+/* Avoid a second bottom gap when Ausstattung consists only of its headline. */
+.eliashof-ausstattung-section-container > .eliashof-ausstattung-title:last-child {
+	margin-bottom: 0 !important;
+}
+
 .eliashof-leitbild-item,
-.eliashof-ausstattung-item {
+.eliashof-ausstattung-item,
+.eliashof-grundsaetze-item {
 	font-family: 'Montserrat', sans-serif !important;
 	font-size: var(--wp--preset--font-size--body) !important;
 	line-height: 1.67 !important;
@@ -4053,8 +4461,20 @@ main.wp-block-group {
 }
 
 .eliashof-leitbild-item:last-child,
-.eliashof-ausstattung-item:last-child {
+.eliashof-ausstattung-item:last-child,
+.eliashof-grundsaetze-item:last-of-type {
 	margin-bottom: 0 !important;
+}
+
+.eliashof-grundsaetze-logo {
+	max-width: 100% !important;
+	margin: 55px auto 0 !important;
+}
+
+.eliashof-grundsaetze-logo img {
+	display: block;
+	max-width: 100% !important;
+	height: auto !important;
 }
 
 /* Center text in the flex column variant (like the GEV/Links section on the Eltern page) */
@@ -4091,8 +4511,13 @@ main.wp-block-group {
 @media (max-width: 767px) {
 
 	.eliashof-leitbild-section,
-	.eliashof-ausstattung-section {
+	.eliashof-ausstattung-section,
+	.eliashof-grundsaetze-section {
 		padding: 50px 24px !important;
+	}
+
+	.eliashof-grundsaetze-logo {
+		margin-top: 40px !important;
 	}
 }
 
@@ -4442,9 +4867,20 @@ main>*:last-child {
 }
 
 @media (max-width: 991px) {
+	.eliashof-archive-wrapper {
+		padding-right: 40px !important;
+		padding-left: 40px !important;
+	}
+
 	.eliashof-archive-grid {
 		grid-template-columns: repeat(2, 1fr) !important;
 		gap: 48px 30px !important;
+	}
+
+	.eliashof-archive-card-title {
+		font-size: 28px !important;
+		line-height: 1.08 !important;
+		letter-spacing: 0.035em !important;
 	}
 
 	.eliashof-archive-filter-bar {
@@ -4460,6 +4896,41 @@ main>*:last-child {
 }
 
 @media (max-width: 767px) {
+	.eliashof-archive-wrapper {
+		padding-right: 20px !important;
+		padding-left: 20px !important;
+	}
+
+	.eliashof-archive-filter-bar {
+		display: grid !important;
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+		gap: 12px !important;
+		max-width: 380px !important;
+		margin-right: auto !important;
+		margin-left: auto !important;
+	}
+
+	.eliashof-filter-btn {
+		width: 100% !important;
+		min-width: 0 !important;
+		max-width: none !important;
+		height: 44px !important;
+		padding: 3px 10px 0 !important;
+		font-size: clamp(16px, 4.6vw, 18px) !important;
+		letter-spacing: 0.03em !important;
+	}
+
+	.eliashof-filter-btn:last-child:nth-child(odd) {
+		grid-column: 1 / -1 !important;
+		width: calc((100% - 12px) / 2) !important;
+		justify-self: center !important;
+	}
+
+	.eliashof-filter-btn:hover,
+	.eliashof-filter-btn.active:hover {
+		transform: none !important;
+	}
+
 	.eliashof-archive-grid {
 		grid-template-columns: repeat(1, 1fr) !important;
 		gap: 40px !important;
@@ -4849,6 +5320,17 @@ main>*:last-child {
 	transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
 }
 
+/* Keep the round badge square. The generic .section-highlight image rule uses
+ * the landscape content-image ratio and otherwise crops the SVG into an
+ * octagonal shape. */
+.section-foerderverein-treffen .eliashof-treffen-badge img {
+	display: block !important;
+	width: 100% !important;
+	height: auto !important;
+	aspect-ratio: 1 / 1 !important;
+	object-fit: contain !important;
+}
+
 .eliashof-treffen-badge:hover {
 	transform: translateY(-50%) scale(1.08) !important;
 }
@@ -4890,7 +5372,7 @@ main>*:last-child {
 
 .section-foerderverein-vorstand .wp-block-columns {
 	max-width: 1360px !important;
-	align-items: center !important;
+	align-items: stretch !important;
 	gap: clamp(32px, 7vw, 120px) !important;
 }
 
@@ -4904,6 +5386,8 @@ main>*:last-child {
 	display: flex !important;
 	flex-direction: column !important;
 	align-items: center !important;
+	align-self: stretch !important;
+	justify-content: flex-start !important;
 }
 
 .section-foerderverein-vorstand .foerderverein-downloads-column {
@@ -4945,6 +5429,62 @@ main>*:last-child {
 	line-height: 1.45 !important;
 	color: var(--color-black) !important;
 	text-align: center !important;
+}
+
+/* Unsichtbare, im Block-Editor pflegbare Vorstandstabelle (Vergleichsvariante). */
+.foerderverein-vorstand-table {
+	width: fit-content !important;
+	max-width: 100% !important;
+	margin: 0 auto !important;
+}
+
+.foerderverein-vorstand-table table {
+	width: auto !important;
+	max-width: 100% !important;
+	border: 0 !important;
+	border-collapse: collapse !important;
+	background: transparent !important;
+}
+
+.foerderverein-vorstand-table td {
+	width: auto !important;
+	padding: 4px 0 !important;
+	border: 0 !important;
+	background: transparent !important;
+	color: var(--color-black) !important;
+	font-size: var(--wp--preset--font-size--body) !important;
+	line-height: 1.35 !important;
+	vertical-align: middle !important;
+}
+
+.foerderverein-vorstand-table td:first-child {
+	font-family: 'Neucha', cursive !important;
+	font-weight: 600 !important;
+	text-align: right !important;
+	white-space: nowrap !important;
+	padding-right: clamp(16px, 2vw, 34px) !important;
+}
+
+.foerderverein-vorstand-table td:last-child {
+	font-family: 'Montserrat', sans-serif !important;
+	font-weight: 400 !important;
+	text-align: left !important;
+	padding-left: 0 !important;
+	line-height: 1.2 !important;
+	position: relative !important;
+	top: -0.04em !important;
+}
+
+@media (max-width: 560px) {
+	.foerderverein-vorstand-table td {
+		width: auto !important;
+		padding-inline: 6px !important;
+		font-size: clamp(16px, 4.5vw, 20px) !important;
+	}
+
+	.foerderverein-vorstand-table td:first-child {
+		white-space: normal !important;
+	}
 }
 
 /* Responsive tablet/mobile stacked columns (matching Unsere Schule section-spb styles) */
@@ -5009,11 +5549,147 @@ main>*:last-child {
 		margin-top: 30px !important;
 	}
 
-	.eliashof-treffen-badge {
-		position: static !important;
-		margin: 30px auto 0 auto !important;
+	.eliashof-treffen-badge,
+	.section-foerderverein-treffen .eliashof-treffen-badge {
+		position: absolute !important;
+		top: 0 !important;
+		right: clamp(24px, 10.8vw, 42px) !important;
+		left: auto !important;
+		margin: 0 !important;
 		display: block !important;
 		width: 130px !important;
+		max-width: 130px !important;
+		transform: translateY(-50%) !important;
+	}
+
+	.section-foerderverein-treffen {
+		overflow: visible !important;
+		padding-top: 100px !important;
+	}
+
+	.eliashof-treffen-badge:hover {
+		transform: translateY(-50%) scale(1.05) !important;
+	}
+
+	.section-foerderverein-treffen .eliashof-grid-text p.treffen-highlight-text {
+		line-height: 1.25 !important;
+	}
+}
+
+/* iPad Pro 11" and comparable portrait tablets
+ *
+ * At 768--991px the site already uses the stacked section layouts, but the
+ * home hero, the absolute header and the floating meeting badge previously
+ * kept their desktop geometry. That mixture caused overlapping headlines,
+ * a very tall empty home-hero column and a badge covering the meeting copy. */
+@media (min-width: 768px) and (max-width: 991px) {
+	.eliashof-header-wrapper {
+		top: 20px !important;
+	}
+
+	.eliashof-header {
+		top: 24px !important;
+		padding-right: 40px !important;
+		padding-left: 40px !important;
+	}
+
+	.logo-eliashof {
+		width: 70px !important;
+		height: 62px !important;
+	}
+
+	.eliashof-hero-blog-schule,
+	.eliashof-hero-blog-eltern,
+	.eliashof-hero-blog-schule-page {
+		padding-top: 145px !important;
+	}
+
+	.eliashof-hero-blog-schule-container {
+		padding-top: 16px !important;
+	}
+
+	.eliashof-hero-blog-schule-title {
+		max-width: 680px !important;
+		font-size: clamp(34px, 4.8vw, 44px) !important;
+		line-height: 1.12 !important;
+	}
+
+	.eliashof-hero-wrap {
+		padding-top: 145px !important;
+	}
+
+	.eliashof-hero-wrap .wp-block-columns {
+		flex-direction: column !important;
+		align-items: center !important;
+		gap: 40px !important;
+	}
+
+	.eliashof-hero-wrap .wp-block-column {
+		width: 100% !important;
+		max-width: 680px !important;
+		flex-basis: auto !important;
+	}
+
+	.eliashof-hero-left-col,
+	.eliashof-hero-wrap .wp-block-columns .wp-block-column:first-child {
+		padding-top: 0 !important;
+	}
+
+	.eliashof-hero-right-col,
+	.eliashof-hero-wrap .wp-block-columns .wp-block-column:last-child {
+		gap: 32px !important;
+	}
+
+	.eliashof-hero-wrap .relative-content {
+		margin-bottom: 310px !important;
+	}
+
+	.eliashof-hero-drawing {
+		width: min(70%, 520px) !important;
+		max-width: 520px !important;
+		min-width: 0 !important;
+	}
+
+	.eliashof-wer-wir-sind-columns {
+		flex-direction: column !important;
+		gap: 30px !important;
+		padding-right: clamp(40px, 10vw, 84px) !important;
+		padding-left: clamp(40px, 10vw, 84px) !important;
+	}
+
+	.eliashof-wer-wir-sind-columns .wp-block-column {
+		width: 100% !important;
+		max-width: 680px !important;
+		flex-basis: auto !important;
+	}
+
+	.eliashof-wer-wir-sind-text-col p {
+		text-align: center !important;
+	}
+
+	.eliashof-wer-wir-sind-badge-col {
+		margin-top: 0 !important;
+	}
+
+	.section-foerderverein-treffen {
+		overflow: visible !important;
+		padding-top: 130px !important;
+	}
+
+	.eliashof-treffen-badge,
+	.section-foerderverein-treffen .eliashof-treffen-badge {
+		position: absolute !important;
+		top: 0 !important;
+		right: 40px !important;
+		left: auto !important;
+		width: 190px !important;
+		max-width: 190px !important;
+		margin: 0 !important;
+		transform: translateY(-50%) !important;
+	}
+
+	.eliashof-treffen-badge:hover {
+		transform: translateY(-50%) scale(1.05) !important;
 	}
 }
 
@@ -5111,7 +5787,7 @@ main>*:last-child {
 	font-family: 'Montserrat', sans-serif;
 	font-size: var(--wp--preset--font-size--body);
 	line-height: 1.7;
-	color: #4a4748;
+	color: var(--color-black);
 }
 
 .eliashof-intern-drawer__body > :first-child {
@@ -5284,8 +5960,21 @@ main>*:last-child {
 	transition: none !important;
 }
 
+/* Tablets need more reading width than the narrow desktop side panel. */
+@media (min-width: 783px) and (max-width: 1180px) {
+	.eliashof-intern-drawer__panel {
+		width: clamp(620px, 72vw, 780px);
+	}
+}
+
 @media (max-width: 782px) {
 	.eliashof-intern-drawer {
+		top: 0;
+		right: 0;
+		bottom: auto;
+		left: 0;
+		height: 100vh;
+		height: 100lvh;
 		align-items: flex-end;
 		justify-content: stretch;
 	}
@@ -5323,9 +6012,12 @@ main>*:last-child {
 	}
 
 	.eliashof-intern-drawer__body {
-		padding: 24px;
+		min-height: 0;
+		padding: 24px 24px calc(24px + env(safe-area-inset-bottom, 0px));
 		font-size: 18px;
 		line-height: 1.65;
+		overscroll-behavior: contain;
+		-webkit-overflow-scrolling: touch;
 	}
 
 	.eliashof-intern-drawer__close {
@@ -5559,6 +6251,15 @@ p.has-eliashof-text-layout.is-text-position-left,
 
 .section-spb-angebote-v3 .spb-v3-lead {
 	margin-top: clamp(38px, 4vw, 56px);
+	font-family: 'Neucha', cursive;
+	font-size: clamp(22px, 1.6vw, 25px);
+	font-weight: 400;
+	line-height: 1.35;
+}
+
+.section-spb-angebote-v3 .spb-v3-lead strong {
+	font-family: inherit !important;
+	font-weight: 400 !important;
 }
 
 .section-spb-angebote-v3 .spb-v3-outro {
@@ -5567,7 +6268,6 @@ p.has-eliashof-text-layout.is-text-position-left,
 	box-sizing: border-box;
 	margin: clamp(48px, 5vw, 72px) auto 0 !important;
 	padding: 22px 26px;
-	border-left: 5px solid var(--wp--preset--color--green);
 	border-radius: 0 18px 18px 0;
 	background: rgba(255, 255, 255, 0.52);
 }
@@ -5620,7 +6320,9 @@ p.has-eliashof-text-layout.is-text-position-left,
 }
 
 .section-spb-angebote-v3 .spb-day-heading {
-	font-size: 25px !important;
+	font-size: clamp(25px, 1.9vw, 30px) !important;
+	line-height: 1.2;
+	border-bottom: 0;
 }
 
 .section-spb-angebote-v3 .spb-cards {
@@ -5662,8 +6364,56 @@ p.has-eliashof-text-layout.is-text-position-left,
 	}
 
 	.section-spb-angebote-v3 .spb-days {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 32px;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 0;
+	}
+
+	.section-spb-angebote-v3 .spb-mobile-tabs {
+		display: flex !important;
+		justify-content: flex-start;
+		width: 100%;
+		overflow-x: auto;
+		overflow-y: hidden;
+		overscroll-behavior-inline: contain;
+		scroll-snap-type: x mandatory;
+		scrollbar-width: none;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.section-spb-angebote-v3 .spb-mobile-tabs::-webkit-scrollbar {
+		display: none;
+	}
+
+	.section-spb-angebote-v3 .spb-tab-btn {
+		flex: 0 0 calc(100% / 3);
+		min-width: calc(100% / 3);
+		scroll-snap-align: center;
+	}
+
+	.section-spb-angebote-v3 .spb-day {
+		display: none;
+	}
+
+	.section-spb-angebote-v3 .spb-day.is-active-tab {
+		display: flex;
+	}
+
+	.section-spb-angebote-v3 .spb-day-heading {
+		display: none;
+	}
+
+	.section-spb-angebote-v3 .spb-day,
+	.section-spb-angebote-v3 .spb-day:nth-child(3),
+	.section-spb-angebote-v3 .spb-cards,
+	.section-spb-angebote-v3 .spb-card {
+		width: 100%;
+		max-width: none;
+	}
+
+	.section-spb-angebote-v3 .spb-day:nth-child(3) {
+		margin: 0;
+		padding-top: 0;
+		border-top: 0;
 	}
 }
 
@@ -5737,7 +6487,6 @@ p.has-eliashof-text-layout.is-text-position-left,
 	.section-spb-angebote-v3 .spb-v3-outro {
 		margin-top: 42px !important;
 		padding: 18px 20px;
-		border-left-width: 4px;
 	}
 }
 
@@ -6501,4 +7250,110 @@ b {
 .wp-block-cover.has-eliashof-theme-bg > .wp-block-cover__background {
 	background-color: transparent !important;
 	opacity: 0 !important;
+}
+
+/* Consistent heading typography across every site section. */
+.eliashof-section :is(h1, h2, h3, h4, h5, h6) {
+	font-family: var(--wp--preset--font-family--neucha, 'Neucha', cursive) !important;
+	font-weight: 700 !important;
+	letter-spacing: 0.05em !important;
+	line-height: 1.2 !important;
+}
+
+/* Give every Neucha text treatment the same open, readable rhythm. */
+:is(h1, h2, h3, h4, h5, h6),
+.has-neucha-font-family,
+[style*="font-family:'Neucha'"],
+[style*='font-family: "Neucha"'],
+.wp-block-button__link,
+.burger-menu-nav a,
+.section-downloads .mehr-erfahren,
+.eliashof-spb-signup > .wp-block-columns > .wp-block-column::before,
+.eliashof-spb-day__time,
+.eliashof-contact-card .contact-role,
+.eliashof-section-title,
+.eliashof-spb-werte__title,
+.eliashof-spb-werte__item,
+.eliashof-spb-werte-cards__title,
+.eliashof-spb-werte-card__number,
+.eliashof-spb-werte-card__label,
+.eliashof-spb-werte-color-cards__title,
+.eliashof-spb-werte-color-card__label,
+.eliashof-leitbild-item strong,
+.eliashof-filter-btn,
+.eliashof-archive-card-title,
+.section-foerderverein-treffen .treffen-highlight-text,
+.foerderverein-vorstand-table td:first-child,
+.eliashof-intern-drawer__close,
+.eliashof-intern-drawer__title,
+.eliashof-intern-drawer__status,
+.spb-offer-meta__badge,
+.spb-filter-btn,
+.section-spb-angebote-v3 .spb-v3-lead,
+.spb-day-heading,
+.spb-card-title,
+.spb-tab-btn,
+.spb-overlay__badge,
+.spb-overlay__title,
+.spb-v2__filter,
+.spb-v2__day h3,
+.spb-v2__badge,
+.spb-v2__copy strong,
+.spb-v2__tab {
+	letter-spacing: 0.05em !important;
+	line-height: 1.2 !important;
+}
+
+/* Uniform H2 section titles; strong enough to supersede legacy module rules.
+   Hero descendants stay independent, including any future H2 used there. */
+body :is(
+	.wp-block-post-content.wp-block-post-content,
+	.entry-content.entry-content,
+	.editor-styles-wrapper.editor-styles-wrapper
+) h2:not(:is(
+	.eliashof-hero-wrap,
+	.eliashof-hero-blog-schule,
+	.eliashof-hero-blog-eltern,
+	.eliashof-hero-blog-schule-page,
+	.eliashof-hero-spb
+) h2) {
+	font-family: var(--wp--preset--font-family--neucha, 'Neucha', cursive) !important;
+	font-size: clamp(28px, 3.1vw, 50px) !important;
+	font-weight: 700 !important;
+	letter-spacing: 0.05em !important;
+	line-height: 1.2 !important;
+}
+
+/* ── Shared editorial image frame ───────────────────────────────────
+   Applied only to photographic/content images. Logos, illustrations,
+   portraits, carousel masks and interface graphics keep their own styles. */
+:is(
+	.eliashof-hero-blog-schule-featured-img-container,
+	.eliashof-subpage-featured-img-container,
+	.eliashof-rounded-img-container,
+	.section-ueber-unseren-spb .wp-block-image img,
+	.section-spb .wp-block-image img,
+	.section-gev .wp-block-image img,
+	.section-highlight .wp-block-image img,
+	.section-kooperationen .wp-block-image img,
+	.section-ueber-uns .wp-block-image img,
+	.eliashof-section-image img,
+	.eliashof-hero-wrap .wp-block-columns .wp-block-image img,
+	.eliashof-subpage-content-wrapper figure.wp-block-image img,
+	.eliashof-intern-drawer__body figure.wp-block-image img
+) {
+	/* Border and shadow are temporarily disabled; their shared values remain in :root.
+	border: var(--eliashof-image-border) !important;
+	box-shadow: var(--eliashof-image-shadow) !important;
+	*/
+	border: 0 !important;
+	border-radius: var(--eliashof-image-radius) !important;
+	box-shadow: none !important;
+	overflow: hidden !important;
+}
+
+@media (max-width: 767px) {
+	:root {
+		--eliashof-image-radius: 40px;
+	}
 }

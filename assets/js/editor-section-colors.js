@@ -9,15 +9,8 @@
 
 	const THEME_BACKGROUNDS = [
 		{ slug: 'blue', label: __( 'Blau – Fläche', 'eliashof' ), color: '#9de4f9' },
-		{ slug: 'spb-ag-text', label: __( 'SPB AG – Blau', 'eliashof' ), color: '#23bbea' },
 		{ slug: 'green', label: __( 'Grün', 'eliashof' ), color: '#c5d799' },
 		{ slug: 'orange', label: __( 'Orange – Fläche', 'eliashof' ), color: '#eec58d' },
-		{ slug: 'yellow', label: __( 'SPB IG – Orange', 'eliashof' ), color: '#f8ac41' },
-		{ slug: 'brown', label: __( 'Braun', 'eliashof' ), color: '#57463a' },
-		{ slug: 'dark', label: __( 'Dunkel', 'eliashof' ), color: '#241f21' },
-		{ slug: 'cream', label: __( 'Creme', 'eliashof' ), color: '#eae7dd' },
-		{ slug: 'white', label: __( 'Weiß', 'eliashof' ), color: '#ffffff' },
-		{ slug: 'black', label: __( 'Schwarz', 'eliashof' ), color: '#000000' },
 		{ slug: 'transparent', label: __( 'Transparent', 'eliashof' ), color: 'transparent' },
 	];
 
@@ -58,12 +51,21 @@
 			'blue-bright': 'spb-ag-text',
 			beige: 'orange',
 		};
+		const legacyColors = {
+			'spb-ag-text': '#23bbea',
+			yellow: '#f8ac41',
+			brown: '#57463a',
+			dark: '#241f21',
+			cream: '#eae7dd',
+			white: '#ffffff',
+			black: '#000000',
+		};
 		slug = aliases[ slug ] || slug;
 		const match = THEME_BACKGROUNDS.find( function( option ) {
 			return option.slug === slug;
 		} );
 
-		return match ? match.color : '';
+		return match ? match.color : ( legacyColors[ slug ] || '' );
 	}
 
 	function withThemeBackgroundControls( BlockEdit ) {

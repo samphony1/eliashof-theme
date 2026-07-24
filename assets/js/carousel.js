@@ -7,17 +7,41 @@
 	'use strict';
 
 	function initCarousel(carousel) {
+		if (carousel.dataset.eliashofCarouselReady === 'true') return;
 		const track = carousel.querySelector('.wp-block-post-template');
 		if (!track) return;
 		const items = Array.from(track.children);
 		if (items.length < 2) return;
+		carousel.dataset.eliashofCarouselReady = 'true';
+		const section = carousel.closest('.eliashof-section') || carousel.parentNode;
+		section.classList.add('eliashof-has-post-carousel');
 
-		// Create dots container and insert it after the query block (inside the section)
+		// Shared controls: desktop arrows around the existing dot navigation.
+		const controlsContainer = document.createElement('div');
+		controlsContainer.className = 'eliashof-carousel-controls';
+		controlsContainer.setAttribute('aria-label', 'Karussell-Steuerung');
+
+		const previousButton = document.createElement('button');
+		previousButton.type = 'button';
+		previousButton.className = 'eliashof-carousel-arrow eliashof-carousel-arrow--previous';
+		previousButton.setAttribute('aria-label', 'Vorherige Beiträge');
+		previousButton.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M14.5 5 7.5 12l7 7"/></svg>';
+
 		const dotsContainer = document.createElement('div');
 		dotsContainer.className = 'eliashof-carousel-dots';
 		dotsContainer.setAttribute('role', 'tablist');
 		dotsContainer.setAttribute('aria-label', 'Karussell-Navigation');
-		carousel.parentNode.insertBefore(dotsContainer, carousel.nextSibling);
+
+		const nextButton = document.createElement('button');
+		nextButton.type = 'button';
+		nextButton.className = 'eliashof-carousel-arrow eliashof-carousel-arrow--next';
+		nextButton.setAttribute('aria-label', 'Weitere Beiträge');
+		nextButton.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="m9.5 5 7 7-7 7"/></svg>';
+
+		controlsContainer.appendChild(dotsContainer);
+		section.appendChild(previousButton);
+		section.appendChild(nextButton);
+		carousel.parentNode.insertBefore(controlsContainer, carousel.nextSibling);
 
 		let dots = [];
 
@@ -33,10 +57,11 @@
 			const groupCount = Math.ceil(items.length / getVisibleCount());
 
 			if (groupCount <= 1) {
-				dotsContainer.style.display = 'none';
+				controlsContainer.hidden = true;
 				return;
 			}
 
+			controlsContainer.hidden = false;
 			dotsContainer.style.display = 'flex';
 
 			for (let i = 0; i < groupCount; i++) {
@@ -68,11 +93,13 @@
 		}
 
 		function updateActiveDot() {
-			if (!dots.length) return;
 			const max = track.scrollWidth - track.getBoundingClientRect().width;
 			const idx = max > 0
 				? Math.round((track.scrollLeft / max) * (dots.length - 1))
 				: 0;
+			const tolerance = 2;
+			previousButton.disabled = track.scrollLeft <= tolerance;
+			nextButton.disabled = track.scrollLeft >= max - tolerance;
 
 			dots.forEach(function (d, i) {
 				const active = i === idx;
@@ -80,6 +107,22 @@
 				d.setAttribute('aria-current', active ? 'true' : 'false');
 			});
 		}
+
+		function scrollByPage(direction) {
+			const visibleCount = getVisibleCount();
+			const currentIndex = items.reduce(function (closest, item, index) {
+				return Math.abs(item.offsetLeft - track.offsetLeft - track.scrollLeft) <
+					Math.abs(items[closest].offsetLeft - track.offsetLeft - track.scrollLeft) ? index : closest;
+			}, 0);
+			const targetIndex = Math.max(0, Math.min(items.length - 1, currentIndex + direction * visibleCount));
+			track.scrollTo({
+				left: items[targetIndex].offsetLeft - track.offsetLeft,
+				behavior: 'smooth'
+			});
+		}
+
+		previousButton.addEventListener('click', function () { scrollByPage(-1); });
+		nextButton.addEventListener('click', function () { scrollByPage(1); });
 
 		// Scroll listener — throttled via requestAnimationFrame
 		let raf = null;
