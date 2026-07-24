@@ -9,13 +9,41 @@
 		<!-- /wp:image -->
 
 		<!-- wp:html -->
-		<button class="burger-toggle" aria-label="Menü umschalten" aria-expanded="false">
-			<div class="burger-morph">
-				<span class="burger-bar burger-top"></span>
-				<span class="burger-bar burger-middle"></span>
-				<span class="burger-bar burger-bottom"></span>
+		<div class="eliashof-header-actions">
+			<div class="eliashof-text-size">
+				<button class="eliashof-text-size__trigger" type="button" aria-label="Textgröße einstellen" aria-expanded="false" aria-controls="eliashof-text-size-menu">
+					<span class="eliashof-text-size__trigger-label" aria-hidden="true">AA</span>
+				</button>
+				<div class="eliashof-text-size__menu" id="eliashof-text-size-menu" role="group" aria-label="Textgröße ändern" hidden>
+					<button class="eliashof-text-size__button eliashof-text-size__button--decrease" type="button" aria-label="Text verkleinern">
+						<span aria-hidden="true">A</span>
+					</button>
+					<button class="eliashof-text-size__button eliashof-text-size__button--reset" type="button" aria-label="Textgröße zurücksetzen">
+						<span aria-hidden="true">↺</span>
+					</button>
+					<button class="eliashof-text-size__button eliashof-text-size__button--increase" type="button" aria-label="Text vergrößern">
+						<span aria-hidden="true">A</span>
+					</button>
+					<span class="screen-reader-text eliashof-text-size__status" aria-live="polite">Textgröße 100 Prozent</span>
+				</div>
 			</div>
-		</button>
+			<button class="fm-spotlight-trigger" type="button" aria-label="Website durchsuchen" aria-haspopup="dialog">
+				<svg aria-hidden="true" viewBox="0 0 24 24">
+					<circle class="fm-search-blue" cx="10.5" cy="10.5" r="7" pathLength="42" stroke-dasharray="12 30" transform="rotate(-90 10.5 10.5)"></circle>
+					<circle class="fm-search-orange" cx="10.5" cy="10.5" r="7" pathLength="42" stroke-dasharray="18 24" stroke-dashoffset="-12" transform="rotate(-90 10.5 10.5)"></circle>
+					<circle class="fm-search-green" cx="10.5" cy="10.5" r="7" pathLength="42" stroke-dasharray="12 30" stroke-dashoffset="-30" transform="rotate(-90 10.5 10.5)"></circle>
+					<path class="fm-search-green" d="m15.7 15.7 4.6 4.6"></path>
+				</svg>
+				<span class="screen-reader-text">Suche öffnen</span>
+			</button>
+			<button class="burger-toggle" aria-label="Menü umschalten" aria-expanded="false">
+				<div class="burger-morph">
+					<span class="burger-bar burger-top"></span>
+					<span class="burger-bar burger-middle"></span>
+					<span class="burger-bar burger-bottom"></span>
+				</div>
+			</button>
+		</div>
 		<!-- /wp:html -->
 
 	</div>
